@@ -1,14 +1,23 @@
 
-import React from "react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import Hero from "@/components/Hero";
-import QuemSomosSection from "@/components/QuemSomosSection";
-import AreasAtuacao from "@/components/AreasAtuacao";
-import NoticiasSection from "@/components/NoticiasSection";
-import ContatoSection from "@/components/ContatoSection";
+import { useState } from 'react'
+import Header from '../components/Header'
+import Hero from '../components/Hero'
+import QuemSomosSection from '../components/QuemSomosSection'
+import AreasAtuacao from '../components/AreasAtuacao'
+import NoticiasSection from '../components/NoticiasSection'
+import ContatoSection from '../components/ContatoSection'
+import Footer from '../components/Footer'
+import AdminModal from '../components/AdminModal'
 
-const Index: React.FC = () => {
+export default function Index() {
+  const [isAdminModalOpen, setIsAdminModalOpen] = useState(false);
+
+  // Função que pode ser usada para abrir o painel administrativo
+  // (por exemplo, através de uma combinação de teclas ou botão oculto)
+  const openAdminPanel = () => {
+    setIsAdminModalOpen(true);
+  };
+  
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
@@ -20,8 +29,20 @@ const Index: React.FC = () => {
         <ContatoSection />
       </main>
       <Footer />
+      
+      {/* Modal do painel administrativo */}
+      <AdminModal isOpen={isAdminModalOpen} onClose={() => setIsAdminModalOpen(false)} />
+      
+      {/* Botão oculto para acessar o painel administrativo (apenas para demonstração) */}
+      <div className="fixed bottom-4 right-4" style={{ opacity: 0.1 }}>
+        <button
+          onClick={openAdminPanel}
+          className="p-2"
+          aria-label="Painel Administrativo"
+        >
+          Admin
+        </button>
+      </div>
     </div>
-  );
-};
-
-export default Index;
+  )
+}

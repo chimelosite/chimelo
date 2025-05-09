@@ -1,34 +1,85 @@
 
-import React from "react";
-import AdminLogin from "@/components/auth/AdminLogin";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { useAdmin } from '@/hooks/useAdmin';
+import { toast } from 'sonner';
 
 const AdminLoginPage: React.FC = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+  const { login } = useAdmin();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    try {
+      await login(email, password);
+      toast.success('Login realizado com sucesso');
+      navigate('/admin');
+    } catch (error) {
+      toast.error('Erro ao fazer login. Verifique suas credenciais.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
-    <div className="flex flex-col min-h-screen">
-      <header className="py-4 px-6 bg-white border-b border-chimelo-lightgray/20">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <Link to="/" className="flex items-center">
-            <img 
-              src="/public/lovable-uploads/e96dac0d-17ec-4820-b30d-1cca6c017987.png" 
-              alt="Chimelo Advogados e Associados" 
-              className="h-8" 
-            />
-          </Link>
-        </div>
-      </header>
-      
-      <main className="flex-grow bg-gray-50">
-        <AdminLogin />
-      </main>
-      
-      <footer className="py-4 px-6 bg-white border-t border-chimelo-lightgray/20">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-sm text-chimelo-silver text-center">
-            &copy; {new Date().getFullYear()} Chimelo Advogados e Associados. Todos os direitos reservados.
-          </p>
-        </div>
-      </footer>
+    <div className="flex items-center justify-center min-h-screen bg-gray-50">
+      <div className="w-full max-w-md p-4">
+        <Card>
+          <CardHeader className="space-y-1">
+            <CardTitle className="text-2xl text-center">CHIMELO</CardTitle>
+            <CardDescription className="text-center">
+              Acesso Administrativo
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="space-y-2">
+                <Label htmlFor="email">Email</Label>
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="email@exemplo.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <Label htmlFor="password">Senha</Label>
+                  <a href="#" className="text-xs text-primary hover:underline">
+                    Esqueceu a senha?
+                  </a>
+                </div>
+                <Input
+                  id="password"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+              </div>
+              <Button type="submit" className="w-full" disabled={isLoading}>
+                {isLoading ? 'Entrando...' : 'Entrar'}
+              </Button>
+            </form>
+          </CardContent>
+          <CardFooter className="flex justify-center">
+            <p className="text-xs text-center text-muted-foreground">
+              Este é um acesso restrito para usuários administrativos.
+            </p>
+          </CardFooter>
+        </Card>
+      </div>
     </div>
   );
 };

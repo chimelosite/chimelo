@@ -15,6 +15,7 @@ import ProcessosPage from "./pages/admin/ProcessosPage";
 import AssembleiasPage from "./pages/admin/AssembleiasPage";
 import NoticiasPage from "./pages/admin/NoticiasPage";
 import UsuariosPage from "./pages/admin/UsuariosPage";
+import ConfiguracoesPage from "./pages/admin/ConfiguracoesPage";
 
 const queryClient = new QueryClient();
 
@@ -41,7 +42,7 @@ const App = () => (
               <Route path="/admin/assembleias" element={<AssembleiasPage />} />
               <Route path="/admin/noticias" element={<NoticiasPage />} />
               <Route path="/admin/usuarios" element={<UsuariosPage />} />
-              {/* Adicione outras rotas administrativas aqui */}
+              <Route path="/admin/configuracoes" element={<ConfiguracoesPage />} />
             </Route>
           </Route>
 
