@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -382,26 +381,25 @@ const AssembleiasPage: React.FC = () => {
     }
   ];
 
-  // Função para filtrar as assembleias
+  // Lista de categorias únicas
+  const categorias = Array.from(new Set(assembleias.map(noticia => noticia.categoria)));
+  
+  // Filtrar notícias com base na pesquisa e categoria
   const filteredAssembleias = assembleias.filter(assembleia => {
-    // Filtro de pesquisa
     const matchesSearch = 
-      assembleia.titulo.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      assembleia.titulo.toLowerCase().includes(searchTerm.toLowerCase()) || 
       assembleia.local.toLowerCase().includes(searchTerm.toLowerCase());
     
-    // Filtro de status
     const matchesStatus = 
       filter === "todos" || 
       (filter === "agendadas" && assembleia.status === "Agendada") ||
       (filter === "realizadas" && assembleia.status === "Realizada") ||
       (filter === "canceladas" && assembleia.status === "Cancelada");
     
-    // Filtro de tipo
     const matchesTipo = 
       tipoFilter === "" || 
       assembleia.tipo === tipoFilter;
     
-    // Filtro de modalidade
     const matchesModalidade = 
       modalidadeFilter === "" || 
       assembleia.modalidade === modalidadeFilter;
@@ -440,7 +438,7 @@ const AssembleiasPage: React.FC = () => {
                     <SelectValue placeholder="Tipo" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="">Todos os tipos</SelectItem>
+                    <SelectItem value="todos">Todos os tipos</SelectItem>
                     <SelectItem value="Ordinária">Ordinária</SelectItem>
                     <SelectItem value="Extraordinária">Extraordinária</SelectItem>
                   </SelectContent>
@@ -451,7 +449,7 @@ const AssembleiasPage: React.FC = () => {
                     <SelectValue placeholder="Modalidade" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="">Todas as modalidades</SelectItem>
+                    <SelectItem value="todas">Todas as modalidades</SelectItem>
                     <SelectItem value="Presencial">Presencial</SelectItem>
                     <SelectItem value="Online">Online</SelectItem>
                     <SelectItem value="Híbrida">Híbrida</SelectItem>

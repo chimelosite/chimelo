@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -226,7 +225,7 @@ const NoticiasPage: React.FC = () => {
                     <SelectValue placeholder="Categoria" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="">Todas as categorias</SelectItem>
+                    <SelectItem value="todas">Todas as categorias</SelectItem>
                     {categorias.map((categoria, index) => (
                       <SelectItem key={index} value={categoria}>{categoria}</SelectItem>
                     ))}

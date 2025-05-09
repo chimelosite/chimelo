@@ -3,6 +3,13 @@ import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 interface Assembleia {
   id: string;
@@ -81,15 +88,19 @@ const AssembleiasPanel: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
                 <label className="block text-sm font-medium mb-1">Tipo</label>
-                <select 
-                  name="tipo"
-                  value={novaAssembleia.tipo}
-                  onChange={handleChange}
-                  className="w-full rounded-md border border-input px-3 py-2 h-10"
+                <Select 
+                  name="tipo" 
+                  value={novaAssembleia.tipo} 
+                  onValueChange={(value) => setNovaAssembleia({...novaAssembleia, tipo: value})}
                 >
-                  <option value="Ordinária">Ordinária</option>
-                  <option value="Extraordinária">Extraordinária</option>
-                </select>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Selecione um tipo" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="Ordinária">Ordinária</SelectItem>
+                    <SelectItem value="Extraordinária">Extraordinária</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
               
               <div>
@@ -105,16 +116,20 @@ const AssembleiasPanel: React.FC = () => {
               
               <div>
                 <label className="block text-sm font-medium mb-1">Status</label>
-                <select 
-                  name="status"
-                  value={novaAssembleia.status}
-                  onChange={handleChange}
-                  className="w-full rounded-md border border-input px-3 py-2 h-10"
+                <Select 
+                  name="status" 
+                  value={novaAssembleia.status} 
+                  onValueChange={(value) => setNovaAssembleia({...novaAssembleia, status: value})}
                 >
-                  <option value="Agendada">Agendada</option>
-                  <option value="Realizada">Realizada</option>
-                  <option value="Cancelada">Cancelada</option>
-                </select>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Selecione um status" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="Agendada">Agendada</SelectItem>
+                    <SelectItem value="Realizada">Realizada</SelectItem>
+                    <SelectItem value="Cancelada">Cancelada</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
             </div>
             
