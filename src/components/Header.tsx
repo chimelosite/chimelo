@@ -25,7 +25,7 @@ const Header = () => {
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link to="/" className="flex items-center">
           <img 
-            src="/public/lovable-uploads/e96dac0d-17ec-4820-b30d-1cca6c017987.png" 
+            src="/lovable-uploads/e96dac0d-17ec-4820-b30d-1cca6c017987.png" 
             alt="CHIMELO" 
             className="h-10 brightness-0 invert"
           />
@@ -39,7 +39,7 @@ const Header = () => {
           <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-gray-300">
             <Instagram size={20} />
           </a>
-          <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="hover:text-gray-300">
+          <a href="https://wa.me/5551991786703" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="hover:text-gray-300">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -114,7 +114,7 @@ const Header = () => {
                 <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                   <Instagram size={20} />
                 </a>
-                <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                <a href="https://wa.me/5551991786703" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"

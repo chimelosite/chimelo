@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -28,22 +27,16 @@ interface NoticiaProps {
 }
 
 const NoticiaCard: React.FC<{ noticia: NoticiaProps }> = ({ noticia }) => {
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    navigate(`/noticias/${noticia.slug}`);
-  };
-
   return (
-    <div 
-      className="border border-chimelo-lightgray/20 rounded-lg overflow-hidden bg-white cursor-pointer" 
-      onClick={handleClick}
+    <Link 
+      to={`/noticias/${noticia.slug}`}
+      className="block border border-chimelo-lightgray/20 rounded-lg overflow-hidden bg-white hover:shadow-md transition-shadow"
     >
       <div className="aspect-[16/9] overflow-hidden">
         <img 
           src={noticia.imagem} 
           alt={noticia.titulo}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover transition-transform hover:scale-105"
         />
       </div>
       <div className="p-6">
@@ -68,7 +61,7 @@ const NoticiaCard: React.FC<{ noticia: NoticiaProps }> = ({ noticia }) => {
           Leia mais <ArrowRight className="h-4 w-4 ml-1" />
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
@@ -235,7 +228,7 @@ const NoticiasPage: React.FC = () => {
                     <SelectValue placeholder="Categoria" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="todas">Todas as categorias</SelectItem>
+                    <SelectItem value="">Todas as categorias</SelectItem>
                     {categorias.map((categoria, index) => (
                       <SelectItem key={index} value={categoria}>{categoria}</SelectItem>
                     ))}

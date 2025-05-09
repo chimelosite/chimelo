@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <img 
-              src="/public/lovable-uploads/e96dac0d-17ec-4820-b30d-1cca6c017987.png" 
+              src="/lovable-uploads/e96dac0d-17ec-4820-b30d-1cca6c017987.png" 
               alt="Chimelo Advogados e Associados" 
               className="h-12 mb-6 brightness-0 invert"
             />
@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
                 <Instagram size={20} />
               </a>
               <a 
-                href="https://wa.me/5500000000000" 
+                href="https://wa.me/5551991786703" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
@@ -75,7 +75,7 @@ const Footer: React.FC = () => {
             <div className="space-y-4">
               <div className="flex items-center">
                 <Phone size={18} className="mr-2 text-chimelo-silver" />
-                <span>(00) 0000-0000</span>
+                <span>(51) 99178-6703</span>
               </div>
               <div className="flex items-center">
                 <Mail size={18} className="mr-2 text-chimelo-silver" />
@@ -85,8 +85,8 @@ const Footer: React.FC = () => {
               </div>
               <div className="flex items-start">
                 <MessageSquare size={18} className="mr-2 mt-1 text-chimelo-silver" />
-                <a href="https://wa.me/5500000000000" className="hover:text-chimelo-silver transition-colors">
-                  WhatsApp: (00) 00000-0000
+                <a href="https://wa.me/5551991786703" className="hover:text-chimelo-silver transition-colors">
+                  WhatsApp: (51) 99178-6703
                 </a>
               </div>
             </div>
@@ -97,9 +97,11 @@ const Footer: React.FC = () => {
           <p className="text-sm text-chimelo-silver">
             &copy; {currentYear} Chimelo Advogados e Associados. Todos os direitos reservados.
           </p>
-          <p className="text-sm text-chimelo-silver mt-2 md:mt-0">
+          <div className="text-sm text-chimelo-silver mt-2 md:mt-0 flex items-center gap-3">
             <Link to="/admin-login" className="hover:underline">Login Administrativo</Link>
-          </p>
+            <span>|</span>
+            <span>Desenvolvido por <a href="https://somostexai.com" target="_blank" rel="noopener noreferrer" className="hover:underline">Texai Brasil Ltda</a></span>
+          </div>
         </div>
       </div>
     </footer>

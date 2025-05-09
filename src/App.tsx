@@ -24,6 +24,7 @@ import AreasAtuacaoPage from "./pages/AreasAtuacaoPage";
 import ProcessosPublicPage from "./pages/ProcessosPage";
 import AssembleiasPublicPage from "./pages/AssembleiasPage";
 import NoticiasPublicPage from "./pages/NoticiasPage";
+import NoticiaDetalhe from "./pages/NoticiaDetalhe";
 import ContatoPage from "./pages/ContatoPage";
 
 const queryClient = new QueryClient();
@@ -43,6 +44,7 @@ const App = () => (
           <Route path="/processos" element={<ProcessosPublicPage />} />
           <Route path="/assembleias" element={<AssembleiasPublicPage />} />
           <Route path="/noticias" element={<NoticiasPublicPage />} />
+          <Route path="/noticias/:slug" element={<NoticiaDetalhe />} />
           <Route path="/contato" element={<ContatoPage />} />
           <Route path="/admin-login" element={<AdminLoginPage />} />
 
