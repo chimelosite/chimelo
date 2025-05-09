@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { Calendar, Clock, MapPin, Users, Download, Search, Filter } from "lucide-react";
+import { Calendar, Clock, MapPin, Users, Download, Search, Filter, Link as LinkIcon } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { 
@@ -23,6 +23,7 @@ interface Assembleia {
   modalidade: "Presencial" | "Online" | "Híbrida";
   status: "Agendada" | "Realizada" | "Cancelada";
   pauta: string[];
+  link?: string;
   documentos?: {
     nome: string;
     tipo: string;
@@ -76,6 +77,19 @@ const AssembleiaCard: React.FC<{ assembleia: Assembleia }> = ({ assembleia }) =>
               <MapPin className="h-4 w-4 mr-2" />
               <span>{assembleia.local}</span>
             </div>
+            {(assembleia.modalidade === "Online" || assembleia.modalidade === "Híbrida") && assembleia.link && (
+              <div className="flex items-center">
+                <LinkIcon className="h-4 w-4 mr-2 text-blue-500" />
+                <a 
+                  href={assembleia.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-blue-500 hover:underline"
+                >
+                  Link para acesso online
+                </a>
+              </div>
+            )}
           </div>
         </div>
         
@@ -175,7 +189,7 @@ const AssembleiasPage: React.FC = () => {
       tipo: "Ordinária",
       data: "15 de maio de 2025",
       hora: "10:00",
-      local: "Sede da Empresa - Av. Paulista, 1000, São Paulo/SP",
+      local: "Sede da Empresa - R. Carlos Huber, 110 - Três Figueiras, Porto Alegre/RS",
       modalidade: "Presencial",
       status: "Agendada",
       pauta: [
@@ -212,6 +226,7 @@ const AssembleiasPage: React.FC = () => {
       data: "28 de abril de 2025",
       hora: "14:00",
       local: "Plataforma Virtual Zoom (Link enviado aos participantes)",
+      link: "https://zoom.us/j/123456789",
       modalidade: "Online",
       status: "Realizada",
       pauta: [

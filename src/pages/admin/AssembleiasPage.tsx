@@ -2,7 +2,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Plus, Search, Edit, Trash, FileText } from "lucide-react";
+import { Plus, Search, Edit, Trash, FileText, Link as LinkIcon } from "lucide-react";
 
 const AssembleiasPage: React.FC = () => {
   // Dados de exemplo
@@ -21,7 +21,8 @@ const AssembleiasPage: React.FC = () => {
       tipo: "Extraordinária",
       data: "05/05/2025",
       documentos: 5,
-      status: "Realizada"
+      status: "Realizada",
+      link: "https://zoom.us/j/123456789"
     },
     {
       id: 3,
@@ -80,6 +81,7 @@ const AssembleiasPage: React.FC = () => {
                 <th className="h-12 px-4 text-left align-middle font-medium">Data</th>
                 <th className="h-12 px-4 text-left align-middle font-medium">Status</th>
                 <th className="h-12 px-4 text-center align-middle font-medium">Documentos</th>
+                <th className="h-12 px-4 text-center align-middle font-medium">Link</th>
                 <th className="h-12 px-4 text-right align-middle font-medium">Ações</th>
               </tr>
             </thead>
@@ -106,6 +108,21 @@ const AssembleiasPage: React.FC = () => {
                       <FileText className="h-4 w-4 mr-1 text-chimelo-silver" />
                       <span>{assembleia.documentos}</span>
                     </div>
+                  </td>
+                  <td className="p-4 align-middle text-center">
+                    {assembleia.link ? (
+                      <a 
+                        href={assembleia.link} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="flex items-center justify-center text-blue-500 hover:text-blue-700"
+                      >
+                        <LinkIcon className="h-4 w-4 mr-1" />
+                        <span>Link</span>
+                      </a>
+                    ) : (
+                      <span className="text-chimelo-silver">-</span>
+                    )}
                   </td>
                   <td className="p-4 align-middle text-right">
                     <div className="flex justify-end gap-2">

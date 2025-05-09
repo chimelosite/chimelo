@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -188,9 +187,9 @@ const ContatoPage: React.FC = () => {
                       <div>
                         <h3 className="font-medium">Endereço</h3>
                         <p className="text-chimelo-silver mt-1">
-                          Av. Exemplo, 1000, 15º andar<br />
-                          Centro Empresarial Cidade<br />
-                          São Paulo - SP, 01000-000
+                          R. Carlos Huber, 110<br />
+                          Três Figueiras<br />
+                          Porto Alegre - RS, 91330-150
                         </p>
                       </div>
                     </div>
@@ -200,8 +199,7 @@ const ContatoPage: React.FC = () => {
                       <div>
                         <h3 className="font-medium">Telefones</h3>
                         <p className="text-chimelo-silver mt-1">
-                          +55 (11) 5555-5555<br />
-                          +55 (11) 98765-4321
+                          +55 (51) 99178-6703
                         </p>
                       </div>
                     </div>
@@ -237,7 +235,7 @@ const ContatoPage: React.FC = () => {
                           <Instagram className="h-5 w-5" />
                         </a>
                         <a 
-                          href="https://wa.me/5511987654321" 
+                          href="https://wa.me/5551991786703" 
                           target="_blank" 
                           rel="noopener noreferrer"
                           className="p-3 rounded-full border border-white/10 hover:bg-white/10 transition-colors"
@@ -261,7 +259,7 @@ const ContatoPage: React.FC = () => {
             
             <div className="mt-12">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.0976701000913!2d-46.65390508559638!3d-23.563304167503277!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1620210000000!5m2!1spt-BR!2sbr"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3453.602995631473!2d-51.18809742334801!3d-30.048866274986928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951979853d3ef3dd%3A0xc4c780b5a49c9209!2sR.%20Carlos%20Huber%2C%20110%20-%20Tr%C3%AAs%20Figueiras%2C%20Porto%20Alegre%20-%20RS%2C%2091330-150!5e0!3m2!1spt-BR!2sbr!4v1683141395388!5m2!1spt-BR!2sbr"
                 width="100%"
                 height="450"
                 style={{ border: 0, borderRadius: '8px' }}

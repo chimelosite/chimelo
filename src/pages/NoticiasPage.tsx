@@ -1,10 +1,11 @@
+
 import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Calendar, ArrowRight, Search, Tag } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Select,
   SelectContent,
@@ -27,8 +28,17 @@ interface NoticiaProps {
 }
 
 const NoticiaCard: React.FC<{ noticia: NoticiaProps }> = ({ noticia }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/noticias/${noticia.slug}`);
+  };
+
   return (
-    <div className="border border-chimelo-lightgray/20 rounded-lg overflow-hidden bg-white">
+    <div 
+      className="border border-chimelo-lightgray/20 rounded-lg overflow-hidden bg-white cursor-pointer" 
+      onClick={handleClick}
+    >
       <div className="aspect-[16/9] overflow-hidden">
         <img 
           src={noticia.imagem} 
@@ -44,7 +54,7 @@ const NoticiaCard: React.FC<{ noticia: NoticiaProps }> = ({ noticia }) => {
           <span>{noticia.autor}</span>
         </div>
         <h3 className="text-xl font-bold mb-2 line-clamp-2 hover:text-chimelo-silver transition-colors">
-          <Link to={`/noticias/${noticia.slug}`}>{noticia.titulo}</Link>
+          {noticia.titulo}
         </h3>
         <p className="text-chimelo-silver mb-4 line-clamp-3">{noticia.resumo}</p>
         <div className="flex flex-wrap gap-2 mb-4">
@@ -54,9 +64,9 @@ const NoticiaCard: React.FC<{ noticia: NoticiaProps }> = ({ noticia }) => {
             </span>
           ))}
         </div>
-        <Link to={`/noticias/${noticia.slug}`} className="text-sm font-medium text-chimelo-black flex items-center hover:text-chimelo-silver transition-colors">
+        <div className="text-sm font-medium text-chimelo-black flex items-center hover:text-chimelo-silver transition-colors">
           Leia mais <ArrowRight className="h-4 w-4 ml-1" />
-        </Link>
+        </div>
       </div>
     </div>
   );

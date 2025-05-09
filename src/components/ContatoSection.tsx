@@ -38,7 +38,7 @@ const ContatoSection: React.FC = () => {
             </a>
             
             <a
-              href="https://wa.me/5500000000000"
+              href="https://wa.me/5551991786703"
               target="_blank"
               rel="noopener noreferrer"
               className="flex flex-col items-center group"
@@ -52,8 +52,8 @@ const ContatoSection: React.FC = () => {
           
           <div className="mt-12 pt-8 border-t border-chimelo-silver/20">
             <p className="text-chimelo-silver">
-              Endereço: Av. Exemplo, 1000, Centro - Cidade/UF<br />
-              Telefone: (00) 0000-0000<br />
+              Endereço: R. Carlos Huber, 110 - Três Figueiras, Porto Alegre - RS, 91330-150<br />
+              Telefone: (51) 99178-6703<br />
               Email: contato@chimelo.com.br
             </p>
           </div>

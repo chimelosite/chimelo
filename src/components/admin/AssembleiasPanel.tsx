@@ -17,12 +17,13 @@ interface Assembleia {
   tipo: string;
   data: string;
   status: string;
+  link?: string;
 }
 
 const AssembleiasPanel: React.FC = () => {
   const [assembleias, setAssembleias] = useState<Assembleia[]>([
     { id: "1", titulo: "Assembleia Ordinária - 2° Trimestre/2025", tipo: "Ordinária", data: "15/06/2025", status: "Agendada" },
-    { id: "2", titulo: "Assembleia Extraordinária - Aumento de Capital", tipo: "Extraordinária", data: "05/05/2025", status: "Realizada" },
+    { id: "2", titulo: "Assembleia Extraordinária - Aumento de Capital", tipo: "Extraordinária", data: "05/05/2025", status: "Realizada", link: "https://meet.google.com/abc-defg-hij" },
   ]);
 
   const [novaAssembleia, setNovaAssembleia] = useState({
@@ -31,7 +32,9 @@ const AssembleiasPanel: React.FC = () => {
     data: "",
     local: "",
     descricao: "",
-    status: "Agendada"
+    status: "Agendada",
+    link: "",
+    modalidade: "Presencial"
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -50,6 +53,11 @@ const AssembleiasPanel: React.FC = () => {
       status: novaAssembleia.status,
     };
     
+    // Add link if modalidade is Online or Híbrida
+    if (novaAssembleia.modalidade !== "Presencial" && novaAssembleia.link) {
+      newAssembleia.link = novaAssembleia.link;
+    }
+    
     setAssembleias([...assembleias, newAssembleia]);
     setNovaAssembleia({
       titulo: "",
@@ -57,7 +65,9 @@ const AssembleiasPanel: React.FC = () => {
       data: "",
       local: "",
       descricao: "",
-      status: "Agendada"
+      status: "Agendada",
+      link: "",
+      modalidade: "Presencial"
     });
   };
 
@@ -132,6 +142,37 @@ const AssembleiasPanel: React.FC = () => {
                 </Select>
               </div>
             </div>
+
+            <div>
+              <label className="block text-sm font-medium mb-1">Modalidade</label>
+              <Select 
+                name="modalidade" 
+                value={novaAssembleia.modalidade} 
+                onValueChange={(value) => setNovaAssembleia({...novaAssembleia, modalidade: value})}
+              >
+                <SelectTrigger>
+                  <SelectValue placeholder="Selecione a modalidade" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="Presencial">Presencial</SelectItem>
+                  <SelectItem value="Online">Online</SelectItem>
+                  <SelectItem value="Híbrida">Híbrida</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            
+            {novaAssembleia.modalidade !== "Presencial" && (
+              <div>
+                <label className="block text-sm font-medium mb-1">Link da Assembleia Online</label>
+                <Input 
+                  name="link" 
+                  placeholder="Link para acesso à assembleia (Zoom, Teams, etc.)"
+                  value={novaAssembleia.link}
+                  onChange={handleChange}
+                  type="url"
+                />
+              </div>
+            )}
             
             <div>
               <label className="block text-sm font-medium mb-1">Local</label>
