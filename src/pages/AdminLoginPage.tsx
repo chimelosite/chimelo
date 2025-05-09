@@ -20,7 +20,12 @@ const AdminLoginPage: React.FC = () => {
     setIsLoading(true);
 
     try {
-      await login(email, password);
+      // Create a user object matching the expected AdminUser type
+      await login({
+        isAdmin: true,
+        email,
+        name: email.split('@')[0] // Simple way to extract a name from email
+      });
       toast.success('Login realizado com sucesso');
       navigate('/admin');
     } catch (error) {
