@@ -381,8 +381,8 @@ const AssembleiasPage: React.FC = () => {
     }
   ];
 
-  // Lista de categorias únicas
-  const categorias = Array.from(new Set(assembleias.map(noticia => noticia.categoria)));
+  // Remove the reference to categorias as it doesn't exist in the Assembleia interface
+  // and is causing the TypeScript error
   
   // Filtrar notícias com base na pesquisa e categoria
   const filteredAssembleias = assembleias.filter(assembleia => {
