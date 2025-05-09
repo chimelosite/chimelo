@@ -1,0 +1,44 @@
+
+import React from "react";
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+
+const Hero: React.FC = () => {
+  return (
+    <section className="relative bg-chimelo-black text-white overflow-hidden">
+      <div 
+        className="absolute inset-0 opacity-30 bg-cover bg-center" 
+        style={{
+          backgroundImage: 'url("https://images.unsplash.com/photo-1587614387466-0a72ca909e16?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")',
+          backgroundBlendMode: 'overlay'
+        }}
+      />
+      
+      <div className="relative chimelo-container py-24 md:py-32 lg:py-40 flex flex-col items-start">
+        <div className="max-w-3xl">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+            Soluções jurídicas inovadoras para sua empresa
+          </h1>
+          <p className="text-xl text-chimelo-silver mb-8 max-w-2xl">
+            Com mais de 20 anos de experiência, conduzimos demandas complexas com expertise técnica e inovação, garantindo segurança e eficiência jurídica.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Button asChild className="chimelo-btn chimelo-btn-primary">
+              <Link to="/areas-de-atuacao">
+                Conheça nossos serviços <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+            <Button asChild variant="outline" className="bg-transparent border-white text-white hover:bg-white/10">
+              <Link to="/contato">
+                Entre em contato
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
