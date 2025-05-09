@@ -24,8 +24,11 @@ const Header = () => {
     <header className="bg-chimelo-black text-white py-4">
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link to="/" className="flex items-center">
-          <h1 className="text-2xl font-bold">CHIMELO</h1>
-          <span className="text-xs ml-2">ADVOGADOS & ASSOCIADOS</span>
+          <img 
+            src="/public/lovable-uploads/e96dac0d-17ec-4820-b30d-1cca6c017987.png" 
+            alt="CHIMELO" 
+            className="h-10 brightness-0 invert"
+          />
         </Link>
 
         {/* Social Icons Desktop */}
