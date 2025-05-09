@@ -1,7 +1,7 @@
 
 import React from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { FileText, Calendar, News, User } from "lucide-react";
+import { FileText, Calendar, Newspaper, User } from "lucide-react";
 import { Link } from "react-router-dom";
 
 interface DashboardCardProps {
@@ -47,7 +47,7 @@ const Dashboard: React.FC = () => {
       title: "Notícias",
       value: 12,
       description: "Artigos publicados",
-      icon: <News className="h-4 w-4 text-chimelo-silver" />,
+      icon: <Newspaper className="h-4 w-4 text-chimelo-silver" />,
       link: "/admin/noticias"
     },
     {

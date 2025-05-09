@@ -1,9 +1,8 @@
-
 import React, { useState } from "react";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { 
   Menu, X, Home, FileText, Calendar, 
-  News, Settings, LogOut, Users
+  Newspaper, Settings, LogOut, Users
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAdmin } from "@/hooks/useAdmin";
@@ -27,7 +26,7 @@ const Sidebar: React.FC<{ isOpen: boolean; setIsOpen: (open: boolean) => void }>
     { icon: <Home className="h-5 w-5" />, name: "Dashboard", path: "/admin" },
     { icon: <FileText className="h-5 w-5" />, name: "Processos", path: "/admin/processos" },
     { icon: <Calendar className="h-5 w-5" />, name: "Assembleias", path: "/admin/assembleias" },
-    { icon: <News className="h-5 w-5" />, name: "Notícias", path: "/admin/noticias" },
+    { icon: <Newspaper className="h-5 w-5" />, name: "Notícias", path: "/admin/noticias" },
     { icon: <Users className="h-5 w-5" />, name: "Usuários", path: "/admin/usuarios" },
     { icon: <Settings className="h-5 w-5" />, name: "Configurações", path: "/admin/configuracoes" },
   ];
