@@ -1,12 +1,9 @@
-
 import React from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-
 const QuemSomosSection: React.FC = () => {
-  return (
-    <section className="chimelo-section">
+  return <section className="chimelo-section">
       <div className="chimelo-container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1">
@@ -35,16 +32,10 @@ const QuemSomosSection: React.FC = () => {
             </Button>
           </div>
           <div className="order-1 lg:order-2">
-            <img 
-              src="https://i.imgur.com/j2YZZk7.jpg" 
-              alt="Chimelo Advogados - Quem Somos" 
-              className="w-full h-auto rounded-lg shadow-lg"
-            />
+            <img src="https://i.imgur.com/j2YZZk7.jpg" alt="Chimelo Advogados - Quem Somos" className="w-full h-auto rounded-lg shadow-lg object-fill" />
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default QuemSomosSection;
