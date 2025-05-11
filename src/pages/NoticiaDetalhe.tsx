@@ -3,7 +3,7 @@ import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { Calendar, ArrowLeft, Tag } from "lucide-react";
+import { Calendar, ArrowLeft, Tag, FileText, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect } from "react";
 
@@ -39,7 +39,8 @@ const NoticiaDetalhe: React.FC = () => {
       imagem: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070&auto=format&fit=crop",
       categoria: "Direito Trabalhista",
       tags: ["Legislação Trabalhista", "Reforma", "CLT", "Empresas"],
-      slug: "novidades-legislacao-trabalhista-2025"
+      slug: "novidades-legislacao-trabalhista-2025",
+      pdfUrl: "#" // Placeholder for PDF URL
     },
     {
       id: "2",
@@ -67,7 +68,8 @@ const NoticiaDetalhe: React.FC = () => {
       imagem: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2065&auto=format&fit=crop",
       categoria: "Direito Digital",
       tags: ["Inteligência Artificial", "Tecnologia", "Inovação", "Regulação"],
-      slug: "implicacoes-juridicas-ia-negocios"
+      slug: "implicacoes-juridicas-ia-negocios",
+      pdfUrl: "#" // Placeholder for PDF URL
     },
     {
       id: "3",
@@ -93,7 +95,8 @@ const NoticiaDetalhe: React.FC = () => {
       imagem: "https://images.unsplash.com/photo-1560523159-4a9692d222f9?q=80&w=2070&auto=format&fit=crop",
       categoria: "Institucional",
       tags: ["Congresso", "Internacional", "Direito Empresarial", "Networking"],
-      slug: "chimelo-congresso-internacional-direito-empresarial"
+      slug: "chimelo-congresso-internacional-direito-empresarial",
+      pdfUrl: "#" // Placeholder for PDF URL
     },
     {
       id: "4",
@@ -119,7 +122,8 @@ const NoticiaDetalhe: React.FC = () => {
       imagem: "https://images.unsplash.com/photo-1436450412740-6b988f486c6b?q=80&w=2080&auto=format&fit=crop",
       categoria: "Direito Tributário",
       tags: ["STF", "Tributação Internacional", "Jurisprudência", "Planejamento"],
-      slug: "nova-decisao-stf-tributacao-internacional"
+      slug: "nova-decisao-stf-tributacao-internacional",
+      pdfUrl: "#" // Placeholder for PDF URL
     },
     {
       id: "5",
@@ -131,7 +135,8 @@ const NoticiaDetalhe: React.FC = () => {
       imagem: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop",
       categoria: "Direito Empresarial",
       tags: ["Startups", "Marco Legal", "Inovação", "Legislação"],
-      slug: "atualizacao-marco-legal-startups"
+      slug: "atualizacao-marco-legal-startups",
+      pdfUrl: "#" // Placeholder for PDF URL
     },
     {
       id: "6",
@@ -143,7 +148,8 @@ const NoticiaDetalhe: React.FC = () => {
       imagem: "https://images.unsplash.com/photo-1631624215749-b10b3dd7f47c?q=80&w=2070&auto=format&fit=crop",
       categoria: "Direito Digital",
       tags: ["LGPD", "ANPD", "Proteção de Dados", "Compliance"],
-      slug: "mudancas-legislacao-protecao-dados-corporativos"
+      slug: "mudancas-legislacao-protecao-dados-corporativos",
+      pdfUrl: "#" // Placeholder for PDF URL
     },
     {
       id: "7",
@@ -155,7 +161,8 @@ const NoticiaDetalhe: React.FC = () => {
       imagem: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop",
       categoria: "Contratos",
       tags: ["Contratos Internacionais", "Comércio Exterior", "Segurança Jurídica", "Negócios Globais"],
-      slug: "estruturar-contratos-internacionais-novo-cenario-global"
+      slug: "estruturar-contratos-internacionais-novo-cenario-global",
+      pdfUrl: "#" // Placeholder for PDF URL
     },
     {
       id: "8",
@@ -167,7 +174,8 @@ const NoticiaDetalhe: React.FC = () => {
       imagem: "https://images.unsplash.com/photo-1584384798892-fbada21e514c?q=80&w=2070&auto=format&fit=crop",
       categoria: "Direito Trabalhista",
       tags: ["TST", "Trabalho Remoto", "Home Office", "Jurisprudência"],
-      slug: "novos-precedentes-tst-trabalho-remoto"
+      slug: "novos-precedentes-tst-trabalho-remoto",
+      pdfUrl: "#" // Placeholder for PDF URL
     },
     {
       id: "9",
@@ -179,7 +187,8 @@ const NoticiaDetalhe: React.FC = () => {
       imagem: "https://images.unsplash.com/photo-1519335337423-a3357c2cd364?q=80&w=2070&auto=format&fit=crop",
       categoria: "Institucional",
       tags: ["Webinar", "Governança", "Compliance", "Capacitação"],
-      slug: "chimelo-webinar-governanca-corporativa"
+      slug: "chimelo-webinar-governanca-corporativa",
+      pdfUrl: "#" // Placeholder for PDF URL
     }
   ];
 
@@ -189,13 +198,20 @@ const NoticiaDetalhe: React.FC = () => {
   // Redirect if article not found
   useEffect(() => {
     if (!noticia) {
-      navigate("/noticias");
+      navigate("/destaques");
     }
   }, [noticia, navigate]);
 
   if (!noticia) {
     return null; // Will redirect in useEffect
   }
+
+  const handleDownloadPDF = () => {
+    // In a real implementation, this would initiate the actual download
+    // For now, we're just showing the feature UI
+    console.log(`Downloading PDF for: ${noticia.titulo}`);
+    // A proper implementation would use window.open(noticia.pdfUrl) or similar
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -207,11 +223,11 @@ const NoticiaDetalhe: React.FC = () => {
             <div className="mb-8">
               <Button 
                 variant="ghost" 
-                onClick={() => navigate("/noticias")}
+                onClick={() => navigate("/destaques")}
                 className="flex items-center text-chimelo-black hover:text-chimelo-silver"
               >
                 <ArrowLeft className="mr-2 h-4 w-4" />
-                Voltar para notícias
+                Voltar para destaques
               </Button>
             </div>
             
@@ -251,6 +267,18 @@ const NoticiaDetalhe: React.FC = () => {
             {/* Article content */}
             <div className="prose prose-lg max-w-none bg-white p-8 rounded-lg shadow-sm">
               <div dangerouslySetInnerHTML={{ __html: noticia.conteudo }} />
+              
+              {/* PDF Download Button */}
+              <div className="mt-10 border-t pt-6">
+                <Button 
+                  onClick={handleDownloadPDF}
+                  className="flex items-center gap-2 bg-chimelo-black hover:bg-chimelo-black/80"
+                >
+                  <FileText className="h-4 w-4" />
+                  <span>Baixar PDF do documento</span>
+                  <Download className="h-4 w-4 ml-1" />
+                </Button>
+              </div>
             </div>
             
             {/* Share and related articles (optional, can be implemented later) */}

@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
       <div 
         className="absolute inset-0 opacity-30 bg-cover bg-center" 
         style={{
-          backgroundImage: 'url("https://images.unsplash.com/photo-1587614387466-0a72ca909e16?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")',
+          backgroundImage: 'url("https://i.imgur.com/1FQHSz1.jpeg")',
           backgroundBlendMode: 'overlay'
         }}
       />

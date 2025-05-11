@@ -23,6 +23,8 @@ import SociosPage from "./pages/SociosPage";
 import AreasAtuacaoPage from "./pages/AreasAtuacaoPage";
 import NoticiaDetalhe from "./pages/NoticiaDetalhe";
 import ContatoPage from "./pages/ContatoPage";
+// Renaming the import to avoid conflict with admin NoticiasPage
+import DestaquesPage from "./pages/NoticiasPage";
 
 const queryClient = new QueryClient();
 
@@ -38,7 +40,7 @@ const App = () => (
           <Route path="/quem-somos" element={<QuemSomosPage />} />
           <Route path="/socios" element={<SociosPage />} />
           <Route path="/areas-de-atuacao" element={<AreasAtuacaoPage />} />
-          <Route path="/destaques" element={<NoticiasPage />} />
+          <Route path="/destaques" element={<DestaquesPage />} />
           <Route path="/destaques/:slug" element={<NoticiaDetalhe />} />
           <Route path="/contato" element={<ContatoPage />} />
           <Route path="/admin-login" element={<AdminLoginPage />} />

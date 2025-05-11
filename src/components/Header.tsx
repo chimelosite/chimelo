@@ -1,7 +1,9 @@
+
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Instagram, Linkedin, Menu, X } from "lucide-react";
 import AdminModal from "./AdminModal";
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAdminModalOpen, setIsAdminModalOpen] = useState(false);
@@ -20,7 +22,11 @@ const Header = () => {
   return <header className="bg-chimelo-black text-white py-4">
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link to="/" className="flex items-center">
-          <img alt="CHIMELO" className="h-10 brightness-0 invert object-none" src="https://i.imgur.com/v5A7jTI.png" />
+          <img 
+            alt="CHIMELO" 
+            className="h-10 brightness-0 invert object-contain" 
+            src="https://i.imgur.com/v5A7jTI.png" 
+          />
         </Link>
 
         {/* Social Icons Desktop */}

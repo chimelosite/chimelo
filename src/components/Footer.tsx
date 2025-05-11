@@ -70,9 +70,7 @@ const Footer: React.FC = () => {
           <p className="text-sm text-chimelo-silver">
             &copy; {currentYear} Chimelo Advogados e Associados. Todos os direitos reservados.
           </p>
-          <div className="text-sm text-chimelo-silver mt-2 md:mt-0 flex items-center gap-3">
-            <Link to="/admin-login" className="hover:underline">Login Administrativo</Link>
-            <span>|</span>
+          <div className="text-sm text-chimelo-silver mt-2 md:mt-0">
             <span>Desenvolvido por <a href="https://somostexai.com" target="_blank" rel="noopener noreferrer" className="hover:underline">Texai Brasil Ltda</a></span>
           </div>
         </div>
