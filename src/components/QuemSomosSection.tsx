@@ -1,3 +1,4 @@
+
 import React from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -32,7 +33,7 @@ const QuemSomosSection: React.FC = () => {
             </Button>
           </div>
           <div className="order-1 lg:order-2">
-            <img alt="Chimelo Advogados - Quem Somos" className="w-full h-auto rounded-lg shadow-lg object-fill" src="https://imgur.com/3Oy29Nq" />
+            <img alt="Chimelo Advogados - Quem Somos" className="w-full h-auto rounded-lg shadow-lg object-fill" src="https://i.imgur.com/3Oy29Nq.png" />
           </div>
         </div>
       </div>

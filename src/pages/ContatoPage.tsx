@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { toast } from "sonner";
+import { useForm } from "react-hook-form";
 
 interface FormData {
   nome: string;
@@ -19,45 +20,52 @@ interface FormData {
 }
 
 const ContatoPage: React.FC = () => {
-  const [formData, setFormData] = useState<FormData>({
-    nome: "",
-    email: "",
-    telefone: "",
-    assunto: "",
-    mensagem: "",
-    tipo: "empresa"
-  });
-  
   const [isSubmitting, setIsSubmitting] = useState(false);
   
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
+  const { register, handleSubmit, reset, setValue, watch } = useForm<FormData>({
+    defaultValues: {
+      nome: "",
+      email: "",
+      telefone: "",
+      assunto: "",
+      mensagem: "",
+      tipo: "empresa"
+    }
+  });
   
-  const handleTipoChange = (value: "empresa" | "pessoa-fisica" | "outro") => {
-    setFormData(prev => ({ ...prev, tipo: value }));
-  };
+  const selectedTipo = watch("tipo");
   
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
     
-    // Simulação de envio do formulário
-    setTimeout(() => {
-      setIsSubmitting(false);
-      toast.success("Sua mensagem foi enviada com sucesso! Em breve entraremos em contato.");
-      
-      // Reset form
-      setFormData({
-        nome: "",
-        email: "",
-        telefone: "",
-        assunto: "",
-        mensagem: "",
-        tipo: "empresa"
+    try {
+      // Supabase implementation for sending emails
+      const { data: emailResponse, error } = await window.supabase.functions.invoke('send-contact-email', {
+        body: {
+          to: 'contato@chimelo.com.br',
+          subject: `Novo contato via site: ${data.assunto}`,
+          nome: data.nome,
+          email: data.email,
+          telefone: data.telefone,
+          mensagem: data.mensagem,
+          tipo: data.tipo
+        }
       });
-    }, 1500);
+      
+      if (error) throw error;
+      
+      toast.success("Sua mensagem foi enviada com sucesso! Em breve entraremos em contato.");
+      reset();
+    } catch (error) {
+      console.error("Erro ao enviar email:", error);
+      toast.error("Erro ao enviar mensagem. Por favor, tente novamente.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+  
+  const handleTipoChange = (value: string) => {
+    setValue("tipo", value as "empresa" | "pessoa-fisica" | "outro");
   };
   
   return (
@@ -76,13 +84,12 @@ const ContatoPage: React.FC = () => {
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               <div>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                   <div>
                     <Label htmlFor="tipo">Você é:</Label>
                     <RadioGroup 
-                      id="tipo" 
-                      value={formData.tipo} 
-                      onValueChange={handleTipoChange as (value: string) => void}
+                      value={selectedTipo} 
+                      onValueChange={handleTipoChange}
                       className="flex space-x-4 mt-2"
                     >
                       <div className="flex items-center space-x-2">
@@ -105,10 +112,7 @@ const ContatoPage: React.FC = () => {
                       <Label htmlFor="nome">Nome completo *</Label>
                       <Input
                         id="nome"
-                        name="nome"
-                        value={formData.nome}
-                        onChange={handleChange}
-                        required
+                        {...register("nome", { required: true })}
                       />
                     </div>
                     
@@ -117,21 +121,15 @@ const ContatoPage: React.FC = () => {
                         <Label htmlFor="email">E-mail *</Label>
                         <Input
                           id="email"
-                          name="email"
                           type="email"
-                          value={formData.email}
-                          onChange={handleChange}
-                          required
+                          {...register("email", { required: true })}
                         />
                       </div>
                       <div>
                         <Label htmlFor="telefone">Telefone *</Label>
                         <Input
                           id="telefone"
-                          name="telefone"
-                          value={formData.telefone}
-                          onChange={handleChange}
-                          required
+                          {...register("telefone", { required: true })}
                         />
                       </div>
                     </div>
@@ -140,10 +138,7 @@ const ContatoPage: React.FC = () => {
                       <Label htmlFor="assunto">Assunto *</Label>
                       <Input
                         id="assunto"
-                        name="assunto"
-                        value={formData.assunto}
-                        onChange={handleChange}
-                        required
+                        {...register("assunto", { required: true })}
                       />
                     </div>
                     
@@ -151,11 +146,8 @@ const ContatoPage: React.FC = () => {
                       <Label htmlFor="mensagem">Mensagem *</Label>
                       <Textarea
                         id="mensagem"
-                        name="mensagem"
                         rows={5}
-                        value={formData.mensagem}
-                        onChange={handleChange}
-                        required
+                        {...register("mensagem", { required: true })}
                       />
                     </div>
                   </div>

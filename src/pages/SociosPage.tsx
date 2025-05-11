@@ -52,7 +52,7 @@ const Socio: React.FC<SocioProps> = ({ nome, cargo, descricao, especializacoes, 
 const SociosPage: React.FC = () => {
   const socios: SocioProps[] = [
     {
-      nome: "Dr. Ricardo Chimelo",
+      nome: "Gabriele Chimelo",
       cargo: "Sócio Fundador",
       descricao: "Advogado com mais de 30 anos de experiência em direito empresarial e tributário, liderando casos complexos de fusões e aquisições, reestruturações societárias e planejamento tributário.",
       especializacoes: [
@@ -66,11 +66,11 @@ const SociosPage: React.FC = () => {
         "Mestrado em Direito Empresarial - Pontifícia Universidade Católica (PUC)",
         "Especialização em Direito Internacional - Harvard Law School"
       ],
-      imagem: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=3087&auto=format&fit=crop"
+      imagem: "https://i.imgur.com/jBmxcTd.png"
     },
     {
-      nome: "Dra. Mariana Santos",
-      cargo: "Sócia Sênior",
+      nome: "Conrado Dall'Igna",
+      cargo: "Sócio Sênior",
       descricao: "Especialista em direito trabalhista e previdenciário, com vasta experiência na condução de processos complexos e negociações sindicais, atuando diretamente junto a empresas de grande porte.",
       especializacoes: [
         "Direito Trabalhista",
@@ -83,10 +83,10 @@ const SociosPage: React.FC = () => {
         "Especialização em Compliance - Fundação Getúlio Vargas (FGV)",
         "Programa de Negociação Avançada - University of California"
       ],
-      imagem: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=3376&auto=format&fit=crop"
+      imagem: "https://i.imgur.com/t43ksK9.png"
     },
     {
-      nome: "Dr. André Oliveira",
+      nome: "Tiago Luz",
       cargo: "Sócio",
       descricao: "Advogado especializado em direito civil e contratual, com expertise em resolução de conflitos complexos e elaboração de instrumentos jurídicos para operações nacionais e internacionais.",
       especializacoes: [
@@ -100,24 +100,7 @@ const SociosPage: React.FC = () => {
         "Especialização em Arbitragem - Câmara de Comércio Internacional",
         "LLM em Contratos Internacionais - King's College London"
       ],
-      imagem: "https://images.unsplash.com/photo-1556157382-97eda2f9e2bf?q=80&w=3270&auto=format&fit=crop"
-    },
-    {
-      nome: "Dra. Patrícia Lima",
-      cargo: "Sócia",
-      descricao: "Especialista em propriedade intelectual e direito digital, assessorando empresas de tecnologia em questões jurídicas relacionadas à proteção de dados, registro de marcas e patentes.",
-      especializacoes: [
-        "Propriedade Intelectual",
-        "Direito Digital",
-        "Proteção de Dados",
-        "Direito da Tecnologia"
-      ],
-      formacao: [
-        "Doutorado em Direito da Propriedade Intelectual - Universidade de Barcelona",
-        "Especialização em LGPD - Fundação Getúlio Vargas (FGV)",
-        "MBA em Gestão de Inovação - INSPER"
-      ],
-      imagem: "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?q=80&w=3270&auto=format&fit=crop"
+      imagem: "https://i.imgur.com/DPS2rJN.png"
     }
   ];
 
@@ -135,7 +118,7 @@ const SociosPage: React.FC = () => {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {socios.map((socio, index) => (
                 <Socio 
                   key={index}
