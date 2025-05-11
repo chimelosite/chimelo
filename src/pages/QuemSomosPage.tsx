@@ -13,10 +13,7 @@ const QuemSomosPage: React.FC = () => {
                   QUEM SOMOS
                 </h1>
                 <div className="space-y-4">
-                  <p className="text-lg">
-                    Fundado em 1998, o escritório Chimelo Advogados & Associados construiu uma reputação sólida baseada na 
-                    excelência jurídica e no atendimento personalizado aos seus clientes.
-                  </p>
+                  <p className="text-lg">Com mais de 20 anos de experiência, o escritório Chimelo Advogados &amp; Associados construiu uma reputação sólida baseada na excelência jurídica e no atendimento personalizado aos seus clientes.</p>
                   <p>
                     Nossa equipe é formada por profissionais com sólida formação acadêmica e vasta experiência prática, 
                     comprometidos com a entrega de soluções jurídicas eficientes e inovadoras para nossos clientes.
