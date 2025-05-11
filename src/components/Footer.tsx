@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <img 
-              src="/lovable-uploads/e96dac0d-17ec-4820-b30d-1cca6c017987.png" 
+              src="https://i.imgur.com/NNDMJVp.png" 
               alt="Chimelo Advogados e Associados" 
               className="h-12 mb-6 brightness-0 invert"
             />
@@ -63,9 +63,7 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-bold mb-4">Serviços</h3>
             <ul className="space-y-2">
-              <li><Link to="/processos" className="hover:text-chimelo-silver transition-colors">Processos</Link></li>
-              <li><Link to="/assembleias" className="hover:text-chimelo-silver transition-colors">Assembleias</Link></li>
-              <li><Link to="/noticias" className="hover:text-chimelo-silver transition-colors">Notícias</Link></li>
+              <li><Link to="/destaques" className="hover:text-chimelo-silver transition-colors">Destaques</Link></li>
               <li><Link to="/contato" className="hover:text-chimelo-silver transition-colors">Contato</Link></li>
             </ul>
           </div>

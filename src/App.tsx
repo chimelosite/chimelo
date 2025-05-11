@@ -17,13 +17,10 @@ import NoticiasPage from "./pages/admin/NoticiasPage";
 import UsuariosPage from "./pages/admin/UsuariosPage";
 import ConfiguracoesPage from "./pages/admin/ConfiguracoesPage";
 
-// Import das novas páginas
+// Import das páginas
 import QuemSomosPage from "./pages/QuemSomosPage";
 import SociosPage from "./pages/SociosPage";
 import AreasAtuacaoPage from "./pages/AreasAtuacaoPage";
-import ProcessosPublicPage from "./pages/ProcessosPage";
-import AssembleiasPublicPage from "./pages/AssembleiasPage";
-import NoticiasPublicPage from "./pages/NoticiasPage";
 import NoticiaDetalhe from "./pages/NoticiaDetalhe";
 import ContatoPage from "./pages/ContatoPage";
 
@@ -41,10 +38,8 @@ const App = () => (
           <Route path="/quem-somos" element={<QuemSomosPage />} />
           <Route path="/socios" element={<SociosPage />} />
           <Route path="/areas-de-atuacao" element={<AreasAtuacaoPage />} />
-          <Route path="/processos" element={<ProcessosPublicPage />} />
-          <Route path="/assembleias" element={<AssembleiasPublicPage />} />
-          <Route path="/noticias" element={<NoticiasPublicPage />} />
-          <Route path="/noticias/:slug" element={<NoticiaDetalhe />} />
+          <Route path="/destaques" element={<NoticiasPage />} />
+          <Route path="/destaques/:slug" element={<NoticiaDetalhe />} />
           <Route path="/contato" element={<ContatoPage />} />
           <Route path="/admin-login" element={<AdminLoginPage />} />
 

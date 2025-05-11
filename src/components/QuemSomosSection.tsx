@@ -36,7 +36,7 @@ const QuemSomosSection: React.FC = () => {
           </div>
           <div className="order-1 lg:order-2">
             <img 
-              src="/public/lovable-uploads/232b9587-bb1e-4927-b3f8-40cac72602b6.png" 
+              src="https://i.imgur.com/j2YZZk7.jpg" 
               alt="Chimelo Advogados - Quem Somos" 
               className="w-full h-auto rounded-lg shadow-lg"
             />

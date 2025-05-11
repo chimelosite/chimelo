@@ -28,22 +28,42 @@ const QuemSomosPage: React.FC = () => {
                     Ao longo de mais de duas décadas de atuação, desenvolvemos expertise técnica em diversas áreas do direito, 
                     com foco especial em direito empresarial, trabalhista e tributário.
                   </p>
+                </div>
+                
+                <div className="mt-8">
+                  <h2 className="text-2xl font-bold mb-4">NOSSO PROPÓSITO</h2>
                   <p>
-                    Nossa missão é proporcionar segurança jurídica por meio de um atendimento personalizado e eficiente, 
-                    contribuindo para o sucesso e desenvolvimento dos nossos clientes.
+                    Nosso propósito é oferecer soluções ágeis e simplificar processos para empresas que buscam um olhar estratégico e diferenciado sobre seus negócios.
+                    Destacamo-nos na condução de situações especiais, atuando com excelência em fusões e aquisições, recuperações judiciais e extrajudiciais, operações estruturadas, questões societárias, estratégias trabalhistas, projetos imobiliários e demandas fiscais complexas. Nosso compromisso é transformar desafios em oportunidades, sempre com precisão, inovação e visão de mercado.
                   </p>
+                </div>
+                
+                <div className="mt-8">
+                  <h2 className="text-2xl font-bold mb-4">NOSSA MISSÃO</h2>
                   <p>
-                    Valorizamos a construção de relacionamentos duradouros baseados na transparência, respeito e confiança mútua.
+                    Garantir segurança jurídica e eficiência para empresários, com atuação especializada e inovadora.
                   </p>
+                </div>
+                
+                <div className="mt-8">
+                  <h2 className="text-2xl font-bold mb-4">NOSSA VISÃO</h2>
                   <p>
-                    Contamos com infraestrutura moderna e tecnologia de ponta para garantir agilidade e eficiência na 
-                    prestação dos nossos serviços, sempre com o compromisso de excelência que nos caracteriza.
+                    Ser referência em soluções jurídicas que impulsionam negócios, garantindo segurança, solidez e crescimento sustentável.
                   </p>
+                </div>
+                
+                <div className="mt-8">
+                  <h2 className="text-2xl font-bold mb-4">NOSSOS VALORES</h2>
+                  <ul className="space-y-2">
+                    <li><strong>Expertise e Visão Abrangente:</strong> Atuamos de forma multidisciplinar, antecipando desafios e propondo soluções eficazes.</li>
+                    <li><strong>Inovação e Sustentabilidade:</strong> Buscamos novas abordagens jurídicas para promover crescimento sólido e seguro.</li>
+                    <li><strong>Compromisso com o Cliente:</strong> Oferecemos soluções personalizadas, alinhadas às necessidades e objetivos de cada empresa.</li>
+                  </ul>
                 </div>
               </div>
               <div>
                 <img 
-                  src="/public/lovable-uploads/232b9587-bb1e-4927-b3f8-40cac72602b6.png" 
+                  src="https://i.imgur.com/j2YZZk7.jpg" 
                   alt="Chimelo Advogados - Quem Somos" 
                   className="w-full h-auto rounded-lg shadow-lg"
                 />

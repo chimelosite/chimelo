@@ -25,7 +25,7 @@ const Header = () => {
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link to="/" className="flex items-center">
           <img 
-            src="/lovable-uploads/e96dac0d-17ec-4820-b30d-1cca6c017987.png" 
+            src="https://i.imgur.com/NNDMJVp.png" 
             alt="CHIMELO" 
             className="h-10 brightness-0 invert"
           />
@@ -66,9 +66,7 @@ const Header = () => {
             <li><Link to="/quem-somos" className="hover:text-gray-300">Quem Somos</Link></li>
             <li><Link to="/socios" className="hover:text-gray-300">Sócios</Link></li>
             <li><Link to="/areas-de-atuacao" className="hover:text-gray-300">Áreas de Atuação & Serviços</Link></li>
-            <li><Link to="/processos" className="hover:text-gray-300">Processos</Link></li>
-            <li><Link to="/assembleias" className="hover:text-gray-300">Assembleias</Link></li>
-            <li><Link to="/noticias" className="hover:text-gray-300">Notícias</Link></li>
+            <li><Link to="/destaques" className="hover:text-gray-300">Destaques</Link></li>
             <li><Link to="/contato" className="hover:text-gray-300">Contato</Link></li>
             <li>
               <button 
@@ -102,9 +100,7 @@ const Header = () => {
             <li><Link to="/quem-somos" onClick={() => setIsMenuOpen(false)}>Quem Somos</Link></li>
             <li><Link to="/socios" onClick={() => setIsMenuOpen(false)}>Sócios</Link></li>
             <li><Link to="/areas-de-atuacao" onClick={() => setIsMenuOpen(false)}>Áreas de Atuação & Serviços</Link></li>
-            <li><Link to="/processos" onClick={() => setIsMenuOpen(false)}>Processos</Link></li>
-            <li><Link to="/assembleias" onClick={() => setIsMenuOpen(false)}>Assembleias</Link></li>
-            <li><Link to="/noticias" onClick={() => setIsMenuOpen(false)}>Notícias</Link></li>
+            <li><Link to="/destaques" onClick={() => setIsMenuOpen(false)}>Destaques</Link></li>
             <li><Link to="/contato" onClick={() => setIsMenuOpen(false)}>Contato</Link></li>
             <li className="pt-4">
               <div className="flex space-x-4">

@@ -14,7 +14,7 @@ interface NoticiaProps {
 
 const NoticiaCard: React.FC<NoticiaProps> = ({ title, excerpt, date, slug, image }) => {
   return (
-    <Link to={`/noticias/${slug}`} className="group">
+    <Link to={`/destaques/${slug}`} className="group">
       <div className="overflow-hidden rounded-lg border border-chimelo-lightgray/20 bg-white hover:shadow-md transition-shadow h-full flex flex-col">
         {image && (
           <div className="aspect-video overflow-hidden">
@@ -50,21 +50,21 @@ const NoticiasSection: React.FC = () => {
       excerpt: "Conheça as principais mudanças na legislação trabalhista que entrarão em vigor em 2025 e como elas afetam sua empresa.",
       date: "05 de maio de 2025",
       slug: "novidades-legislacao-trabalhista-2025",
-      image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070&auto=format&fit=crop"
+      image: "https://i.imgur.com/Wd24lI1.jpg"
     },
     {
       title: "Implicações jurídicas da inteligência artificial nos negócios",
       excerpt: "A inteligência artificial está transformando o ambiente de negócios. Entenda as implicações jurídicas dessa revolução.",
       date: "28 de abril de 2025",
       slug: "implicacoes-juridicas-ia-negocios",
-      image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2065&auto=format&fit=crop"
+      image: "https://i.imgur.com/bMyNUqF.jpg"
     },
     {
       title: "Chimelo Advogados participa de congresso internacional de direito empresarial",
       excerpt: "Nosso escritório marcou presença no maior congresso internacional de direito empresarial, trazendo insights valiosos para nossos clientes.",
       date: "15 de abril de 2025",
       slug: "chimelo-congresso-internacional-direito-empresarial",
-      image: "https://images.unsplash.com/photo-1560523159-4a9692d222f9?q=80&w=2070&auto=format&fit=crop"
+      image: "https://i.imgur.com/f4w8Q8b.jpg"
     },
   ];
 
@@ -73,12 +73,12 @@ const NoticiasSection: React.FC = () => {
       <div className="chimelo-container">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-2">Notícias e Artigos</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-2">Destaques</h2>
             <p className="text-chimelo-silver">Acompanhe as últimas novidades e publicações do nosso escritório</p>
           </div>
           <Button asChild className="chimelo-btn chimelo-btn-outline mt-4 md:mt-0">
-            <Link to="/noticias">
-              Ver todas as notícias <ArrowRight className="ml-2 h-4 w-4" />
+            <Link to="/destaques">
+              Ver todos os destaques <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
         </div>

@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Shield, Briefcase, FileText, Users, Book, Search } from "lucide-react";
+import { Shield, Scale, Building, Users, Book, Briefcase } from "lucide-react";
 import { Link } from "react-router-dom";
 
 interface AreaProps {
@@ -29,39 +29,39 @@ const AreasAtuacao: React.FC = () => {
   const areas = [
     {
       icon: <Shield className="h-6 w-6 text-chimelo-black" />,
-      title: "Direito Empresarial",
-      description: "Assessoria jurídica especializada para empresas de todos os portes e segmentos.",
-      link: "/areas-de-atuacao/direito-empresarial"
+      title: "Governança e Gestão Estratégica",
+      description: "Atuação focada na sustentabilidade, segurança jurídica e expansão dos negócios.",
+      link: "/areas-de-atuacao"
     },
     {
-      icon: <Briefcase className="h-6 w-6 text-chimelo-black" />,
-      title: "Direito Trabalhista",
-      description: "Soluções jurídicas preventivas e resolutivas para questões trabalhistas.",
-      link: "/areas-de-atuacao/direito-trabalhista"
+      icon: <Scale className="h-6 w-6 text-chimelo-black" />,
+      title: "Resolução de Conflitos",
+      description: "Soluções ágeis e vantajosas para disputas empresariais.",
+      link: "/areas-de-atuacao"
     },
     {
-      icon: <FileText className="h-6 w-6 text-chimelo-black" />,
-      title: "Direito Tributário",
-      description: "Planejamento tributário e representação em processos administrativos e judiciais.",
-      link: "/areas-de-atuacao/direito-tributario"
+      icon: <Building className="h-6 w-6 text-chimelo-black" />,
+      title: "Reestruturação e Recuperação",
+      description: "Assessoria completa para empresas, credores e investidores.",
+      link: "/areas-de-atuacao"
     },
     {
       icon: <Users className="h-6 w-6 text-chimelo-black" />,
-      title: "Direito Civil",
-      description: "Assessoria jurídica em contratos, responsabilidade civil e direito de família.",
-      link: "/areas-de-atuacao/direito-civil"
+      title: "Direito Societário e M&A",
+      description: "Segurança e eficiência para operações societárias.",
+      link: "/areas-de-atuacao"
     },
     {
       icon: <Book className="h-6 w-6 text-chimelo-black" />,
-      title: "Direito Contratual",
-      description: "Elaboração, análise e negociação de contratos comerciais e civis.",
-      link: "/areas-de-atuacao/direito-contratual"
+      title: "Planejamento Patrimonial",
+      description: "Preservação de patrimônio e continuidade dos negócios.",
+      link: "/areas-de-atuacao"
     },
     {
-      icon: <Search className="h-6 w-6 text-chimelo-black" />,
-      title: "Consultoria Jurídica",
-      description: "Consultoria jurídica personalizada para demandas específicas.",
-      link: "/areas-de-atuacao/consultoria-juridica"
+      icon: <Briefcase className="h-6 w-6 text-chimelo-black" />,
+      title: "Direito Trabalhista Estratégico",
+      description: "Atuação preventiva e gestão de passivos trabalhistas.",
+      link: "/areas-de-atuacao"
     }
   ];
 
