@@ -59,7 +59,7 @@ const QuemSomosPage: React.FC = () => {
                 </div>
               </div>
               <div>
-                <img alt="Chimelo Advogados - Quem Somos" className="w-full h-auto rounded-lg shadow-lg" src="https://imgur.com/3Oy29Nq" />
+                <img alt="Chimelo Advogados - Quem Somos" className="w-full h-auto rounded-lg shadow-lg" src="https://i.imgur.com/3Oy29Nq.png" />
               </div>
             </div>
           </div>
