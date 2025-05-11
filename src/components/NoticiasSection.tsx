@@ -58,14 +58,7 @@ const NoticiasSection: React.FC = () => {
       date: "09 de maio de 2025",
       slug: "stf-suspende-lei-desoneracao-folha-2027",
       image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2065&auto=format&fit=crop"
-    },
-    {
-      title: "A Importância da Due Diligence Jurídica em Operações Empresariais",
-      excerpt: "A due diligence jurídica é uma ferramenta essencial para a avaliação de riscos e passivos ocultos em transações empresariais, permitindo maior segurança jurídica e prevenção de litígios futuros.",
-      date: "05 de maio de 2025",
-      slug: "importancia-due-diligence-juridica-operacoes-empresariais",
-      image: "https://images.unsplash.com/photo-1560523159-4a9692d222f9?q=80&w=2070&auto=format&fit=crop"
-    },
+    }
   ];
 
   return (

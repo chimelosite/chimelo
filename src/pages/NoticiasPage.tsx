@@ -97,19 +97,6 @@ const NoticiasPage: React.FC = () => {
       tags: ["STF", "Desoneração", "Tributação", "Empresas"],
       slug: "stf-suspende-lei-desoneracao-folha-2027",
       fonte: "https://portal.stf.jus.br/noticias/verNoticiaDetalhe.asp?idConteudo=534157&ori=1"
-    },
-    {
-      id: "3",
-      titulo: "A Importância da Due Diligence Jurídica em Operações Empresariais",
-      resumo: "A due diligence jurídica é uma ferramenta essencial para a avaliação de riscos e passivos ocultos em transações empresariais, permitindo maior segurança jurídica e prevenção de litígios futuros. No contexto atual, com operações cada vez mais complexas e internacionais, esse procedimento técnico se torna indispensável para empresas e investidores.",
-      conteudo: "A due diligence jurídica é uma ferramenta essencial para a avaliação de riscos e passivos ocultos em transações empresariais, permitindo maior segurança jurídica e prevenção de litígios futuros. No contexto atual, com operações cada vez mais complexas e internacionais, esse procedimento técnico se torna indispensável para empresas e investidores.",
-      data: "05 de maio de 2025",
-      autor: "Dr. Ricardo Chimelo",
-      imagem: "https://images.unsplash.com/photo-1560523159-4a9692d222f9?q=80&w=2070&auto=format&fit=crop",
-      categoria: "Artigo",
-      tags: ["Due Diligence", "Operações Empresariais", "Gestão de Riscos"],
-      slug: "importancia-due-diligence-juridica-operacoes-empresariais",
-      fonte: "https://portal.stf.jus.br/noticias/verNoticiaDetalhe.asp?idConteudo=515220&ori=1"
     }
   ];
 

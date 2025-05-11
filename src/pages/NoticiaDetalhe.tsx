@@ -1,9 +1,8 @@
-
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { Calendar, ArrowLeft, Tag, FileText, Download } from "lucide-react";
+import { Calendar, ArrowLeft, Tag, FileText, Download, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect } from "react";
 
@@ -15,87 +14,46 @@ const NoticiaDetalhe: React.FC = () => {
   const noticias = [
     {
       id: "1",
-      titulo: "Novidades na legislação trabalhista em 2025",
-      resumo: "Conheça as principais mudanças na legislação trabalhista que entrarão em vigor em 2025 e como elas afetam sua empresa.",
+      titulo: "STF confirma suspensão de leis que proíbem linguagem neutra em dois municípios",
+      resumo: "O Plenário do Supremo Tribunal Federal (STF) referendou liminares concedidas pelo ministro Alexandre de Moraes que suspenderam leis municipais que proibiam o uso da linguagem neutra em documentos oficiais. A decisão reforça a proteção à liberdade de expressão e à inclusão linguística.",
       conteudo: `
-        <p>A legislação trabalhista brasileira passará por importantes atualizações em 2025, com o objetivo de modernizar as relações de trabalho e ajustar-se às novas realidades do mercado. Entre as principais mudanças, destacam-se:</p>
+        <p>O Plenário do Supremo Tribunal Federal (STF) referendou liminares concedidas pelo ministro Alexandre de Moraes que suspenderam leis municipais que proibiam o uso da linguagem neutra em documentos oficiais. A decisão reforça a proteção à liberdade de expressão e à inclusão linguística.</p>
         
-        <h3>Novas modalidades de contratação</h3>
-        <p>O governo federal implementará uma nova categoria de contrato de trabalho híbrido, que regulamenta formalmente a divisão de horas entre trabalho presencial e remoto. Esta modalidade trará regras específicas para reembolso de despesas domésticas e estabelecerá limites claros para a jornada de trabalho.</p>
+        <p>As leis suspensas foram aprovadas pelos municípios de Rondônia e São Paulo, e proibiam expressamente o uso de linguagem neutra em escolas, órgãos públicos e editais de concursos.</p>
         
-        <h3>Atualizações na legislação de benefícios</h3>
-        <p>As regras para concessão e tributação de benefícios como vale-alimentação, vale-transporte e planos de saúde serão alteradas, com um novo sistema de cálculo que impacta diretamente a folha de pagamento das empresas.</p>
+        <p>Na decisão, o ministro Alexandre de Moraes destacou que tais proibições ferem princípios constitucionais fundamentais como a liberdade de expressão e o direito à educação inclusiva. O relator também observou que normas sobre diretrizes e bases da educação nacional são de competência privativa da União, não cabendo aos municípios legislar sobre o tema.</p>
         
-        <h3>Reformulação das normas de segurança e medicina do trabalho</h3>
-        <p>As NRs (Normas Regulamentadoras) passarão por uma significativa atualização, com foco em trabalho remoto e uso de novas tecnologias. Empresas precisarão adaptar seus programas de segurança e saúde ocupacional.</p>
-        
-        <h3>Impactos para empresas</h3>
-        <p>As organizações terão um prazo de adaptação de 90 dias após a publicação das normas. Recomendamos que as empresas iniciem o quanto antes o processo de revisão de seus contratos de trabalho e políticas internas para adequação à nova legislação.</p>
-        
-        <p>Nossa equipe está à disposição para auxiliar na transição e implementação destas mudanças, garantindo total conformidade legal e minimizando riscos trabalhistas.</p>
+        <p>Com a confirmação pelo plenário, as leis permanecem suspensas até o julgamento final da ação. A decisão foi recebida como uma vitória importante por grupos defensores da inclusão linguística e da diversidade na educação.</p>
       `,
-      data: "05 de maio de 2025",
-      autor: "Dr. Ricardo Chimelo",
+      data: "11 de maio de 2025",
+      autor: "Equipe Jurídica",
       imagem: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070&auto=format&fit=crop",
-      categoria: "Direito Trabalhista",
-      tags: ["Legislação Trabalhista", "Reforma", "CLT", "Empresas"],
-      slug: "novidades-legislacao-trabalhista-2025",
+      categoria: "Jurisprudência",
+      tags: ["STF", "Linguagem Neutra", "Direitos Fundamentais"],
+      slug: "stf-confirma-suspensao-leis-linguagem-neutra",
+      fonte: "https://portal.stf.jus.br/noticias/verNoticiaDetalhe.asp?idConteudo=515220&ori=1",
       pdfUrl: "#" // Placeholder for PDF URL
     },
     {
       id: "2",
-      titulo: "Implicações jurídicas da inteligência artificial nos negócios",
-      resumo: "A inteligência artificial está transformando o ambiente de negócios. Entenda as implicações jurídicas dessa revolução tecnológica para sua empresa.",
+      titulo: "STF suspende lei que prorrogou desoneração da folha até 2027",
+      resumo: "O ministro Cristiano Zanin observou que a lei não considerou o impacto financeiro da prorrogação dos benefícios fiscais. A decisão do STF impacta diretamente a gestão fiscal e tributária das empresas no país.",
       conteudo: `
-        <p>A ascensão da inteligência artificial (IA) está revolucionando os modelos de negócios em diversos setores, trazendo consigo um conjunto complexo de desafios jurídicos que empresas precisam enfrentar.</p>
+        <p>Em decisão recente, o Supremo Tribunal Federal (STF), por meio de liminar concedida pelo ministro Cristiano Zanin, suspendeu a lei que prorrogava a desoneração da folha de pagamento para 17 setores da economia até 2027.</p>
         
-        <h3>Propriedade intelectual e obras geradas por IA</h3>
-        <p>Um dos debates mais intensos gira em torno da titularidade de obras criadas por sistemas de IA. Quem detém os direitos sobre uma música, texto ou imagem gerada por algoritmos? A legislação atual ainda não oferece respostas definitivas, criando insegurança jurídica para empresas que utilizam estas tecnologias.</p>
+        <p>Na análise preliminar, o ministro Zanin destacou que a aprovação da lei não levou em consideração o impacto orçamentário que a medida causaria para as contas públicas, o que contraria disposições constitucionais sobre responsabilidade fiscal.</p>
         
-        <h3>Responsabilidade civil e tomada de decisão autônoma</h3>
-        <p>À medida que sistemas de IA assumem funções decisórias em áreas sensíveis como contratação, concessão de crédito ou diagnósticos médicos, surgem questões complexas sobre responsabilização em caso de danos. Empresas precisam implementar sistemas robustos de governança de IA para mitigar riscos.</p>
+        <p>A lei suspensa previa a manutenção do benefício tributário que permite às empresas substituir a contribuição previdenciária de 20% sobre a folha de pagamento por alíquotas que variam de 1% a 4,5% sobre a receita bruta.</p>
         
-        <h3>Proteção de dados e vieses algorítmicos</h3>
-        <p>O treinamento de modelos de IA frequentemente depende de volumes massivos de dados pessoais, exigindo rigorosa conformidade com legislações como a LGPD. Além disso, algoritmos podem perpetuar ou amplificar vieses existentes, resultando em potenciais violações de direitos e danos reputacionais.</p>
-        
-        <h3>Recomendações para empresas</h3>
-        <p>Recomendamos a implementação de estruturas de governança específicas para IA, incluindo comitês interdisciplinares de supervisão, auditorias regulares de algoritmos e políticas claras de uso responsável. A documentação detalhada dos processos de desenvolvimento e decisão de sistemas de IA será crucial para demonstrar conformidade regulatória.</p>
-        
-        <p>Nossa equipe especializada está preparada para auxiliar sua empresa a navegar por este novo cenário jurídico, garantindo inovação responsável e minimização de riscos legais.</p>
+        <p>A decisão tem impacto direto no planejamento financeiro e tributário das empresas dos setores beneficiados, que incluem áreas como tecnologia da informação, construção civil, transporte, comunicação e têxtil, entre outros.</p>
       `,
-      data: "28 de abril de 2025",
-      autor: "Dra. Patrícia Lima",
+      data: "09 de maio de 2025",
+      autor: "Equipe Jurídica",
       imagem: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2065&auto=format&fit=crop",
-      categoria: "Direito Digital",
-      tags: ["Inteligência Artificial", "Tecnologia", "Inovação", "Regulação"],
-      slug: "implicacoes-juridicas-ia-negocios",
-      pdfUrl: "#" // Placeholder for PDF URL
-    },
-    {
-      id: "3",
-      titulo: "Chimelo Advogados participa de congresso internacional de direito empresarial",
-      resumo: "Nosso escritório marcou presença no maior congresso internacional de direito empresarial, trazendo insights valiosos para nossos clientes.",
-      conteudo: `
-        <p>O escritório Chimelo Advogados e Associados participou do 18º Congresso Internacional de Direito Empresarial, realizado em Madri, Espanha, entre os dias 10 e 14 de abril de 2025. O evento reuniu mais de 3.000 profissionais de direito de 45 países para discutir as principais tendências e desafios jurídicos enfrentados por empresas no cenário global.</p>
-        
-        <h3>Participação em painéis de discussão</h3>
-        <p>Dr. Ricardo Chimelo, sócio-fundador do escritório, foi convidado como palestrante no painel "Contratos Internacionais na Era Digital", onde apresentou estratégias inovadoras para elaboração de contratos em ambientes de negócios globalizados e digitais.</p>
-        
-        <h3>Temas de destaque do congresso</h3>
-        <p>Entre os principais temas abordados no evento, destacaram-se a regulação de criptoativos, os novos modelos de tributação internacional pós-BEPS 2.0, compliance ESG e os impactos jurídicos da computação quântica nas estruturas de segurança corporativa.</p>
-        
-        <h3>Benefícios para nossos clientes</h3>
-        <p>A participação da equipe Chimelo no congresso reforça nosso compromisso com a excelência e atualização constante em direito empresarial internacional. Os conhecimentos adquiridos serão compartilhados com nossos clientes através de uma série de webinars e materiais exclusivos que serão disponibilizados nas próximas semanas.</p>
-        
-        <h3>Próximos eventos</h3>
-        <p>Em breve anunciaremos um ciclo de palestras baseado nos principais insights coletados durante o congresso, com foco especial nas novas tendências de direito digital e comércio internacional que impactarão o mercado brasileiro nos próximos anos.</p>
-      `,
-      data: "15 de abril de 2025",
-      autor: "Assessoria de Comunicação",
-      imagem: "https://images.unsplash.com/photo-1560523159-4a9692d222f9?q=80&w=2070&auto=format&fit=crop",
-      categoria: "Institucional",
-      tags: ["Congresso", "Internacional", "Direito Empresarial", "Networking"],
-      slug: "chimelo-congresso-internacional-direito-empresarial",
+      categoria: "Direito Tributário",
+      tags: ["STF", "Desoneração", "Tributação", "Empresas"],
+      slug: "stf-suspende-lei-desoneracao-folha-2027",
+      fonte: "https://portal.stf.jus.br/noticias/verNoticiaDetalhe.asp?idConteudo=534157&ori=1",
       pdfUrl: "#" // Placeholder for PDF URL
     },
     {
@@ -123,6 +81,7 @@ const NoticiaDetalhe: React.FC = () => {
       categoria: "Direito Tributário",
       tags: ["STF", "Tributação Internacional", "Jurisprudência", "Planejamento"],
       slug: "nova-decisao-stf-tributacao-internacional",
+      fonte: "https://portal.stf.jus.br/noticias/verNoticiaDetalhe.asp?idConteudo=534157&ori=1",
       pdfUrl: "#" // Placeholder for PDF URL
     },
     {
@@ -268,8 +227,23 @@ const NoticiaDetalhe: React.FC = () => {
             <div className="prose prose-lg max-w-none bg-white p-8 rounded-lg shadow-sm">
               <div dangerouslySetInnerHTML={{ __html: noticia.conteudo }} />
               
+              {/* Source link */}
+              {noticia.fonte && (
+                <div className="mt-8 pt-4 border-t border-gray-200">
+                  <a 
+                    href={noticia.fonte} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-chimelo-black hover:text-chimelo-silver inline-flex items-center"
+                  >
+                    <span>Fonte original: Portal STF</span>
+                    <ExternalLink className="h-4 w-4 ml-1" />
+                  </a>
+                </div>
+              )}
+              
               {/* PDF Download Button */}
-              <div className="mt-10 border-t pt-6">
+              <div className="mt-6 pt-4">
                 <Button 
                   onClick={handleDownloadPDF}
                   className="flex items-center gap-2 bg-chimelo-black hover:bg-chimelo-black/80"
@@ -280,8 +254,6 @@ const NoticiaDetalhe: React.FC = () => {
                 </Button>
               </div>
             </div>
-            
-            {/* Share and related articles (optional, can be implemented later) */}
           </div>
         </article>
       </main>
