@@ -1,11 +1,8 @@
-
 import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-
 const QuemSomosPage: React.FC = () => {
-  return (
-    <div className="flex flex-col min-h-screen">
+  return <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow">
         <section className="chimelo-section">
@@ -62,19 +59,13 @@ const QuemSomosPage: React.FC = () => {
                 </div>
               </div>
               <div>
-                <img 
-                  src="https://i.imgur.com/j2YZZk7.jpg" 
-                  alt="Chimelo Advogados - Quem Somos" 
-                  className="w-full h-auto rounded-lg shadow-lg"
-                />
+                <img alt="Chimelo Advogados - Quem Somos" className="w-full h-auto rounded-lg shadow-lg" src="https://imgur.com/3Oy29Nq" />
               </div>
             </div>
           </div>
         </section>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default QuemSomosPage;
