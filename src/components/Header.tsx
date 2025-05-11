@@ -1,9 +1,7 @@
-
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Instagram, Linkedin, Menu, X } from "lucide-react";
 import AdminModal from "./AdminModal";
-
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAdminModalOpen, setIsAdminModalOpen] = useState(false);
@@ -19,16 +17,10 @@ const Header = () => {
       window.location.href = "/admin-login";
     }
   };
-
-  return (
-    <header className="bg-chimelo-black text-white py-4">
+  return <header className="bg-chimelo-black text-white py-4">
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link to="/" className="flex items-center">
-          <img 
-            src="https://i.imgur.com/NNDMJVp.png" 
-            alt="CHIMELO" 
-            className="h-10 brightness-0 invert"
-          />
+          <img alt="CHIMELO" className="h-10 brightness-0 invert" src="https://imgur.com/v5A7jTI" />
         </Link>
 
         {/* Social Icons Desktop */}
@@ -40,17 +32,7 @@ const Header = () => {
             <Instagram size={20} />
           </a>
           <a href="https://wa.me/5551991786703" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="hover:text-gray-300">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
               <path d="M9 10a.5.5 0 0 1 1 0v2a.5.5 0 0 1-1 0v-2z" />
               <path d="M14 10a.5.5 0 0 1 1 0v2a.5.5 0 0 1-1 0v-2z" />
@@ -69,11 +51,7 @@ const Header = () => {
             <li><Link to="/destaques" className="hover:text-gray-300">Destaques</Link></li>
             <li><Link to="/contato" className="hover:text-gray-300">Contato</Link></li>
             <li>
-              <button 
-                onClick={openAdminPanel} 
-                className="hover:text-gray-300 hidden" 
-                aria-label="Painel Administrativo"
-              >
+              <button onClick={openAdminPanel} className="hover:text-gray-300 hidden" aria-label="Painel Administrativo">
                 Admin
               </button>
             </li>
@@ -82,19 +60,14 @@ const Header = () => {
 
         {/* Mobile Menu Button */}
         <div className="md:hidden">
-          <button 
-            onClick={() => setIsMenuOpen(!isMenuOpen)} 
-            aria-label={isMenuOpen ? "Fechar Menu" : "Abrir Menu"}
-            className="p-2"
-          >
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label={isMenuOpen ? "Fechar Menu" : "Abrir Menu"} className="p-2">
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
 
       {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <nav className="md:hidden bg-chimelo-black">
+      {isMenuOpen && <nav className="md:hidden bg-chimelo-black">
           <ul className="container mx-auto px-4 py-4 space-y-2">
             <li><Link to="/" onClick={() => setIsMenuOpen(false)}>Home</Link></li>
             <li><Link to="/quem-somos" onClick={() => setIsMenuOpen(false)}>Quem Somos</Link></li>
@@ -111,17 +84,7 @@ const Header = () => {
                   <Instagram size={20} />
                 </a>
                 <a href="https://wa.me/5551991786703" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
                     <path d="M9 10a.5.5 0 0 1 1 0v2a.5.5 0 0 1-1 0v-2z" />
                     <path d="M14 10a.5.5 0 0 1 1 0v2a.5.5 0 0 1-1 0v-2z" />
@@ -131,13 +94,10 @@ const Header = () => {
               </div>
             </li>
           </ul>
-        </nav>
-      )}
+        </nav>}
 
       {/* Admin Modal */}
       <AdminModal isOpen={isAdminModalOpen} onClose={() => setIsAdminModalOpen(false)} />
-    </header>
-  );
+    </header>;
 };
-
 export default Header;
