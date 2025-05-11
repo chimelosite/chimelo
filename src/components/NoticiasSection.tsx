@@ -46,25 +46,25 @@ const NoticiaCard: React.FC<NoticiaProps> = ({ title, excerpt, date, slug, image
 const NoticiasSection: React.FC = () => {
   const noticias = [
     {
-      title: "Novidades na legislação trabalhista em 2025",
-      excerpt: "Conheça as principais mudanças na legislação trabalhista que entrarão em vigor em 2025 e como elas afetam sua empresa.",
+      title: "STF confirma suspensão de leis que proíbem linguagem neutra em dois municípios",
+      excerpt: "O Plenário do Supremo Tribunal Federal (STF) referendou liminares concedidas pelo ministro Alexandre de Moraes que suspenderam leis municipais que proibiam o uso da linguagem neutra em documentos oficiais.",
+      date: "11 de maio de 2025",
+      slug: "stf-confirma-suspensao-leis-linguagem-neutra",
+      image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070&auto=format&fit=crop"
+    },
+    {
+      title: "STF suspende lei que prorrogou desoneração da folha até 2027",
+      excerpt: "O ministro Cristiano Zanin observou que a lei não considerou o impacto financeiro da prorrogação dos benefícios fiscais. A decisão do STF impacta diretamente a gestão fiscal e tributária das empresas no país.",
+      date: "09 de maio de 2025",
+      slug: "stf-suspende-lei-desoneracao-folha-2027",
+      image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2065&auto=format&fit=crop"
+    },
+    {
+      title: "A Importância da Due Diligence Jurídica em Operações Empresariais",
+      excerpt: "A due diligence jurídica é uma ferramenta essencial para a avaliação de riscos e passivos ocultos em transações empresariais, permitindo maior segurança jurídica e prevenção de litígios futuros.",
       date: "05 de maio de 2025",
-      slug: "novidades-legislacao-trabalhista-2025",
-      image: "https://i.imgur.com/Wd24lI1.jpg"
-    },
-    {
-      title: "Implicações jurídicas da inteligência artificial nos negócios",
-      excerpt: "A inteligência artificial está transformando o ambiente de negócios. Entenda as implicações jurídicas dessa revolução.",
-      date: "28 de abril de 2025",
-      slug: "implicacoes-juridicas-ia-negocios",
-      image: "https://i.imgur.com/bMyNUqF.jpg"
-    },
-    {
-      title: "Chimelo Advogados participa de congresso internacional de direito empresarial",
-      excerpt: "Nosso escritório marcou presença no maior congresso internacional de direito empresarial, trazendo insights valiosos para nossos clientes.",
-      date: "15 de abril de 2025",
-      slug: "chimelo-congresso-internacional-direito-empresarial",
-      image: "https://i.imgur.com/f4w8Q8b.jpg"
+      slug: "importancia-due-diligence-juridica-operacoes-empresariais",
+      image: "https://images.unsplash.com/photo-1560523159-4a9692d222f9?q=80&w=2070&auto=format&fit=crop"
     },
   ];
 

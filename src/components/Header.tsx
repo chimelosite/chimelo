@@ -31,7 +31,7 @@ const Header = () => {
 
         {/* Social Icons Desktop */}
         <div className="hidden md:flex items-center space-x-6">
-          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-gray-300">
+          <a href="https://www.linkedin.com/company/chimelo-advogados-associados" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-gray-300">
             <Linkedin size={20} />
           </a>
           <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-gray-300">
@@ -83,7 +83,7 @@ const Header = () => {
             <li><Link to="/contato" onClick={() => setIsMenuOpen(false)}>Contato</Link></li>
             <li className="pt-4">
               <div className="flex space-x-4">
-                <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/company/chimelo-advogados-associados" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                   <Linkedin size={20} />
                 </a>
                 <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">

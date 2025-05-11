@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
               Somos um escritório de advocacia especializado em soluções jurídicas integradas para empresas.
             </p>
             <div className="flex items-center space-x-4 mt-6">
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-white hover:text-chimelo-silver">
+              <a href="https://www.linkedin.com/company/chimelo-advogados-associados" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-white hover:text-chimelo-silver">
                 <Linkedin size={20} />
               </a>
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-white hover:text-chimelo-silver">
