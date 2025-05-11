@@ -1,50 +1,24 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { Linkedin, Instagram, MessageSquare, Mail, Phone } from "lucide-react";
-
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
-  
-  return (
-    <footer className="bg-chimelo-black text-white">
+  return <footer className="bg-chimelo-black text-white">
       <div className="chimelo-container py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
-            <img 
-              src="https://i.imgur.com/NNDMJVp.png" 
-              alt="Chimelo Advogados e Associados" 
-              className="h-12 mb-6 brightness-0 invert"
-            />
+            <img alt="Chimelo Advogados e Associados" className="h-12 mb-6 brightness-0 invert" src="https://imgur.com/v5A7jTI" />
             <p className="mt-4 text-sm text-chimelo-silver max-w-xs">
               Somos um escritório de advocacia especializado em soluções jurídicas integradas para empresas.
             </p>
             <div className="flex items-center space-x-4 mt-6">
-              <a 
-                href="https://linkedin.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="text-white hover:text-chimelo-silver"
-              >
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-white hover:text-chimelo-silver">
                 <Linkedin size={20} />
               </a>
-              <a 
-                href="https://instagram.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="text-white hover:text-chimelo-silver"
-              >
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-white hover:text-chimelo-silver">
                 <Instagram size={20} />
               </a>
-              <a 
-                href="https://wa.me/5551991786703" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                aria-label="WhatsApp"
-                className="text-white hover:text-chimelo-silver"
-              >
+              <a href="https://wa.me/5551991786703" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="text-white hover:text-chimelo-silver">
                 <MessageSquare size={20} />
               </a>
             </div>
@@ -102,8 +76,6 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
