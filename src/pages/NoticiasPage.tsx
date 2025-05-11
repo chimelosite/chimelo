@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -29,7 +30,7 @@ interface NoticiaProps {
 const NoticiaCard: React.FC<{ noticia: NoticiaProps }> = ({ noticia }) => {
   return (
     <Link 
-      to={`/noticias/${noticia.slug}`}
+      to={`/destaques/${noticia.slug}`}
       className="block border border-chimelo-lightgray/20 rounded-lg overflow-hidden bg-white hover:shadow-md transition-shadow"
     >
       <div className="aspect-[16/9] overflow-hidden">
@@ -67,7 +68,7 @@ const NoticiaCard: React.FC<{ noticia: NoticiaProps }> = ({ noticia }) => {
 
 const NoticiasPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [categoriaFilter, setCategoriaFilter] = useState("");
+  const [categoriaFilter, setCategoriaFilter] = useState("all");
   
   const noticias: NoticiaProps[] = [
     {
@@ -191,7 +192,7 @@ const NoticiasPage: React.FC = () => {
       noticia.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
     
     const matchesCategoria = 
-      categoriaFilter === "" || 
+      categoriaFilter === "all" || 
       noticia.categoria === categoriaFilter;
     
     return matchesSearch && matchesCategoria;
@@ -228,7 +229,7 @@ const NoticiasPage: React.FC = () => {
                     <SelectValue placeholder="Categoria" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="">Todas as categorias</SelectItem>
+                    <SelectItem value="all">Todas as categorias</SelectItem>
                     {categorias.map((categoria, index) => (
                       <SelectItem key={index} value={categoria}>{categoria}</SelectItem>
                     ))}
