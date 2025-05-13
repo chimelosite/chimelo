@@ -54,12 +54,14 @@ const SociosPage: React.FC = () => {
     {
       nome: "Gabriele Chimelo",
       cargo: "Sócio Fundador",
-      descricao: "Advogado com mais de 30 anos de experiência em direito empresarial e tributário, liderando casos complexos de fusões e aquisições, reestruturações societárias e planejamento tributário.",
+      descricao: "Sócia-fundadora e Diretora Geral da CB2D Administração Judicial e da Chimelo Advogados & Associados, Gabriele Chimelo é um dos nomes mais destacados do país na área de insolvência empresarial, com forte atuação em reestruturação de empresas, distressed M&A, governança corporativa, regimes regulatórios e estratégias jurídicas de alta complexidade. Com mais de 20 anos de experiência, construiu uma carreira sólida liderando soluções jurídicas em cenários críticos. Por 14 anos, integrou a liderança da tradicional banca Scalzilli Althaus Chimelo e Spohr, contribuindo decisivamente para o desenvolvimento de áreas sensíveis do Direito Empresarial. Em 2025, decide assumir a marca Chimelo — em homenagem ao avô paterno, empresário de destaque no comércio regional do Centro-Oeste — consolidando sua identidade de atuação.",
       especializacoes: [
         "Direito Empresarial",
         "Direito Tributário",
         "Fusões e Aquisições",
-        "Planejamento Societário"
+        "Planejamento Societário",
+        "Reestruturação de Empresas",
+        "Insolvência Empresarial"
       ],
       formacao: [
         "Doutorado em Direito Tributário - Universidade de São Paulo (USP)",
