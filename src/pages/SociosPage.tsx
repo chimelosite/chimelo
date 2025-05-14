@@ -18,11 +18,12 @@ interface SocioProps {
 
 const SociosPage: React.FC = () => {
   const [selectedSocio, setSelectedSocio] = useState<number>(0);
+  const [expandedSocio, setExpandedSocio] = useState<number | null>(null);
   
   const socios: SocioProps[] = [
     {
       nome: "Gabriele Chimelo",
-      cargo: "Sócio Fundador",
+      cargo: "Sócia Fundadora",
       descricao: "É diretora do IBAJUD, membro do TMA Brasil (Turnaround Management Association) e do IDRE (Instituto de Direito da Reestruturação Empresarial), além de fundadora do CMR – Centro de Mulheres na Reestruturação Empresarial. Nessas instituições, lidera iniciativas de impacto técnico e institucional. Sua atuação é constantemente reconhecida por rankings como Leaders League, Legal 500 e Análise Advocacia 500, além de sua presença ativa em eventos de grande repercussão nacional.\n\nGabriele atua em diversos setores da economia, com destaque para agronegócio, infraestrutura, imobiliário, hospitalar, vestuário, alimentação, comércio, bancário, postos de combustíveis, seguradoras, tecnologia, indústria (automotiva, metalúrgica, alimentícia), educação, transportes, meio ambiente e serviços regulados. É especialista em real estate (inclusive em operações de venda de ativos), LGPD e compliance, além de atuar fortemente na gestão reputacional empresarial e em questões trabalhistas de alta complexidade.\n\nPossui profundo conhecimento contábil e expertise na análise gerencial das empresas, conduzindo seu trabalho a partir de diagnósticos sólidos, pareceres técnicos e cenários jurídicos fundamentados. Tem papel ativo na liderança de conselhos de governança, que enxerga como centro decisório legítimo da empresa em crise ou transformação. Sua atuação é concentrada nos estados do Rio Grande do Sul, Paraná, Santa Catarina, São Paulo e Mato Grosso.\n\nÉ autora de artigos em veículos especializados, coautora de obras coletivas sobre insolvência e professora da ESPM-Sul, onde compartilha sua experiência em gestão de crises e governança empresarial. Organizou e liderou diversos eventos técnicos voltados a fundos, FIDCs, securitizadoras e ao setor de moda.\n\nEntre os casos de grande repercussão em sua trajetória estão empresas como DHB Componentes Automotivos, Serki Fundações, Sultepa, Sul Catarinense, Ensino Metodista, GBOEX, Bela Gula, Leão Engenharia, Sanem Engenharia, Cargill e Top Safe, entre outros. Também se destacou na construção do precedente do STJ que autorizou a Emofesa, em recuperação judicial, a manter contratos com o poder público — marco importante no cenário nacional.\n\nCom inteligência tática e força na execução, lidera uma equipe altamente qualificada, com atuação integrada em análise de risco, estruturação jurídica e governança. Seu foco absoluto em resultados, aliado à inovação e à entrega de valor real, consolidou sua posição como uma das principais lideranças no campo empresarial.",
       especializacoes: [],
       formacao: [],
@@ -70,6 +71,12 @@ const SociosPage: React.FC = () => {
       <p key={index} className="mb-4 last:mb-0">{paragraph}</p>
     ));
   };
+  
+  // Function to handle mobile biography expansion
+  const handleBiographyClick = (index: number) => {
+    setExpandedSocio(expandedSocio === index ? null : index);
+    setSelectedSocio(index);
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -113,12 +120,13 @@ const SociosPage: React.FC = () => {
               
               <div className="w-2/3">
                 <Card className="overflow-hidden bg-white">
+                  {/* Improved aspect ratio for better face framing */}
                   <div className="aspect-[3/2] overflow-hidden bg-gray-100 border-b">
                     <AspectRatio ratio={3/2} className="bg-gray-100">
                       <img 
                         src={socios[selectedSocio].imagem} 
                         alt={socios[selectedSocio].nome} 
-                        className="w-full h-full object-cover object-center"
+                        className="w-full h-full object-cover object-top" 
                       />
                     </AspectRatio>
                   </div>
@@ -156,7 +164,7 @@ const SociosPage: React.FC = () => {
               </div>
             </div>
             
-            {/* Mobile View */}
+            {/* Mobile View with expanded biography functionality */}
             <div className="lg:hidden space-y-8">
               {socios.map((socio, index) => (
                 <Card key={index} className="overflow-hidden bg-white">
@@ -171,19 +179,21 @@ const SociosPage: React.FC = () => {
                     <h2 className="text-2xl font-bold mb-1">{socio.nome}</h2>
                     <p className="text-chimelo-silver mb-4">{socio.cargo}</p>
                     
-                    {/* Just show first paragraph on mobile for better UX */}
+                    {/* Show full biography if expanded, otherwise only first paragraph */}
                     <div className="prose max-w-none mb-4">
-                      {formatDescription(socio.descricao.split('\n\n')[0])}
+                      {expandedSocio === index 
+                        ? formatDescription(socio.descricao)
+                        : formatDescription(socio.descricao.split('\n\n')[0])}
                     </div>
                     
                     <button
-                      onClick={() => setSelectedSocio(index)}
+                      onClick={() => handleBiographyClick(index)}
                       className="text-chimelo-black font-medium hover:underline"
                     >
-                      Ler biografia completa
+                      {expandedSocio === index ? "Ocultar biografia" : "Ler biografia completa"}
                     </button>
                     
-                    {socios[index].especializacoes.length > 0 && (
+                    {(expandedSocio === index && socio.especializacoes.length > 0) && (
                       <div className="mt-6">
                         <h3 className="font-semibold mb-2">Áreas de Especialização</h3>
                         <ul className="list-disc pl-5 space-y-1">
@@ -194,7 +204,7 @@ const SociosPage: React.FC = () => {
                       </div>
                     )}
                     
-                    {socios[index].formacao.length > 0 && (
+                    {(expandedSocio === index && socio.formacao.length > 0) && (
                       <div className="mt-6">
                         <h3 className="font-semibold mb-2">Formação Acadêmica</h3>
                         <ul className="list-disc pl-5 space-y-1">

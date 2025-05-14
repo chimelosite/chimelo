@@ -201,8 +201,7 @@ const ContatoPage: React.FC = () => {
                       <div>
                         <h3 className="font-medium">E-mail</h3>
                         <p className="text-chimelo-silver mt-1">
-                          contato@chimelo.com.br<br />
-                          atendimento@chimelo.com.br
+                          contato@chimelo.com.br
                         </p>
                       </div>
                     </div>
