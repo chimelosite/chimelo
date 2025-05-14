@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -6,7 +5,6 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { cn } from "@/lib/utils";
-
 interface SocioProps {
   nome: string;
   cargo: string;
@@ -15,70 +13,42 @@ interface SocioProps {
   formacao: string[];
   imagem: string;
 }
-
 const SociosPage: React.FC = () => {
   const [selectedSocio, setSelectedSocio] = useState<number>(0);
   const [expandedSocio, setExpandedSocio] = useState<number | null>(null);
-  
-  const socios: SocioProps[] = [
-    {
-      nome: "Gabriele Chimelo",
-      cargo: "Sócia Fundadora",
-      descricao: "É diretora do IBAJUD, membro do TMA Brasil (Turnaround Management Association) e do IDRE (Instituto de Direito da Reestruturação Empresarial), além de fundadora do CMR – Centro de Mulheres na Reestruturação Empresarial. Nessas instituições, lidera iniciativas de impacto técnico e institucional. Sua atuação é constantemente reconhecida por rankings como Leaders League, Legal 500 e Análise Advocacia 500, além de sua presença ativa em eventos de grande repercussão nacional.\n\nGabriele atua em diversos setores da economia, com destaque para agronegócio, infraestrutura, imobiliário, hospitalar, vestuário, alimentação, comércio, bancário, postos de combustíveis, seguradoras, tecnologia, indústria (automotiva, metalúrgica, alimentícia), educação, transportes, meio ambiente e serviços regulados. É especialista em real estate (inclusive em operações de venda de ativos), LGPD e compliance, além de atuar fortemente na gestão reputacional empresarial e em questões trabalhistas de alta complexidade.\n\nPossui profundo conhecimento contábil e expertise na análise gerencial das empresas, conduzindo seu trabalho a partir de diagnósticos sólidos, pareceres técnicos e cenários jurídicos fundamentados. Tem papel ativo na liderança de conselhos de governança, que enxerga como centro decisório legítimo da empresa em crise ou transformação. Sua atuação é concentrada nos estados do Rio Grande do Sul, Paraná, Santa Catarina, São Paulo e Mato Grosso.\n\nÉ autora de artigos em veículos especializados, coautora de obras coletivas sobre insolvência e professora da ESPM-Sul, onde compartilha sua experiência em gestão de crises e governança empresarial. Organizou e liderou diversos eventos técnicos voltados a fundos, FIDCs, securitizadoras e ao setor de moda.\n\nEntre os casos de grande repercussão em sua trajetória estão empresas como DHB Componentes Automotivos, Serki Fundações, Sultepa, Sul Catarinense, Ensino Metodista, GBOEX, Bela Gula, Leão Engenharia, Sanem Engenharia, Cargill e Top Safe, entre outros. Também se destacou na construção do precedente do STJ que autorizou a Emofesa, em recuperação judicial, a manter contratos com o poder público — marco importante no cenário nacional.\n\nCom inteligência tática e força na execução, lidera uma equipe altamente qualificada, com atuação integrada em análise de risco, estruturação jurídica e governança. Seu foco absoluto em resultados, aliado à inovação e à entrega de valor real, consolidou sua posição como uma das principais lideranças no campo empresarial.",
-      especializacoes: [],
-      formacao: [],
-      imagem: "https://i.imgur.com/jBmxcTd.png"
-    },
-    {
-      nome: "Conrado Dall'Igna",
-      cargo: "Sócia Fundadora",
-      descricao: "É diretora do IBAJUD, membro do TMA Brasil (Turnaround Management Association) e do IDRE (Instituto de Direito da Reestruturação Empresarial), além de fundadora do CMR – Centro de Mulheres na Reestruturação Empresarial. Nessas instituições, lidera iniciativas de impacto técnico e institucional. Sua atuação é constantemente reconhecida por rankings como Leaders League, Legal 500 e Análise Advocacia 500, além de sua presença ativa em eventos de grande repercussão nacional.\n\nConrado atua em diversos setores da economia, com destaque para agronegócio, infraestrutura, imobiliário, hospitalar, vestuário, alimentação, comércio, bancário, postos de combustíveis, seguradoras, tecnologia, indústria (automotiva, metalúrgica, alimentícia), educação, transportes, meio ambiente e serviços regulados. É especialista em real estate (inclusive em operações de venda de ativos), LGPD e compliance, além de atuar fortemente na gestão reputacional empresarial e em questões trabalhistas de alta complexidade.\n\nPossui profundo conhecimento contábil e expertise na análise gerencial das empresas, conduzindo seu trabalho a partir de diagnósticos sólidos, pareceres técnicos e cenários jurídicos fundamentados. Tem papel ativo na liderança de conselhos de governança, que enxerga como centro decisório legítimo da empresa em crise ou transformação. Sua atuação é concentrada nos estados do Rio Grande do Sul, Paraná, Santa Catarina, São Paulo e Mato Grosso.\n\nÉ autor de artigos em veículos especializados, coautor de obras coletivas sobre insolvência e professor da ESPM-Sul, onde compartilha sua experiência em gestão de crises e governança empresarial. Organizou e liderou diversos eventos técnicos voltados a fundos, FIDCs, securitizadoras e ao setor de moda.\n\nEntre os casos de grande repercussão em sua trajetória estão empresas como DHB Componentes Automotivos, Serki Fundações, Sultepa, Sul Catarinense, Ensino Metodista, GBOEX, Bela Gula, Leão Engenharia, Sanem Engenharia, Cargill e Top Safe, entre outros. Também se destacou na construção do precedente do STJ que autorizou a Emofesa, em recuperação judicial, a manter contratos com o poder público — marco importante no cenário nacional.\n\nCom inteligência tática e força na execução, lidera uma equipe altamente qualificada, com atuação integrada em análise de risco, estruturação jurídica e governança. Seu foco absoluto em resultados, aliado à inovação e à entrega de valor real, consolidou sua posição como uma das principais lideranças no campo empresarial.",
-      especializacoes: [
-        "Direito Trabalhista",
-        "Direito Previdenciário",
-        "Negociações Coletivas",
-        "Compliance Trabalhista"
-      ],
-      formacao: [
-        "Mestrado em Direito do Trabalho - Universidade de São Paulo (USP)",
-        "Especialização em Compliance - Fundação Getúlio Vargas (FGV)",
-        "Programa de Negociação Avançada - University of California"
-      ],
-      imagem: "https://i.imgur.com/t43ksK9.png"
-    },
-    {
-      nome: "Tiago Luz",
-      cargo: "Sócia Fundadora",
-      descricao: "É diretora do IBAJUD, membro do TMA Brasil (Turnaround Management Association) e do IDRE (Instituto de Direito da Reestruturação Empresarial), além de fundadora do CMR – Centro de Mulheres na Reestruturação Empresarial. Nessas instituições, lidera iniciativas de impacto técnico e institucional. Sua atuação é constantemente reconhecida por rankings como Leaders League, Legal 500 e Análise Advocacia 500, além de sua presença ativa em eventos de grande repercussão nacional.\n\nTiago atua em diversos setores da economia, com destaque para agronegócio, infraestrutura, imobiliário, hospitalar, vestuário, alimentação, comércio, bancário, postos de combustíveis, seguradoras, tecnologia, indústria (automotiva, metalúrgica, alimentícia), educação, transportes, meio ambiente e serviços regulados. É especialista em real estate (inclusive em operações de venda de ativos), LGPD e compliance, além de atuar fortemente na gestão reputacional empresarial e em questões trabalhistas de alta complexidade.\n\nPossui profundo conhecimento contábil e expertise na análise gerencial das empresas, conduzindo seu trabalho a partir de diagnósticos sólidos, pareceres técnicos e cenários jurídicos fundamentados. Tem papel ativo na liderança de conselhos de governança, que enxerga como centro decisório legítimo da empresa em crise ou transformação. Sua atuação é concentrada nos estados do Rio Grande do Sul, Paraná, Santa Catarina, São Paulo e Mato Grosso.\n\nÉ autor de artigos em veículos especializados, coautor de obras coletivas sobre insolvência e professor da ESPM-Sul, onde compartilha sua experiência em gestão de crises e governança empresarial. Organizou e liderou diversos eventos técnicos voltados a fundos, FIDCs, securitizadoras e ao setor de moda.\n\nEntre os casos de grande repercussão em sua trajetória estão empresas como DHB Componentes Automotivos, Serki Fundações, Sultepa, Sul Catarinense, Ensino Metodista, GBOEX, Bela Gula, Leão Engenharia, Sanem Engenharia, Cargill e Top Safe, entre outros. Também se destacou na construção do precedente do STJ que autorizou a Emofesa, em recuperação judicial, a manter contratos com o poder público — marco importante no cenário nacional.\n\nCom inteligência tática e força na execução, lidera uma equipe altamente qualificada, com atuação integrada em análise de risco, estruturação jurídica e governança. Seu foco absoluto em resultados, aliado à inovação e à entrega de valor real, consolidou sua posição como uma das principais lideranças no campo empresarial.",
-      especializacoes: [
-        "Direito Civil",
-        "Direito Contratual",
-        "Resolução de Disputas",
-        "Contratos Internacionais"
-      ],
-      formacao: [
-        "Mestrado em Direito Civil - Universidade de Coimbra",
-        "Especialização em Arbitragem - Câmara de Comércio Internacional",
-        "LLM em Contratos Internacionais - King's College London"
-      ],
-      imagem: "https://i.imgur.com/DPS2rJN.png"
-    }
-  ];
+  const socios: SocioProps[] = [{
+    nome: "Gabriele Chimelo",
+    cargo: "Sócia Fundadora",
+    descricao: "É diretora do IBAJUD, membro do TMA Brasil (Turnaround Management Association) e do IDRE (Instituto de Direito da Reestruturação Empresarial), além de fundadora do CMR – Centro de Mulheres na Reestruturação Empresarial. Nessas instituições, lidera iniciativas de impacto técnico e institucional. Sua atuação é constantemente reconhecida por rankings como Leaders League, Legal 500 e Análise Advocacia 500, além de sua presença ativa em eventos de grande repercussão nacional.\n\nGabriele atua em diversos setores da economia, com destaque para agronegócio, infraestrutura, imobiliário, hospitalar, vestuário, alimentação, comércio, bancário, postos de combustíveis, seguradoras, tecnologia, indústria (automotiva, metalúrgica, alimentícia), educação, transportes, meio ambiente e serviços regulados. É especialista em real estate (inclusive em operações de venda de ativos), LGPD e compliance, além de atuar fortemente na gestão reputacional empresarial e em questões trabalhistas de alta complexidade.\n\nPossui profundo conhecimento contábil e expertise na análise gerencial das empresas, conduzindo seu trabalho a partir de diagnósticos sólidos, pareceres técnicos e cenários jurídicos fundamentados. Tem papel ativo na liderança de conselhos de governança, que enxerga como centro decisório legítimo da empresa em crise ou transformação. Sua atuação é concentrada nos estados do Rio Grande do Sul, Paraná, Santa Catarina, São Paulo e Mato Grosso.\n\nÉ autora de artigos em veículos especializados, coautora de obras coletivas sobre insolvência e professora da ESPM-Sul, onde compartilha sua experiência em gestão de crises e governança empresarial. Organizou e liderou diversos eventos técnicos voltados a fundos, FIDCs, securitizadoras e ao setor de moda.\n\nEntre os casos de grande repercussão em sua trajetória estão empresas como DHB Componentes Automotivos, Serki Fundações, Sultepa, Sul Catarinense, Ensino Metodista, GBOEX, Bela Gula, Leão Engenharia, Sanem Engenharia, Cargill e Top Safe, entre outros. Também se destacou na construção do precedente do STJ que autorizou a Emofesa, em recuperação judicial, a manter contratos com o poder público — marco importante no cenário nacional.\n\nCom inteligência tática e força na execução, lidera uma equipe altamente qualificada, com atuação integrada em análise de risco, estruturação jurídica e governança. Seu foco absoluto em resultados, aliado à inovação e à entrega de valor real, consolidou sua posição como uma das principais lideranças no campo empresarial.",
+    especializacoes: [],
+    formacao: [],
+    imagem: "https://i.imgur.com/jBmxcTd.png"
+  }, {
+    nome: "Conrado Dall'Igna",
+    cargo: "Sócia Fundadora",
+    descricao: "É diretora do IBAJUD, membro do TMA Brasil (Turnaround Management Association) e do IDRE (Instituto de Direito da Reestruturação Empresarial), além de fundadora do CMR – Centro de Mulheres na Reestruturação Empresarial. Nessas instituições, lidera iniciativas de impacto técnico e institucional. Sua atuação é constantemente reconhecida por rankings como Leaders League, Legal 500 e Análise Advocacia 500, além de sua presença ativa em eventos de grande repercussão nacional.\n\nConrado atua em diversos setores da economia, com destaque para agronegócio, infraestrutura, imobiliário, hospitalar, vestuário, alimentação, comércio, bancário, postos de combustíveis, seguradoras, tecnologia, indústria (automotiva, metalúrgica, alimentícia), educação, transportes, meio ambiente e serviços regulados. É especialista em real estate (inclusive em operações de venda de ativos), LGPD e compliance, além de atuar fortemente na gestão reputacional empresarial e em questões trabalhistas de alta complexidade.\n\nPossui profundo conhecimento contábil e expertise na análise gerencial das empresas, conduzindo seu trabalho a partir de diagnósticos sólidos, pareceres técnicos e cenários jurídicos fundamentados. Tem papel ativo na liderança de conselhos de governança, que enxerga como centro decisório legítimo da empresa em crise ou transformação. Sua atuação é concentrada nos estados do Rio Grande do Sul, Paraná, Santa Catarina, São Paulo e Mato Grosso.\n\nÉ autor de artigos em veículos especializados, coautor de obras coletivas sobre insolvência e professor da ESPM-Sul, onde compartilha sua experiência em gestão de crises e governança empresarial. Organizou e liderou diversos eventos técnicos voltados a fundos, FIDCs, securitizadoras e ao setor de moda.\n\nEntre os casos de grande repercussão em sua trajetória estão empresas como DHB Componentes Automotivos, Serki Fundações, Sultepa, Sul Catarinense, Ensino Metodista, GBOEX, Bela Gula, Leão Engenharia, Sanem Engenharia, Cargill e Top Safe, entre outros. Também se destacou na construção do precedente do STJ que autorizou a Emofesa, em recuperação judicial, a manter contratos com o poder público — marco importante no cenário nacional.\n\nCom inteligência tática e força na execução, lidera uma equipe altamente qualificada, com atuação integrada em análise de risco, estruturação jurídica e governança. Seu foco absoluto em resultados, aliado à inovação e à entrega de valor real, consolidou sua posição como uma das principais lideranças no campo empresarial.",
+    especializacoes: ["Direito Trabalhista", "Direito Previdenciário", "Negociações Coletivas", "Compliance Trabalhista"],
+    formacao: ["Mestrado em Direito do Trabalho - Universidade de São Paulo (USP)", "Especialização em Compliance - Fundação Getúlio Vargas (FGV)", "Programa de Negociação Avançada - University of California"],
+    imagem: "https://i.imgur.com/t43ksK9.png"
+  }, {
+    nome: "Tiago Luz",
+    cargo: "Sócia Fundadora",
+    descricao: "É diretora do IBAJUD, membro do TMA Brasil (Turnaround Management Association) e do IDRE (Instituto de Direito da Reestruturação Empresarial), além de fundadora do CMR – Centro de Mulheres na Reestruturação Empresarial. Nessas instituições, lidera iniciativas de impacto técnico e institucional. Sua atuação é constantemente reconhecida por rankings como Leaders League, Legal 500 e Análise Advocacia 500, além de sua presença ativa em eventos de grande repercussão nacional.\n\nTiago atua em diversos setores da economia, com destaque para agronegócio, infraestrutura, imobiliário, hospitalar, vestuário, alimentação, comércio, bancário, postos de combustíveis, seguradoras, tecnologia, indústria (automotiva, metalúrgica, alimentícia), educação, transportes, meio ambiente e serviços regulados. É especialista em real estate (inclusive em operações de venda de ativos), LGPD e compliance, além de atuar fortemente na gestão reputacional empresarial e em questões trabalhistas de alta complexidade.\n\nPossui profundo conhecimento contábil e expertise na análise gerencial das empresas, conduzindo seu trabalho a partir de diagnósticos sólidos, pareceres técnicos e cenários jurídicos fundamentados. Tem papel ativo na liderança de conselhos de governança, que enxerga como centro decisório legítimo da empresa em crise ou transformação. Sua atuação é concentrada nos estados do Rio Grande do Sul, Paraná, Santa Catarina, São Paulo e Mato Grosso.\n\nÉ autor de artigos em veículos especializados, coautor de obras coletivas sobre insolvência e professor da ESPM-Sul, onde compartilha sua experiência em gestão de crises e governança empresarial. Organizou e liderou diversos eventos técnicos voltados a fundos, FIDCs, securitizadoras e ao setor de moda.\n\nEntre os casos de grande repercussão em sua trajetória estão empresas como DHB Componentes Automotivos, Serki Fundações, Sultepa, Sul Catarinense, Ensino Metodista, GBOEX, Bela Gula, Leão Engenharia, Sanem Engenharia, Cargill e Top Safe, entre outros. Também se destacou na construção do precedente do STJ que autorizou a Emofesa, em recuperação judicial, a manter contratos com o poder público — marco importante no cenário nacional.\n\nCom inteligência tática e força na execução, lidera uma equipe altamente qualificada, com atuação integrada em análise de risco, estruturação jurídica e governança. Seu foco absoluto em resultados, aliado à inovação e à entrega de valor real, consolidou sua posição como uma das principais lideranças no campo empresarial.",
+    especializacoes: ["Direito Civil", "Direito Contratual", "Resolução de Disputas", "Contratos Internacionais"],
+    formacao: ["Mestrado em Direito Civil - Universidade de Coimbra", "Especialização em Arbitragem - Câmara de Comércio Internacional", "LLM em Contratos Internacionais - King's College London"],
+    imagem: "https://i.imgur.com/DPS2rJN.png"
+  }];
 
   // Function to split the description into paragraphs
   const formatDescription = (description: string) => {
-    return description.split('\n\n').map((paragraph, index) => (
-      <p key={index} className="mb-4 last:mb-0">{paragraph}</p>
-    ));
+    return description.split('\n\n').map((paragraph, index) => <p key={index} className="mb-4 last:mb-0">{paragraph}</p>);
   };
-  
+
   // Function to handle mobile biography expansion
   const handleBiographyClick = (index: number) => {
     setExpandedSocio(expandedSocio === index ? null : index);
   };
-
-  return (
-    <div className="flex flex-col min-h-screen">
+  return <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow bg-gray-50">
         <section className="chimelo-section">
@@ -94,15 +64,7 @@ const SociosPage: React.FC = () => {
             {/* Desktop View */}
             <div className="hidden lg:flex gap-8">
               <div className="w-1/3 space-y-6 sticky top-8 self-start">
-                {socios.map((socio, index) => (
-                  <Card 
-                    key={index} 
-                    className={cn(
-                      "cursor-pointer transition-all hover:shadow-md",
-                      selectedSocio === index ? "border-chimelo-black ring-1 ring-chimelo-black" : "border-transparent"
-                    )}
-                    onClick={() => setSelectedSocio(index)}
-                  >
+                {socios.map((socio, index) => <Card key={index} className={cn("cursor-pointer transition-all hover:shadow-md", selectedSocio === index ? "border-chimelo-black ring-1 ring-chimelo-black" : "border-transparent")} onClick={() => setSelectedSocio(index)}>
                     <CardContent className="p-4 flex items-center gap-4">
                       <Avatar className="h-16 w-16 border border-chimelo-lightgray/20">
                         <AvatarImage src={socio.imagem} alt={socio.nome} />
@@ -113,20 +75,15 @@ const SociosPage: React.FC = () => {
                         <p className="text-chimelo-silver">{socio.cargo}</p>
                       </div>
                     </CardContent>
-                  </Card>
-                ))}
+                  </Card>)}
               </div>
               
               <div className="w-2/3">
                 <Card className="overflow-hidden bg-white">
                   {/* Updated aspect ratio with object-center instead of object-top */}
                   <div className="aspect-[3/2] overflow-hidden bg-gray-100 border-b">
-                    <AspectRatio ratio={3/2} className="bg-gray-100">
-                      <img 
-                        src={socios[selectedSocio].imagem} 
-                        alt={socios[selectedSocio].nome} 
-                        className="w-full h-full object-cover object-center" 
-                      />
+                    <AspectRatio ratio={3 / 2} className="bg-gray-100">
+                      <img src={socios[selectedSocio].imagem} alt={socios[selectedSocio].nome} className="w-full h-full object-cover object-center" />
                     </AspectRatio>
                   </div>
                   <CardContent className="p-8">
@@ -137,27 +94,19 @@ const SociosPage: React.FC = () => {
                       {formatDescription(socios[selectedSocio].descricao)}
                     </div>
                     
-                    {socios[selectedSocio].especializacoes.length > 0 && (
-                      <div className="mt-8">
+                    {socios[selectedSocio].especializacoes.length > 0 && <div className="mt-8">
                         <h3 className="text-xl font-semibold mb-3">Áreas de Especialização</h3>
                         <ul className="list-disc pl-5 space-y-1">
-                          {socios[selectedSocio].especializacoes.map((esp, index) => (
-                            <li key={index}>{esp}</li>
-                          ))}
+                          {socios[selectedSocio].especializacoes.map((esp, index) => <li key={index}>{esp}</li>)}
                         </ul>
-                      </div>
-                    )}
+                      </div>}
                     
-                    {socios[selectedSocio].formacao.length > 0 && (
-                      <div className="mt-8">
+                    {socios[selectedSocio].formacao.length > 0 && <div className="mt-8">
                         <h3 className="text-xl font-semibold mb-3">Formação Acadêmica</h3>
                         <ul className="list-disc pl-5 space-y-1">
-                          {socios[selectedSocio].formacao.map((form, index) => (
-                            <li key={index}>{form}</li>
-                          ))}
+                          {socios[selectedSocio].formacao.map((form, index) => <li key={index}>{form}</li>)}
                         </ul>
-                      </div>
-                    )}
+                      </div>}
                   </CardContent>
                 </Card>
               </div>
@@ -165,14 +114,9 @@ const SociosPage: React.FC = () => {
             
             {/* Mobile View with expanded biography functionality */}
             <div className="lg:hidden space-y-8">
-              {socios.map((socio, index) => (
-                <Card key={index} className="overflow-hidden bg-white">
+              {socios.map((socio, index) => <Card key={index} className="overflow-hidden bg-white">
                   <div className="aspect-square overflow-hidden bg-gray-100 border-b">
-                    <img 
-                      src={socio.imagem} 
-                      alt={socio.nome} 
-                      className="w-full h-full object-cover object-center"
-                    />
+                    <img src={socio.imagem} alt={socio.nome} className="w-full h-full object-cover object-center" />
                   </div>
                   <CardContent className="p-6">
                     <h2 className="text-2xl font-bold mb-1">{socio.nome}</h2>
@@ -180,49 +124,33 @@ const SociosPage: React.FC = () => {
                     
                     {/* Show full biography if expanded, otherwise only first paragraph */}
                     <div className="prose max-w-none mb-4">
-                      {expandedSocio === index 
-                        ? formatDescription(socio.descricao)
-                        : formatDescription(socio.descricao.split('\n\n')[0])}
+                      {expandedSocio === index ? formatDescription(socio.descricao) : formatDescription(socio.descricao.split('\n\n')[0])}
                     </div>
                     
-                    <button
-                      onClick={() => handleBiographyClick(index)}
-                      className="text-chimelo-black font-medium hover:underline"
-                    >
+                    <button onClick={() => handleBiographyClick(index)} className="text-chimelo-black font-medium hover:underline">
                       {expandedSocio === index ? "Ocultar biografia" : "Ler biografia completa"}
                     </button>
                     
-                    {(expandedSocio === index && socio.especializacoes.length > 0) && (
-                      <div className="mt-6">
+                    {expandedSocio === index && socio.especializacoes.length > 0 && <div className="mt-6">
                         <h3 className="font-semibold mb-2">Áreas de Especialização</h3>
                         <ul className="list-disc pl-5 space-y-1">
-                          {socio.especializacoes.map((esp, espIndex) => (
-                            <li key={espIndex} className="text-sm">{esp}</li>
-                          ))}
+                          {socio.especializacoes.map((esp, espIndex) => <li key={espIndex} className="text-sm">{esp}</li>)}
                         </ul>
-                      </div>
-                    )}
+                      </div>}
                     
-                    {(expandedSocio === index && socio.formacao.length > 0) && (
-                      <div className="mt-6">
+                    {expandedSocio === index && socio.formacao.length > 0 && <div className="mt-6">
                         <h3 className="font-semibold mb-2">Formação Acadêmica</h3>
                         <ul className="list-disc pl-5 space-y-1">
-                          {socio.formacao.map((form, formIndex) => (
-                            <li key={formIndex} className="text-sm">{form}</li>
-                          ))}
+                          {socio.formacao.map((form, formIndex) => <li key={formIndex} className="text-sm">{form}</li>)}
                         </ul>
-                      </div>
-                    )}
+                      </div>}
                   </CardContent>
-                </Card>
-              ))}
+                </Card>)}
             </div>
           </div>
         </section>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default SociosPage;
