@@ -1,6 +1,6 @@
 
 import React from "react";
-import { WhatsApp } from "lucide-react";
+import { MessageSquare } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface WhatsAppButtonProps {
@@ -26,7 +26,7 @@ const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({
       )}
       aria-label="Fale conosco pelo WhatsApp"
     >
-      <WhatsApp size={28} />
+      <MessageSquare size={28} />
     </a>
   );
 };
