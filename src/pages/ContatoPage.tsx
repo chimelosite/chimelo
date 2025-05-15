@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { toast } from "@/components/ui/use-toast";
 import { useForm } from "react-hook-form";
+import { supabase } from "@/integrations/supabase/client";
 
 interface FormData {
   nome: string;
@@ -42,22 +43,21 @@ const ContatoPage: React.FC = () => {
     try {
       console.log("Enviando formulário:", data);
       
-      // Corrigindo a URL para usar a função Supabase diretamente
-      // URL incorreta: ${window.location.origin}/api/send-contact-email
-      // URL correta: Usando endpoint da função Supabase
-      const functionUrl = "https://fejjviqdioglbvdrwmop.functions.supabase.co/send-contact-email";
+      // URL da função edge do Supabase
+      const functionUrl = "https://ofickeaxqyfvcpcughrx.functions.supabase.co/send-contact-email";
       
+      // Enviar dados para a função edge
       const response = await fetch(functionUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${supabase.auth.session()?.access_token || ""}`,
         },
         body: JSON.stringify({
-          to: 'contato@chimelo.com.br',
-          subject: `Novo contato via site: ${data.assunto}`,
           nome: data.nome,
           email: data.email,
           telefone: data.telefone,
+          assunto: data.assunto,
           mensagem: data.mensagem,
           tipo: data.tipo
         })
@@ -65,34 +65,46 @@ const ContatoPage: React.FC = () => {
       
       // Verificar se a resposta é bem-sucedida
       if (!response.ok) {
-        // Se não for bem-sucedido, obter texto do erro ao invés de JSON
-        const errorText = await response.text();
-        console.error("Erro na resposta HTTP:", response.status, errorText);
-        throw new Error(`Erro ${response.status}: O servidor não pôde processar a solicitação`);
+        const errorData = await response.json().catch(() => null);
+        console.error("Erro na resposta HTTP:", response.status, errorData);
+        throw new Error(errorData?.error || `Erro ${response.status}: O servidor não pôde processar a solicitação`);
       }
 
-      // Verificar se o Content-Type é de fato JSON
-      const contentType = response.headers.get("content-type");
-      if (!contentType || !contentType.includes("application/json")) {
-        const text = await response.text();
-        console.error("Resposta não é JSON:", contentType, "Conteúdo:", text);
-        throw new Error("Formato de resposta inválido do servidor");
-      }
-      
       const result = await response.json();
       
       console.log("Resposta do servidor:", result);
-      toast({
-        title: "Mensagem enviada",
-        description: "Sua mensagem foi enviada com sucesso! Em breve entraremos em contato.",
-      });
-      reset();
+      
+      if (result.success) {
+        // Também salvar diretamente na tabela (redundância para caso a função falhe)
+        const { error: dbError } = await supabase
+          .from('contatos')
+          .insert({
+            nome: data.nome,
+            email: data.email,
+            telefone: data.telefone,
+            assunto: data.assunto,
+            mensagem: data.mensagem,
+            tipo: data.tipo
+          });
+          
+        if (dbError) {
+          console.warn("Aviso: Dados salvos via função edge, mas falha ao salvar diretamente:", dbError);
+        }
+        
+        toast({
+          title: "Mensagem enviada",
+          description: "Sua mensagem foi enviada com sucesso! Em breve entraremos em contato.",
+        });
+        reset();
+      } else {
+        throw new Error(result.error || "Falha ao enviar mensagem");
+      }
     } catch (error) {
-      console.error("Erro ao enviar email:", error);
+      console.error("Erro ao enviar mensagem:", error);
       toast({
         variant: "destructive",
         title: "Erro",
-        description: "Erro ao enviar mensagem. Por favor, tente novamente.",
+        description: error.message || "Erro ao enviar mensagem. Por favor, tente novamente.",
       });
     } finally {
       setIsSubmitting(false);

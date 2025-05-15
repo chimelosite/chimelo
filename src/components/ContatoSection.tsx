@@ -1,6 +1,8 @@
 
 import React from "react";
 import { Linkedin, Instagram, MessageSquare } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const ContatoSection: React.FC = () => {
   return (
@@ -9,8 +11,17 @@ const ContatoSection: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Entre em contato</h2>
           <p className="text-chimelo-silver mb-8">
-            Estamos à disposição para atender às suas necessidades jurídicas. Entre em contato conosco através de nossas redes sociais.
+            Estamos à disposição para atender às suas necessidades jurídicas. Entre em contato conosco através de nossas redes sociais ou formulário de contato.
           </p>
+          
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-8 mb-10">
+            <Button variant="outline" className="bg-white/5 border-chimelo-silver/20 hover:bg-white/10 text-white" asChild>
+              <Link to="/contato" className="flex items-center gap-2">
+                Envie uma mensagem
+                <MessageSquare className="h-5 w-5" />
+              </Link>
+            </Button>
+          </div>
           
           <div className="flex justify-center space-x-8">
             <a

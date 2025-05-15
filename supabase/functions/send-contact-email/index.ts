@@ -1,20 +1,24 @@
 
 import { serve } from "https://deno.land/std@0.131.0/http/server.ts";
 import { SmtpClient } from "https://deno.land/x/smtp@v0.7.0/mod.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.39.6";
 
 interface EmailRequest {
-  to: string;
-  subject: string;
   nome: string;
   email: string;
   telefone: string;
+  assunto: string;
   mensagem: string;
   tipo: string;
 }
 
+// Define Supabase URL and key
+const supabaseUrl = "https://ofickeaxqyfvcpcughrx.supabase.co";
+const supabaseKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") || "";
+
 serve(async (req) => {
   // Configurar CORS para permitir apenas o domínio específico
-  const allowedOrigin = "https://www.chimelo.com.br";
+  const allowedOrigin = req.headers.get("origin") || "*";
   
   // Headers para todas as respostas
   const headers = new Headers({
@@ -23,15 +27,6 @@ serve(async (req) => {
     "Access-Control-Allow-Methods": "POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type, Authorization",
   });
-  
-  // Verificar origem da requisição
-  const origin = req.headers.get("origin");
-  if (origin && origin !== allowedOrigin) {
-    return new Response(
-      JSON.stringify({ success: false, error: "Origem não permitida" }),
-      { headers, status: 403 }
-    );
-  }
   
   // Tratar requisição preflight OPTIONS
   if (req.method === "OPTIONS") {
@@ -59,13 +54,36 @@ serve(async (req) => {
       );
     }
 
-    const { to, subject, nome, email, telefone, mensagem, tipo } = requestData;
+    const { nome, email, telefone, assunto, mensagem, tipo } = requestData;
     
     // Validar campos obrigatórios
-    if (!to || !nome || !email || !telefone || !mensagem) {
+    if (!nome || !email || !telefone || !assunto || !mensagem || !tipo) {
       return new Response(
         JSON.stringify({ success: false, error: "Todos os campos obrigatórios devem ser preenchidos" }),
         { headers, status: 400 }
+      );
+    }
+    
+    // Inicializar cliente Supabase
+    const supabase = createClient(supabaseUrl, supabaseKey);
+    
+    // Salvar dados na tabela de contatos
+    const { error: dbError } = await supabase
+      .from("contatos")
+      .insert({
+        nome,
+        email,
+        telefone,
+        assunto,
+        mensagem,
+        tipo
+      });
+    
+    if (dbError) {
+      console.error("Erro ao salvar contato no banco de dados:", dbError);
+      return new Response(
+        JSON.stringify({ success: false, error: "Erro ao salvar contato", details: dbError.message }),
+        { headers, status: 500 }
       );
     }
     
@@ -87,7 +105,7 @@ serve(async (req) => {
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Telefone:</strong> ${telefone}</p>
         <p><strong>Tipo de Cliente:</strong> ${tipo}</p>
-        <p><strong>Assunto:</strong> ${subject}</p>
+        <p><strong>Assunto:</strong> ${assunto}</p>
         <p><strong>Mensagem:</strong></p>
         <p>${mensagem}</p>
       `;
@@ -95,15 +113,15 @@ serve(async (req) => {
       // Enviar email
       await client.send({
         from: Deno.env.get("SMTP_FROM") || "contato@chimelo.com.br",
-        to: to,
-        subject: subject,
+        to: "contato@chimelo.com.br",
+        subject: `Novo contato via site: ${assunto}`,
         content: "text/html",
         html: emailContent,
       });
       
       await client.close();
       
-      console.log("Email enviado com sucesso para:", to);
+      console.log("Email enviado com sucesso");
       
       return new Response(
         JSON.stringify({ success: true, message: "Email enviado com sucesso" }),
