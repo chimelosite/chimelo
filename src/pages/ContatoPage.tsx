@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -7,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { toast } from "sonner";
+import { toast } from "@/components/ui/sonner";
 import { useForm } from "react-hook-form";
 
 interface FormData {
@@ -39,9 +40,15 @@ const ContatoPage: React.FC = () => {
     setIsSubmitting(true);
     
     try {
+      console.log("Enviando formulário:", data);
+      
       // Supabase implementation for sending emails
-      const { data: emailResponse, error } = await window.supabase.functions.invoke('send-contact-email', {
-        body: {
+      const response = await fetch(`${window.location.origin}/api/send-contact-email`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
           to: 'contato@chimelo.com.br',
           subject: `Novo contato via site: ${data.assunto}`,
           nome: data.nome,
@@ -49,11 +56,16 @@ const ContatoPage: React.FC = () => {
           telefone: data.telefone,
           mensagem: data.mensagem,
           tipo: data.tipo
-        }
+        })
       });
       
-      if (error) throw error;
+      const result = await response.json();
       
+      if (!response.ok) {
+        throw new Error(result.error || 'Erro ao enviar mensagem');
+      }
+      
+      console.log("Resposta do servidor:", result);
       toast.success("Sua mensagem foi enviada com sucesso! Em breve entraremos em contato.");
       reset();
     } catch (error) {

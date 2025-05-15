@@ -13,10 +13,31 @@ interface EmailRequest {
 }
 
 serve(async (req) => {
+  // Add CORS headers
+  const headers = new Headers({
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*", // In production, replace with your specific domain
+    "Access-Control-Allow-Headers": "Content-Type, Authorization",
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+  });
+  
+  // Handle preflight OPTIONS request
+  if (req.method === "OPTIONS") {
+    return new Response(null, { headers, status: 204 });
+  }
+
   try {
     const { to, subject, nome, email, telefone, mensagem, tipo } = await req.json() as EmailRequest;
     
-    // Configure SMTP client - replace with your actual SMTP settings
+    // Validate required fields
+    if (!to || !nome || !email || !telefone || !mensagem) {
+      return new Response(
+        JSON.stringify({ success: false, error: "Todos os campos obrigatórios devem ser preenchidos" }),
+        { headers, status: 400 }
+      );
+    }
+    
+    // Configure SMTP client
     const client = new SmtpClient();
     
     await client.connectTLS({
@@ -33,6 +54,7 @@ serve(async (req) => {
       <p><strong>Email:</strong> ${email}</p>
       <p><strong>Telefone:</strong> ${telefone}</p>
       <p><strong>Tipo de Cliente:</strong> ${tipo}</p>
+      <p><strong>Assunto:</strong> ${subject}</p>
       <p><strong>Mensagem:</strong></p>
       <p>${mensagem}</p>
     `;
@@ -48,22 +70,18 @@ serve(async (req) => {
     
     await client.close();
     
+    console.log("Email enviado com sucesso para:", to);
+    
     return new Response(
       JSON.stringify({ success: true, message: "Email enviado com sucesso" }),
-      {
-        headers: { "Content-Type": "application/json" },
-        status: 200,
-      }
+      { headers, status: 200 }
     );
   } catch (error) {
     console.error("Error sending email:", error);
     
     return new Response(
       JSON.stringify({ success: false, error: error.message }),
-      {
-        headers: { "Content-Type": "application/json" },
-        status: 500,
-      }
+      { headers, status: 500 }
     );
   }
 });
