@@ -13,21 +13,41 @@ interface EmailRequest {
 }
 
 serve(async (req) => {
-  // Add CORS headers
+  // Configurar CORS para permitir apenas o domínio específico
+  const allowedOrigin = "https://www.chimelo.com.br";
+  
+  // Headers para todas as respostas
   const headers = new Headers({
     "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": "*", // In production, replace with your specific domain
-    "Access-Control-Allow-Headers": "Content-Type, Authorization",
+    "Access-Control-Allow-Origin": allowedOrigin,
     "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type, Authorization",
   });
   
-  // Handle preflight OPTIONS request
+  // Verificar origem da requisição
+  const origin = req.headers.get("origin");
+  if (origin && origin !== allowedOrigin) {
+    return new Response(
+      JSON.stringify({ success: false, error: "Origem não permitida" }),
+      { headers, status: 403 }
+    );
+  }
+  
+  // Tratar requisição preflight OPTIONS
   if (req.method === "OPTIONS") {
-    return new Response(null, { headers, status: 204 });
+    return new Response(null, { headers, status: 200 });
+  }
+  
+  // Verificar se o método é POST
+  if (req.method !== "POST") {
+    return new Response(
+      JSON.stringify({ success: false, error: "Método não permitido" }),
+      { headers, status: 405 }
+    );
   }
 
   try {
-    // Parse JSON body safely
+    // Parse JSON body com tratamento de erro
     let requestData;
     try {
       requestData = await req.json() as EmailRequest;
@@ -41,7 +61,7 @@ serve(async (req) => {
 
     const { to, subject, nome, email, telefone, mensagem, tipo } = requestData;
     
-    // Validate required fields
+    // Validar campos obrigatórios
     if (!to || !nome || !email || !telefone || !mensagem) {
       return new Response(
         JSON.stringify({ success: false, error: "Todos os campos obrigatórios devem ser preenchidos" }),
@@ -49,50 +69,69 @@ serve(async (req) => {
       );
     }
     
-    // Configure SMTP client
+    // Configurar SMTP client
     const client = new SmtpClient();
     
-    await client.connectTLS({
-      hostname: Deno.env.get("SMTP_HOSTNAME") || "smtp.example.com",
-      port: Number(Deno.env.get("SMTP_PORT")) || 465,
-      username: Deno.env.get("SMTP_USERNAME") || "your-username",
-      password: Deno.env.get("SMTP_PASSWORD") || "your-password",
-    });
-    
-    // Create email content
-    const emailContent = `
-      <h2>Novo contato via site Chimelo Advogados</h2>
-      <p><strong>Nome:</strong> ${nome}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Telefone:</strong> ${telefone}</p>
-      <p><strong>Tipo de Cliente:</strong> ${tipo}</p>
-      <p><strong>Assunto:</strong> ${subject}</p>
-      <p><strong>Mensagem:</strong></p>
-      <p>${mensagem}</p>
-    `;
-    
-    // Send email
-    await client.send({
-      from: Deno.env.get("SMTP_FROM") || "contato@chimelo.com.br",
-      to: to,
-      subject: subject,
-      content: "text/html",
-      html: emailContent,
-    });
-    
-    await client.close();
-    
-    console.log("Email enviado com sucesso para:", to);
-    
-    return new Response(
-      JSON.stringify({ success: true, message: "Email enviado com sucesso" }),
-      { headers, status: 200 }
-    );
+    try {
+      await client.connectTLS({
+        hostname: Deno.env.get("SMTP_HOSTNAME") || "smtp.example.com",
+        port: Number(Deno.env.get("SMTP_PORT")) || 465,
+        username: Deno.env.get("SMTP_USERNAME") || "your-username",
+        password: Deno.env.get("SMTP_PASSWORD") || "your-password",
+      });
+      
+      // Criar conteúdo do email
+      const emailContent = `
+        <h2>Novo contato via site Chimelo Advogados</h2>
+        <p><strong>Nome:</strong> ${nome}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Telefone:</strong> ${telefone}</p>
+        <p><strong>Tipo de Cliente:</strong> ${tipo}</p>
+        <p><strong>Assunto:</strong> ${subject}</p>
+        <p><strong>Mensagem:</strong></p>
+        <p>${mensagem}</p>
+      `;
+      
+      // Enviar email
+      await client.send({
+        from: Deno.env.get("SMTP_FROM") || "contato@chimelo.com.br",
+        to: to,
+        subject: subject,
+        content: "text/html",
+        html: emailContent,
+      });
+      
+      await client.close();
+      
+      console.log("Email enviado com sucesso para:", to);
+      
+      return new Response(
+        JSON.stringify({ success: true, message: "Email enviado com sucesso" }),
+        { headers, status: 200 }
+      );
+    } catch (smtpError) {
+      // Tratar erros do SMTP especificamente
+      console.error("Erro SMTP:", smtpError);
+      
+      return new Response(
+        JSON.stringify({ 
+          success: false, 
+          error: "Erro ao enviar email",
+          details: smtpError.message || "Falha na configuração SMTP" 
+        }),
+        { headers, status: 500 }
+      );
+    }
   } catch (error) {
-    console.error("Error sending email:", error);
+    // Tratar qualquer outro erro não capturado
+    console.error("Erro não tratado:", error);
     
     return new Response(
-      JSON.stringify({ success: false, error: error.message || "Erro desconhecido" }),
+      JSON.stringify({ 
+        success: false, 
+        error: "Erro interno do servidor",
+        details: error.message || "Erro desconhecido" 
+      }),
       { headers, status: 500 }
     );
   }
