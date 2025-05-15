@@ -33,9 +33,6 @@ serve(async (req) => {
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? ""
     );
 
-    // Inicializar cliente do Resend
-    const resend = new Resend(Deno.env.get("RESEND_API_KEY") ?? "");
-
     // Salvar dados na tabela de contatos
     const { error: insertError, data } = await supabaseAdmin
       .from("contatos")
@@ -52,6 +49,14 @@ serve(async (req) => {
       console.error("Erro ao inserir contato:", insertError);
       throw new Error(insertError.message);
     }
+
+    // Initialize Resend - Fix the constructor usage
+    const resendApiKey = Deno.env.get("RESEND_API_KEY");
+    if (!resendApiKey) {
+      throw new Error("RESEND_API_KEY is not set");
+    }
+    
+    const resend = new Resend(resendApiKey);
 
     // Enviar email utilizando Resend
     try {
