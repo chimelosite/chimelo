@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -6,7 +5,6 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { cn } from "@/lib/utils";
-
 interface SocioProps {
   nome: string;
   cargo: string;
@@ -15,11 +13,9 @@ interface SocioProps {
   formacao: string[];
   imagem: string;
 }
-
 const SociosPage: React.FC = () => {
   const [selectedSocio, setSelectedSocio] = useState<number>(0);
   const [expandedSocio, setExpandedSocio] = useState<number | null>(null);
-
   const socios: SocioProps[] = [{
     nome: "Gabriele Chimelo",
     cargo: "Sócia",
@@ -52,7 +48,6 @@ const SociosPage: React.FC = () => {
   const handleBiographyClick = (index: number) => {
     setExpandedSocio(expandedSocio === index ? null : index);
   };
-
   return <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow bg-gray-50">
@@ -95,11 +90,9 @@ const SociosPage: React.FC = () => {
                     <h2 className="text-3xl font-bold mb-1">{socios[selectedSocio].nome}</h2>
                     <p className="text-chimelo-silver text-xl mb-6">{socios[selectedSocio].cargo}</p>
                     
-                    {socios[selectedSocio].descricao && (
-                      <div className="prose prose-lg max-w-none">
+                    {socios[selectedSocio].descricao && <div className="prose prose-lg max-w-none">
                         {formatDescription(socios[selectedSocio].descricao)}
-                      </div>
-                    )}
+                      </div>}
                     
                     {socios[selectedSocio].especializacoes.length > 0 && <div className="mt-8">
                         <h3 className="text-xl font-semibold mb-3">Áreas de Especialização</h3>
@@ -130,18 +123,13 @@ const SociosPage: React.FC = () => {
                     <p className="text-chimelo-silver mb-4">{socio.cargo}</p>
                     
                     {/* Show full biography if expanded, otherwise only first paragraph */}
-                    {socio.descricao && (
-                      <div className="prose max-w-none mb-4">
-                        {expandedSocio === index ? formatDescription(socio.descricao) : 
-                          socio.descricao ? formatDescription(socio.descricao.split('\n\n')[0]) : null}
-                      </div>
-                    )}
+                    {socio.descricao && <div className="prose max-w-none mb-4">
+                        {expandedSocio === index ? formatDescription(socio.descricao) : socio.descricao ? formatDescription(socio.descricao.split('\n\n')[0]) : null}
+                      </div>}
                     
-                    {socio.descricao && (
-                      <button onClick={() => handleBiographyClick(index)} className="text-chimelo-black font-medium hover:underline">
+                    {socio.descricao && <button onClick={() => handleBiographyClick(index)} className="text-chimelo-black font-medium hover:underline">
                         {expandedSocio === index ? "Ocultar biografia" : "Ler biografia completa"}
-                      </button>
-                    )}
+                      </button>}
                     
                     {expandedSocio === index && socio.especializacoes.length > 0 && <div className="mt-6">
                         <h3 className="font-semibold mb-2">Áreas de Especialização</h3>
@@ -165,5 +153,4 @@ const SociosPage: React.FC = () => {
       <Footer />
     </div>;
 };
-
 export default SociosPage;
