@@ -59,11 +59,22 @@ const ContatoPage: React.FC = () => {
         })
       });
       
-      const result = await response.json();
-      
+      // Verificar se a resposta é bem-sucedida
       if (!response.ok) {
-        throw new Error(result.error || 'Erro ao enviar mensagem');
+        // Se não for bem-sucedido, obter texto do erro ao invés de JSON
+        const errorText = await response.text();
+        console.error("Erro na resposta HTTP:", response.status, errorText);
+        throw new Error(`Erro ${response.status}: O servidor não pôde processar a solicitação`);
       }
+
+      // Verificar se o Content-Type é de fato JSON
+      const contentType = response.headers.get("content-type");
+      if (!contentType || !contentType.includes("application/json")) {
+        console.error("Resposta não é JSON:", contentType);
+        throw new Error("Formato de resposta inválido do servidor");
+      }
+      
+      const result = await response.json();
       
       console.log("Resposta do servidor:", result);
       toast.success("Sua mensagem foi enviada com sucesso! Em breve entraremos em contato.");

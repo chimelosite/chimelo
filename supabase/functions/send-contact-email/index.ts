@@ -27,7 +27,19 @@ serve(async (req) => {
   }
 
   try {
-    const { to, subject, nome, email, telefone, mensagem, tipo } = await req.json() as EmailRequest;
+    // Parse JSON body safely
+    let requestData;
+    try {
+      requestData = await req.json() as EmailRequest;
+    } catch (e) {
+      console.error("Erro ao parsear JSON do corpo da requisição:", e);
+      return new Response(
+        JSON.stringify({ success: false, error: "Formato de requisição inválido" }),
+        { headers, status: 400 }
+      );
+    }
+
+    const { to, subject, nome, email, telefone, mensagem, tipo } = requestData;
     
     // Validate required fields
     if (!to || !nome || !email || !telefone || !mensagem) {
@@ -80,7 +92,7 @@ serve(async (req) => {
     console.error("Error sending email:", error);
     
     return new Response(
-      JSON.stringify({ success: false, error: error.message }),
+      JSON.stringify({ success: false, error: error.message || "Erro desconhecido" }),
       { headers, status: 500 }
     );
   }
