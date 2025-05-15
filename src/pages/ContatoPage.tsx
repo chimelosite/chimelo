@@ -51,7 +51,8 @@ const ContatoPage: React.FC = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${supabase.auth.session()?.access_token || ""}`,
+          // Não é mais necessário usar supabase.auth.session()
+          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY || ""}`,
         },
         body: JSON.stringify({
           nome: data.nome,
