@@ -42,7 +42,7 @@ const ContatoPage: React.FC = () => {
     try {
       console.log("Enviando formulário:", data);
       
-      // Supabase implementation for sending emails
+      // Usando diretamente a API endpoint em vez de window.supabase.functions
       const response = await fetch(`${window.location.origin}/api/send-contact-email`, {
         method: 'POST',
         headers: {

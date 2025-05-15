@@ -10,14 +10,5 @@ interface Window {
     storage: {
       from: (bucket: string) => any;
     };
-    functions: {
-      invoke: (
-        functionName: string,
-        options?: {
-          body?: any;
-          headers?: Record<string, string>;
-        }
-      ) => Promise<{ data: any; error: any }>;
-    };
   };
 }
