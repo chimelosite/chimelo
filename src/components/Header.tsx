@@ -34,7 +34,7 @@ const Header = () => {
           <a href="https://www.linkedin.com/company/chimelo-advogados-associados" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-gray-300">
             <Linkedin size={20} />
           </a>
-          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-gray-300">
+          <a href="https://www.instagram.com/chimeloadvogados" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-gray-300">
             <Instagram size={20} />
           </a>
           <a href="https://wa.me/5551991786703" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="hover:text-gray-300">
@@ -86,7 +86,7 @@ const Header = () => {
                 <a href="https://www.linkedin.com/company/chimelo-advogados-associados" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                   <Linkedin size={20} />
                 </a>
-                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <a href="https://www.instagram.com/chimeloadvogados" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                   <Instagram size={20} />
                 </a>
                 <a href="https://wa.me/5551991786703" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
