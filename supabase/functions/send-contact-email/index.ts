@@ -1,6 +1,7 @@
 
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.14.0";
+import { Resend } from "https://esm.sh/@resend/node@0.17.0";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -23,7 +24,6 @@ serve(async (req) => {
   }
 
   try {
-    // Verificar se as variáveis de ambiente estão definidas
     // Get request data
     const contactData: ContactFormData = await req.json();
     
@@ -32,6 +32,9 @@ serve(async (req) => {
       Deno.env.get("SUPABASE_URL") ?? "",
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? ""
     );
+
+    // Inicializar cliente do Resend
+    const resend = new Resend(Deno.env.get("RESEND_API_KEY") ?? "");
 
     // Salvar dados na tabela de contatos
     const { error: insertError, data } = await supabaseAdmin
@@ -50,8 +53,37 @@ serve(async (req) => {
       throw new Error(insertError.message);
     }
 
-    // Aqui poderia ser implementado o envio de email com Resend.com ou outro serviço
-    // Exigindo a configuração de chaves API adicionais
+    // Enviar email utilizando Resend
+    try {
+      const tipoTexto = {
+        "empresa": "Empresa",
+        "pessoa-fisica": "Pessoa Física",
+        "outro": "Outro"
+      }[contactData.tipo];
+
+      const emailResult = await resend.emails.send({
+        from: "Formulário Website <onboarding@resend.dev>",
+        to: ["contato@chimelo.com.br"],
+        subject: `Novo contato do site: ${contactData.assunto}`,
+        html: `
+          <h2>Novo contato recebido pelo site</h2>
+          <p><strong>Nome:</strong> ${contactData.nome}</p>
+          <p><strong>Email:</strong> ${contactData.email}</p>
+          <p><strong>Telefone:</strong> ${contactData.telefone}</p>
+          <p><strong>Tipo:</strong> ${tipoTexto}</p>
+          <p><strong>Assunto:</strong> ${contactData.assunto}</p>
+          <h3>Mensagem:</h3>
+          <p>${contactData.mensagem.replace(/\n/g, '<br>')}</p>
+        `,
+        reply_to: contactData.email,
+      });
+      
+      console.log("Email enviado com sucesso:", emailResult);
+    } catch (emailError: any) {
+      console.error("Erro ao enviar email:", emailError);
+      // Não interromper o fluxo em caso de erro no envio de email
+      // Os dados já foram salvos no banco de dados
+    }
 
     return new Response(
       JSON.stringify({
@@ -67,7 +99,7 @@ serve(async (req) => {
         status: 200,
       }
     );
-  } catch (error) {
+  } catch (error: any) {
     console.error("Erro ao processar solicitação:", error);
     return new Response(
       JSON.stringify({
