@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { toast } from "@/components/ui/sonner";
+import { toast } from "@/components/ui/use-toast";
 import { useForm } from "react-hook-form";
 
 interface FormData {
@@ -42,8 +42,12 @@ const ContatoPage: React.FC = () => {
     try {
       console.log("Enviando formulário:", data);
       
-      // Usando diretamente a API endpoint em vez de window.supabase.functions
-      const response = await fetch(`${window.location.origin}/api/send-contact-email`, {
+      // Corrigindo a URL para usar a função Supabase diretamente
+      // URL incorreta: ${window.location.origin}/api/send-contact-email
+      // URL correta: Usando endpoint da função Supabase
+      const functionUrl = "https://fejjviqdioglbvdrwmop.functions.supabase.co/send-contact-email";
+      
+      const response = await fetch(functionUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -70,18 +74,26 @@ const ContatoPage: React.FC = () => {
       // Verificar se o Content-Type é de fato JSON
       const contentType = response.headers.get("content-type");
       if (!contentType || !contentType.includes("application/json")) {
-        console.error("Resposta não é JSON:", contentType);
+        const text = await response.text();
+        console.error("Resposta não é JSON:", contentType, "Conteúdo:", text);
         throw new Error("Formato de resposta inválido do servidor");
       }
       
       const result = await response.json();
       
       console.log("Resposta do servidor:", result);
-      toast.success("Sua mensagem foi enviada com sucesso! Em breve entraremos em contato.");
+      toast({
+        title: "Mensagem enviada",
+        description: "Sua mensagem foi enviada com sucesso! Em breve entraremos em contato.",
+      });
       reset();
     } catch (error) {
       console.error("Erro ao enviar email:", error);
-      toast.error("Erro ao enviar mensagem. Por favor, tente novamente.");
+      toast({
+        variant: "destructive",
+        title: "Erro",
+        description: "Erro ao enviar mensagem. Por favor, tente novamente.",
+      });
     } finally {
       setIsSubmitting(false);
     }
