@@ -4,7 +4,6 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ContactForm from "../components/contact/ContactForm";
 import ContactInfo from "../components/contact/ContactInfo";
-import LocationMap from "../components/contact/LocationMap";
 
 const ContatoPage: React.FC = () => {
   return (
@@ -38,23 +37,6 @@ const ContatoPage: React.FC = () => {
                   <ContactInfo />
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-        
-        <section className="chimelo-section relative bg-transparent">
-          {/* Estendendo a mesma imagem de fundo para a seção do mapa, criando continuidade visual */}
-          <div 
-            className="absolute inset-0 opacity-35 bg-cover bg-center" 
-            style={{
-              backgroundImage: 'url("/lovable-uploads/27570706-51c0-4d07-a428-af2be4221322.png")',
-              backgroundBlendMode: 'overlay'
-            }}
-          />
-          
-          <div className="chimelo-container relative">
-            <div className="mt-12">
-              <LocationMap />
             </div>
           </div>
         </section>
