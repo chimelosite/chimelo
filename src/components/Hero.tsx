@@ -15,9 +15,9 @@ const Hero: React.FC = () => {
         }}
       />
       
-      <div className="relative chimelo-container py-24 md:py-32 lg:py-40 flex flex-col items-start">
-        <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+      <div className="relative chimelo-container py-32 md:py-36 lg:py-44 flex flex-col items-start">
+        <div className="max-w-3xl mt-8 md:mt-10">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
             Soluções jurídicas inovadoras para sua empresa
           </h1>
           <p className="text-xl text-chimelo-silver mb-8 max-w-2xl">

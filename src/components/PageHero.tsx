@@ -30,7 +30,7 @@ const PageHero: React.FC<PageHeroProps> = ({
         }}
       />
       
-      <div className={`relative chimelo-container h-full flex flex-col ${isHomePage ? 'justify-center pt-32' : 'justify-center'}`}>
+      <div className={`relative chimelo-container h-full flex flex-col ${isHomePage ? 'justify-center pt-40 md:pt-32 md:justify-center' : 'justify-center'}`}>
         {children ? (
           children
         ) : (
