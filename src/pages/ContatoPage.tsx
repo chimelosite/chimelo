@@ -13,9 +13,9 @@ const ContatoPage: React.FC = () => {
       <main className="flex-grow">
         <section className="relative bg-chimelo-black text-white">
           <div 
-            className="absolute inset-0 opacity-40 bg-cover bg-center" 
+            className="absolute inset-0 opacity-35 bg-cover bg-center" 
             style={{
-              backgroundImage: 'url("/lovable-uploads/0f9035c3-5066-44d3-8a31-eef38ccbf632.png")',
+              backgroundImage: 'url("/lovable-uploads/27570706-51c0-4d07-a428-af2be4221322.png")',
               backgroundBlendMode: 'overlay'
             }}
           />
@@ -30,11 +30,11 @@ const ContatoPage: React.FC = () => {
               </div>
               
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <div className="bg-black bg-opacity-70 p-6 rounded-lg">
+                <div className="p-6 rounded-lg backdrop-blur-sm bg-black/30 border border-white/10">
                   <ContactForm />
                 </div>
                 
-                <div className="bg-black bg-opacity-70 p-6 rounded-lg">
+                <div className="p-6 rounded-lg backdrop-blur-sm bg-black/30 border border-white/10">
                   <ContactInfo />
                 </div>
               </div>
@@ -42,12 +42,12 @@ const ContatoPage: React.FC = () => {
           </div>
         </section>
         
-        <section className="chimelo-section relative bg-chimelo-black">
-          {/* Estendendo a mesma imagem de fundo para a seção do mapa */}
+        <section className="chimelo-section relative bg-transparent">
+          {/* Estendendo a mesma imagem de fundo para a seção do mapa, criando continuidade visual */}
           <div 
-            className="absolute inset-0 opacity-40 bg-cover bg-center" 
+            className="absolute inset-0 opacity-35 bg-cover bg-center" 
             style={{
-              backgroundImage: 'url("/lovable-uploads/0f9035c3-5066-44d3-8a31-eef38ccbf632.png")',
+              backgroundImage: 'url("/lovable-uploads/27570706-51c0-4d07-a428-af2be4221322.png")',
               backgroundBlendMode: 'overlay'
             }}
           />
