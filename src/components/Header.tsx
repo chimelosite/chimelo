@@ -19,12 +19,12 @@ const Header = () => {
       window.location.href = "/admin-login";
     }
   };
-  return <header className="bg-chimelo-black text-white py-4">
+  return <header className="bg-transparent text-white py-4">
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link to="/" className="flex items-center">
           <img 
             alt="CHIMELO" 
-            className="h-10 brightness-0 invert object-contain" 
+            className="h-20 brightness-0 invert object-contain" 
             src="https://i.imgur.com/v5A7jTI.png" 
           />
         </Link>

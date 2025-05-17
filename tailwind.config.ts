@@ -99,8 +99,9 @@ export default {
 				'fade-in': 'fade-in 0.5s ease-out'
 			},
 			fontFamily: {
-				sans: ['Inter', 'sans-serif'],
-				heading: ['Montserrat', 'sans-serif']
+				sans: ['Quicksand', 'Inter', 'sans-serif'],
+				heading: ['Quicksand', 'Montserrat', 'sans-serif'],
+				quicksand: ['Quicksand', 'sans-serif']
 			},
 		}
 	},

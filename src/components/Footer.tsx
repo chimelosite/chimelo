@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { Linkedin, Instagram, MessageSquare, Mail, Phone } from "lucide-react";
@@ -8,7 +7,7 @@ const Footer: React.FC = () => {
       <div className="chimelo-container py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
-            <img alt="Chimelo Advogados e Associados" className="h-12 mb-6 brightness-0 invert" src="https://i.imgur.com/v5A7jTI.png" />
+            <img alt="Chimelo Advogados e Associados" className="h-24 mb-6 brightness-0 invert" src="https://i.imgur.com/v5A7jTI.png" />
             <p className="mt-4 text-sm text-chimelo-silver max-w-xs">
               Somos um escritório de advocacia especializado em soluções jurídicas integradas para empresas.
             </p>

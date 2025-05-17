@@ -12,6 +12,7 @@ interface ContactFormData {
   nome: string;
   email: string;
   telefone: string;
+  empresa?: string;
   assunto: string;
   mensagem: string;
   tipo: "empresa" | "pessoa-fisica" | "outro";
@@ -66,20 +67,31 @@ serve(async (req) => {
         "outro": "Outro"
       }[contactData.tipo];
 
+      // Criar conteúdo do email
+      let emailHtml = `
+        <h2>Novo contato recebido pelo site</h2>
+        <p><strong>Nome:</strong> ${contactData.nome}</p>
+        <p><strong>Email:</strong> ${contactData.email}</p>
+        <p><strong>Telefone:</strong> ${contactData.telefone}</p>
+      `;
+      
+      // Adicionar empresa se existir
+      if (contactData.empresa) {
+        emailHtml += `<p><strong>Empresa:</strong> ${contactData.empresa}</p>`;
+      }
+      
+      emailHtml += `
+        <p><strong>Tipo:</strong> ${tipoTexto}</p>
+        <p><strong>Assunto:</strong> ${contactData.assunto}</p>
+        <h3>Mensagem:</h3>
+        <p>${contactData.mensagem.replace(/\n/g, '<br>')}</p>
+      `;
+      
       const emailResult = await resend.emails.send({
         from: "Formulário Website <onboarding@resend.dev>",
         to: ["contato@chimelo.com.br"],
         subject: `Novo contato do site: ${contactData.assunto}`,
-        html: `
-          <h2>Novo contato recebido pelo site</h2>
-          <p><strong>Nome:</strong> ${contactData.nome}</p>
-          <p><strong>Email:</strong> ${contactData.email}</p>
-          <p><strong>Telefone:</strong> ${contactData.telefone}</p>
-          <p><strong>Tipo:</strong> ${tipoTexto}</p>
-          <p><strong>Assunto:</strong> ${contactData.assunto}</p>
-          <h3>Mensagem:</h3>
-          <p>${contactData.mensagem.replace(/\n/g, '<br>')}</p>
-        `,
+        html: emailHtml,
         reply_to: contactData.email,
       });
       

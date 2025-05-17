@@ -1,39 +1,49 @@
 
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { toast } from "@/components/ui/use-toast";
 import { Send } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
-interface FormData {
-  nome: string;
-  email: string;
-  telefone: string;
-  assunto: string;
-  mensagem: string;
-  tipo: "empresa" | "pessoa-fisica" | "outro";
-}
+// Schema de validação
+const formSchema = z.object({
+  nome: z.string().min(1, "Nome é obrigatório"),
+  email: z.string().email("E-mail inválido").min(1, "E-mail é obrigatório"),
+  telefone: z.string().min(1, "Telefone é obrigatório"),
+  empresa: z.string().optional(),
+  assunto: z.string().min(1, "Assunto é obrigatório"),
+  mensagem: z.string().min(1, "Mensagem é obrigatória"),
+});
+
+type FormData = z.infer<typeof formSchema>;
 
 const ContactForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   
-  const { register, handleSubmit, reset, setValue, watch } = useForm<FormData>({
+  const form = useForm<FormData>({
+    resolver: zodResolver(formSchema),
     defaultValues: {
       nome: "",
       email: "",
       telefone: "",
+      empresa: "",
       assunto: "",
       mensagem: "",
-      tipo: "empresa"
     }
   });
-  
-  const selectedTipo = watch("tipo");
   
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
@@ -55,9 +65,10 @@ const ContactForm: React.FC = () => {
           nome: data.nome,
           email: data.email,
           telefone: data.telefone,
+          empresa: data.empresa || "",
           assunto: data.assunto,
           mensagem: data.mensagem,
-          tipo: data.tipo
+          tipo: data.empresa ? "empresa" : "pessoa-fisica"
         })
       });
       
@@ -82,7 +93,7 @@ const ContactForm: React.FC = () => {
             telefone: data.telefone,
             assunto: data.assunto,
             mensagem: data.mensagem,
-            tipo: data.tipo
+            tipo: data.empresa ? "empresa" : "pessoa-fisica"
           });
           
         if (dbError) {
@@ -93,7 +104,7 @@ const ContactForm: React.FC = () => {
           title: "Mensagem enviada",
           description: "Sua mensagem foi enviada com sucesso! Em breve entraremos em contato.",
         });
-        reset();
+        form.reset();
       } else {
         throw new Error(result.error || "Falha ao enviar mensagem");
       }
@@ -108,81 +119,96 @@ const ContactForm: React.FC = () => {
       setIsSubmitting(false);
     }
   };
-  
-  const handleTipoChange = (value: string) => {
-    setValue("tipo", value as "empresa" | "pessoa-fisica" | "outro");
-  };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-      <div>
-        <Label htmlFor="tipo">Você é:</Label>
-        <RadioGroup 
-          value={selectedTipo} 
-          onValueChange={handleTipoChange}
-          className="flex space-x-4 mt-2"
-        >
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="empresa" id="empresa" />
-            <Label htmlFor="empresa" className="cursor-pointer">Empresa</Label>
-          </div>
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="pessoa-fisica" id="pessoa-fisica" />
-            <Label htmlFor="pessoa-fisica" className="cursor-pointer">Pessoa Física</Label>
-          </div>
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="outro" id="outro" />
-            <Label htmlFor="outro" className="cursor-pointer">Outro</Label>
-          </div>
-        </RadioGroup>
-      </div>
-      
-      <div className="space-y-4">
-        <div>
-          <Label htmlFor="nome">Nome completo *</Label>
-          <Input
-            id="nome"
-            {...register("nome", { required: true })}
-          />
-        </div>
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        <FormField
+          control={form.control}
+          name="nome"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Nome completo *</FormLabel>
+              <FormControl>
+                <Input {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <Label htmlFor="email">E-mail *</Label>
-            <Input
-              id="email"
-              type="email"
-              {...register("email", { required: true })}
-            />
-          </div>
-          <div>
-            <Label htmlFor="telefone">Telefone *</Label>
-            <Input
-              id="telefone"
-              {...register("telefone", { required: true })}
-            />
-          </div>
-        </div>
-        
-        <div>
-          <Label htmlFor="assunto">Assunto *</Label>
-          <Input
-            id="assunto"
-            {...register("assunto", { required: true })}
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>E-mail *</FormLabel>
+                <FormControl>
+                  <Input type="email" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          
+          <FormField
+            control={form.control}
+            name="telefone"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Telefone *</FormLabel>
+                <FormControl>
+                  <Input {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
           />
         </div>
         
-        <div>
-          <Label htmlFor="mensagem">Mensagem *</Label>
-          <Textarea
-            id="mensagem"
-            rows={5}
-            {...register("mensagem", { required: true })}
-          />
-        </div>
-      </div>
-      
-      <div>
+        <FormField
+          control={form.control}
+          name="empresa"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Empresa</FormLabel>
+              <FormControl>
+                <Input {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        
+        <FormField
+          control={form.control}
+          name="assunto"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Assunto *</FormLabel>
+              <FormControl>
+                <Input {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        
+        <FormField
+          control={form.control}
+          name="mensagem"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Mensagem *</FormLabel>
+              <FormControl>
+                <Textarea rows={5} {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        
         <Button 
           type="submit" 
           className="w-full"
@@ -191,12 +217,12 @@ const ContactForm: React.FC = () => {
           {isSubmitting ? 'Enviando...' : 'Enviar mensagem'}
           <Send className="ml-2 h-4 w-4" />
         </Button>
-      </div>
-      
-      <p className="text-xs text-chimelo-silver text-center">
-        Ao enviar este formulário, você concorda com nossa política de privacidade.
-      </p>
-    </form>
+        
+        <p className="text-xs text-chimelo-silver text-center">
+          Ao enviar este formulário, você concorda com nossa política de privacidade.
+        </p>
+      </form>
+    </Form>
   );
 };
 
