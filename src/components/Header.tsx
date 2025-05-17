@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Instagram, Linkedin, Menu, X } from "lucide-react";
 import AdminModal from "./AdminModal";
@@ -7,6 +7,24 @@ import AdminModal from "./AdminModal";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAdminModalOpen, setIsAdminModalOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = window.scrollY;
+      if (offset > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   // Simulação de autenticação
   const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -19,7 +37,10 @@ const Header = () => {
       window.location.href = "/admin-login";
     }
   };
-  return <header className="bg-transparent text-white py-4 fixed top-0 left-0 w-full z-50">
+  
+  const headerClass = scrolled ? 'header-scrolled' : 'header-transparent';
+  
+  return <header className={`py-4 ${headerClass}`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link to="/" className="flex items-center">
           <img 

@@ -63,7 +63,14 @@ const ContatoSection: React.FC = () => {
           
           <div className="mt-12 pt-8 border-t border-chimelo-silver/20">
             <p className="text-chimelo-silver">
-              Endereço: R. Carlos Huber, 110 - Três Figueiras, Porto Alegre - RS, 91330-150<br />
+              <span className="block mb-3">
+                📍 Porto Alegre:<br/>
+                R. Carlos Huber, 110 - Três Figueiras, Porto Alegre - RS, 91330-150
+              </span>
+              <span className="block mb-3">
+                📍 Curitiba:<br/>
+                R. Comendador Araújo, 252 - sl. 3304, Centro - Curitiba - PR, 80420-000
+              </span>
               Telefone: (51) 99178-6703<br />
               Email: contato@chimelo.com.br
             </p>

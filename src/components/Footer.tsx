@@ -64,7 +64,13 @@ const Footer: React.FC = () => {
               </div>
               <div className="flex items-start">
                 <MapPin size={18} className="mr-2 mt-1 text-chimelo-silver" />
-                <span className="text-sm">R. Comendador Araújo, 252 - sl. 3304<br />Centro - Curitiba - PR, 80420-000</span>
+                <div className="text-sm">
+                  <p className="mb-1">📍 Porto Alegre:</p>
+                  <p className="mb-3">R. Carlos Huber, 110 - Três Figueiras<br />Porto Alegre - RS, 91330-150</p>
+                  
+                  <p className="mb-1">📍 Curitiba:</p>
+                  <p>R. Comendador Araújo, 252 - sl. 3304<br />Centro - Curitiba - PR, 80420-000</p>
+                </div>
               </div>
             </div>
           </div>

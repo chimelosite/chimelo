@@ -1,7 +1,7 @@
-
 import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import PageHero from "../components/PageHero";
 import { 
   Shield, 
   Briefcase, 
@@ -156,17 +156,13 @@ const AreasAtuacaoPage: React.FC = () => {
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow">
+        <PageHero 
+          title="Áreas de Atuação & Serviços" 
+          subtitle="O escritório Chimelo Advogados & Associados oferece soluções jurídicas integradas nas mais diversas áreas do direito, sempre com foco nas necessidades específicas de cada cliente e na busca pelos melhores resultados."
+        />
+        
         <section className="chimelo-section bg-gray-50">
-          <div className="chimelo-container">
-            <div className="text-center mb-12">
-              <h1 className="text-3xl md:text-4xl font-bold mb-4">Áreas de Atuação & Serviços</h1>
-              <p className="text-chimelo-silver max-w-2xl mx-auto">
-                O escritório Chimelo Advogados & Associados oferece soluções jurídicas integradas 
-                nas mais diversas áreas do direito, sempre com foco nas necessidades específicas 
-                de cada cliente e na busca pelos melhores resultados.
-              </p>
-            </div>
-            
+          <div className="chimelo-container">            
             <div className="space-y-8">
               {areasDetalhadas.map((area, index) => (
                 <AreaDetalhada

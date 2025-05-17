@@ -61,6 +61,22 @@
   /* Adiciona uma transição suave para o header */
   header {
     transition: background-color 0.3s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+  }
+  
+  /* Quando o header está no topo da página */
+  header.header-transparent {
+    background-color: transparent;
+  }
+  
+  /* Quando a página é rolada */
+  header.header-scrolled {
+    background-color: rgba(0, 0, 0, 0.9);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
 }
 

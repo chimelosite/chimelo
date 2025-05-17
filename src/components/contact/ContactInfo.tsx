@@ -11,12 +11,14 @@ const ContactInfo: React.FC = () => {
         <div className="flex items-start">
           <MapPin className="h-5 w-5 mr-4 mt-1 text-chimelo-silver" />
           <div>
-            <h3 className="font-medium">Endereço</h3>
-            <p className="text-chimelo-silver mt-1">
-              R. Carlos Huber, 110<br />
-              Três Figueiras<br />
-              Porto Alegre - RS, 91330-150
-            </p>
+            <h3 className="font-medium">Endereços</h3>
+            <div className="text-chimelo-silver mt-1">
+              <p className="mb-1">📍 Porto Alegre:</p>
+              <p className="mb-3">R. Carlos Huber, 110 - Três Figueiras<br />Porto Alegre - RS, 91330-150</p>
+              
+              <p className="mb-1">📍 Curitiba:</p>
+              <p>R. Comendador Araújo, 252 - sl. 3304<br />Centro - Curitiba - PR, 80420-000</p>
+            </div>
           </div>
         </div>
         
