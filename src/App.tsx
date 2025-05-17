@@ -4,6 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import AdminLoginPage from "./pages/AdminLoginPage";
@@ -26,47 +27,50 @@ import ContatoPage from "./pages/ContatoPage";
 // Renaming the import to avoid conflict with admin NoticiasPage
 import DestaquesPage from "./pages/NoticiasPage";
 
-const queryClient = new QueryClient();
+const App = () => {
+  // Create QueryClient inside the component to ensure proper hook context
+  const [queryClient] = useState(() => new QueryClient());
+  
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            {/* Rotas públicas */}
+            <Route path="/" element={<Index />} />
+            <Route path="/quem-somos" element={<QuemSomosPage />} />
+            <Route path="/socios" element={<SociosPage />} />
+            <Route path="/areas-de-atuacao" element={<AreasAtuacaoPage />} />
+            <Route path="/destaques" element={<DestaquesPage />} />
+            <Route path="/destaques/:slug" element={<NoticiaDetalhe />} />
+            <Route path="/contato" element={<ContatoPage />} />
+            <Route path="/admin-login" element={<AdminLoginPage />} />
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          {/* Rotas públicas */}
-          <Route path="/" element={<Index />} />
-          <Route path="/quem-somos" element={<QuemSomosPage />} />
-          <Route path="/socios" element={<SociosPage />} />
-          <Route path="/areas-de-atuacao" element={<AreasAtuacaoPage />} />
-          <Route path="/destaques" element={<DestaquesPage />} />
-          <Route path="/destaques/:slug" element={<NoticiaDetalhe />} />
-          <Route path="/contato" element={<ContatoPage />} />
-          <Route path="/admin-login" element={<AdminLoginPage />} />
-
-          {/* Rotas administrativas protegidas */}
-          <Route element={
-            <AdminProvider>
-              <AdminRoute />
-            </AdminProvider>
-          }>
-            <Route element={<AdminLayout />}>
-              <Route path="/admin" element={<AdminDashboardPage />} />
-              <Route path="/admin/processos" element={<ProcessosPage />} />
-              <Route path="/admin/assembleias" element={<AssembleiasPage />} />
-              <Route path="/admin/noticias" element={<NoticiasPage />} />
-              <Route path="/admin/usuarios" element={<UsuariosPage />} />
-              <Route path="/admin/configuracoes" element={<ConfiguracoesPage />} />
+            {/* Rotas administrativas protegidas */}
+            <Route element={
+              <AdminProvider>
+                <AdminRoute />
+              </AdminProvider>
+            }>
+              <Route element={<AdminLayout />}>
+                <Route path="/admin" element={<AdminDashboardPage />} />
+                <Route path="/admin/processos" element={<ProcessosPage />} />
+                <Route path="/admin/assembleias" element={<AssembleiasPage />} />
+                <Route path="/admin/noticias" element={<NoticiasPage />} />
+                <Route path="/admin/usuarios" element={<UsuariosPage />} />
+                <Route path="/admin/configuracoes" element={<ConfiguracoesPage />} />
+              </Route>
             </Route>
-          </Route>
 
-          {/* Página não encontrada */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+            {/* Página não encontrada */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;
