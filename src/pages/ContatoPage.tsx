@@ -5,7 +5,6 @@ import Footer from "../components/Footer";
 import ContactForm from "../components/contact/ContactForm";
 import ContactInfo from "../components/contact/ContactInfo";
 import LocationMap from "../components/contact/LocationMap";
-import PageHero from "../components/PageHero";
 
 const ContatoPage: React.FC = () => {
   return (
@@ -14,9 +13,9 @@ const ContatoPage: React.FC = () => {
       <main className="flex-grow">
         <section className="relative bg-chimelo-black text-white">
           <div 
-            className="absolute inset-0 opacity-30 bg-cover bg-center" 
+            className="absolute inset-0 opacity-40 bg-cover bg-center" 
             style={{
-              backgroundImage: 'url("/lovable-uploads/5ddb30a3-c79e-4cd5-a837-15809d8107a3.png")',
+              backgroundImage: 'url("/lovable-uploads/0f9035c3-5066-44d3-8a31-eef38ccbf632.png")',
               backgroundBlendMode: 'overlay'
             }}
           />
@@ -43,8 +42,17 @@ const ContatoPage: React.FC = () => {
           </div>
         </section>
         
-        <section className="chimelo-section">
-          <div className="chimelo-container">
+        <section className="chimelo-section relative bg-chimelo-black">
+          {/* Estendendo a mesma imagem de fundo para a seção do mapa */}
+          <div 
+            className="absolute inset-0 opacity-40 bg-cover bg-center" 
+            style={{
+              backgroundImage: 'url("/lovable-uploads/0f9035c3-5066-44d3-8a31-eef38ccbf632.png")',
+              backgroundBlendMode: 'overlay'
+            }}
+          />
+          
+          <div className="chimelo-container relative">
             <div className="mt-12">
               <LocationMap />
             </div>
