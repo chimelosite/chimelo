@@ -52,6 +52,16 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-quicksand font-bold;
   }
+  
+  /* Adiciona padding-top para o conteúdo principal para compensar o header fixo */
+  main {
+    padding-top: 6rem;
+  }
+  
+  /* Adiciona uma transição suave para o header */
+  header {
+    transition: background-color 0.3s ease;
+  }
 }
 
 @layer components {

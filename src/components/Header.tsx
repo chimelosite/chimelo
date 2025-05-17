@@ -24,7 +24,7 @@ const Header = () => {
         <Link to="/" className="flex items-center">
           <img 
             alt="CHIMELO" 
-            className="h-40 brightness-0 invert object-contain" 
+            className="h-32 brightness-0 invert object-contain" 
             src="https://i.imgur.com/v5A7jTI.png" 
           />
         </Link>

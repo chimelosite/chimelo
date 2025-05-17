@@ -1,6 +1,7 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
-import { Linkedin, Instagram, MessageSquare, Mail, Phone } from "lucide-react";
+import { Linkedin, Instagram, MessageSquare, Mail, Phone, MapPin } from "lucide-react";
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   return <footer className="bg-chimelo-black text-white">
@@ -60,6 +61,10 @@ const Footer: React.FC = () => {
                 <a href="https://wa.me/5551991786703" className="hover:text-chimelo-silver transition-colors">
                   WhatsApp: (51) 99178-6703
                 </a>
+              </div>
+              <div className="flex items-start">
+                <MapPin size={18} className="mr-2 mt-1 text-chimelo-silver" />
+                <span className="text-sm">R. Comendador Araújo, 252 - sl. 3304<br />Centro - Curitiba - PR, 80420-000</span>
               </div>
             </div>
           </div>
