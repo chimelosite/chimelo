@@ -55,12 +55,12 @@
   
   /* Adiciona padding-top para o conteúdo principal para compensar o header fixo */
   main {
-    padding-top: 6rem;
+    padding-top: 0;
   }
   
   /* Adiciona uma transição suave para o header */
   header {
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
     position: fixed;
     top: 0;
     left: 0;
@@ -75,8 +75,7 @@
   
   /* Quando a página é rolada */
   header.header-scrolled {
-    background-color: rgba(0, 0, 0, 0.9);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 1);
   }
 }
 
@@ -106,10 +105,19 @@
   }
 
   .chimelo-menu-item {
-    @apply relative text-chimelo-black hover:text-chimelo-silver transition-colors px-3 py-2;
+    @apply relative text-white hover:text-gray-300 transition-colors px-3 py-2;
+  }
+  
+  .chimelo-menu-item::after {
+    content: '';
+    @apply absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300;
+  }
+
+  .chimelo-menu-item:hover::after {
+    @apply w-full;
   }
   
   .chimelo-menu-item-active {
-    @apply after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-chimelo-black;
+    @apply after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-white;
   }
 }

@@ -7,6 +7,7 @@ interface PageHeroProps {
   backgroundImage?: string;
   height?: string;
   children?: React.ReactNode;
+  isHomePage?: boolean;
 }
 
 const PageHero: React.FC<PageHeroProps> = ({ 
@@ -14,11 +15,12 @@ const PageHero: React.FC<PageHeroProps> = ({
   subtitle, 
   backgroundImage = "https://i.imgur.com/1FQHSz1.jpeg", 
   height = "h-64 md:h-80",
-  children 
+  children,
+  isHomePage = false
 }) => {
   return (
     <section 
-      className={`relative ${height} bg-chimelo-black text-white overflow-hidden`}
+      className={`relative ${isHomePage ? 'h-screen min-h-[600px]' : height} bg-chimelo-black text-white overflow-hidden`}
     >
       <div 
         className="absolute inset-0 opacity-30 bg-cover bg-center" 
@@ -28,7 +30,7 @@ const PageHero: React.FC<PageHeroProps> = ({
         }}
       />
       
-      <div className="relative chimelo-container h-full flex flex-col justify-center">
+      <div className={`relative chimelo-container h-full flex flex-col ${isHomePage ? 'justify-center pt-32' : 'justify-center'}`}>
         {children ? (
           children
         ) : (

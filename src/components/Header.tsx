@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Instagram, Linkedin, Menu, X } from "lucide-react";
 import AdminModal from "./AdminModal";
 
@@ -8,6 +8,8 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAdminModalOpen, setIsAdminModalOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   // Handle scroll effect
   useEffect(() => {
@@ -37,73 +39,82 @@ const Header = () => {
       window.location.href = "/admin-login";
     }
   };
+
+  const getHeaderClass = () => {
+    if (isHomePage) {
+      return scrolled ? 'header-scrolled py-3 shadow-md' : 'header-transparent py-6';
+    }
+    return 'bg-chimelo-black py-3 shadow-md';
+  };
   
-  const headerClass = scrolled ? 'header-scrolled' : 'header-transparent';
-  
-  return <header className={`py-4 ${headerClass}`}>
-      <div className="container mx-auto px-4 flex justify-between items-center">
+  return (
+    <header className={`transition-all duration-300 ${getHeaderClass()}`}>
+      <div className="chimelo-container flex justify-between items-center">
         <Link to="/" className="flex items-center">
           <img 
             alt="CHIMELO" 
-            className="h-32 brightness-0 invert object-contain" 
+            className={`brightness-0 invert object-contain transition-all duration-300 ${isHomePage && !scrolled ? 'h-28' : 'h-16'}`}
             src="https://i.imgur.com/v5A7jTI.png" 
           />
         </Link>
 
-        {/* Social Icons Desktop */}
-        <div className="hidden md:flex items-center space-x-6">
-          <a href="https://www.linkedin.com/company/chimelo-advogados-associados" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-gray-300">
-            <Linkedin size={20} />
-          </a>
-          <a href="https://www.instagram.com/chimeloadvogados" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-gray-300">
-            <Instagram size={20} />
-          </a>
-          <a href="https://wa.me/5551991786703" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="hover:text-gray-300">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
-              <path d="M9 10a.5.5 0 0 1 1 0v2a.5.5 0 0 1-1 0v-2z" />
-              <path d="M14 10a.5.5 0 0 1 1 0v2a.5.5 0 0 1-1 0v-2z" />
-              <path d="M9.5 15a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5z" />
-            </svg>
-          </a>
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center">
+          <nav className="mr-8">
+            <ul className="flex space-x-1">
+              <li><Link to="/" className="chimelo-menu-item text-sm uppercase font-medium tracking-wider">Home</Link></li>
+              <li><Link to="/quem-somos" className="chimelo-menu-item text-sm uppercase font-medium tracking-wider">Quem Somos</Link></li>
+              <li><Link to="/socios" className="chimelo-menu-item text-sm uppercase font-medium tracking-wider">Sócios</Link></li>
+              <li><Link to="/areas-de-atuacao" className="chimelo-menu-item text-sm uppercase font-medium tracking-wider">Áreas de Atuação & Serviços</Link></li>
+              <li><Link to="/destaques" className="chimelo-menu-item text-sm uppercase font-medium tracking-wider">Destaques</Link></li>
+              <li><Link to="/contato" className="chimelo-menu-item text-sm uppercase font-medium tracking-wider">Contato</Link></li>
+              <li>
+                <button onClick={openAdminPanel} className="chimelo-menu-item text-sm uppercase font-medium tracking-wider hidden" aria-label="Painel Administrativo">
+                  Admin
+                </button>
+              </li>
+            </ul>
+          </nav>
+          
+          {/* Social Icons Desktop */}
+          <div className="flex items-center space-x-4">
+            <a href="https://www.linkedin.com/company/chimelo-advogados-associados" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-gray-300 text-white">
+              <Linkedin size={18} />
+            </a>
+            <a href="https://www.instagram.com/chimeloadvogados" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-gray-300 text-white">
+              <Instagram size={18} />
+            </a>
+            <a href="https://wa.me/5551991786703" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="hover:text-gray-300 text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
+                <path d="M9 10a.5.5 0 0 1 1 0v2a.5.5 0 0 1-1 0v-2z" />
+                <path d="M14 10a.5.5 0 0 1 1 0v2a.5.5 0 0 1-1 0v-2z" />
+                <path d="M9.5 15a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5z" />
+              </svg>
+            </a>
+          </div>
         </div>
-
-        {/* Navigation Desktop */}
-        <nav className="hidden md:block">
-          <ul className="flex space-x-6">
-            <li><Link to="/" className="hover:text-gray-300">Home</Link></li>
-            <li><Link to="/quem-somos" className="hover:text-gray-300">Quem Somos</Link></li>
-            <li><Link to="/socios" className="hover:text-gray-300">Sócios</Link></li>
-            <li><Link to="/areas-de-atuacao" className="hover:text-gray-300">Áreas de Atuação & Serviços</Link></li>
-            <li><Link to="/destaques" className="hover:text-gray-300">Destaques</Link></li>
-            <li><Link to="/contato" className="hover:text-gray-300">Contato</Link></li>
-            <li>
-              <button onClick={openAdminPanel} className="hover:text-gray-300 hidden" aria-label="Painel Administrativo">
-                Admin
-              </button>
-            </li>
-          </ul>
-        </nav>
 
         {/* Mobile Menu Button */}
         <div className="md:hidden">
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label={isMenuOpen ? "Fechar Menu" : "Abrir Menu"} className="p-2">
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label={isMenuOpen ? "Fechar Menu" : "Abrir Menu"} className="p-2 text-white">
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
 
       {/* Mobile Navigation */}
-      {isMenuOpen && <nav className="md:hidden bg-chimelo-black">
+      {isMenuOpen && (
+        <nav className="md:hidden bg-chimelo-black absolute top-full left-0 right-0 z-50">
           <ul className="container mx-auto px-4 py-4 space-y-2">
-            <li><Link to="/" onClick={() => setIsMenuOpen(false)}>Home</Link></li>
-            <li><Link to="/quem-somos" onClick={() => setIsMenuOpen(false)}>Quem Somos</Link></li>
-            <li><Link to="/socios" onClick={() => setIsMenuOpen(false)}>Sócios</Link></li>
-            <li><Link to="/areas-de-atuacao" onClick={() => setIsMenuOpen(false)}>Áreas de Atuação & Serviços</Link></li>
-            <li><Link to="/destaques" onClick={() => setIsMenuOpen(false)}>Destaques</Link></li>
-            <li><Link to="/contato" onClick={() => setIsMenuOpen(false)}>Contato</Link></li>
+            <li><Link to="/" onClick={() => setIsMenuOpen(false)} className="block py-2 text-white hover:text-gray-300">Home</Link></li>
+            <li><Link to="/quem-somos" onClick={() => setIsMenuOpen(false)} className="block py-2 text-white hover:text-gray-300">Quem Somos</Link></li>
+            <li><Link to="/socios" onClick={() => setIsMenuOpen(false)} className="block py-2 text-white hover:text-gray-300">Sócios</Link></li>
+            <li><Link to="/areas-de-atuacao" onClick={() => setIsMenuOpen(false)} className="block py-2 text-white hover:text-gray-300">Áreas de Atuação & Serviços</Link></li>
+            <li><Link to="/destaques" onClick={() => setIsMenuOpen(false)} className="block py-2 text-white hover:text-gray-300">Destaques</Link></li>
+            <li><Link to="/contato" onClick={() => setIsMenuOpen(false)} className="block py-2 text-white hover:text-gray-300">Contato</Link></li>
             <li className="pt-4">
-              <div className="flex space-x-4">
+              <div className="flex space-x-4 text-white">
                 <a href="https://www.linkedin.com/company/chimelo-advogados-associados" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                   <Linkedin size={20} />
                 </a>
@@ -121,10 +132,13 @@ const Header = () => {
               </div>
             </li>
           </ul>
-        </nav>}
+        </nav>
+      )}
 
       {/* Admin Modal */}
       <AdminModal isOpen={isAdminModalOpen} onClose={() => setIsAdminModalOpen(false)} />
-    </header>;
+    </header>
+  );
 };
+
 export default Header;
