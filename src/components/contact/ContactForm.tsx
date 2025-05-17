@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -128,9 +127,9 @@ const ContactForm: React.FC = () => {
           name="nome"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Nome completo *</FormLabel>
+              <FormLabel className="text-white">Nome completo *</FormLabel>
               <FormControl>
-                <Input {...field} />
+                <Input {...field} className="bg-white bg-opacity-90" />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -143,9 +142,9 @@ const ContactForm: React.FC = () => {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>E-mail *</FormLabel>
+                <FormLabel className="text-white">E-mail *</FormLabel>
                 <FormControl>
-                  <Input type="email" {...field} />
+                  <Input type="email" {...field} className="bg-white bg-opacity-90" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -157,9 +156,9 @@ const ContactForm: React.FC = () => {
             name="telefone"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Telefone *</FormLabel>
+                <FormLabel className="text-white">Telefone *</FormLabel>
                 <FormControl>
-                  <Input {...field} />
+                  <Input {...field} className="bg-white bg-opacity-90" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -172,9 +171,9 @@ const ContactForm: React.FC = () => {
           name="empresa"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Empresa</FormLabel>
+              <FormLabel className="text-white">Empresa</FormLabel>
               <FormControl>
-                <Input {...field} />
+                <Input {...field} className="bg-white bg-opacity-90" />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -186,9 +185,9 @@ const ContactForm: React.FC = () => {
           name="assunto"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Assunto *</FormLabel>
+              <FormLabel className="text-white">Assunto *</FormLabel>
               <FormControl>
-                <Input {...field} />
+                <Input {...field} className="bg-white bg-opacity-90" />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -200,9 +199,9 @@ const ContactForm: React.FC = () => {
           name="mensagem"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Mensagem *</FormLabel>
+              <FormLabel className="text-white">Mensagem *</FormLabel>
               <FormControl>
-                <Textarea rows={5} {...field} />
+                <Textarea rows={5} {...field} className="bg-white bg-opacity-90" />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -211,7 +210,7 @@ const ContactForm: React.FC = () => {
         
         <Button 
           type="submit" 
-          className="w-full"
+          className="w-full bg-chimelo-black text-white hover:bg-gray-800"
           disabled={isSubmitting}
         >
           {isSubmitting ? 'Enviando...' : 'Enviar mensagem'}
