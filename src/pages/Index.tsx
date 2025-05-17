@@ -5,7 +5,6 @@ import Hero from '../components/Hero'
 import QuemSomosSection from '../components/QuemSomosSection'
 import AreasAtuacao from '../components/AreasAtuacao'
 import NoticiasSection from '../components/NoticiasSection'
-import ContatoSection from '../components/ContatoSection'
 import Footer from '../components/Footer'
 import AdminModal from '../components/AdminModal'
 
@@ -26,7 +25,7 @@ export default function Index() {
         <QuemSomosSection />
         <AreasAtuacao />
         <NoticiasSection />
-        <ContatoSection />
+        {/* Seção de contato removida conforme solicitado */}
       </main>
       <Footer />
       
