@@ -14,6 +14,7 @@ export type Database = {
           assunto: string
           criado_em: string
           email: string
+          empresa: string | null
           id: string
           mensagem: string
           nome: string
@@ -25,6 +26,7 @@ export type Database = {
           assunto: string
           criado_em?: string
           email: string
+          empresa?: string | null
           id?: string
           mensagem: string
           nome: string
@@ -36,6 +38,7 @@ export type Database = {
           assunto?: string
           criado_em?: string
           email?: string
+          empresa?: string | null
           id?: string
           mensagem?: string
           nome?: string

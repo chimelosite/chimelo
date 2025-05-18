@@ -74,26 +74,22 @@ const ContactForm: React.FC = () => {
       console.log("Resposta da função Edge:", responseData);
       
       if (responseData?.success) {
-        // Também salvar diretamente na tabela (redundância para caso a função falhe)
-        const { error: dbError } = await supabase
-          .from('contatos')
-          .insert({
-            nome: data.nome,
-            email: data.email,
-            telefone: data.telefone,
-            assunto: data.assunto,
-            mensagem: data.mensagem,
-            tipo: data.empresa ? "empresa" : "pessoa-fisica"
+        // Verificar status do email
+        if (responseData.emailStatus && !responseData.emailStatus.sent) {
+          // Email não enviado, mas dados salvos
+          toast({
+            title: "Mensagem recebida",
+            description: "Sua mensagem foi registrada, mas houve um problema no envio do email de notificação. Nossa equipe entrará em contato em breve.",
+            variant: "default",
           });
-          
-        if (dbError) {
-          console.warn("Aviso: Dados salvos via função edge, mas falha ao salvar diretamente:", dbError);
+        } else {
+          // Tudo ok
+          toast({
+            title: "Mensagem enviada",
+            description: "Sua mensagem foi enviada com sucesso! Em breve entraremos em contato.",
+          });
         }
         
-        toast({
-          title: "Mensagem enviada",
-          description: "Sua mensagem foi enviada com sucesso! Em breve entraremos em contato.",
-        });
         form.reset();
       } else {
         throw new Error(responseData?.error || "Falha ao enviar mensagem");

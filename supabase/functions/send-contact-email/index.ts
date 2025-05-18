@@ -70,6 +70,7 @@ serve(async (req) => {
     const resend = new Resend(resendApiKey);
 
     // Enviar email utilizando Resend
+    let emailResult;
     try {
       const tipoTexto = {
         "empresa": "Empresa",
@@ -98,26 +99,60 @@ serve(async (req) => {
       `;
       
       console.log("Enviando email via Resend...");
-      const emailResult = await resend.emails.send({
-        from: "Formulário Website <onboarding@resend.dev>",
+      
+      // Usar um domínio verificado no Resend para o endereço de envio
+      // IMPORTANTE: Este domínio deve ser verificado no painel do Resend
+      const fromEmail = "site@chimelo.com.br"; // Deve ser um domínio verificado
+      
+      emailResult = await resend.emails.send({
+        from: `Formulário Website <${fromEmail}>`,
         to: ["contato@chimelo.com.br"],
         subject: `Novo contato do site: ${contactData.assunto}`,
         html: emailHtml,
         reply_to: contactData.email,
       });
       
-      console.log("Email enviado com sucesso:", emailResult);
+      console.log("Resultado do envio de email:", JSON.stringify(emailResult));
+      
+      // Verificar se há erro no resultado do email
+      if (emailResult.error) {
+        console.error("Erro no envio de email:", emailResult.error);
+        
+        // Verificar se é erro de restrição de domínio
+        if (emailResult.error.statusCode === 403 && emailResult.error.message?.includes("verify a domain")) {
+          console.warn("AVISO: Domínio não verificado no Resend. É necessário verificar o domínio em resend.com/domains");
+          
+          // Não interromper o fluxo, apenas registrar o erro
+          // Os dados já foram salvos no banco de dados
+        } else {
+          // Outros erros de email, registrar mas não interromper o fluxo
+          console.error("Erro ao enviar email:", emailResult.error);
+        }
+      } else {
+        console.log("Email enviado com sucesso!");
+      }
     } catch (emailError: any) {
-      console.error("Erro ao enviar email:", emailError);
+      console.error("Exceção ao enviar email:", emailError);
       // Não interromper o fluxo em caso de erro no envio de email
       // Os dados já foram salvos no banco de dados
     }
 
+    // Retornar sucesso mesmo se o email falhou, já que os dados foram salvos
+    // Incluir detalhes do resultado do email para depuração
     return new Response(
       JSON.stringify({
         success: true,
         message: "Contato recebido com sucesso",
-        contactId: data?.[0]?.id
+        contactId: data?.[0]?.id,
+        emailStatus: emailResult ? 
+          (emailResult.error ? 
+            { 
+              sent: false, 
+              error: "Erro ao enviar email, mas dados foram salvos. Por favor, verifique a configuração do Resend."
+            } : 
+            { sent: true }
+          ) : 
+          { sent: false, error: "Não foi possível enviar o email, mas os dados foram salvos." }
       }),
       {
         headers: { 
