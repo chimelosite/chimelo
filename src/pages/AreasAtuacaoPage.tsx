@@ -235,27 +235,13 @@ const AreasAtuacaoPage: React.FC = () => {
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow pt-0">
-        {/* Hero Section - Moving the title 45px down */}
-        <section className="relative bg-chimelo-black text-white">
-          <div 
-            className="absolute inset-0 opacity-35 bg-cover bg-center" 
-            style={{
-              backgroundImage: 'url("/lovable-uploads/27570706-51c0-4d07-a428-af2be4221322.png")',
-              backgroundBlendMode: 'overlay'
-            }}
-          />
-          
-          <div className="relative py-16 md:py-24">
-            <div className="chimelo-container">
-              <div className="max-w-3xl mx-auto mb-8 text-center" style={{ marginTop: '75px' }}>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">Áreas de Atuação e Serviços</h1>
-                <p className="text-lg text-chimelo-silver max-w-2xl mx-auto">
-                  O escritório Chimelo Advogados e Associados oferece soluções jurídicas integradas nas mais diversas áreas do direito, sempre com foco nas necessidades específicas de cada cliente e na busca pelos melhores resultados.
-                </p>
-              </div>
-            </div>
-          </div>    
-        </section>
+        {/* Hero Section - Using PageHero component to match other pages */}
+        <PageHero 
+          title="Áreas de Atuação e Serviços"
+          subtitle="O escritório Chimelo Advogados e Associados oferece soluções jurídicas integradas nas mais diversas áreas do direito, sempre com foco nas necessidades específicas de cada cliente e na busca pelos melhores resultados."
+          backgroundImage="/lovable-uploads/27570706-51c0-4d07-a428-af2be4221322.png"
+          height="h-80 md:h-96"
+        />
         
         {/* Breadcrumb */}
         <div className="bg-gray-50 py-3 border-b border-gray-200">
