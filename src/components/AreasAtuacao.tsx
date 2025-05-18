@@ -1,13 +1,7 @@
 
 import React from "react";
-import { Shield, Scale, Building, Users, Book, Briefcase, Plus, Minus } from "lucide-react";
+import { Shield, Scale, Building, Users, Book, Briefcase } from "lucide-react";
 import { Link } from "react-router-dom";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger
-} from "@/components/ui/accordion";
 
 interface AreaProps {
   icon: React.ReactNode;

@@ -1,10 +1,10 @@
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { Separator } from "@/components/ui/separator";
+import { PageHero } from "@/components/PageHero";
 import {
   Accordion,
   AccordionContent,
@@ -25,6 +25,7 @@ import {
   Calculator,
   ArrowUp,
   ArrowRight,
+  ArrowDown,
   Pill,
   MapPin,
   CircuitBoard,
@@ -48,8 +49,18 @@ import {
 } from "lucide-react";
 
 const AreasAtuacaoPage: React.FC = () => {
-  const voltarAoTopo = () => {
+  const [activeSection, setActiveSection] = useState<string | null>(null);
+  const setoresRef = useRef<HTMLDivElement>(null);
+  const especialidadesRef = useRef<HTMLDivElement>(null);
+
+  const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
+    if (ref.current) {
+      ref.current.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   // Dados para os Setores de Atuação
@@ -224,7 +235,7 @@ const AreasAtuacaoPage: React.FC = () => {
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow pt-0">
-        {/* Hero Section */}
+        {/* Hero Section - Moving the title 45px down */}
         <section className="relative bg-chimelo-black text-white">
           <div 
             className="absolute inset-0 opacity-35 bg-cover bg-center" 
@@ -236,7 +247,7 @@ const AreasAtuacaoPage: React.FC = () => {
           
           <div className="relative py-16 md:py-24">
             <div className="chimelo-container">
-              <div className="max-w-3xl mx-auto mb-8 text-center" style={{ marginTop: '45px' }}>
+              <div className="max-w-3xl mx-auto mb-8 text-center" style={{ marginTop: '75px' }}>
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">Áreas de Atuação e Serviços</h1>
                 <p className="text-lg text-chimelo-silver max-w-2xl mx-auto">
                   O escritório Chimelo Advogados e Associados oferece soluções jurídicas integradas nas mais diversas áreas do direito, sempre com foco nas necessidades específicas de cada cliente e na busca pelos melhores resultados.
@@ -257,17 +268,17 @@ const AreasAtuacaoPage: React.FC = () => {
           </div>
         </div>
         
-        {/* Área de Conteúdo Principal - Layout Duas Colunas */}
+        {/* Área de Conteúdo Principal - Layout Single Column */}
         <section className="py-16 bg-white">
           <div className="chimelo-container">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              {/* Coluna 1: Setores de Atuação */}
-              <div>
-                <h2 className="text-2xl md:text-3xl font-bold mb-4">Setores de Atuação</h2>
-                <p className="text-chimelo-silver mb-8">
-                  Nosso escritório possui expertise em diversos setores econômicos, permitindo uma atuação especializada nas particularidades de cada indústria.
-                </p>
-                
+            {/* Setores de Atuação */}
+            <div ref={setoresRef} className="mb-16">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">Setores de Atuação</h2>
+              <p className="text-chimelo-silver mb-8 max-w-3xl">
+                Nosso escritório possui expertise em diversos setores econômicos, permitindo uma atuação especializada nas particularidades de cada indústria.
+              </p>
+              
+              <div className="max-w-4xl">
                 <Accordion type="single" collapsible className="w-full">
                   {setores.map((setor, index) => (
                     <AccordionItem 
@@ -284,20 +295,22 @@ const AreasAtuacaoPage: React.FC = () => {
                         </div>
                       </AccordionTrigger>
                       <AccordionContent className="px-6 pb-4 pt-2">
-                        <p className="text-chimelo-silver">{setor.description}</p>
+                        <p className="text-chimelo-silver text-left font-normal">{setor.description}</p>
                       </AccordionContent>
                     </AccordionItem>
                   ))}
                 </Accordion>
               </div>
+            </div>
+            
+            {/* Produtos e Especialidades */}
+            <div ref={especialidadesRef}>
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">Produtos e Especialidades</h2>
+              <p className="text-chimelo-silver mb-8 max-w-3xl">
+                Conheça nossos serviços jurídicos especializados e soluções estratégicas para os mais diversos desafios empresariais.
+              </p>
               
-              {/* Coluna 2: Produtos e Especialidades */}
-              <div>
-                <h2 className="text-2xl md:text-3xl font-bold mb-4">Produtos e Especialidades</h2>
-                <p className="text-chimelo-silver mb-8">
-                  Conheça nossos serviços jurídicos especializados e soluções estratégicas para os mais diversos desafios empresariais.
-                </p>
-                
+              <div className="max-w-4xl">
                 <Accordion type="single" collapsible className="w-full">
                   {especialidades.map((especialidade, index) => (
                     <AccordionItem 
@@ -314,7 +327,7 @@ const AreasAtuacaoPage: React.FC = () => {
                         </div>
                       </AccordionTrigger>
                       <AccordionContent className="px-6 pb-4 pt-2">
-                        <p className="text-chimelo-silver">{especialidade.description}</p>
+                        <p className="text-chimelo-silver text-left font-normal">{especialidade.description}</p>
                       </AccordionContent>
                     </AccordionItem>
                   ))}
@@ -344,9 +357,25 @@ const AreasAtuacaoPage: React.FC = () => {
       <Footer />
       
       {/* Floating Navigation */}
-      <div className="fixed bottom-8 right-8 z-10">
+      <div className="fixed bottom-8 right-8 z-10 flex flex-col gap-3">
         <button 
-          onClick={voltarAoTopo} 
+          onClick={() => scrollToSection(setoresRef)} 
+          className="p-3 bg-white text-chimelo-black rounded-full shadow-lg hover:bg-gray-100 transition-colors"
+          aria-label="Ir para Setores de Atuação"
+        >
+          <ArrowsUpFromLine className="h-5 w-5" />
+        </button>
+        
+        <button 
+          onClick={() => scrollToSection(especialidadesRef)} 
+          className="p-3 bg-white text-chimelo-black rounded-full shadow-lg hover:bg-gray-100 transition-colors"
+          aria-label="Ir para Especialidades"
+        >
+          <ArrowDown className="h-5 w-5" />
+        </button>
+        
+        <button 
+          onClick={scrollToTop} 
           className="p-3 bg-white text-chimelo-black rounded-full shadow-lg hover:bg-gray-100 transition-colors"
           aria-label="Voltar ao topo"
         >
