@@ -176,19 +176,6 @@ const AreasAtuacaoPage: React.FC = () => {
                   O escritório Chimelo Advogados & Associados oferece soluções jurídicas integradas nas mais diversas áreas do direito, sempre com foco nas necessidades específicas de cada cliente e na busca pelos melhores resultados.
                 </p>
               </div>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild className="chimelo-btn chimelo-btn-primary">
-                  <a href="#areas-detalhadas">
-                    Ver áreas de atuação <ArrowRight className="ml-2 h-4 w-4" />
-                  </a>
-                </Button>
-                <Button asChild variant="outline" className="bg-transparent border-white text-white hover:bg-white/10">
-                  <Link to="/contato">
-                    Entre em contato
-                  </Link>
-                </Button>
-              </div>
             </div>
           </div>
         </section>
