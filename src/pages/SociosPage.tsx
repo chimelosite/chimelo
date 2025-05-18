@@ -96,7 +96,7 @@ const SociosPage: React.FC = () => {
                   {/* Updated aspect ratio with object-center instead of object-top */}
                   <div className="aspect-[3/2] overflow-hidden bg-gray-100 border-b">
                     <AspectRatio ratio={3 / 2} className="bg-gray-100">
-                      <img src={socios[selectedSocio].imagem} alt={socios[selectedSocio].nome} className="w-full h-full object-cover object-center" />
+                      <img src={socios[selectedSocio].imagem} alt={socios[selectedSocio].nome} className="w-full h-full object-center object-scale-down" />
                     </AspectRatio>
                   </div>
                   <CardContent className="p-8">
