@@ -1,12 +1,9 @@
-
 import React from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import ContactForm from "../components/contact/ContactForm";
-import ContactInfo from "../components/contact/ContactInfo";
 import { 
   Shield, 
   Briefcase, 
@@ -179,15 +176,6 @@ const AreasAtuacaoPage: React.FC = () => {
                 </p>
               </div>
               
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <div className="p-6 rounded-lg backdrop-blur-sm bg-black/30 border border-white/10">
-                  <ContactForm />
-                </div>
-                
-                <div className="p-6 rounded-lg backdrop-blur-sm bg-black/30 border border-white/10">
-                  <ContactInfo />
-                </div>
-              </div>
             </div>
           </div>    
         </section>
