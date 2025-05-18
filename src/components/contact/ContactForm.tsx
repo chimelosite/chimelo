@@ -132,32 +132,83 @@ const ContactForm: React.FC = () => {
     }
   };
 
+  // Se o formulário foi enviado com sucesso e o usuário deseja enviar uma nova mensagem
+  const resetForm = () => {
+    setSubmissionResult(null);
+    form.reset();
+  };
+
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-        <FormField
-          control={form.control}
-          name="nome"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="text-white">Nome completo *</FormLabel>
-              <FormControl>
-                <Input {...field} className="bg-white bg-opacity-90" />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {submissionResult?.success ? (
+        <div className={`p-4 rounded text-center ${
+          submissionResult.emailSent 
+            ? "bg-green-100 text-green-800 border border-green-200" 
+            : "bg-yellow-100 text-yellow-800 border border-yellow-200"
+        }`}>
+          <p className="text-lg mb-4">{submissionResult.message}</p>
+          <Button 
+            type="button" 
+            onClick={resetForm}
+            className="bg-chimelo-black text-white hover:bg-gray-800"
+          >
+            Enviar nova mensagem
+          </Button>
+        </div>
+      ) : (
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <FormField
             control={form.control}
-            name="email"
+            name="nome"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-white">E-mail *</FormLabel>
+                <FormLabel className="text-white">Nome completo *</FormLabel>
                 <FormControl>
-                  <Input type="email" {...field} className="bg-white bg-opacity-90" />
+                  <Input {...field} className="bg-white bg-opacity-90" />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-white">E-mail *</FormLabel>
+                  <FormControl>
+                    <Input type="email" {...field} className="bg-white bg-opacity-90" />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            
+            <FormField
+              control={form.control}
+              name="telefone"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-white">Telefone *</FormLabel>
+                  <FormControl>
+                    <Input {...field} className="bg-white bg-opacity-90" />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+          
+          <FormField
+            control={form.control}
+            name="empresa"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-white">Empresa</FormLabel>
+                <FormControl>
+                  <Input {...field} className="bg-white bg-opacity-90" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -166,10 +217,10 @@ const ContactForm: React.FC = () => {
           
           <FormField
             control={form.control}
-            name="telefone"
+            name="assunto"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-white">Telefone *</FormLabel>
+                <FormLabel className="text-white">Assunto *</FormLabel>
                 <FormControl>
                   <Input {...field} className="bg-white bg-opacity-90" />
                 </FormControl>
@@ -177,75 +228,41 @@ const ContactForm: React.FC = () => {
               </FormItem>
             )}
           />
-        </div>
-        
-        <FormField
-          control={form.control}
-          name="empresa"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="text-white">Empresa</FormLabel>
-              <FormControl>
-                <Input {...field} className="bg-white bg-opacity-90" />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
+          
+          <FormField
+            control={form.control}
+            name="mensagem"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-white">Mensagem *</FormLabel>
+                <FormControl>
+                  <Textarea rows={5} {...field} className="bg-white bg-opacity-90" />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          
+          <Button 
+            type="submit" 
+            className="w-full bg-chimelo-black text-white hover:bg-gray-800"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? 'Enviando...' : 'Enviar mensagem'}
+            <Send className="ml-2 h-4 w-4" />
+          </Button>
+          
+          {submissionResult && !submissionResult.success && (
+            <div className="p-4 rounded text-center bg-red-100 text-red-800 border border-red-200">
+              {submissionResult.message}
+            </div>
           )}
-        />
-        
-        <FormField
-          control={form.control}
-          name="assunto"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="text-white">Assunto *</FormLabel>
-              <FormControl>
-                <Input {...field} className="bg-white bg-opacity-90" />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        
-        <FormField
-          control={form.control}
-          name="mensagem"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="text-white">Mensagem *</FormLabel>
-              <FormControl>
-                <Textarea rows={5} {...field} className="bg-white bg-opacity-90" />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        
-        <Button 
-          type="submit" 
-          className="w-full bg-chimelo-black text-white hover:bg-gray-800"
-          disabled={isSubmitting}
-        >
-          {isSubmitting ? 'Enviando...' : 'Enviar mensagem'}
-          <Send className="ml-2 h-4 w-4" />
-        </Button>
-        
-        {submissionResult && (
-          <div className={`p-4 rounded text-center ${
-            submissionResult.success 
-              ? submissionResult.emailSent 
-                ? "bg-green-100 text-green-800 border border-green-200" 
-                : "bg-yellow-100 text-yellow-800 border border-yellow-200"
-              : "bg-red-100 text-red-800 border border-red-200"
-          }`}>
-            {submissionResult.message}
-          </div>
-        )}
-        
-        <p className="text-xs text-chimelo-silver text-center">
-          Ao enviar este formulário, você concorda com nossa política de privacidade.
-        </p>
-      </form>
+          
+          <p className="text-xs text-chimelo-silver text-center">
+            Ao enviar este formulário, você concorda com nossa política de privacidade.
+          </p>
+        </form>
+      )}
     </Form>
   );
 };

@@ -1,8 +1,6 @@
 
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.14.0";
-
-// Fix: Update Resend import to a version compatible with Deno runtime
 import { Resend } from "https://esm.sh/resend@2.0.0";
 
 const corsHeaders = {
@@ -59,14 +57,14 @@ serve(async (req) => {
     }
     console.log("Dados salvos com sucesso na tabela contatos");
 
-    // Initialize Resend with proper version
-    const resendApiKey = Deno.env.get("RESEND_API_KEY");
+    // Initialize Resend with API key provided
+    const resendApiKey = "re_UwAnVh9p_5UGAD2TrbGupP7Feujf9XYLt"; // API key fornecida
     if (!resendApiKey) {
-      console.error("RESEND_API_KEY não configurada");
+      console.error("API key do Resend não configurada");
       throw new Error("RESEND_API_KEY is not set");
     }
     
-    // Initialize Resend with correct implementation for Deno
+    // Initialize Resend
     const resend = new Resend(resendApiKey);
 
     // Enviar email utilizando Resend
@@ -102,16 +100,16 @@ serve(async (req) => {
       
       console.log("Enviando email via Resend...");
       
-      // Agora usando o domínio chimelo.com.br que já está verificado
+      // Usando o domínio verificado chimelo.com.br
       const fromEmail = "contato@chimelo.com.br";
       
-      // Adicionar um email de monitoramento para diagnóstico
-      const bccEmail = "contato@chimelo.com.br";
+      // Email de backup para monitoramento
+      const backupEmail = "suporte@chimelo.com.br";
       
       emailResult = await resend.emails.send({
         from: `Formulário Website Chimelo <${fromEmail}>`,
-        to: ["contato@chimelo.com.br"],
-        bcc: [bccEmail], // Email adicional para monitoramento
+        to: ["contato@chimelo.com.br"], 
+        bcc: [backupEmail],
         reply_to: contactData.email,
         subject: `Novo contato do site: ${contactData.assunto}`,
         html: emailHtml,
