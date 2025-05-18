@@ -1,4 +1,3 @@
-
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -263,22 +262,8 @@ const AreasAtuacaoPage: React.FC = () => {
           </div>
         </section>
         
-        {/* Call To Action */}
-        <section className="py-16 bg-chimelo-black text-white">
-          <div className="chimelo-container">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">Precisa de Assessoria Jurídica Especializada?</h2>
-              <p className="text-chimelo-silver mb-8">
-                Entre em contato com nossa equipe para uma avaliação personalizada das necessidades do seu negócio.
-              </p>
-              <Link to="/contato">
-                <Button className="bg-white text-chimelo-black hover:bg-gray-100">
-                  Fale Conosco <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </section>
+        
+        
       </main>
       <Footer />
       
