@@ -1,7 +1,10 @@
+
 import React from "react";
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import PageHero from "../components/PageHero";
 import { 
   Shield, 
   Briefcase, 
@@ -156,12 +159,41 @@ const AreasAtuacaoPage: React.FC = () => {
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow">
-        <PageHero 
-          title="Áreas de Atuação & Serviços" 
-          subtitle="O escritório Chimelo Advogados & Associados oferece soluções jurídicas integradas nas mais diversas áreas do direito, sempre com foco nas necessidades específicas de cada cliente e na busca pelos melhores resultados."
-        />
+        {/* Hero section replicando o estilo da home */}
+        <section className="relative bg-chimelo-black text-white overflow-hidden">
+          <div 
+            className="absolute inset-0 opacity-30 bg-cover bg-center" 
+            style={{
+              backgroundImage: 'url("https://i.imgur.com/1FQHSz1.jpeg")',
+              backgroundBlendMode: 'overlay'
+            }}
+          />
+          
+          <div className="relative chimelo-container py-32 md:py-36 lg:py-44 flex flex-col items-start">
+            <div className="max-w-3xl mt-8 md:mt-10">
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                Áreas de Atuação & Serviços
+              </h1>
+              <p className="text-xl text-chimelo-silver mb-8 max-w-2xl">
+                O escritório Chimelo Advogados & Associados oferece soluções jurídicas integradas nas mais diversas áreas do direito, sempre com foco nas necessidades específicas de cada cliente e na busca pelos melhores resultados.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button asChild className="chimelo-btn chimelo-btn-primary">
+                  <a href="#areas-detalhadas">
+                    Ver áreas de atuação <ArrowRight className="ml-2 h-4 w-4" />
+                  </a>
+                </Button>
+                <Button asChild variant="outline" className="bg-transparent border-white text-white hover:bg-white/10">
+                  <Link to="/contato">
+                    Entre em contato
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
         
-        <section className="chimelo-section bg-gray-50">
+        <section id="areas-detalhadas" className="chimelo-section bg-gray-50">
           <div className="chimelo-container">            
             <div className="space-y-8">
               {areasDetalhadas.map((area, index) => (

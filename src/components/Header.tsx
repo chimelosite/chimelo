@@ -47,6 +47,11 @@ const Header = () => {
     return 'bg-chimelo-black py-3 shadow-md';
   };
   
+  // Função para verificar se um link está ativo
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
+  
   return (
     <header className={`transition-all duration-300 ${getHeaderClass()}`}>
       <div className="chimelo-container flex justify-between items-center">
@@ -62,12 +67,12 @@ const Header = () => {
         <div className="hidden md:flex items-center">
           <nav className="mr-8">
             <ul className="flex space-x-1">
-              <li><Link to="/" className="chimelo-menu-item text-sm uppercase font-medium tracking-wider">Home</Link></li>
-              <li><Link to="/quem-somos" className="chimelo-menu-item text-sm uppercase font-medium tracking-wider">Quem Somos</Link></li>
-              <li><Link to="/socios" className="chimelo-menu-item text-sm uppercase font-medium tracking-wider">Sócios</Link></li>
-              <li><Link to="/areas-de-atuacao" className="chimelo-menu-item text-sm uppercase font-medium tracking-wider">Áreas de Atuação & Serviços</Link></li>
-              <li><Link to="/destaques" className="chimelo-menu-item text-sm uppercase font-medium tracking-wider">Destaques</Link></li>
-              <li><Link to="/contato" className="chimelo-menu-item text-sm uppercase font-medium tracking-wider">Contato</Link></li>
+              <li><Link to="/" className={`chimelo-menu-item text-sm uppercase font-medium tracking-wider ${isActive('/') ? 'chimelo-menu-item-active' : ''}`}>Home</Link></li>
+              <li><Link to="/quem-somos" className={`chimelo-menu-item text-sm uppercase font-medium tracking-wider ${isActive('/quem-somos') ? 'chimelo-menu-item-active' : ''}`}>Quem Somos</Link></li>
+              <li><Link to="/socios" className={`chimelo-menu-item text-sm uppercase font-medium tracking-wider ${isActive('/socios') ? 'chimelo-menu-item-active' : ''}`}>Sócios</Link></li>
+              <li><Link to="/areas-de-atuacao" className={`chimelo-menu-item text-sm uppercase font-medium tracking-wider ${isActive('/areas-de-atuacao') ? 'chimelo-menu-item-active' : ''}`}>Áreas de Atuação & Serviços</Link></li>
+              <li><Link to="/destaques" className={`chimelo-menu-item text-sm uppercase font-medium tracking-wider ${isActive('/destaques') ? 'chimelo-menu-item-active' : ''}`}>Destaques</Link></li>
+              <li><Link to="/contato" className={`chimelo-menu-item text-sm uppercase font-medium tracking-wider ${isActive('/contato') ? 'chimelo-menu-item-active' : ''}`}>Contato</Link></li>
               <li>
                 <button onClick={openAdminPanel} className="chimelo-menu-item text-sm uppercase font-medium tracking-wider hidden" aria-label="Painel Administrativo">
                   Admin
@@ -107,12 +112,12 @@ const Header = () => {
       {isMenuOpen && (
         <nav className="md:hidden bg-chimelo-black absolute top-full left-0 right-0 z-50">
           <ul className="container mx-auto px-4 py-4 space-y-2">
-            <li><Link to="/" onClick={() => setIsMenuOpen(false)} className="block py-2 text-white hover:text-gray-300">Home</Link></li>
-            <li><Link to="/quem-somos" onClick={() => setIsMenuOpen(false)} className="block py-2 text-white hover:text-gray-300">Quem Somos</Link></li>
-            <li><Link to="/socios" onClick={() => setIsMenuOpen(false)} className="block py-2 text-white hover:text-gray-300">Sócios</Link></li>
-            <li><Link to="/areas-de-atuacao" onClick={() => setIsMenuOpen(false)} className="block py-2 text-white hover:text-gray-300">Áreas de Atuação & Serviços</Link></li>
-            <li><Link to="/destaques" onClick={() => setIsMenuOpen(false)} className="block py-2 text-white hover:text-gray-300">Destaques</Link></li>
-            <li><Link to="/contato" onClick={() => setIsMenuOpen(false)} className="block py-2 text-white hover:text-gray-300">Contato</Link></li>
+            <li><Link to="/" onClick={() => setIsMenuOpen(false)} className={`block py-2 text-white hover:text-gray-300 ${isActive('/') ? 'font-bold' : ''}`}>Home</Link></li>
+            <li><Link to="/quem-somos" onClick={() => setIsMenuOpen(false)} className={`block py-2 text-white hover:text-gray-300 ${isActive('/quem-somos') ? 'font-bold' : ''}`}>Quem Somos</Link></li>
+            <li><Link to="/socios" onClick={() => setIsMenuOpen(false)} className={`block py-2 text-white hover:text-gray-300 ${isActive('/socios') ? 'font-bold' : ''}`}>Sócios</Link></li>
+            <li><Link to="/areas-de-atuacao" onClick={() => setIsMenuOpen(false)} className={`block py-2 text-white hover:text-gray-300 ${isActive('/areas-de-atuacao') ? 'font-bold' : ''}`}>Áreas de Atuação & Serviços</Link></li>
+            <li><Link to="/destaques" onClick={() => setIsMenuOpen(false)} className={`block py-2 text-white hover:text-gray-300 ${isActive('/destaques') ? 'font-bold' : ''}`}>Destaques</Link></li>
+            <li><Link to="/contato" onClick={() => setIsMenuOpen(false)} className={`block py-2 text-white hover:text-gray-300 ${isActive('/contato') ? 'font-bold' : ''}`}>Contato</Link></li>
             <li className="pt-4">
               <div className="flex space-x-4 text-white">
                 <a href="https://www.linkedin.com/company/chimelo-advogados-associados" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
