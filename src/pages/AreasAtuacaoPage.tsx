@@ -1,3 +1,4 @@
+
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -6,16 +7,19 @@ import Footer from "../components/Footer";
 import PageHero from "@/components/PageHero";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Tractor, Building, Store, Factory, Bot, Briefcase, FileText, ArrowsUpFromLine, Search, Calculator, ArrowUp, ArrowRight, ArrowDown, Pill, MapPin, CircuitBoard, Truck, Milk, Apple, Bus, Plane, Wrench, ShoppingCart, Shirt, Zap, Heart, Home, Users, Percent, RefreshCw, Handshake, FileMinus, Code } from "lucide-react";
+
 const AreasAtuacaoPage: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const setoresRef = useRef<HTMLDivElement>(null);
   const especialidadesRef = useRef<HTMLDivElement>(null);
+  
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     });
   };
+  
   const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
     if (ref.current) {
       ref.current.scrollIntoView({
@@ -157,23 +161,25 @@ const AreasAtuacaoPage: React.FC = () => {
     title: "Tecnologia e Serviços",
     description: "Manutenção de contratos públicos em recuperação e estruturação de joint ventures internacionais, com foco em eficiência e continuidade operacional."
   }];
-  return <div className="flex flex-col min-h-screen">
+  
+  return (
+    <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow pt-0">
         {/* Hero Section with centered text and moved down by 1.8cm (approximately 68px) */}
         <div className="relative h-80 md:h-96 bg-chimelo-black text-white overflow-hidden">
           <div style={{
-          backgroundImage: `url("/lovable-uploads/27570706-51c0-4d07-a428-af2be4221322.png")`,
-          backgroundBlendMode: 'overlay'
-        }} className="absolute inset-0 opacity-30 bg-cover bg-center my-0" />
+            backgroundImage: `url("/lovable-uploads/27570706-51c0-4d07-a428-af2be4221322.png")`,
+            backgroundBlendMode: 'overlay'
+          }} className="absolute inset-0 opacity-30 bg-cover bg-center my-0" />
           
           <div style={{
-          paddingTop: '68px'
-        }} className="relative chimelo-container h-full flex flex-col justify-center items-center py-0 px-[4px] my-[45px]">
+            paddingTop: '68px'
+          }} className="relative chimelo-container h-full flex flex-col justify-center items-center py-0 px-[4px] my-[45px]">
             <div className="max-w-3xl text-center">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-
-Áreas de Atuação e Serviços</h1>
+                Áreas de Atuação e Serviços
+              </h1>
               <p className="text-lg text-chimelo-silver max-w-2xl mx-auto py-0 text-center font-normal">
                 O escritório Chimelo Advogados e Associados oferece soluções jurídicas integradas nas mais diversas áreas do direito, sempre com foco nas necessidades específicas de cada cliente e na busca pelos melhores resultados.
               </p>
@@ -192,58 +198,66 @@ const AreasAtuacaoPage: React.FC = () => {
           </div>
         </div>
         
-        {/* Área de Conteúdo Principal - Layout Single Column */}
+        {/* Área de Conteúdo Principal - Layout com duas colunas */}
         <section className="py-16 bg-white">
           <div className="chimelo-container">
             {/* Setores de Atuação */}
             <div ref={setoresRef} className="mb-16">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">Setores de Atuação</h2>
-              <p className="text-chimelo-silver mb-8 max-w-3xl">
+              <h2 className="text-2xl md:text-3xl font-bold mb-2">Setores de Atuação</h2>
+              <p className="text-chimelo-silver mb-10 max-w-3xl">
                 Nosso escritório possui expertise em diversos setores econômicos, permitindo uma atuação especializada nas particularidades de cada indústria.
               </p>
               
-              <div className="max-w-4xl">
-                <Accordion type="single" collapsible className="w-full">
-                  {setores.map((setor, index) => <AccordionItem key={index} value={`setor-${index}`} className="border border-chimelo-lightgray/20 rounded-md mb-3 overflow-hidden bg-white hover:shadow-sm transition-shadow">
-                      <AccordionTrigger className="px-4 py-4 flex items-center hover:no-underline">
-                        <div className="flex items-center">
-                          <div className="p-2 rounded-full bg-chimelo-black/5 mr-3">
-                            {setor.icon}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-4">
+                {setores.map((setor, index) => (
+                  <div key={index} className="bg-white border border-gray-100 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                    <Accordion type="single" collapsible className="w-full">
+                      <AccordionItem value={`setor-${index}`} className="border-0">
+                        <AccordionTrigger className="px-4 py-3 hover:no-underline">
+                          <div className="flex items-center">
+                            <div className="p-2 rounded-full bg-gray-50 mr-3">
+                              {setor.icon}
+                            </div>
+                            <h3 className="text-base font-normal text-chimelo-black text-left">{setor.title}</h3>
                           </div>
-                          <h3 className="text-lg font-semibold text-chimelo-black">{setor.title}</h3>
-                        </div>
-                      </AccordionTrigger>
-                      <AccordionContent className="px-6 pb-4 pt-2">
-                        <p className="text-chimelo-silver text-left font-normal">{setor.description}</p>
-                      </AccordionContent>
-                    </AccordionItem>)}
-                </Accordion>
+                        </AccordionTrigger>
+                        <AccordionContent className="px-6 pb-4 pt-0">
+                          <p className="text-chimelo-silver text-sm">{setor.description}</p>
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
+                  </div>
+                ))}
               </div>
             </div>
             
             {/* Produtos e Especialidades */}
             <div ref={especialidadesRef}>
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">Produtos e Especialidades</h2>
-              <p className="text-chimelo-silver mb-8 max-w-3xl">
+              <h2 className="text-2xl md:text-3xl font-bold mb-2">Produtos e Especialidades</h2>
+              <p className="text-chimelo-silver mb-10 max-w-3xl">
                 Conheça nossos serviços jurídicos especializados e soluções estratégicas para os mais diversos desafios empresariais.
               </p>
               
-              <div className="max-w-4xl">
-                <Accordion type="single" collapsible className="w-full">
-                  {especialidades.map((especialidade, index) => <AccordionItem key={index} value={`especialidade-${index}`} className="border border-chimelo-lightgray/20 rounded-md mb-3 overflow-hidden bg-white hover:shadow-sm transition-shadow">
-                      <AccordionTrigger className="px-4 py-4 flex items-center hover:no-underline">
-                        <div className="flex items-center">
-                          <div className="p-2 rounded-full bg-chimelo-black/5 mr-3">
-                            {especialidade.icon}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-4">
+                {especialidades.map((especialidade, index) => (
+                  <div key={index} className="bg-white border border-gray-100 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                    <Accordion type="single" collapsible className="w-full">
+                      <AccordionItem value={`especialidade-${index}`} className="border-0">
+                        <AccordionTrigger className="px-4 py-3 hover:no-underline">
+                          <div className="flex items-center">
+                            <div className="p-2 rounded-full bg-gray-50 mr-3">
+                              {especialidade.icon}
+                            </div>
+                            <h3 className="text-base font-normal text-chimelo-black text-left">{especialidade.title}</h3>
                           </div>
-                          <h3 className="text-lg font-semibold text-chimelo-black">{especialidade.title}</h3>
-                        </div>
-                      </AccordionTrigger>
-                      <AccordionContent className="px-6 pb-4 pt-2">
-                        <p className="text-chimelo-silver text-left font-normal">{especialidade.description}</p>
-                      </AccordionContent>
-                    </AccordionItem>)}
-                </Accordion>
+                        </AccordionTrigger>
+                        <AccordionContent className="px-6 pb-4 pt-0">
+                          <p className="text-chimelo-silver text-sm">{especialidade.description}</p>
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -282,6 +296,8 @@ const AreasAtuacaoPage: React.FC = () => {
           <ArrowUp className="h-5 w-5" />
         </button>
       </div>
-    </div>;
+    </div>
+  );
 };
+
 export default AreasAtuacaoPage;
