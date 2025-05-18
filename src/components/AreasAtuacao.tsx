@@ -68,7 +68,7 @@ const AreasAtuacao: React.FC = () => {
   return (
     <section className="chimelo-section bg-gray-50">
       <div className="chimelo-container">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12" style={{ marginTop: '15px' }}>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Áreas de Atuação</h2>
           <p className="text-chimelo-silver max-w-2xl mx-auto">
             Contamos com profissionais especializados em diversas áreas do direito para atender às necessidades específicas de cada cliente.
