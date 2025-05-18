@@ -49,6 +49,9 @@ const Header = () => {
   
   // Função para verificar se um link está ativo
   const isActive = (path) => {
+    if (path === '/areas-de-atuacao' && location.pathname === '/areas-de-atuacao') {
+      return true;
+    }
     return location.pathname === path;
   };
   
