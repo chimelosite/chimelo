@@ -83,13 +83,27 @@
   .socios-page main section:first-child,
   .destaques-page main section:first-child,
   .contato-page main section:first-child {
-    padding-top: 140px; /* Header expandido + espaço extra */
+    padding-top: 200px !important; /* Forçar padding maior para evitar sobreposição */
+    margin-top: 50px !important;
+    position: relative !important;
+    z-index: 1 !important;
     transition: padding-top 0.3s ease-in-out;
+  }
+
+  /* Ajuste específico para títulos nas páginas */
+  .quem-somos-page main section:first-child h1,
+  .socios-page main section:first-child h1,
+  .destaques-page main section:first-child h1,
+  .contato-page main section:first-child h1 {
+    position: relative !important;
+    z-index: 1 !important;
+    margin-top: 0 !important;
+    padding-top: 20px !important;
   }
   
   /* Ajuste quando o header está recolhido */
   .header-scrolled ~ main section:first-child {
-    padding-top: 100px; /* Header recolhido + espaço extra */
+    padding-top: 160px !important; /* Header recolhido + espaço extra forçado */
   }
   
   /* Responsividade para mobile */
@@ -98,11 +112,11 @@
     .socios-page main section:first-child,
     .destaques-page main section:first-child,
     .contato-page main section:first-child {
-      padding-top: 110px; /* Header mobile expandido + espaço */
+      padding-top: 180px !important; /* Header mobile expandido + espaço forçado */
     }
     
     .header-scrolled ~ main section:first-child {
-      padding-top: 80px; /* Header mobile recolhido + espaço */
+      padding-top: 140px !important; /* Header mobile recolhido + espaço forçado */
     }
   }
 }
