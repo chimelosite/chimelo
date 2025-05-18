@@ -120,16 +120,30 @@ const NoticiasPage: React.FC = () => {
     <div className="flex flex-col min-h-screen destaques-page">
       <Header />
       <main className="flex-grow">
+        <section className="relative bg-chimelo-black text-white">
+          <div 
+            className="absolute inset-0 opacity-35 bg-cover bg-center" 
+            style={{
+              backgroundImage: 'url("/lovable-uploads/27570706-51c0-4d07-a428-af2be4221322.png")',
+              backgroundBlendMode: 'overlay'
+            }}
+          />
+          
+          <div className="relative py-16 md:py-24">
+            <div className="chimelo-container">
+              <div className="max-w-3xl mx-auto mb-12 text-center" style={{ marginTop: '15px' }}>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">Notícias e Artigos</h1>
+                <p className="text-lg text-chimelo-silver max-w-2xl mx-auto">
+                  Acompanhe as últimas novidades, artigos e análises jurídicas produzidas 
+                  pela equipe do escritório Chimelo Advogados & Associados.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        
         <section className="chimelo-section bg-gray-50">
           <div className="chimelo-container">
-            <div className="text-center mb-8">
-              <h1 className="text-3xl md:text-4xl font-bold mb-4">Notícias e Artigos</h1>
-              <p className="text-chimelo-silver max-w-2xl mx-auto">
-                Acompanhe as últimas novidades, artigos e análises jurídicas produzidas 
-                pela equipe do escritório Chimelo Advogados & Associados.
-              </p>
-            </div>
-            
             <div className="mb-8">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="md:col-span-2 relative">
