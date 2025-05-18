@@ -79,7 +79,6 @@ const AreasAtuacao: React.FC = () => {
           <p className="text-chimelo-silver max-w-2xl mx-auto">
             Contamos com profissionais especializados em diversas áreas do direito para atender às necessidades específicas de cada cliente.
           </p>
-          <div className="mx-auto mt-4 h-[1px] w-[60px] bg-chimelo-silver"></div>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
