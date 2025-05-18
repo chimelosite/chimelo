@@ -1,8 +1,6 @@
-
 import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-
 const QuemSomosPage: React.FC = () => {
   return <div className="flex flex-col min-h-screen quem-somos-page">
       <Header />
@@ -10,7 +8,7 @@ const QuemSomosPage: React.FC = () => {
         <section className="chimelo-section">
           <div className="chimelo-container">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
+              <div className="py-[49px]">
                 <h1 className="text-3xl md:text-4xl font-bold mb-6">
                   QUEM SOMOS
                 </h1>
@@ -67,5 +65,4 @@ const QuemSomosPage: React.FC = () => {
       <Footer />
     </div>;
 };
-
 export default QuemSomosPage;
