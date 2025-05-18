@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -118,7 +117,7 @@ const NoticiasPage: React.FC = () => {
   });
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen destaques-page">
       <Header />
       <main className="flex-grow">
         <section className="chimelo-section bg-gray-50">

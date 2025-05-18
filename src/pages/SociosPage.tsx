@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -48,7 +49,7 @@ const SociosPage: React.FC = () => {
   const handleBiographyClick = (index: number) => {
     setExpandedSocio(expandedSocio === index ? null : index);
   };
-  return <div className="flex flex-col min-h-screen">
+  return <div className="flex flex-col min-h-screen socios-page">
       <Header />
       <main className="flex-grow bg-gray-50">
         <section className="chimelo-section">

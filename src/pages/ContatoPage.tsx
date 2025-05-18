@@ -7,7 +7,7 @@ import ContactInfo from "../components/contact/ContactInfo";
 
 const ContatoPage: React.FC = () => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen contato-page">
       <Header />
       <main className="flex-grow">
         <section className="relative bg-chimelo-black text-white">

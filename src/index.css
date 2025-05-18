@@ -77,6 +77,34 @@
   header.header-scrolled {
     background-color: rgba(0, 0, 0, 1);
   }
+  
+  /* Ajuste para as páginas específicas QUEM SOMOS, SÓCIOS, DESTAQUES, CONTATO */
+  .quem-somos-page main section:first-child,
+  .socios-page main section:first-child,
+  .destaques-page main section:first-child,
+  .contato-page main section:first-child {
+    padding-top: 140px; /* Header expandido + espaço extra */
+    transition: padding-top 0.3s ease-in-out;
+  }
+  
+  /* Ajuste quando o header está recolhido */
+  .header-scrolled ~ main section:first-child {
+    padding-top: 100px; /* Header recolhido + espaço extra */
+  }
+  
+  /* Responsividade para mobile */
+  @media (max-width: 768px) {
+    .quem-somos-page main section:first-child,
+    .socios-page main section:first-child,
+    .destaques-page main section:first-child,
+    .contato-page main section:first-child {
+      padding-top: 110px; /* Header mobile expandido + espaço */
+    }
+    
+    .header-scrolled ~ main section:first-child {
+      padding-top: 80px; /* Header mobile recolhido + espaço */
+    }
+  }
 }
 
 @layer components {

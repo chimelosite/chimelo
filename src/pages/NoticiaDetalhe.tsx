@@ -1,3 +1,4 @@
+
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
@@ -173,7 +174,7 @@ const NoticiaDetalhe: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen destaques-page">
       <Header />
       <main className="flex-grow">
         <article className="chimelo-section bg-gray-50">
