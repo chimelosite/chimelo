@@ -8,7 +8,7 @@ const QuemSomosPage: React.FC = () => {
         <section className="chimelo-section">
           <div className="chimelo-container">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="py-[49px]">
+              <div className="py-[66px]">
                 <h1 className="text-3xl md:text-4xl font-bold mb-6">
                   QUEM SOMOS
                 </h1>
