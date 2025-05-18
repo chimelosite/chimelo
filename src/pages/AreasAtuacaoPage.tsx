@@ -1,4 +1,3 @@
-
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -235,13 +234,25 @@ const AreasAtuacaoPage: React.FC = () => {
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow pt-0">
-        {/* Hero Section - Using PageHero component to match other pages */}
-        <PageHero 
-          title="Áreas de Atuação e Serviços"
-          subtitle="O escritório Chimelo Advogados e Associados oferece soluções jurídicas integradas nas mais diversas áreas do direito, sempre com foco nas necessidades específicas de cada cliente e na busca pelos melhores resultados."
-          backgroundImage="/lovable-uploads/27570706-51c0-4d07-a428-af2be4221322.png"
-          height="h-80 md:h-96"
-        />
+        {/* Hero Section with centered text and moved down by 1.8cm (approximately 68px) */}
+        <div className="relative h-80 md:h-96 bg-chimelo-black text-white overflow-hidden">
+          <div 
+            className="absolute inset-0 opacity-30 bg-cover bg-center" 
+            style={{
+              backgroundImage: `url("/lovable-uploads/27570706-51c0-4d07-a428-af2be4221322.png")`,
+              backgroundBlendMode: 'overlay'
+            }}
+          />
+          
+          <div className="relative chimelo-container h-full flex flex-col justify-center items-center" style={{ paddingTop: '68px' }}>
+            <div className="max-w-3xl text-center">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">Áreas de Atuação e Serviços</h1>
+              <p className="text-lg text-chimelo-silver max-w-2xl mx-auto">
+                O escritório Chimelo Advogados e Associados oferece soluções jurídicas integradas nas mais diversas áreas do direito, sempre com foco nas necessidades específicas de cada cliente e na busca pelos melhores resultados.
+              </p>
+            </div>
+          </div>
+        </div>
         
         {/* Breadcrumb */}
         <div className="bg-gray-50 py-3 border-b border-gray-200">
