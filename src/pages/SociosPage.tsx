@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -6,6 +5,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { cn } from "@/lib/utils";
+
 interface SocioProps {
   nome: string;
   cargo: string;
@@ -14,6 +14,7 @@ interface SocioProps {
   formacao: string[];
   imagem: string;
 }
+
 const SociosPage: React.FC = () => {
   const [selectedSocio, setSelectedSocio] = useState<number>(0);
   const [expandedSocio, setExpandedSocio] = useState<number | null>(null);
@@ -49,23 +50,47 @@ const SociosPage: React.FC = () => {
   const handleBiographyClick = (index: number) => {
     setExpandedSocio(expandedSocio === index ? null : index);
   };
-  return <div className="flex flex-col min-h-screen socios-page">
+
+  return (
+    <div className="flex flex-col min-h-screen socios-page">
       <Header />
       <main className="flex-grow bg-gray-50">
+        <section className="relative bg-chimelo-black text-white">
+          <div 
+            className="absolute inset-0 opacity-35 bg-cover bg-center" 
+            style={{
+              backgroundImage: 'url("/lovable-uploads/27570706-51c0-4d07-a428-af2be4221322.png")',
+              backgroundBlendMode: 'overlay'
+            }}
+          />
+          
+          <div className="relative py-16 md:py-24">
+            <div className="chimelo-container">
+              <div className="max-w-3xl mx-auto mb-12 text-center" style={{ marginTop: '15px' }}>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">Nossos Sócios</h1>
+                <p className="text-lg text-chimelo-silver max-w-2xl mx-auto">
+                  Conheça os profissionais que lideram o escritório Chimelo Advogados & Associados, 
+                  com extensa formação acadêmica e vasta experiência nas mais diversas áreas do direito.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="chimelo-section">
           <div className="chimelo-container">
-            <div className="text-center mb-12">
-              <h1 className="text-3xl md:text-4xl font-bold mb-4">Nossos Sócios</h1>
-              <p className="text-chimelo-silver max-w-2xl mx-auto">
-                Conheça os profissionais que lideram o escritório Chimelo Advogados & Associados, 
-                com extensa formação acadêmica e vasta experiência nas mais diversas áreas do direito.
-              </p>
-            </div>
-            
             {/* Desktop View */}
             <div className="hidden lg:flex gap-8">
               <div className="w-1/3 space-y-6 sticky top-8 self-start">
-                {socios.map((socio, index) => <Card key={index} className={cn("cursor-pointer transition-all hover:shadow-md", selectedSocio === index ? "border-chimelo-black ring-1 ring-chimelo-black" : "border-transparent")} onClick={() => setSelectedSocio(index)}>
+                {socios.map((socio, index) => (
+                  <Card 
+                    key={index} 
+                    className={cn(
+                      "cursor-pointer transition-all hover:shadow-md", 
+                      selectedSocio === index ? "border-chimelo-black ring-1 ring-chimelo-black" : "border-transparent"
+                    )} 
+                    onClick={() => setSelectedSocio(index)}
+                  >
                     <CardContent className="p-4 flex items-center gap-4">
                       <Avatar className="h-16 w-16 border border-chimelo-lightgray/20">
                         <AvatarImage src={socio.imagem} alt={socio.nome} />
@@ -76,7 +101,8 @@ const SociosPage: React.FC = () => {
                         <p className="text-chimelo-silver">{socio.cargo}</p>
                       </div>
                     </CardContent>
-                  </Card>)}
+                  </Card>
+                ))}
               </div>
               
               <div className="w-2/3">
@@ -84,30 +110,44 @@ const SociosPage: React.FC = () => {
                   {/* Updated aspect ratio with object-center instead of object-top */}
                   <div className="aspect-[3/2] overflow-hidden bg-gray-100 border-b">
                     <AspectRatio ratio={3 / 2} className="bg-gray-100">
-                      <img src={socios[selectedSocio].imagem} alt={socios[selectedSocio].nome} className="w-full h-full object-cover object-center" />
+                      <img 
+                        src={socios[selectedSocio].imagem} 
+                        alt={socios[selectedSocio].nome} 
+                        className="w-full h-full object-cover object-center" 
+                      />
                     </AspectRatio>
                   </div>
                   <CardContent className="p-8">
                     <h2 className="text-3xl font-bold mb-1">{socios[selectedSocio].nome}</h2>
                     <p className="text-chimelo-silver text-xl mb-6">{socios[selectedSocio].cargo}</p>
                     
-                    {socios[selectedSocio].descricao && <div className="prose prose-lg max-w-none">
+                    {socios[selectedSocio].descricao && (
+                      <div className="prose prose-lg max-w-none">
                         {formatDescription(socios[selectedSocio].descricao)}
-                      </div>}
+                      </div>
+                    )}
                     
-                    {socios[selectedSocio].especializacoes.length > 0 && <div className="mt-8">
+                    {socios[selectedSocio].especializacoes.length > 0 && (
+                      <div className="mt-8">
                         <h3 className="text-xl font-semibold mb-3">Áreas de Especialização</h3>
                         <ul className="list-disc pl-5 space-y-1">
-                          {socios[selectedSocio].especializacoes.map((esp, index) => <li key={index}>{esp}</li>)}
+                          {socios[selectedSocio].especializacoes.map((esp, index) => (
+                            <li key={index}>{esp}</li>
+                          ))}
                         </ul>
-                      </div>}
+                      </div>
+                    )}
                     
-                    {socios[selectedSocio].formacao.length > 0 && <div className="mt-8">
+                    {socios[selectedSocio].formacao.length > 0 && (
+                      <div className="mt-8">
                         <h3 className="text-xl font-semibold mb-3">Formação Acadêmica</h3>
                         <ul className="list-disc pl-5 space-y-1">
-                          {socios[selectedSocio].formacao.map((form, index) => <li key={index}>{form}</li>)}
+                          {socios[selectedSocio].formacao.map((form, index) => (
+                            <li key={index}>{form}</li>
+                          ))}
                         </ul>
-                      </div>}
+                      </div>
+                    )}
                   </CardContent>
                 </Card>
               </div>
@@ -115,7 +155,8 @@ const SociosPage: React.FC = () => {
             
             {/* Mobile View with expanded biography functionality */}
             <div className="lg:hidden space-y-8">
-              {socios.map((socio, index) => <Card key={index} className="overflow-hidden bg-white">
+              {socios.map((socio, index) => (
+                <Card key={index} className="overflow-hidden bg-white">
                   <div className="aspect-square overflow-hidden bg-gray-100 border-b">
                     <img src={socio.imagem} alt={socio.nome} className="w-full h-full object-cover object-center" />
                   </div>
@@ -124,34 +165,56 @@ const SociosPage: React.FC = () => {
                     <p className="text-chimelo-silver mb-4">{socio.cargo}</p>
                     
                     {/* Show full biography if expanded, otherwise only first paragraph */}
-                    {socio.descricao && <div className="prose max-w-none mb-4">
-                        {expandedSocio === index ? formatDescription(socio.descricao) : socio.descricao ? formatDescription(socio.descricao.split('\n\n')[0]) : null}
-                      </div>}
+                    {socio.descricao && (
+                      <div className="prose max-w-none mb-4">
+                        {expandedSocio === index 
+                          ? formatDescription(socio.descricao) 
+                          : socio.descricao 
+                            ? formatDescription(socio.descricao.split('\n\n')[0]) 
+                            : null}
+                      </div>
+                    )}
                     
-                    {socio.descricao && <button onClick={() => handleBiographyClick(index)} className="text-chimelo-black font-medium hover:underline">
+                    {socio.descricao && (
+                      <button 
+                        onClick={() => handleBiographyClick(index)} 
+                        className="text-chimelo-black font-medium hover:underline"
+                      >
                         {expandedSocio === index ? "Ocultar biografia" : "Ler biografia completa"}
-                      </button>}
+                      </button>
+                    )}
                     
-                    {expandedSocio === index && socio.especializacoes.length > 0 && <div className="mt-6">
+                    {expandedSocio === index && socio.especializacoes.length > 0 && (
+                      <div className="mt-6">
                         <h3 className="font-semibold mb-2">Áreas de Especialização</h3>
                         <ul className="list-disc pl-5 space-y-1">
-                          {socio.especializacoes.map((esp, espIndex) => <li key={espIndex} className="text-sm">{esp}</li>)}
+                          {socio.especializacoes.map((esp, espIndex) => (
+                            <li key={espIndex} className="text-sm">{esp}</li>
+                          ))}
                         </ul>
-                      </div>}
+                      </div>
+                    )}
                     
-                    {expandedSocio === index && socio.formacao.length > 0 && <div className="mt-6">
+                    {expandedSocio === index && socio.formacao.length > 0 && (
+                      <div className="mt-6">
                         <h3 className="font-semibold mb-2">Formação Acadêmica</h3>
                         <ul className="list-disc pl-5 space-y-1">
-                          {socio.formacao.map((form, formIndex) => <li key={formIndex} className="text-sm">{form}</li>)}
+                          {socio.formacao.map((form, formIndex) => (
+                            <li key={formIndex} className="text-sm">{form}</li>
+                          ))}
                         </ul>
-                      </div>}
+                      </div>
+                    )}
                   </CardContent>
-                </Card>)}
+                </Card>
+              ))}
             </div>
           </div>
         </section>
       </main>
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default SociosPage;

@@ -159,25 +159,25 @@ const AreasAtuacaoPage: React.FC = () => {
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow pt-0">
-        {/* Hero section replicando o estilo da home */}
-        <section className="relative bg-chimelo-black text-white overflow-hidden">
+        <section className="relative bg-chimelo-black text-white">
           <div 
-            className="absolute inset-0 opacity-30 bg-cover bg-center" 
+            className="absolute inset-0 opacity-35 bg-cover bg-center" 
             style={{
-              backgroundImage: 'url("https://i.imgur.com/1FQHSz1.jpeg")',
+              backgroundImage: 'url("/lovable-uploads/27570706-51c0-4d07-a428-af2be4221322.png")',
               backgroundBlendMode: 'overlay'
             }}
           />
           
-          <div className="relative chimelo-container py-32 md:py-36 lg:py-44 flex flex-col items-start">
-            <div className="max-w-3xl mt-8 md:mt-10">
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                Áreas de Atuação & Serviços
-              </h1>
-              <p className="text-xl text-chimelo-silver mb-8 max-w-2xl">
-                O escritório Chimelo Advogados & Associados oferece soluções jurídicas integradas nas mais diversas áreas do direito, sempre com foco nas necessidades específicas de cada cliente e na busca pelos melhores resultados.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+          <div className="relative py-16 md:py-24">
+            <div className="chimelo-container">
+              <div className="max-w-3xl mx-auto mb-12 text-center" style={{ marginTop: '15px' }}>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">Áreas de Atuação & Serviços</h1>
+                <p className="text-lg text-chimelo-silver max-w-2xl mx-auto">
+                  O escritório Chimelo Advogados & Associados oferece soluções jurídicas integradas nas mais diversas áreas do direito, sempre com foco nas necessidades específicas de cada cliente e na busca pelos melhores resultados.
+                </p>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild className="chimelo-btn chimelo-btn-primary">
                   <a href="#areas-detalhadas">
                     Ver áreas de atuação <ArrowRight className="ml-2 h-4 w-4" />
