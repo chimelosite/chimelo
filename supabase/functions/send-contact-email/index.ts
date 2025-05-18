@@ -71,6 +71,8 @@ serve(async (req) => {
 
     // Enviar email utilizando Resend
     let emailResult;
+    let emailSent = false;
+    
     try {
       const tipoTexto = {
         "empresa": "Empresa",
@@ -100,28 +102,31 @@ serve(async (req) => {
       
       console.log("Enviando email via Resend...");
       
-      // Usar um domínio verificado no Resend para o endereço de envio
-      // IMPORTANTE: Este domínio deve ser verificado no painel do Resend
-      const fromEmail = "site@chimelo.com.br"; // Deve ser um domínio verificado
+      // Usar domínio verificado do Resend para garantir entrega
+      // Isso evita o erro de domínio não verificado
+      const fromEmail = "onboarding@resend.dev"; // Domínio já verificado pelo Resend
+      
+      // Adicionar um email BCC para monitoramento (opcional - você pode adicionar seu email pessoal aqui)
+      // const bccEmail = "seu-email-pessoal@gmail.com";
       
       emailResult = await resend.emails.send({
-        from: `Formulário Website <${fromEmail}>`,
+        from: `Formulário Website Chimelo <${fromEmail}>`,
         to: ["contato@chimelo.com.br"],
+        // bcc: [bccEmail], // Opcional para monitoramento
+        reply_to: contactData.email,
         subject: `Novo contato do site: ${contactData.assunto}`,
         html: emailHtml,
-        reply_to: contactData.email,
       });
       
-      console.log("Resultado do envio de email:", JSON.stringify(emailResult));
+      console.log("Resultado detalhado do envio de email:", JSON.stringify(emailResult));
       
       // Verificar se há erro no resultado do email
       if (emailResult.error) {
-        console.error("Erro no envio de email:", emailResult.error);
+        console.error("Erro detalhado no envio de email:", JSON.stringify(emailResult.error));
         
         // Verificar se é erro de restrição de domínio
         if (emailResult.error.statusCode === 403 && emailResult.error.message?.includes("verify a domain")) {
           console.warn("AVISO: Domínio não verificado no Resend. É necessário verificar o domínio em resend.com/domains");
-          
           // Não interromper o fluxo, apenas registrar o erro
           // Os dados já foram salvos no banco de dados
         } else {
@@ -130,9 +135,11 @@ serve(async (req) => {
         }
       } else {
         console.log("Email enviado com sucesso!");
+        emailSent = true;
       }
     } catch (emailError: any) {
-      console.error("Exceção ao enviar email:", emailError);
+      console.error("Exceção detalhada ao enviar email:", JSON.stringify(emailError));
+      console.error("Stack trace do erro:", emailError.stack);
       // Não interromper o fluxo em caso de erro no envio de email
       // Os dados já foram salvos no banco de dados
     }
@@ -163,7 +170,8 @@ serve(async (req) => {
       }
     );
   } catch (error: any) {
-    console.error("Erro ao processar solicitação:", error);
+    console.error("Erro detalhado ao processar solicitação:", error);
+    console.error("Stack trace do erro:", error.stack);
     return new Response(
       JSON.stringify({
         success: false,

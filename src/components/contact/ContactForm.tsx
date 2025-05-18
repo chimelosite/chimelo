@@ -32,6 +32,11 @@ type FormData = z.infer<typeof formSchema>;
 
 const ContactForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionResult, setSubmissionResult] = useState<{
+    success: boolean;
+    emailSent: boolean;
+    message?: string;
+  } | null>(null);
   
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -47,6 +52,7 @@ const ContactForm: React.FC = () => {
   
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
+    setSubmissionResult(null);
     
     try {
       console.log("Enviando formulário:", data);
@@ -71,12 +77,18 @@ const ContactForm: React.FC = () => {
         throw new Error(error.message || "Erro ao enviar mensagem. Por favor, tente novamente.");
       }
 
-      console.log("Resposta da função Edge:", responseData);
+      console.log("Resposta detalhada da função Edge:", responseData);
       
       if (responseData?.success) {
         // Verificar status do email
         if (responseData.emailStatus && !responseData.emailStatus.sent) {
           // Email não enviado, mas dados salvos
+          setSubmissionResult({
+            success: true,
+            emailSent: false,
+            message: "Sua mensagem foi registrada, mas houve um problema no envio do email de notificação. Nossa equipe entrará em contato em breve."
+          });
+          
           toast({
             title: "Mensagem recebida",
             description: "Sua mensagem foi registrada, mas houve um problema no envio do email de notificação. Nossa equipe entrará em contato em breve.",
@@ -84,6 +96,12 @@ const ContactForm: React.FC = () => {
           });
         } else {
           // Tudo ok
+          setSubmissionResult({
+            success: true,
+            emailSent: true,
+            message: "Sua mensagem foi enviada com sucesso! Em breve entraremos em contato."
+          });
+          
           toast({
             title: "Mensagem enviada",
             description: "Sua mensagem foi enviada com sucesso! Em breve entraremos em contato.",
@@ -95,7 +113,14 @@ const ContactForm: React.FC = () => {
         throw new Error(responseData?.error || "Falha ao enviar mensagem");
       }
     } catch (error) {
-      console.error("Erro ao enviar mensagem:", error);
+      console.error("Erro detalhado ao enviar mensagem:", error);
+      
+      setSubmissionResult({
+        success: false,
+        emailSent: false,
+        message: error.message || "Erro ao enviar mensagem. Por favor, tente novamente."
+      });
+      
       toast({
         variant: "destructive",
         title: "Erro",
@@ -203,6 +228,18 @@ const ContactForm: React.FC = () => {
           {isSubmitting ? 'Enviando...' : 'Enviar mensagem'}
           <Send className="ml-2 h-4 w-4" />
         </Button>
+        
+        {submissionResult && (
+          <div className={`p-4 rounded text-center ${
+            submissionResult.success 
+              ? submissionResult.emailSent 
+                ? "bg-green-100 text-green-800 border border-green-200" 
+                : "bg-yellow-100 text-yellow-800 border border-yellow-200"
+              : "bg-red-100 text-red-800 border border-red-200"
+          }`}>
+            {submissionResult.message}
+          </div>
+        )}
         
         <p className="text-xs text-chimelo-silver text-center">
           Ao enviar este formulário, você concorda com nossa política de privacidade.
