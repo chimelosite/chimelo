@@ -158,7 +158,7 @@ const AreasAtuacaoPage: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="flex-grow">
+      <main className="flex-grow pt-0">
         {/* Hero section replicando o estilo da home */}
         <section className="relative bg-chimelo-black text-white overflow-hidden">
           <div 

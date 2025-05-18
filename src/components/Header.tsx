@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Instagram, Linkedin, Menu, X } from "lucide-react";
@@ -41,10 +40,7 @@ const Header = () => {
   };
 
   const getHeaderClass = () => {
-    if (isHomePage) {
-      return scrolled ? 'header-scrolled py-3 shadow-md' : 'header-transparent py-6';
-    }
-    return 'bg-chimelo-black py-3 shadow-md';
+    return scrolled ? 'header-scrolled py-3 shadow-md' : 'header-transparent py-6';
   };
   
   // Função para verificar se um link está ativo
@@ -61,7 +57,7 @@ const Header = () => {
         <Link to="/" className="flex items-center">
           <img 
             alt="CHIMELO" 
-            className={`brightness-0 invert object-contain transition-all duration-300 ${isHomePage && !scrolled ? 'h-28' : 'h-16'}`}
+            className={`brightness-0 invert object-contain transition-all duration-300 ${scrolled ? 'h-16' : 'h-28'}`}
             src="https://i.imgur.com/v5A7jTI.png" 
           />
         </Link>
