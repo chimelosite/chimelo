@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -22,7 +21,7 @@ import {
   Car,
   Component,
   Phone,
-  Boot,
+  Bot, // Changed from Boot to Bot (valid icon)
   Leaf,
   Truck,
   Milk,
@@ -140,7 +139,7 @@ const AreasAtuacaoPage: React.FC = () => {
       description: "Due diligence, recuperação judicial e gestão de passivos em contratos públicos e operações com grandes volumes de ativos e passivos."
     },
     {
-      icon: <Boot className="h-6 w-6 text-chimelo-black" />,
+      icon: <Bot className="h-6 w-6 text-chimelo-black" />, // Changed from Boot to Bot
       title: "Indústria Calçadista",
       description: "Reestruturação financeira, auditorias, gestão trabalhista coletiva e estratégias de recuperação extrajudicial para indústrias calçadistas."
     },
