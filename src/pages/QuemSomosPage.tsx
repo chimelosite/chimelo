@@ -1,38 +1,12 @@
 
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 const QuemSomosPage: React.FC = () => {
-  const mainRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    // Force correct positioning on load and after any potential layout shifts
-    const forceCorrectPosition = () => {
-      if (mainRef.current) {
-        const header = document.querySelector('header');
-        if (header) {
-          const headerHeight = header.getBoundingClientRect().height;
-          const firstSection = mainRef.current.querySelector('section');
-          if (firstSection) {
-            firstSection.style.paddingTop = `${headerHeight + 100}px`;
-          }
-        }
-      }
-    };
-
-    // Apply immediately and after a short delay to catch any late layout shifts
-    forceCorrectPosition();
-    const timer = setTimeout(forceCorrectPosition, 500);
-
-    // Clean up
-    return () => clearTimeout(timer);
-  }, []);
-
-  return (
-    <div className="flex flex-col min-h-screen quem-somos-page">
+  return <div className="flex flex-col min-h-screen quem-somos-page">
       <Header />
-      <main ref={mainRef} className="flex-grow">
+      <main className="flex-grow">
         <section className="chimelo-section">
           <div className="chimelo-container">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -91,8 +65,7 @@ const QuemSomosPage: React.FC = () => {
         </section>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
 
 export default QuemSomosPage;
