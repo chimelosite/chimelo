@@ -170,31 +170,24 @@ const AreasAtuacaoPage: React.FC = () => {
           
           <div className="relative py-16 md:py-24">
             <div className="chimelo-container">
-              <div className="max-w-3xl mx-auto mb-12 text-center" style={{ marginTop: '15px' }}>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">Áreas de Atuação & Serviços</h1>
+              <div className="max-w-3xl mx-auto mb-12 text-center">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">Áreas de Atuação e Serviços</h1>
                 <p className="text-lg text-chimelo-silver max-w-2xl mx-auto">
-                  O escritório Chimelo Advogados & Associados oferece soluções jurídicas integradas nas mais diversas áreas do direito, sempre com foco nas necessidades específicas de cada cliente e na busca pelos melhores resultados.
+                 O escritório Chimelo Advogados e Associados oferece soluções jurídicas integradas nas mais diversas áreas do direito, sempre com foco nas necessidades específicas de cada cliente e na busca pelos melhores resultados.
                 </p>
               </div>
+              
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div className="p-6 rounded-lg backdrop-blur-sm bg-black/30 border border-white/10">
+                  <ContactForm />
+                </div>
+                
+                <div className="p-6 rounded-lg backdrop-blur-sm bg-black/30 border border-white/10">
+                  <ContactInfo />
+                </div>
+              </div>
             </div>
-          </div>
-        </section>
-        
-        <section id="areas-detalhadas" className="chimelo-section bg-gray-50">
-          <div className="chimelo-container">            
-            <div className="space-y-8">
-              {areasDetalhadas.map((area, index) => (
-                <AreaDetalhada
-                  key={index}
-                  icon={area.icon}
-                  title={area.title}
-                  description={area.description}
-                  servicos={area.servicos}
-                  casos={area.casos}
-                />
-              ))}
-            </div>
-          </div>
+          </div>    
         </section>
       </main>
       <Footer />
