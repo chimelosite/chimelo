@@ -17,12 +17,12 @@ import {
   Building, 
   CreditCard, 
   AlertTriangle,
-  Agriculture,
+  Tractor,
   Factory,
   Car,
   Component,
   Phone,
-  Shoe,
+  Boot,
   Leaf,
   Truck,
   Milk,
@@ -30,11 +30,11 @@ import {
   Construction,
   Bus,
   Plane,
-  Chip,
+  CircuitBoard,
   Store,
-  Pills,
+  Pill,
   Shirt,
-  Road,
+  MapPin,
   Code,
   Bolt,
   Heart,
@@ -115,7 +115,7 @@ const AreasAtuacaoPage: React.FC = () => {
   // Dados para os Setores de Atuação
   const setores: SetorProps[] = [
     {
-      icon: <Agriculture className="h-6 w-6 text-chimelo-black" />,
+      icon: <Tractor className="h-6 w-6 text-chimelo-black" />,
       title: "Agronegócio e Produção Rural",
       description: "Atuação em reestruturações, gestão de passivos, governança e negociações estratégicas em operações rurais e cadeias produtivas do agronegócio."
     },
@@ -140,7 +140,7 @@ const AreasAtuacaoPage: React.FC = () => {
       description: "Due diligence, recuperação judicial e gestão de passivos em contratos públicos e operações com grandes volumes de ativos e passivos."
     },
     {
-      icon: <Shoe className="h-6 w-6 text-chimelo-black" />,
+      icon: <Boot className="h-6 w-6 text-chimelo-black" />,
       title: "Indústria Calçadista",
       description: "Reestruturação financeira, auditorias, gestão trabalhista coletiva e estratégias de recuperação extrajudicial para indústrias calçadistas."
     },
@@ -180,7 +180,7 @@ const AreasAtuacaoPage: React.FC = () => {
       description: "Assessoria em governança, contratos públicos, recuperação judicial e reestruturação de passivos para companhias aéreas."
     },
     {
-      icon: <Chip className="h-6 w-6 text-chimelo-black" />,
+      icon: <CircuitBoard className="h-6 w-6 text-chimelo-black" />,
       title: "Engenharia e Tecnologia Automotiva",
       description: "Due diligence, contratos e estruturação societária em empresas de engenharia aplicada à indústria automotiva."
     },
@@ -190,7 +190,7 @@ const AreasAtuacaoPage: React.FC = () => {
       description: "Gestão de contratos, auditorias tributárias e reestruturação de operações comerciais e societárias em redes de alimentação e informática."
     },
     {
-      icon: <Pills className="h-6 w-6 text-chimelo-black" />,
+      icon: <Pill className="h-6 w-6 text-chimelo-black" />,
       title: "Indústria Farmacêutica e Distribuição de Alimentos",
       description: "Atuação em governança, auditorias, reestruturação societária e gestão de passivos setoriais."
     },
@@ -200,7 +200,7 @@ const AreasAtuacaoPage: React.FC = () => {
       description: "Gestão de passivos trabalhistas, recuperação extrajudicial e estruturação societária de indústrias têxteis."
     },
     {
-      icon: <Road className="h-6 w-6 text-chimelo-black" />,
+      icon: <MapPin className="h-6 w-6 text-chimelo-black" />,
       title: "Infraestrutura Rodoviária",
       description: "Assessoria em contratos públicos, reestruturação de concessões e gestão de litígios estratégicos."
     },
