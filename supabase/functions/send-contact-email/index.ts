@@ -51,7 +51,7 @@ serve(async (req) => {
       throw new Error(insertError.message);
     }
 
-    // Initialize Resend - Fix the constructor usage
+    // Initialize Resend
     const resendApiKey = Deno.env.get("RESEND_API_KEY");
     if (!resendApiKey) {
       throw new Error("RESEND_API_KEY is not set");

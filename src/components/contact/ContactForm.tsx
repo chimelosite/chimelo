@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -50,17 +51,10 @@ const ContactForm: React.FC = () => {
     try {
       console.log("Enviando formulário:", data);
       
-      // URL da função edge do Supabase
-      const functionUrl = "https://ofickeaxqyfvcpcughrx.functions.supabase.co/send-contact-email";
-      
-      // Enviar dados para a função edge
-      const response = await fetch(functionUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY || ""}`,
-        },
-        body: JSON.stringify({
+      // Método atualizado para chamar a função Edge diretamente através do SDK do Supabase
+      // em vez de usar fetch diretamente, evitando problemas de autenticação
+      const { data: responseData, error } = await supabase.functions.invoke('send-contact-email', {
+        body: {
           nome: data.nome,
           email: data.email,
           telefone: data.telefone,
@@ -68,21 +62,18 @@ const ContactForm: React.FC = () => {
           assunto: data.assunto,
           mensagem: data.mensagem,
           tipo: data.empresa ? "empresa" : "pessoa-fisica"
-        })
+        }
       });
       
-      // Verificar se a resposta é bem-sucedida
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => null);
-        console.error("Erro na resposta HTTP:", response.status, errorData);
-        throw new Error(errorData?.error || `Erro ${response.status}: O servidor não pôde processar a solicitação`);
+      // Verificar se houve erro na chamada da função
+      if (error) {
+        console.error("Erro na chamada da função Edge do Supabase:", error);
+        throw new Error(error.message || "Erro ao enviar mensagem. Por favor, tente novamente.");
       }
 
-      const result = await response.json();
+      console.log("Resposta da função Edge:", responseData);
       
-      console.log("Resposta do servidor:", result);
-      
-      if (result.success) {
+      if (responseData?.success) {
         // Também salvar diretamente na tabela (redundância para caso a função falhe)
         const { error: dbError } = await supabase
           .from('contatos')
@@ -105,7 +96,7 @@ const ContactForm: React.FC = () => {
         });
         form.reset();
       } else {
-        throw new Error(result.error || "Falha ao enviar mensagem");
+        throw new Error(responseData?.error || "Falha ao enviar mensagem");
       }
     } catch (error) {
       console.error("Erro ao enviar mensagem:", error);
