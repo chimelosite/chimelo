@@ -57,8 +57,7 @@ const ContactForm: React.FC = () => {
     try {
       console.log("Enviando formulário:", data);
       
-      // Método atualizado para chamar a função Edge diretamente através do SDK do Supabase
-      // em vez de usar fetch diretamente, evitando problemas de autenticação
+      // Método para chamar a função Edge
       const { data: responseData, error } = await supabase.functions.invoke('send-contact-email', {
         body: {
           nome: data.nome,
@@ -71,7 +70,7 @@ const ContactForm: React.FC = () => {
         }
       });
       
-      // Verificar se houve erro na chamada da função
+      // Verificar erros na chamada da função
       if (error) {
         console.error("Erro na chamada da função Edge do Supabase:", error);
         throw new Error(error.message || "Erro ao enviar mensagem. Por favor, tente novamente.");
@@ -79,10 +78,26 @@ const ContactForm: React.FC = () => {
 
       console.log("Resposta detalhada da função Edge:", responseData);
       
+      // Analisar a resposta para confirmar o envio de email
       if (responseData?.success) {
-        // Verificar status do email
-        if (responseData.emailStatus && !responseData.emailStatus.sent) {
-          // Email não enviado, mas dados salvos
+        const emailEnviado = responseData.emailStatus?.sent === true;
+        
+        if (emailEnviado) {
+          // Email enviado com sucesso
+          setSubmissionResult({
+            success: true,
+            emailSent: true,
+            message: "Sua mensagem foi enviada com sucesso! Em breve entraremos em contato."
+          });
+          
+          toast({
+            title: "Mensagem enviada",
+            description: "Sua mensagem foi enviada com sucesso! Em breve entraremos em contato.",
+          });
+          
+          form.reset();
+        } else {
+          // Dados salvos, mas email falhou
           setSubmissionResult({
             success: true,
             emailSent: false,
@@ -94,21 +109,7 @@ const ContactForm: React.FC = () => {
             description: "Sua mensagem foi registrada, mas houve um problema no envio do email de notificação. Nossa equipe entrará em contato em breve.",
             variant: "default",
           });
-        } else {
-          // Tudo ok
-          setSubmissionResult({
-            success: true,
-            emailSent: true,
-            message: "Sua mensagem foi enviada com sucesso! Em breve entraremos em contato."
-          });
-          
-          toast({
-            title: "Mensagem enviada",
-            description: "Sua mensagem foi enviada com sucesso! Em breve entraremos em contato.",
-          });
         }
-        
-        form.reset();
       } else {
         throw new Error(responseData?.error || "Falha ao enviar mensagem");
       }
