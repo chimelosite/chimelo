@@ -6,19 +6,16 @@ import Footer from "../components/Footer";
 import PageHero from "@/components/PageHero";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Tractor, Building, Store, Factory, Bot, Briefcase, FileText, ArrowsUpFromLine, Search, Calculator, ArrowUp, ArrowRight, ArrowDown, Pill, MapPin, CircuitBoard, Truck, Milk, Apple, Bus, Plane, Wrench, ShoppingCart, Shirt, Zap, Heart, Home, Users, Percent, RefreshCw, Handshake, FileMinus, Code } from "lucide-react";
-
 const AreasAtuacaoPage: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const setoresRef = useRef<HTMLDivElement>(null);
   const especialidadesRef = useRef<HTMLDivElement>(null);
-  
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     });
   };
-  
   const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
     if (ref.current) {
       ref.current.scrollIntoView({
@@ -160,7 +157,6 @@ const AreasAtuacaoPage: React.FC = () => {
     title: "Tecnologia e Serviços",
     description: "Manutenção de contratos públicos em recuperação e estruturação de joint ventures internacionais, com foco em eficiência e continuidade operacional."
   }];
-  
   return <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow pt-0">
@@ -177,7 +173,7 @@ const AreasAtuacaoPage: React.FC = () => {
             <div className="max-w-3xl text-center">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-2 sm:mb-4 my-px">Áreas de Atuação e Serviços
             </h1>
-              <p className="text-sm sm:text-base md:text-lg text-chimelo-silver max-w-full sm:max-w-2xl mx-auto text-center font-normal py-2 sm:py-[16px] px-1">
+              <p className="text-sm sm:text-base text-chimelo-silver max-w-full sm:max-w-2xl text-center py-2 mx-0 px-0 my-[23px] font-normal sm:py-[37px] md:text-lg">
                 O escritório Chimelo Advogados e Associados oferece soluções jurídicas integradas nas mais diversas áreas do direito, sempre com foco nas necessidades específicas de cada cliente e na busca pelos melhores resultados.
               </p>
             </div>
@@ -277,5 +273,4 @@ const AreasAtuacaoPage: React.FC = () => {
       </div>
     </div>;
 };
-
 export default AreasAtuacaoPage;
