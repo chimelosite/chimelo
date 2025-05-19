@@ -170,10 +170,10 @@ const AreasAtuacaoPage: React.FC = () => {
           <div style={{
           paddingTop: '58px'
         }} className="relative chimelo-container h-full flex flex-col justify-center items-center my-0 sm:my-[98px] px-0 py-[240px]">
-            <div className="max-w-3xl text-center py-0 my-0 rounded-lg px-0">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-2 sm:mb-4 my-px">Áreas de Atuação e Serviços
-            </h1>
-              <p className="text-sm sm:text-base text-chimelo-silver max-w-full sm:max-w-2xl text-center py-2 mx-0 px-0 my-[23px] font-normal sm:py-[37px] md:text-lg">
+            <div className="max-w-3xl text-center my-0 px-0 py-[76px] rounded-3xl">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-2 sm:mb-4 my-px">
+Áreas de Atuação e Serviços</h1>
+              <p className="sm:text-base text-chimelo-silver max-w-full sm:max-w-2xl text-center py-2 mx-0 px-0 my-[23px] sm:py-[37px] md:text-lg text-sm font-normal">
                 O escritório Chimelo Advogados e Associados oferece soluções jurídicas integradas nas mais diversas áreas do direito, sempre com foco nas necessidades específicas de cada cliente e na busca pelos melhores resultados.
               </p>
             </div>
