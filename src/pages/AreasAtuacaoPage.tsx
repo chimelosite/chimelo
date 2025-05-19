@@ -181,7 +181,7 @@ const AreasAtuacaoPage: React.FC = () => {
         </div>
         
         {/* Breadcrumb */}
-        <div className="bg-gray-50 py-3 border-b border-gray-200">
+        <div className="bg-gray-50 border-b border-gray-200 py-[11px]">
           <div className="chimelo-container">
             <nav className="flex text-sm">
               <Link to="/" className="text-chimelo-silver hover:text-chimelo-black">Home</Link>
@@ -192,11 +192,11 @@ const AreasAtuacaoPage: React.FC = () => {
         </div>
         
         {/* Área de Conteúdo Principal - Layout com duas colunas */}
-        <section className="py-16 bg-white">
+        <section className="bg-white py-[21px]">
           <div className="chimelo-container">
             {/* Setores de Atuação */}
             <div ref={setoresRef} className="mb-16">
-              <h2 className="text-2xl md:text-3xl font-bold mb-2">Setores de Atuação</h2>
+              <h2 className="text-2xl md:text-3xl font-bold mb-2 my-0 py-0">Setores de Atuação</h2>
               <p className="text-chimelo-silver mb-10 max-w-3xl">
                 Nosso escritório possui expertise em diversos setores econômicos, permitindo uma atuação especializada nas particularidades de cada indústria.
               </p>
