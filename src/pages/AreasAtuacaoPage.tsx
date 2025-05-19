@@ -168,10 +168,10 @@ const AreasAtuacaoPage: React.FC = () => {
         }} />
           
           <div className="relative md:py-[14px] py-0">
-            <div className="chimelo-container py-0">
+            <div className="chimelo-container py-[129px]">
               <div style={{
               marginTop: '15px'
-            }} className="max-w-3xl mx-auto mb-12 text-center py-[46px]">
+            }} className="max-w-3xl mx-auto mb-12 text-center py-0">
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4 my-[61px]">
 
 
