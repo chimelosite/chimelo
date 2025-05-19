@@ -35,8 +35,8 @@ const PageHero: React.FC<PageHeroProps> = ({
           children
         ) : (
           <div className="max-w-3xl">
-            {title && <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">{title}</h1>}
-            {subtitle && <p className="text-lg text-chimelo-silver max-w-2xl">{subtitle}</p>}
+            {title && <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-3 md:mb-4">{title}</h1>}
+            {subtitle && <p className="text-base sm:text-lg text-chimelo-silver max-w-full md:max-w-2xl">{subtitle}</p>}
           </div>
         )}
       </div>
