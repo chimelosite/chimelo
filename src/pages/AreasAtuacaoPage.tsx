@@ -6,19 +6,16 @@ import Footer from "../components/Footer";
 import PageHero from "@/components/PageHero";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Tractor, Building, Store, Factory, Bot, Briefcase, FileText, ArrowsUpFromLine, Search, Calculator, ArrowUp, ArrowRight, ArrowDown, Pill, MapPin, CircuitBoard, Truck, Milk, Apple, Bus, Plane, Wrench, ShoppingCart, Shirt, Zap, Heart, Home, Users, Percent, RefreshCw, Handshake, FileMinus, Code } from "lucide-react";
-
 const AreasAtuacaoPage: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const setoresRef = useRef<HTMLDivElement>(null);
   const especialidadesRef = useRef<HTMLDivElement>(null);
-  
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     });
   };
-  
   const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
     if (ref.current) {
       ref.current.scrollIntoView({
@@ -160,25 +157,26 @@ const AreasAtuacaoPage: React.FC = () => {
     title: "Tecnologia e Serviços",
     description: "Manutenção de contratos públicos em recuperação e estruturação de joint ventures internacionais, com foco em eficiência e continuidade operacional."
   }];
-  
   return <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow bg-gray-50">
         {/* Hero Section with structure matching SociosPage */}
         <section className="relative bg-chimelo-black text-white">
-          <div 
-            className="absolute inset-0 opacity-35 bg-cover bg-center" 
-            style={{
-              backgroundImage: 'url("/lovable-uploads/27570706-51c0-4d07-a428-af2be4221322.png")',
-              backgroundBlendMode: 'overlay'
-            }}
-          />
+          <div className="absolute inset-0 opacity-35 bg-cover bg-center" style={{
+          backgroundImage: 'url("/lovable-uploads/27570706-51c0-4d07-a428-af2be4221322.png")',
+          backgroundBlendMode: 'overlay'
+        }} />
           
-          <div className="relative py-16 md:py-[14px]">
-            <div className="chimelo-container">
-              <div className="max-w-3xl mx-auto mb-12 text-center" style={{ marginTop: '15px' }}>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">Áreas de Atuação e Serviços</h1>
-                <p className="text-lg text-chimelo-silver max-w-2xl mx-auto">
+          <div className="relative md:py-[14px] py-0">
+            <div className="chimelo-container py-0">
+              <div style={{
+              marginTop: '15px'
+            }} className="max-w-3xl mx-auto mb-12 text-center py-[46px]">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4 my-[61px]">
+
+
+Áreas de Atuação e Serviços</h1>
+                <p className="text-lg text-chimelo-silver max-w-2xl mx-auto px-0 py-0">
                   O escritório Chimelo Advogados e Associados oferece soluções jurídicas integradas nas mais diversas áreas do direito, sempre com foco nas necessidades específicas de cada cliente e na busca pelos melhores resultados.
                 </p>
               </div>
@@ -277,5 +275,4 @@ const AreasAtuacaoPage: React.FC = () => {
       </div>
     </div>;
 };
-
 export default AreasAtuacaoPage;
