@@ -6,16 +6,19 @@ import Footer from "../components/Footer";
 import PageHero from "@/components/PageHero";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Tractor, Building, Store, Factory, Bot, Briefcase, FileText, ArrowsUpFromLine, Search, Calculator, ArrowUp, ArrowRight, ArrowDown, Pill, MapPin, CircuitBoard, Truck, Milk, Apple, Bus, Plane, Wrench, ShoppingCart, Shirt, Zap, Heart, Home, Users, Percent, RefreshCw, Handshake, FileMinus, Code } from "lucide-react";
+
 const AreasAtuacaoPage: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const setoresRef = useRef<HTMLDivElement>(null);
   const especialidadesRef = useRef<HTMLDivElement>(null);
+  
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     });
   };
+  
   const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
     if (ref.current) {
       ref.current.scrollIntoView({
@@ -157,28 +160,31 @@ const AreasAtuacaoPage: React.FC = () => {
     title: "Tecnologia e Serviços",
     description: "Manutenção de contratos públicos em recuperação e estruturação de joint ventures internacionais, com foco em eficiência e continuidade operacional."
   }];
+  
   return <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="flex-grow pt-0">
-        {/* Hero Section with improved mobile responsiveness */}
-        <div className="relative h-80 md:h-96 bg-chimelo-black text-white overflow-hidden py-0">
-          <div style={{
-          backgroundImage: `url("/lovable-uploads/27570706-51c0-4d07-a428-af2be4221322.png")`,
-          backgroundBlendMode: 'overlay'
-        }} className="absolute inset-0 opacity-30 bg-cover bg-center my-0" />
+      <main className="flex-grow bg-gray-50">
+        {/* Hero Section with structure matching SociosPage */}
+        <section className="relative bg-chimelo-black text-white">
+          <div 
+            className="absolute inset-0 opacity-35 bg-cover bg-center" 
+            style={{
+              backgroundImage: 'url("/lovable-uploads/27570706-51c0-4d07-a428-af2be4221322.png")',
+              backgroundBlendMode: 'overlay'
+            }}
+          />
           
-          <div style={{
-          paddingTop: '58px'
-        }} className="relative chimelo-container h-full flex flex-col justify-center items-center my-0 sm:my-[98px] px-0 py-[240px]">
-            <div className="max-w-3xl text-center my-0 px-0 py-[76px] rounded-3xl">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-2 sm:mb-4 my-px">
-Áreas de Atuação e Serviços</h1>
-              <p className="sm:text-base text-chimelo-silver max-w-full sm:max-w-2xl text-center py-2 mx-0 px-0 my-[23px] sm:py-[37px] md:text-lg text-sm font-normal">
-                O escritório Chimelo Advogados e Associados oferece soluções jurídicas integradas nas mais diversas áreas do direito, sempre com foco nas necessidades específicas de cada cliente e na busca pelos melhores resultados.
-              </p>
+          <div className="relative py-16 md:py-[14px]">
+            <div className="chimelo-container">
+              <div className="max-w-3xl mx-auto mb-12 text-center" style={{ marginTop: '15px' }}>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">Áreas de Atuação e Serviços</h1>
+                <p className="text-lg text-chimelo-silver max-w-2xl mx-auto">
+                  O escritório Chimelo Advogados e Associados oferece soluções jurídicas integradas nas mais diversas áreas do direito, sempre com foco nas necessidades específicas de cada cliente e na busca pelos melhores resultados.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
         
         {/* Breadcrumb */}
         <div className="bg-gray-50 border-b border-gray-200 py-[11px]">
@@ -192,7 +198,7 @@ const AreasAtuacaoPage: React.FC = () => {
         </div>
         
         {/* Área de Conteúdo Principal - Layout com duas colunas */}
-        <section className="bg-white py-[21px]">
+        <section className="chimelo-section">
           <div className="chimelo-container">
             {/* Setores de Atuação */}
             <div ref={setoresRef} className="mb-16">
@@ -252,8 +258,6 @@ const AreasAtuacaoPage: React.FC = () => {
           </div>
         </section>
         
-        
-        
       </main>
       <Footer />
       
@@ -273,4 +277,5 @@ const AreasAtuacaoPage: React.FC = () => {
       </div>
     </div>;
 };
+
 export default AreasAtuacaoPage;
