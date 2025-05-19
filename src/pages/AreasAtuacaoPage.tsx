@@ -161,7 +161,7 @@ const AreasAtuacaoPage: React.FC = () => {
       <Header />
       <main className="flex-grow pt-0">
         {/* Hero Section with centered text and moved down by 1.8cm (approximately 68px) */}
-        <div className="relative h-80 md:h-96 bg-chimelo-black text-white overflow-hidden">
+        <div className="relative h-80 md:h-96 bg-chimelo-black text-white overflow-hidden py-0">
           <div style={{
           backgroundImage: `url("/lovable-uploads/27570706-51c0-4d07-a428-af2be4221322.png")`,
           backgroundBlendMode: 'overlay'
