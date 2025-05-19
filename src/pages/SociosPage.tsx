@@ -57,7 +57,7 @@ const SociosPage: React.FC = () => {
           backgroundBlendMode: 'overlay'
         }} />
           
-          <div className="relative py-16 md:py-[39px]">
+          <div className="relative py-16 md:py-[14px]">
             <div className="chimelo-container">
               <div className="max-w-3xl mx-auto mb-12 text-center" style={{
               marginTop: '15px'

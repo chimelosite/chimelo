@@ -97,7 +97,7 @@ const NoticiasPage: React.FC = () => {
           backgroundBlendMode: 'overlay'
         }} />
           
-          <div className="relative py-16 md:py-[44px]">
+          <div className="relative py-16 md:py-[29px]">
             <div className="chimelo-container">
               <div className="max-w-3xl mx-auto mb-12 text-center" style={{
               marginTop: '15px'
