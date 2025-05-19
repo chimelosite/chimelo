@@ -169,7 +169,7 @@ const AreasAtuacaoPage: React.FC = () => {
           
           <div style={{
           paddingTop: '58px'
-        }} className="relative chimelo-container h-full flex flex-col justify-center items-center py-0 px-4 my-0 sm:my-[98px]">
+        }} className="relative chimelo-container h-full flex flex-col justify-center items-center my-0 sm:my-[98px] py-[26px] px-0">
             <div className="max-w-3xl text-center">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-2 sm:mb-4 my-px">Áreas de Atuação e Serviços
             </h1>
