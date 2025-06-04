@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { Linkedin, Instagram, MessageSquare, Mail, MapPin } from "lucide-react";
@@ -113,31 +112,31 @@ const Footer: React.FC = () => {
           </div>
         </div>
         
-        <div className="border-t border-chimelo-silver/20 mt-10 pt-6 flex flex-col md:flex-row justify-between items-start md:items-center">
-          <div className="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-8">
+        <div className="border-t border-chimelo-silver/20 mt-10 pt-6">
+          {/* Endereços - visível apenas no desktop, posicionados acima do copyright */}
+          <div className="hidden md:flex items-center justify-center space-x-6 mb-4" style={{ fontSize: '14px' }}>
+            <div className="flex items-center text-chimelo-silver/80">
+              <MapPin size={14} className="mr-1" />
+              <span>Porto Alegre: R. Carlos Huber, 110 - Três Figueiras</span>
+            </div>
+            <div className="flex items-center text-chimelo-silver/80">
+              <MapPin size={14} className="mr-1" />
+              <span>Curitiba: R. Comendador Araújo, 252 - sl. 3304</span>
+            </div>
+            <div className="flex items-center text-chimelo-silver/80">
+              <MapPin size={14} className="mr-1" />
+              <span>Caxias do Sul: Rua Coronel Flores 810 - Sala 100</span>
+            </div>
+          </div>
+          
+          <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-chimelo-silver">
               &copy; {currentYear} Chimelo Advogados e Associados. Todos os direitos reservados.
             </p>
             
-            {/* Endereços - visível apenas no desktop */}
-            <div className="hidden md:flex items-center space-x-6 text-xs text-chimelo-silver/80">
-              <div className="flex items-center">
-                <MapPin size={14} className="mr-1" />
-                <span>Porto Alegre: R. Carlos Huber, 110 - Três Figueiras</span>
-              </div>
-              <div className="flex items-center">
-                <MapPin size={14} className="mr-1" />
-                <span>Curitiba: R. Comendador Araújo, 252 - sl. 3304</span>
-              </div>
-              <div className="flex items-center">
-                <MapPin size={14} className="mr-1" />
-                <span>Caxias do Sul: Rua Coronel Flores 810 - Sala 100</span>
-              </div>
+            <div className="text-sm text-chimelo-silver mt-2 md:mt-0">
+              <span>Desenvolvido por <a href="https://somostexai.com" target="_blank" rel="noopener noreferrer" className="hover:underline">Texai Brasil Ltda</a></span>
             </div>
-          </div>
-          
-          <div className="text-sm text-chimelo-silver mt-2 md:mt-0">
-            <span>Desenvolvido por <a href="https://somostexai.com" target="_blank" rel="noopener noreferrer" className="hover:underline">Texai Brasil Ltda</a></span>
           </div>
         </div>
       </div>
