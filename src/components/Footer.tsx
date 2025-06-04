@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
 import { Linkedin, Instagram, MessageSquare, Mail, MapPin } from "lucide-react";
@@ -112,29 +113,29 @@ const Footer: React.FC = () => {
           </div>
         </div>
         
-        <div className="border-t border-chimelo-silver/20 mt-10 pt-6">
-          {/* Endereços - visível apenas no desktop, posicionados acima do copyright */}
-          <div className="hidden md:flex items-center justify-center space-x-6 mb-4" style={{ fontSize: '14px' }}>
-            <div className="flex items-center text-chimelo-silver/80">
-              <MapPin size={14} className="mr-1" />
-              <span>Porto Alegre: R. Carlos Huber, 110 - Três Figueiras</span>
-            </div>
-            <div className="flex items-center text-chimelo-silver/80">
-              <MapPin size={14} className="mr-1" />
-              <span>Curitiba: R. Comendador Araújo, 252 - sl. 3304</span>
-            </div>
-            <div className="flex items-center text-chimelo-silver/80">
-              <MapPin size={14} className="mr-1" />
-              <span>Caxias do Sul: Rua Coronel Flores 810 - Sala 100</span>
-            </div>
+        {/* Endereços - visível apenas no desktop, posicionados ACIMA da linha cinza */}
+        <div className="hidden md:flex items-center justify-center space-x-6 mt-10 mb-6" style={{ fontSize: '14px' }}>
+          <div className="flex items-center text-chimelo-silver/80">
+            <MapPin size={14} className="mr-1" />
+            <span>Porto Alegre: R. Carlos Huber, 110 - Três Figueiras</span>
           </div>
-          
+          <div className="flex items-center text-chimelo-silver/80">
+            <MapPin size={14} className="mr-1" />
+            <span>Curitiba: R. Comendador Araújo, 252 - sl. 3304</span>
+          </div>
+          <div className="flex items-center text-chimelo-silver/80">
+            <MapPin size={14} className="mr-1" />
+            <span>Caxias do Sul: Rua Coronel Flores 810 - Sala 100</span>
+          </div>
+        </div>
+        
+        <div className="border-t border-chimelo-silver/20 pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-chimelo-silver">
+            <p className="text-chimelo-silver" style={{ fontSize: '14px' }}>
               &copy; {currentYear} Chimelo Advogados e Associados. Todos os direitos reservados.
             </p>
             
-            <div className="text-sm text-chimelo-silver mt-2 md:mt-0">
+            <div className="text-chimelo-silver mt-2 md:mt-0" style={{ fontSize: '14px' }}>
               <span>Desenvolvido por <a href="https://somostexai.com" target="_blank" rel="noopener noreferrer" className="hover:underline">Texai Brasil Ltda</a></span>
             </div>
           </div>
