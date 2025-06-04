@@ -17,18 +17,38 @@ const ContactInfo: React.FC = () => {
               <p className="mb-3">R. Carlos Huber, 110 - Três Figueiras<br />Porto Alegre - RS, 91330-150</p>
               
               <p className="mb-1">📍 Curitiba:</p>
-              <p>R. Comendador Araújo, 252 - sl. 3304<br />Centro - Curitiba - PR, 80420-000</p>
+              <p className="mb-3">R. Comendador Araújo, 252 - sl. 3304<br />Centro - Curitiba - PR, 80420-000</p>
+              
+              <p className="mb-1">📍 Caxias do Sul:</p>
+              <p>Rua Coronel Flores 810 - Sala 100 - Moinho da Estação<br />Bairro São Pelegrino - Caxias do Sul - RS</p>
             </div>
           </div>
         </div>
         
         <div className="flex items-start">
-          <Phone className="h-5 w-5 mr-4 mt-1 text-chimelo-silver" />
+          <div className="flex flex-col space-y-2 mr-4 mt-1">
+            <Phone className="h-5 w-5 text-chimelo-silver" />
+            <MessageSquare className="h-5 w-5 text-chimelo-silver" />
+          </div>
           <div>
-            <h3 className="font-medium">Telefones</h3>
-            <p className="text-chimelo-silver mt-1">
-              +55 (51) 99178-6703
-            </p>
+            <h3 className="font-medium">Contato</h3>
+            <div className="text-chimelo-silver mt-1 space-y-1">
+              <p className="flex items-center">
+                <span className="mr-2">📞</span>
+                (51) 99178-6703
+              </p>
+              <p className="flex items-center">
+                <span className="mr-2">💬</span>
+                <a 
+                  href="https://wa.me/5551991786703" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
+                  (51) 99178-6703
+                </a>
+              </p>
+            </div>
           </div>
         </div>
         
