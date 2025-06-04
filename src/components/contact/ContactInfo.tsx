@@ -1,6 +1,5 @@
-
 import React from "react";
-import { MapPin, Phone, Mail, Linkedin, Instagram, MessageSquare } from "lucide-react";
+import { MapPin, Mail, Linkedin, Instagram, MessageSquare } from "lucide-react";
 
 const ContactInfo: React.FC = () => {
   return (
@@ -26,28 +25,21 @@ const ContactInfo: React.FC = () => {
         </div>
         
         <div className="flex items-start">
-          <div className="flex flex-col space-y-2 mr-4 mt-1">
-            <Phone className="h-5 w-5 text-chimelo-silver" />
+          <div className="relative mr-4 mt-1">
             <MessageSquare className="h-5 w-5 text-chimelo-silver" />
+            <span className="absolute -top-1 -right-1 text-xs">📱</span>
           </div>
           <div>
             <h3 className="font-medium">Contato</h3>
-            <div className="text-chimelo-silver mt-1 space-y-1">
-              <p className="flex items-center">
-                <span className="mr-2">📞</span>
+            <div className="text-chimelo-silver mt-1">
+              <a 
+                href="https://wa.me/5551991786703" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+              >
                 (51) 99178-6703
-              </p>
-              <p className="flex items-center">
-                <span className="mr-2">💬</span>
-                <a 
-                  href="https://wa.me/5551991786703" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="hover:text-white transition-colors"
-                >
-                  (51) 99178-6703
-                </a>
-              </p>
+              </a>
             </div>
           </div>
         </div>
