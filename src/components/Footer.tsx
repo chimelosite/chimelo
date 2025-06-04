@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { Linkedin, Instagram, MessageSquare, Mail, MapPin } from "lucide-react";
@@ -8,7 +7,7 @@ const Footer: React.FC = () => {
   
   return (
     <footer className="bg-chimelo-black text-white">
-      <div className="chimelo-container py-12 md:py-16">
+      <div className="chimelo-container py-8 md:py-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <img 
@@ -114,7 +113,7 @@ const Footer: React.FC = () => {
         </div>
         
         {/* Endereços - visível apenas no desktop, posicionados ACIMA da linha cinza */}
-        <div className="hidden md:flex items-center justify-center space-x-6 mt-10 mb-6" style={{ fontSize: '14px' }}>
+        <div className="hidden md:flex items-center justify-center space-x-6 mt-6 mb-4" style={{ fontSize: '14px' }}>
           <div className="flex items-center text-chimelo-silver/80">
             <MapPin size={14} className="mr-1" />
             <span>Porto Alegre: R. Carlos Huber, 110 - Três Figueiras</span>
@@ -129,7 +128,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
         
-        <div className="border-t border-chimelo-silver/20 pt-6">
+        <div className="border-t border-chimelo-silver/20 pt-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-chimelo-silver" style={{ fontSize: '14px' }}>
               &copy; {currentYear} Chimelo Advogados e Associados. Todos os direitos reservados.
