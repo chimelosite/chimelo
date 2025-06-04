@@ -92,27 +92,50 @@ const Footer: React.FC = () => {
                   contato@chimelo.com.br
                 </a>
               </div>
-              <div className="flex items-start">
-                <MapPin size={18} className="mr-2 mt-1 text-chimelo-silver" />
-                <div className="text-sm">
-                  <p className="mb-1">📍 Porto Alegre:</p>
-                  <p className="mb-3">R. Carlos Huber, 110 - Três Figueiras<br />Porto Alegre - RS, 91330-150</p>
-                  
-                  <p className="mb-1">📍 Curitiba:</p>
-                  <p className="mb-3">R. Comendador Araújo, 252 - sl. 3304<br />Centro - Curitiba - PR, 80420-000</p>
-                  
-                  <p className="mb-1">📍 Caxias do Sul:</p>
-                  <p>Rua Coronel Flores 810 - Sala 100 - Moinho da Estação<br />Bairro São Pelegrino - Caxias do Sul - RS</p>
+              
+              {/* Endereços - visível apenas no mobile */}
+              <div className="block md:hidden">
+                <div className="flex items-start">
+                  <MapPin size={18} className="mr-2 mt-1 text-chimelo-silver" />
+                  <div className="text-sm">
+                    <p className="mb-1">📍 Porto Alegre:</p>
+                    <p className="mb-3">R. Carlos Huber, 110 - Três Figueiras<br />Porto Alegre - RS, 91330-150</p>
+                    
+                    <p className="mb-1">📍 Curitiba:</p>
+                    <p className="mb-3">R. Comendador Araújo, 252 - sl. 3304<br />Centro - Curitiba - PR, 80420-000</p>
+                    
+                    <p className="mb-1">📍 Caxias do Sul:</p>
+                    <p>Rua Coronel Flores 810 - Sala 100 - Moinho da Estação<br />Bairro São Pelegrino - Caxias do Sul - RS</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
         
-        <div className="border-t border-chimelo-silver/20 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-chimelo-silver">
-            &copy; {currentYear} Chimelo Advogados e Associados. Todos os direitos reservados.
-          </p>
+        <div className="border-t border-chimelo-silver/20 mt-10 pt-6 flex flex-col md:flex-row justify-between items-start md:items-center">
+          <div className="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-8">
+            <p className="text-sm text-chimelo-silver">
+              &copy; {currentYear} Chimelo Advogados e Associados. Todos os direitos reservados.
+            </p>
+            
+            {/* Endereços - visível apenas no desktop */}
+            <div className="hidden md:flex items-center space-x-6 text-xs text-chimelo-silver/80">
+              <div className="flex items-center">
+                <MapPin size={14} className="mr-1" />
+                <span>Porto Alegre: R. Carlos Huber, 110 - Três Figueiras</span>
+              </div>
+              <div className="flex items-center">
+                <MapPin size={14} className="mr-1" />
+                <span>Curitiba: R. Comendador Araújo, 252 - sl. 3304</span>
+              </div>
+              <div className="flex items-center">
+                <MapPin size={14} className="mr-1" />
+                <span>Caxias do Sul: Rua Coronel Flores 810 - Sala 100</span>
+              </div>
+            </div>
+          </div>
+          
           <div className="text-sm text-chimelo-silver mt-2 md:mt-0">
             <span>Desenvolvido por <a href="https://somostexai.com" target="_blank" rel="noopener noreferrer" className="hover:underline">Texai Brasil Ltda</a></span>
           </div>
