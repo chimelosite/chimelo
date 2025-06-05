@@ -1,8 +1,11 @@
+
 import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+
 const QuemSomosPage: React.FC = () => {
-  return <div className="flex flex-col min-h-screen quem-somos-page">
+  return (
+    <div className="flex flex-col min-h-screen quem-somos-page">
       <Header />
       <main className="flex-grow">
         <section className="chimelo-section">
@@ -13,12 +16,12 @@ const QuemSomosPage: React.FC = () => {
                   QUEM SOMOS
                 </h1>
                 <div className="space-y-4">
-                  <p className="text-lg">Com mais de 20 anos de experiência, o escritório Chimelo Advogados &amp; Associados construiu uma reputação sólida baseada na excelência jurídica e no atendimento personalizado aos seus clientes.</p>
-                  <p>
+                  <p className="text-lg" style={{ fontSize: '16px' }}>Com mais de 20 anos de experiência, o escritório Chimelo Advogados & Associados construiu uma reputação sólida baseada na excelência jurídica e no atendimento personalizado aos seus clientes.</p>
+                  <p style={{ fontSize: '16px' }}>
                     Nossa equipe é formada por profissionais com sólida formação acadêmica e vasta experiência prática, 
                     comprometidos com a entrega de soluções jurídicas eficientes e inovadoras para nossos clientes.
                   </p>
-                  <p>
+                  <p style={{ fontSize: '16px' }}>
                     Ao longo de mais de duas décadas de atuação, desenvolvemos expertise técnica em diversas áreas do direito, 
                     com foco especial em direito empresarial, trabalhista e tributário.
                   </p>
@@ -63,6 +66,8 @@ const QuemSomosPage: React.FC = () => {
         </section>
       </main>
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default QuemSomosPage;
