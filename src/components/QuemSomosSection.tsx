@@ -2,16 +2,16 @@ import React from "react";
 import { ArrowRight, Users, Award, Target } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-
 const QuemSomosSection: React.FC = () => {
-  return (
-    <section className="chimelo-section bg-white">
+  return <section className="chimelo-section bg-white">
       <div className="chimelo-container">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-chimelo-black mb-4">
             Quem Somos
           </h2>
-          <p className="text-lg text-chimelo-silver max-w-3xl mx-auto" style={{ fontSize: '16px' }}>
+          <p className="text-lg text-chimelo-silver max-w-3xl mx-auto" style={{
+          fontSize: '16px'
+        }}>
             Somos um escritório de advocacia especializado em soluções jurídicas integradas para empresas.
           </p>
         </div>
@@ -21,7 +21,9 @@ const QuemSomosSection: React.FC = () => {
             <h3 className="text-2xl font-semibold text-chimelo-black mb-6">
               Nossa Experiência
             </h3>
-            <p className="text-chimelo-gray mb-6 leading-relaxed" style={{ fontSize: '16px' }}>
+            <p className="text-chimelo-gray mb-6 leading-relaxed" style={{
+            fontSize: '16px'
+          }}>
               Com mais de 20 anos de experiência, o escritório Chimelo Advogados & Associados construiu uma reputação sólida baseada na excelência jurídica e no atendimento personalizado aos seus clientes.
             </p>
             <p className="text-chimelo-gray mb-6 leading-relaxed">
@@ -35,11 +37,7 @@ const QuemSomosSection: React.FC = () => {
           </div>
           
           <div>
-            <img
-              src="https://i.imgur.com/0kF1xyf.jpeg"
-              alt="Quem Somos"
-              className="rounded-lg shadow-md"
-            />
+            <img alt="Quem Somos" className="rounded-lg shadow-md" src="https://i.imgur.com/3Oy29Nq.png" />
           </div>
         </div>
 
@@ -82,7 +80,7 @@ const QuemSomosSection: React.FC = () => {
           
           <div className="text-center">
             <div className="inline-flex items-center justify-center p-3 rounded-full bg-yellow-100 text-yellow-500 mb-4">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-clock h-6 w-6"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-clock h-6 w-6"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
             </div>
             <h4 className="text-xl font-semibold text-chimelo-black mb-2">
               Disponibilidade
@@ -97,8 +95,6 @@ const QuemSomosSection: React.FC = () => {
           Estamos prontos para ser a sua parceria estratégica em questões jurídicas.
         </p>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default QuemSomosSection;
