@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
   
   return (
     <footer className="bg-chimelo-black text-white">
-      <div className="chimelo-container py-8 md:py-10">
+      <div className="chimelo-container py-6 md:py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <img 
@@ -54,7 +54,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-2">
               <li><Link to="/" className="hover:text-chimelo-silver transition-colors">Home</Link></li>
               <li><Link to="/quem-somos" className="hover:text-chimelo-silver transition-colors">Quem Somos</Link></li>
-              <li><Link to="/socios" className="hover:text-chimelo-silver transition-colors">Sócios</Link></li>
+              <li><Link to="/socios" className="hover:text-chimelo-silver transition-colors">Time</Link></li>
               <li><Link to="/areas-de-atuacao" className="hover:text-chimelo-silver transition-colors">Áreas de Atuação</Link></li>
             </ul>
           </div>

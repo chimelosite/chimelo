@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Instagram, Linkedin, Menu, X } from "lucide-react";
@@ -68,7 +69,7 @@ const Header = () => {
             <ul className="flex space-x-1">
               <li><Link to="/" className={`chimelo-menu-item text-sm uppercase font-medium tracking-wider ${isActive('/') ? 'chimelo-menu-item-active' : ''}`}>Home</Link></li>
               <li><Link to="/quem-somos" className={`chimelo-menu-item text-sm uppercase font-medium tracking-wider ${isActive('/quem-somos') ? 'chimelo-menu-item-active' : ''}`}>Quem Somos</Link></li>
-              <li><Link to="/socios" className={`chimelo-menu-item text-sm uppercase font-medium tracking-wider ${isActive('/socios') ? 'chimelo-menu-item-active' : ''}`}>Sócios</Link></li>
+              <li><Link to="/socios" className={`chimelo-menu-item text-sm uppercase font-medium tracking-wider ${isActive('/socios') ? 'chimelo-menu-item-active' : ''}`}>Time</Link></li>
               <li><Link to="/areas-de-atuacao" className={`chimelo-menu-item text-sm uppercase font-medium tracking-wider ${isActive('/areas-de-atuacao') ? 'chimelo-menu-item-active' : ''}`}>Áreas de Atuação & Serviços</Link></li>
               <li><Link to="/destaques" className={`chimelo-menu-item text-sm uppercase font-medium tracking-wider ${isActive('/destaques') ? 'chimelo-menu-item-active' : ''}`}>Destaques</Link></li>
               <li><Link to="/contato" className={`chimelo-menu-item text-sm uppercase font-medium tracking-wider ${isActive('/contato') ? 'chimelo-menu-item-active' : ''}`}>Contato</Link></li>
@@ -113,7 +114,7 @@ const Header = () => {
           <ul className="container mx-auto px-4 py-4 space-y-2">
             <li><Link to="/" onClick={() => setIsMenuOpen(false)} className={`block py-2 text-white hover:text-gray-300 ${isActive('/') ? 'font-bold' : ''}`}>Home</Link></li>
             <li><Link to="/quem-somos" onClick={() => setIsMenuOpen(false)} className={`block py-2 text-white hover:text-gray-300 ${isActive('/quem-somos') ? 'font-bold' : ''}`}>Quem Somos</Link></li>
-            <li><Link to="/socios" onClick={() => setIsMenuOpen(false)} className={`block py-2 text-white hover:text-gray-300 ${isActive('/socios') ? 'font-bold' : ''}`}>Sócios</Link></li>
+            <li><Link to="/socios" onClick={() => setIsMenuOpen(false)} className={`block py-2 text-white hover:text-gray-300 ${isActive('/socios') ? 'font-bold' : ''}`}>Time</Link></li>
             <li><Link to="/areas-de-atuacao" onClick={() => setIsMenuOpen(false)} className={`block py-2 text-white hover:text-gray-300 ${isActive('/areas-de-atuacao') ? 'font-bold' : ''}`}>Áreas de Atuação & Serviços</Link></li>
             <li><Link to="/destaques" onClick={() => setIsMenuOpen(false)} className={`block py-2 text-white hover:text-gray-300 ${isActive('/destaques') ? 'font-bold' : ''}`}>Destaques</Link></li>
             <li><Link to="/contato" onClick={() => setIsMenuOpen(false)} className={`block py-2 text-white hover:text-gray-300 ${isActive('/contato') ? 'font-bold' : ''}`}>Contato</Link></li>

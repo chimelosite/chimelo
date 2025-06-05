@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -5,6 +6,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { cn } from "@/lib/utils";
+
 interface SocioProps {
   nome: string;
   cargo: string;
@@ -13,6 +15,7 @@ interface SocioProps {
   formacao: string[];
   imagem: string;
 }
+
 const SociosPage: React.FC = () => {
   const [selectedSocio, setSelectedSocio] = useState<number>(0);
   const [expandedSocio, setExpandedSocio] = useState<number | null>(null);
@@ -48,21 +51,23 @@ const SociosPage: React.FC = () => {
   const handleBiographyClick = (index: number) => {
     setExpandedSocio(expandedSocio === index ? null : index);
   };
-  return <div className="flex flex-col min-h-screen socios-page">
+  
+  return (
+    <div className="flex flex-col min-h-screen socios-page">
       <Header />
       <main className="flex-grow bg-gray-50">
         <section className="relative bg-chimelo-black text-white">
           <div className="absolute inset-0 opacity-35 bg-cover bg-center" style={{
-          backgroundImage: 'url("/lovable-uploads/27570706-51c0-4d07-a428-af2be4221322.png")',
-          backgroundBlendMode: 'overlay'
-        }} />
+            backgroundImage: 'url("/lovable-uploads/27570706-51c0-4d07-a428-af2be4221322.png")',
+            backgroundBlendMode: 'overlay'
+          }} />
           
           <div className="relative py-16 md:py-[14px]">
             <div className="chimelo-container">
               <div className="max-w-3xl mx-auto mb-12 text-center" style={{
-              marginTop: '15px'
-            }}>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">Nossos Sócios</h1>
+                marginTop: '15px'
+              }}>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">Nosso Time</h1>
                 <p className="text-lg text-chimelo-silver max-w-2xl py-0 my-0 px-0 mx-0">
                   Conheça os profissionais que lideram o escritório Chimelo Advogados & Associados, 
                   com extensa formação acadêmica e vasta experiência nas mais diversas áreas do direito.
@@ -164,6 +169,8 @@ const SociosPage: React.FC = () => {
         </section>
       </main>
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default SociosPage;
