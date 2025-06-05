@@ -1,33 +1,24 @@
 
-import React from "react";
-import { MessageSquare } from "lucide-react";
-import { cn } from "@/lib/utils";
+import React from 'react';
+import WhatsAppIcon from './WhatsAppIcon';
 
 interface WhatsAppButtonProps {
   phoneNumber: string;
-  className?: string;
 }
 
-const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({
-  phoneNumber,
-  className,
-}) => {
-  const formattedNumber = phoneNumber.replace(/\D/g, "");
-  const whatsappUrl = `https://wa.me/${formattedNumber}`;
+const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({ phoneNumber }) => {
+  const handleClick = () => {
+    window.open(`https://wa.me/${phoneNumber}`, '_blank');
+  };
 
   return (
-    <a
-      href={whatsappUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={cn(
-        "fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-green-500 text-white shadow-lg transition-all hover:bg-green-600 hover:scale-110",
-        className
-      )}
-      aria-label="Fale conosco pelo WhatsApp"
+    <button
+      onClick={handleClick}
+      className="fixed bottom-6 right-6 p-4 bg-chimelo-black hover:bg-gray-800 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50"
+      aria-label="Entrar em contato via WhatsApp"
     >
-      <MessageSquare size={28} />
-    </a>
+      <WhatsAppIcon size={24} />
+    </button>
   );
 };
 

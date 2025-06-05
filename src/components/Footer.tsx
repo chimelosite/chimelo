@@ -1,10 +1,14 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-import { Linkedin, Instagram, MessageCircle, Mail, MapPin } from "lucide-react";
+import { Linkedin, Instagram, Mail, MapPin } from "lucide-react";
+import WhatsAppIcon from "./WhatsAppIcon";
+
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
-  return <footer className="bg-chimelo-black text-white">
+  
+  return (
+    <footer className="bg-chimelo-black text-white">
       <div className="chimelo-container py-6 md:py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
@@ -20,7 +24,7 @@ const Footer: React.FC = () => {
                 <Instagram size={20} />
               </a>
               <a href="https://wa.me/5551991786703" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="text-white hover:text-chimelo-silver">
-                <MessageCircle size={20} />
+                <WhatsAppIcon size={20} />
               </a>
             </div>
           </div>
@@ -48,7 +52,7 @@ const Footer: React.FC = () => {
             <div className="space-y-4">
               <div className="flex items-center">
                 <div className="relative mr-2">
-                  <MessageCircle size={18} className="text-chimelo-silver" />
+                  <WhatsAppIcon size={18} className="text-chimelo-silver" />
                   <span className="absolute -top-1 -right-1 text-xs"></span>
                 </div>
                 <a href="https://wa.me/5551991786703" className="hover:text-chimelo-silver transition-colors">
@@ -116,6 +120,8 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
-    </footer>;
+    </footer>
+  );
 };
+
 export default Footer;

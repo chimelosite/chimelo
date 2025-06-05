@@ -1,7 +1,11 @@
+
 import React from "react";
-import { MapPin, Mail, Linkedin, Instagram, Phone } from "lucide-react";
+import { MapPin, Mail, Linkedin, Instagram } from "lucide-react";
+import WhatsAppIcon from "../WhatsAppIcon";
+
 const ContactInfo: React.FC = () => {
-  return <div className="text-white">
+  return (
+    <div className="text-white">
       <h2 className="text-2xl font-bold mb-6">Informações de Contato</h2>
       
       <div className="space-y-6">
@@ -24,7 +28,7 @@ const ContactInfo: React.FC = () => {
         
         <div className="flex items-start">
           <div className="relative mr-4 mt-1">
-            <Phone className="h-5 w-5 text-chimelo-silver" />
+            <WhatsAppIcon size={20} className="text-chimelo-silver" />
             <span className="absolute -top-1 -right-1 text-xs"></span>
           </div>
           <div>
@@ -57,7 +61,7 @@ const ContactInfo: React.FC = () => {
               <Instagram className="h-5 w-5" />
             </a>
             <a href="https://wa.me/5551991786703" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full border border-white/10 hover:bg-white/10 transition-colors">
-              <Phone className="h-5 w-5" />
+              <WhatsAppIcon size={20} />
             </a>
           </div>
         </div>
@@ -70,6 +74,8 @@ const ContactInfo: React.FC = () => {
           </p>
         </div>
       </div>
-    </div>;
+    </div>
+  );
 };
+
 export default ContactInfo;
