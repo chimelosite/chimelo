@@ -1,6 +1,7 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
-import { Linkedin, Instagram, MessageSquare, Mail, MapPin } from "lucide-react";
+import { Linkedin, Instagram, MessageCircle, Mail, MapPin } from "lucide-react";
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   return <footer className="bg-chimelo-black text-white">
@@ -19,7 +20,7 @@ const Footer: React.FC = () => {
                 <Instagram size={20} />
               </a>
               <a href="https://wa.me/5551991786703" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="text-white hover:text-chimelo-silver">
-                <MessageSquare size={20} />
+                <MessageCircle size={20} />
               </a>
             </div>
           </div>
@@ -47,7 +48,7 @@ const Footer: React.FC = () => {
             <div className="space-y-4">
               <div className="flex items-center">
                 <div className="relative mr-2">
-                  <MessageSquare size={18} className="text-chimelo-silver" />
+                  <MessageCircle size={18} className="text-chimelo-silver" />
                   <span className="absolute -top-1 -right-1 text-xs"></span>
                 </div>
                 <a href="https://wa.me/5551991786703" className="hover:text-chimelo-silver transition-colors">
