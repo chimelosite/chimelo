@@ -1,5 +1,6 @@
+
 import React from "react";
-import { MapPin, Mail, Linkedin, Instagram, MessageSquare } from "lucide-react";
+import { MapPin, Mail, Linkedin, Instagram, Phone } from "lucide-react";
 
 const ContactInfo: React.FC = () => {
   return (
@@ -26,7 +27,7 @@ const ContactInfo: React.FC = () => {
         
         <div className="flex items-start">
           <div className="relative mr-4 mt-1">
-            <MessageSquare className="h-5 w-5 text-chimelo-silver" />
+            <Phone className="h-5 w-5 text-chimelo-silver" />
             <span className="absolute -top-1 -right-1 text-xs">📱</span>
           </div>
           <div>
@@ -79,7 +80,7 @@ const ContactInfo: React.FC = () => {
               rel="noopener noreferrer"
               className="p-3 rounded-full border border-white/10 hover:bg-white/10 transition-colors"
             >
-              <MessageSquare className="h-5 w-5" />
+              <Phone className="h-5 w-5" />
             </a>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Linkedin, Instagram, MessageSquare, Mail, MapPin } from "lucide-react";
+import { Linkedin, Instagram, Phone, Mail, MapPin } from "lucide-react";
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
                 aria-label="WhatsApp" 
                 className="text-white hover:text-chimelo-silver"
               >
-                <MessageSquare size={20} />
+                <Phone size={20} />
               </a>
             </div>
           </div>
@@ -72,7 +72,7 @@ const Footer: React.FC = () => {
             <div className="space-y-4">
               <div className="flex items-center">
                 <div className="relative mr-2">
-                  <MessageSquare size={18} className="text-chimelo-silver" />
+                  <Phone size={18} className="text-chimelo-silver" />
                   <span className="absolute -top-1 -right-1 text-xs">📱</span>
                 </div>
                 <a 
