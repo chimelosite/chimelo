@@ -9,7 +9,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAdminModalOpen, setIsAdminModalOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [forceMobileMenu, setForceMobileMenu] = useState(false);
+  const [isMobileMenuActive, setIsMobileMenuActive] = useState(false);
   const navRef = useRef<HTMLElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
@@ -32,38 +32,39 @@ const Header = () => {
     };
   }, []);
 
-  // Check if menu should be mobile based on content overflow
+  // Responsive menu detection
   useEffect(() => {
-    const checkMenuOverflow = () => {
-      if (!navRef.current || !containerRef.current) return;
-
-      const container = containerRef.current;
-      const nav = navRef.current;
-      const containerWidth = container.offsetWidth;
-      const navWidth = nav.scrollWidth;
+    const checkResponsiveMenu = () => {
+      const screenWidth = window.innerWidth;
       
-      // Add some buffer space (100px) to account for logo and social icons
-      const availableSpace = containerWidth - 200; // Logo space + social icons space + buffer
-      
-      // Force mobile menu if nav content would overflow
-      setForceMobileMenu(navWidth > availableSpace);
+      // Desktop: >1024px - menu horizontal completo
+      // Tablet: 768px-1024px - menu mobile
+      // Mobile: <768px - menu mobile
+      if (screenWidth <= 1024) {
+        setIsMobileMenuActive(true);
+      } else {
+        setIsMobileMenuActive(false);
+        setIsMenuOpen(false); // Fechar menu se estiver aberto quando voltar para desktop
+      }
     };
 
-    // Check on mount and resize
-    checkMenuOverflow();
+    // Verificar no carregamento inicial
+    checkResponsiveMenu();
     
-    const resizeObserver = new ResizeObserver(checkMenuOverflow);
-    if (containerRef.current) {
-      resizeObserver.observe(containerRef.current);
-    }
-
-    window.addEventListener('resize', checkMenuOverflow);
+    // Adicionar listener para resize
+    window.addEventListener('resize', checkResponsiveMenu);
     
     return () => {
-      resizeObserver.disconnect();
-      window.removeEventListener('resize', checkMenuOverflow);
+      window.removeEventListener('resize', checkResponsiveMenu);
     };
   }, []);
+
+  // Fechar menu ao clicar em link (mobile)
+  const handleLinkClick = () => {
+    if (isMobileMenuActive) {
+      setIsMenuOpen(false);
+    }
+  };
 
   // Simulação de autenticação
   const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -88,9 +89,6 @@ const Header = () => {
     }
     return location.pathname === path;
   };
-
-  // Determine if we should show mobile menu (either by screen size or content overflow)
-  const shouldShowMobileMenu = forceMobileMenu;
   
   return (
     <header className={`transition-all duration-300 ${getHeaderClass()}`}>
@@ -103,8 +101,8 @@ const Header = () => {
           />
         </Link>
 
-        {/* Desktop Navigation - Hidden when content would overflow */}
-        <div className={`items-center ${shouldShowMobileMenu ? 'hidden' : 'hidden md:flex'}`}>
+        {/* Desktop Navigation - Visível apenas em telas grandes */}
+        <div className={`items-center ${isMobileMenuActive ? 'hidden' : 'hidden lg:flex'}`}>
           <nav ref={navRef} className="mr-8">
             <ul className="flex space-x-1">
               <li><Link to="/" className={`chimelo-menu-item text-sm uppercase font-medium tracking-wider ${isActive('/') ? 'chimelo-menu-item-active' : ''}`}>Home</Link></li>
@@ -135,39 +133,137 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Mobile Menu Button - Shows when content would overflow OR on mobile screens */}
-        <div className={`${shouldShowMobileMenu ? 'block' : 'block md:hidden'}`}>
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label={isMenuOpen ? "Fechar Menu" : "Abrir Menu"} className="p-2 text-white">
+        {/* Mobile Menu Button - Visível em tablets e mobiles */}
+        <div className={`${isMobileMenuActive ? 'block' : 'block lg:hidden'}`}>
+          <button 
+            onClick={() => setIsMenuOpen(!isMenuOpen)} 
+            aria-label={isMenuOpen ? "Fechar Menu" : "Abrir Menu"} 
+            className="p-2 text-white hover:text-gray-300 transition-colors"
+          >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <nav className="bg-chimelo-black absolute top-full left-0 right-0 z-50">
-          <ul className="container mx-auto px-4 py-4 space-y-2">
-            <li><Link to="/" onClick={() => setIsMenuOpen(false)} className={`block py-2 text-white hover:text-gray-300 ${isActive('/') ? 'font-bold' : ''}`}>Home</Link></li>
-            <li><Link to="/quem-somos" onClick={() => setIsMenuOpen(false)} className={`block py-2 text-white hover:text-gray-300 ${isActive('/quem-somos') ? 'font-bold' : ''}`}>O Escritório</Link></li>
-            <li><Link to="/socios" onClick={() => setIsMenuOpen(false)} className={`block py-2 text-white hover:text-gray-300 ${isActive('/socios') ? 'font-bold' : ''}`}>Nosso Time</Link></li>
-            <li><Link to="/areas-de-atuacao" onClick={() => setIsMenuOpen(false)} className={`block py-2 text-white hover:text-gray-300 ${isActive('/areas-de-atuacao') ? 'font-bold' : ''}`}>Áreas de Atuação & Serviços</Link></li>
-            <li><Link to="/destaques" onClick={() => setIsMenuOpen(false)} className={`block py-2 text-white hover:text-gray-300 ${isActive('/destaques') ? 'font-bold' : ''}`}>Destaques</Link></li>
-            <li><Link to="/contato" onClick={() => setIsMenuOpen(false)} className={`block py-2 text-white hover:text-gray-300 ${isActive('/contato') ? 'font-bold' : ''}`}>Contato</Link></li>
-            <li className="pt-4">
-              <div className="flex space-x-4 text-white">
-                <a href="https://www.linkedin.com/company/chimelo-advogados-associados" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                  <Linkedin size={20} />
-                </a>
-                <a href="https://www.instagram.com/chimeloadvogados" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                  <Instagram size={20} />
-                </a>
-                <a href="https://wa.me/5551991786703" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-                  <WhatsAppIcon size={20} />
-                </a>
+      {/* Mobile Navigation - Sidebar com overlay */}
+      {isMenuOpen && isMobileMenuActive && (
+        <>
+          {/* Overlay */}
+          <div 
+            className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+            onClick={() => setIsMenuOpen(false)}
+            aria-hidden="true"
+          />
+          
+          {/* Sidebar */}
+          <nav className="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-chimelo-black z-50 transform transition-transform duration-300 ease-in-out shadow-xl">
+            <div className="p-6">
+              {/* Header do menu mobile */}
+              <div className="flex justify-between items-center mb-8">
+                <h3 className="text-white font-bold text-lg">Menu</h3>
+                <button 
+                  onClick={() => setIsMenuOpen(false)} 
+                  aria-label="Fechar Menu" 
+                  className="p-2 text-white hover:text-gray-300 transition-colors"
+                >
+                  <X size={24} />
+                </button>
               </div>
-            </li>
-          </ul>
-        </nav>
+              
+              {/* Links do menu */}
+              <ul className="space-y-1">
+                <li>
+                  <Link 
+                    to="/" 
+                    onClick={handleLinkClick} 
+                    className={`block py-3 px-4 text-white hover:bg-white/10 rounded-md transition-colors ${isActive('/') ? 'bg-white/20 font-bold' : ''}`}
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    to="/quem-somos" 
+                    onClick={handleLinkClick} 
+                    className={`block py-3 px-4 text-white hover:bg-white/10 rounded-md transition-colors ${isActive('/quem-somos') ? 'bg-white/20 font-bold' : ''}`}
+                  >
+                    O Escritório
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    to="/socios" 
+                    onClick={handleLinkClick} 
+                    className={`block py-3 px-4 text-white hover:bg-white/10 rounded-md transition-colors ${isActive('/socios') ? 'bg-white/20 font-bold' : ''}`}
+                  >
+                    Nosso Time
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    to="/areas-de-atuacao" 
+                    onClick={handleLinkClick} 
+                    className={`block py-3 px-4 text-white hover:bg-white/10 rounded-md transition-colors ${isActive('/areas-de-atuacao') ? 'bg-white/20 font-bold' : ''}`}
+                  >
+                    Áreas de Atuação & Serviços
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    to="/destaques" 
+                    onClick={handleLinkClick} 
+                    className={`block py-3 px-4 text-white hover:bg-white/10 rounded-md transition-colors ${isActive('/destaques') ? 'bg-white/20 font-bold' : ''}`}
+                  >
+                    Destaques
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    to="/contato" 
+                    onClick={handleLinkClick} 
+                    className={`block py-3 px-4 text-white hover:bg-white/10 rounded-md transition-colors ${isActive('/contato') ? 'bg-white/20 font-bold' : ''}`}
+                  >
+                    Contato
+                  </Link>
+                </li>
+              </ul>
+              
+              {/* Social Icons Mobile */}
+              <div className="pt-8 mt-8 border-t border-white/20">
+                <p className="text-white/70 text-sm mb-4">Siga-nos:</p>
+                <div className="flex space-x-4 text-white">
+                  <a 
+                    href="https://www.linkedin.com/company/chimelo-advogados-associados" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    aria-label="LinkedIn"
+                    className="p-2 hover:bg-white/10 rounded-md transition-colors"
+                  >
+                    <Linkedin size={20} />
+                  </a>
+                  <a 
+                    href="https://www.instagram.com/chimeloadvogados" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    aria-label="Instagram"
+                    className="p-2 hover:bg-white/10 rounded-md transition-colors"
+                  >
+                    <Instagram size={20} />
+                  </a>
+                  <a 
+                    href="https://wa.me/5551991786703" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    aria-label="WhatsApp"
+                    className="p-2 hover:bg-white/10 rounded-md transition-colors"
+                  >
+                    <WhatsAppIcon size={20} />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </>
       )}
 
       {/* Admin Modal */}
