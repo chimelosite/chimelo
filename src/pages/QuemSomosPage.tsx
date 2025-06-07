@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 const QuemSomosPage: React.FC = () => {
   return <div className="flex flex-col min-h-screen quem-somos-page">
-      <Header className="bg-zinc-300" />
+      <Header className="bg-chimelo-lightgray" />
       <main className="flex-grow">
         <section className="chimelo-section bg-slate-200">
           <div className="chimelo-container bg-slate-200">
