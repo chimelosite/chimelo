@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Instagram, Linkedin, Menu, X } from "lucide-react";
 import AdminModal from "./AdminModal";
@@ -9,6 +9,9 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAdminModalOpen, setIsAdminModalOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [forceMobileMenu, setForceMobileMenu] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
   const isHomePage = location.pathname === "/";
 
@@ -26,6 +29,39 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  // Check if menu should be mobile based on content overflow
+  useEffect(() => {
+    const checkMenuOverflow = () => {
+      if (!navRef.current || !containerRef.current) return;
+
+      const container = containerRef.current;
+      const nav = navRef.current;
+      const containerWidth = container.offsetWidth;
+      const navWidth = nav.scrollWidth;
+      
+      // Add some buffer space (100px) to account for logo and social icons
+      const availableSpace = containerWidth - 200; // Logo space + social icons space + buffer
+      
+      // Force mobile menu if nav content would overflow
+      setForceMobileMenu(navWidth > availableSpace);
+    };
+
+    // Check on mount and resize
+    checkMenuOverflow();
+    
+    const resizeObserver = new ResizeObserver(checkMenuOverflow);
+    if (containerRef.current) {
+      resizeObserver.observe(containerRef.current);
+    }
+
+    window.addEventListener('resize', checkMenuOverflow);
+    
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener('resize', checkMenuOverflow);
     };
   }, []);
 
@@ -52,10 +88,13 @@ const Header = () => {
     }
     return location.pathname === path;
   };
+
+  // Determine if we should show mobile menu (either by screen size or content overflow)
+  const shouldShowMobileMenu = forceMobileMenu;
   
   return (
     <header className={`transition-all duration-300 ${getHeaderClass()}`}>
-      <div className="chimelo-container flex justify-between items-center">
+      <div ref={containerRef} className="chimelo-container flex justify-between items-center">
         <Link to="/" className="flex items-center">
           <img 
             alt="CHIMELO" 
@@ -64,9 +103,9 @@ const Header = () => {
           />
         </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center">
-          <nav className="mr-8">
+        {/* Desktop Navigation - Hidden when content would overflow */}
+        <div className={`items-center ${shouldShowMobileMenu ? 'hidden' : 'hidden md:flex'}`}>
+          <nav ref={navRef} className="mr-8">
             <ul className="flex space-x-1">
               <li><Link to="/" className={`chimelo-menu-item text-sm uppercase font-medium tracking-wider ${isActive('/') ? 'chimelo-menu-item-active' : ''}`}>Home</Link></li>
               <li><Link to="/quem-somos" className={`chimelo-menu-item text-sm uppercase font-medium tracking-wider ${isActive('/quem-somos') ? 'chimelo-menu-item-active' : ''}`}>O Escritório</Link></li>
@@ -96,8 +135,8 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Mobile Menu Button */}
-        <div className="md:hidden">
+        {/* Mobile Menu Button - Shows when content would overflow OR on mobile screens */}
+        <div className={`${shouldShowMobileMenu ? 'block' : 'block md:hidden'}`}>
           <button onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label={isMenuOpen ? "Fechar Menu" : "Abrir Menu"} className="p-2 text-white">
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -106,7 +145,7 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <nav className="md:hidden bg-chimelo-black absolute top-full left-0 right-0 z-50">
+        <nav className="bg-chimelo-black absolute top-full left-0 right-0 z-50">
           <ul className="container mx-auto px-4 py-4 space-y-2">
             <li><Link to="/" onClick={() => setIsMenuOpen(false)} className={`block py-2 text-white hover:text-gray-300 ${isActive('/') ? 'font-bold' : ''}`}>Home</Link></li>
             <li><Link to="/quem-somos" onClick={() => setIsMenuOpen(false)} className={`block py-2 text-white hover:text-gray-300 ${isActive('/quem-somos') ? 'font-bold' : ''}`}>O Escritório</Link></li>
