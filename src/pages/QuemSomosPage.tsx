@@ -1,22 +1,21 @@
-
 import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-
 const QuemSomosPage: React.FC = () => {
-  return (
-    <div className="flex flex-col min-h-screen quem-somos-page">
+  return <div className="flex flex-col min-h-screen quem-somos-page">
       <Header />
       <main className="flex-grow">
-        <section className="chimelo-section bg-white">
-          <div className="chimelo-container">
+        <section className="chimelo-section bg-slate-200">
+          <div className="chimelo-container bg-slate-200">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
               {/* Coluna da Esquerda - O ESCRITÓRIO */}
               <div className="py-[50px] lg:py-[100px]">
                 <h1 className="text-3xl md:text-4xl font-bold mb-8 text-chimelo-black">
                   O ESCRITÓRIO
                 </h1>
-                <div className="space-y-6 text-chimelo-gray leading-relaxed" style={{ fontSize: '16px' }}>
+                <div className="space-y-6 text-chimelo-gray leading-relaxed" style={{
+                fontSize: '16px'
+              }}>
                   <p>
                     A <strong>Chimelo Advogados & Associados</strong> é uma banca jurídica constituída em 2025, que reúne profissionais com sólida trajetória em mais de duas décadas de experiência na área de insolvência empresarial participando de expressivos cases regionais e nacionais. A sociedade é liderada pela Advogada e CEO <strong>Gabriele Chimelo</strong>, reconhecida nacionalmente por sua destacada atuação em reestruturação de empresas, Distressed, M&A, Governança Corporativa, regimes regulatórios e estratégias jurídicas de alta complexidade.
                   </p>
@@ -37,21 +36,27 @@ const QuemSomosPage: React.FC = () => {
                 <div className="space-y-8">
                   <div>
                     <h2 className="text-2xl font-bold text-chimelo-black mb-4">NOSSO PROPÓSITO</h2>
-                    <p className="text-chimelo-gray leading-relaxed" style={{ fontSize: '16px' }}>
+                    <p className="text-chimelo-gray leading-relaxed" style={{
+                    fontSize: '16px'
+                  }}>
                       Nosso propósito é oferecer soluções ágeis e simplificar processos para empresas que buscam um olhar estratégico e diferenciado sobre seus negócios. Destacamo-nos na condução de situações especiais, atuando com excelência em fusões e aquisições, recuperações judiciais e extrajudiciais, operações estruturadas, questões societárias, estratégias trabalhistas, projetos imobiliários e demandas fiscais complexas. Nosso compromisso é transformar desafios em oportunidades, sempre com precisão, inovação e visão de mercado.
                     </p>
                   </div>
 
                   <div>
                     <h2 className="text-2xl font-bold text-chimelo-black mb-4">NOSSA MISSÃO</h2>
-                    <p className="text-chimelo-gray leading-relaxed" style={{ fontSize: '16px' }}>
+                    <p className="text-chimelo-gray leading-relaxed" style={{
+                    fontSize: '16px'
+                  }}>
                       Garantir segurança jurídica e eficiência para empresários, com atuação especializada e inovadora.
                     </p>
                   </div>
 
                   <div>
                     <h2 className="text-2xl font-bold text-chimelo-black mb-4">NOSSA VISÃO</h2>
-                    <p className="text-chimelo-gray leading-relaxed" style={{ fontSize: '16px' }}>
+                    <p className="text-chimelo-gray leading-relaxed" style={{
+                    fontSize: '16px'
+                  }}>
                       Ser referência em soluções jurídicas que impulsionam negócios, garantindo segurança, solidez e crescimento sustentável.
                     </p>
                   </div>
@@ -59,13 +64,19 @@ const QuemSomosPage: React.FC = () => {
                   <div>
                     <h2 className="text-2xl font-bold text-chimelo-black mb-4">NOSSOS VALORES</h2>
                     <div className="space-y-4">
-                      <p className="text-chimelo-gray leading-relaxed" style={{ fontSize: '16px' }}>
+                      <p className="text-chimelo-gray leading-relaxed" style={{
+                      fontSize: '16px'
+                    }}>
                         <strong>Expertise e Visão Abrangente:</strong> Atuamos de forma multidisciplinar, antecipando desafios e propondo soluções eficazes.
                       </p>
-                      <p className="text-chimelo-gray leading-relaxed" style={{ fontSize: '16px' }}>
+                      <p className="text-chimelo-gray leading-relaxed" style={{
+                      fontSize: '16px'
+                    }}>
                         <strong>Inovação e Sustentabilidade:</strong> Buscamos novas abordagens jurídicas para promover crescimento sólido e seguro.
                       </p>
-                      <p className="text-chimelo-gray leading-relaxed" style={{ fontSize: '16px' }}>
+                      <p className="text-chimelo-gray leading-relaxed" style={{
+                      fontSize: '16px'
+                    }}>
                         <strong>Compromisso com o Cliente:</strong> Oferecemos soluções personalizadas, alinhadas às necessidades e objetivos de cada empresa.
                       </p>
                     </div>
@@ -77,8 +88,6 @@ const QuemSomosPage: React.FC = () => {
         </section>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default QuemSomosPage;
