@@ -71,14 +71,14 @@ const Footer: React.FC = () => {
                 <div className="flex items-start">
                   <MapPin size={18} className="mr-2 mt-1 text-chimelo-silver" />
                   <div className="text-sm">
-                    <p className="mb-1">📍 Porto Alegre:</p>
-                    <p className="mb-3">R. Carlos Huber, 110 - Três Figueiras<br />Porto Alegre - RS, 91330-150</p>
+                    <p className="mb-1 font-medium text-white">📍 Porto Alegre:</p>
+                    <p className="mb-3 text-white">R. Carlos Huber, 110 - Três Figueiras<br />Porto Alegre - RS, 91330-150</p>
                     
-                    <p className="mb-1">📍 Curitiba:</p>
-                    <p className="mb-3">R. Comendador Araújo, 252 - sl. 3304<br />Centro - Curitiba - PR, 80420-000</p>
+                    <p className="mb-1 font-medium text-white">📍 Curitiba:</p>
+                    <p className="mb-3 text-white">R. Comendador Araújo, 252 - sl. 3304<br />Centro - Curitiba - PR, 80420-000</p>
                     
-                    <p className="mb-1">📍 Caxias do Sul:</p>
-                    <p>Rua Coronel Flores 810 - Sala 100 - Moinho da Estação<br />Bairro São Pelegrino - Caxias do Sul - RS</p>
+                    <p className="mb-1 font-medium text-white">📍 Caxias do Sul:</p>
+                    <p className="text-white">Rua Coronel Flores 810 - Sala 100 - Moinho da Estação<br />Bairro São Pelegrino - Caxias do Sul - RS</p>
                   </div>
                 </div>
               </div>
@@ -87,34 +87,28 @@ const Footer: React.FC = () => {
         </div>
         
         {/* Endereços - visível apenas no desktop, posicionados ACIMA da linha cinza */}
-        <div className="hidden md:flex items-center justify-center space-x-6 mt-6 mb-4" style={{
-        fontSize: '14px'
-      }}>
-          <div className="flex items-center text-chimelo-silver/80">
-            <MapPin size={14} className="mr-1" />
-            <span>Porto Alegre: R. Carlos Huber, 110 - Três Figueiras</span>
+        <div className="hidden md:flex items-center justify-center space-x-8 mt-6 mb-4 text-base">
+          <div className="flex items-center text-white">
+            <MapPin size={16} className="mr-2 text-chimelo-silver" />
+            <span><strong>Porto Alegre:</strong> R. Carlos Huber, 110 - Três Figueiras</span>
           </div>
-          <div className="flex items-center text-chimelo-silver/80">
-            <MapPin size={14} className="mr-1" />
-            <span>Curitiba: R. Comendador Araújo, 252 - sl. 3304</span>
+          <div className="flex items-center text-white">
+            <MapPin size={16} className="mr-2 text-chimelo-silver" />
+            <span><strong>Curitiba:</strong> R. Comendador Araújo, 252 - sl. 3304</span>
           </div>
-          <div className="flex items-center text-chimelo-silver/80">
-            <MapPin size={14} className="mr-1" />
-            <span>Caxias do Sul: Rua Coronel Flores 810 - Sala 100</span>
+          <div className="flex items-center text-white">
+            <MapPin size={16} className="mr-2 text-chimelo-silver" />
+            <span><strong>Caxias do Sul:</strong> Rua Coronel Flores 810 - Sala 100</span>
           </div>
         </div>
         
         <div className="border-t border-chimelo-silver/20 pt-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-chimelo-silver" style={{
-            fontSize: '14px'
-          }}>
+            <p className="text-chimelo-silver text-sm">
               &copy; {currentYear} Chimelo Advogados e Associados. Todos os direitos reservados.
             </p>
             
-            <div className="text-chimelo-silver mt-2 md:mt-0" style={{
-            fontSize: '14px'
-          }}>
+            <div className="text-chimelo-silver mt-2 md:mt-0 text-sm">
               <span>Desenvolvido por <a href="https://somostexai.com" target="_blank" rel="noopener noreferrer" className="hover:underline">Texai Brasil Ltda</a></span>
             </div>
           </div>
