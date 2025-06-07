@@ -13,9 +13,7 @@ const Hero: React.FC = () => {
         <div className="max-w-3xl mt-8 md:mt-10">
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 my-0 px-0 mx-0 py-0">
 Soluções jurídicas inovadoras para sua empresa</h1>
-          <p className="text-xl text-chimelo-silver mb-8 max-w-2xl">
-            Com mais de 20 anos de experiência, conduzimos demandas complexas com expertise técnica e inovação, garantindo segurança e eficiência jurídica.
-          </p>
+          <p className="text-xl text-chimelo-silver mb-8 max-w-2xl">Com profissionais com mais de 20 anos de experiência, conduzimos demandas complexas com expertise técnica e inovação, garantindo segurança e eficiência jurídica.</p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button asChild className="chimelo-btn chimelo-btn-primary">
               <Link to="/areas-de-atuacao">
