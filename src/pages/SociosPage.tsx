@@ -36,7 +36,7 @@ const SociosPage: React.FC = () => {
     descricao: "Com mais de 15 anos de experiência em reestruturação empresarial e gestão de crises, Tiago Jaskulski Luz atua como Advogado e Administrador Judicial. Reconhecido por sua abordagem técnica e estratégica, possui sólida expertise na identificação de problemas, definição de soluções e implementação de mudanças voltadas à recuperação e ao crescimento de empresas.\n\nTem atuação em casos relevantes nos Estados do Rio Grande do Sul, Santa Catarina e Paraná.\n\nÉ Especialista em Direito Empresarial, Direito Tributário e Processo Civil, é membro ativo de entidades relevantes do setor, como o TMA Brasil (Turnaround Management Association), o IBAJUD (Instituto Brasileiro de Administração Judicial) e a Comissão de Recuperações Judiciais e Falências da OAB/RS.",
     especializacoes: [],
     formacao: [],
-    imagem: "https://i.imgur.com/DPS2rJN.png"
+    imagem: "https://imgur.com/lAMM2zr.png"
   }];
 
   // Function to split the description into paragraphs
