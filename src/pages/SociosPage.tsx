@@ -80,7 +80,7 @@ const SociosPage: React.FC = () => {
                 {socios.map((socio, index) => <Card key={index} className={cn("cursor-pointer transition-all hover:shadow-md", selectedSocio === index ? "border-chimelo-black ring-1 ring-chimelo-black" : "border-transparent")} onClick={() => setSelectedSocio(index)}>
                     <CardContent className="p-4 flex items-center gap-4">
                       <Avatar className="h-16 w-16 border border-chimelo-lightgray/20">
-                        <AvatarImage src={socio.imagem} alt={socio.nome} />
+                        <AvatarImage src={socio.imagem} alt={socio.nome} className="object-cover" />
                         <AvatarFallback>{socio.nome.charAt(0)}</AvatarFallback>
                       </Avatar>
                       <div>
