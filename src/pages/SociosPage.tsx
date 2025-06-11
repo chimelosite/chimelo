@@ -29,7 +29,7 @@ const SociosPage: React.FC = () => {
     descricao: "Conrado Dall´Igna é Advogado e Administrador Judicial com 21 anos de experiência em processos de reestruturação empresarial, falências e recuperações judiciais, com atuação em casos de grande relevância no cenário nacional.\n\nFormado em Direito pela PUC/RS, é especializado em Falência e Recuperação de Empresas pela FGV, com formação complementar em Administração Judicial pelo INSPER e pelo TMA Brasil.\n\nAtua ativamente na comunidade jurídica como membro da Comissão Especial de Falências e Recuperações Judiciais da OAB/RS, do Instituto Brasileiro da Insolvência (IBAJUD) e do Turnaround Management Association do Brasil (TMA Brasil).",
     especializacoes: [],
     formacao: [],
-    imagem: "https://i.imgur.com/t43ksK9.png"
+    imagem: "https://imgur.com/undefined.png"
   }, {
     nome: "Tiago Jaskulski Luz",
     cargo: "Sócio",
