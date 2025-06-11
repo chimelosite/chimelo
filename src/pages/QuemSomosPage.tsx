@@ -1,9 +1,12 @@
+
 import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+
 const QuemSomosPage: React.FC = () => {
-  return <div className="flex flex-col min-h-screen quem-somos-page">
-      <Header className="bg-chimelo-lightgray" />
+  return (
+    <div className="flex flex-col min-h-screen quem-somos-page">
+      <Header />
       <main className="flex-grow">
         <section className="chimelo-section bg-slate-200">
           <div className="chimelo-container bg-slate-200">
@@ -88,6 +91,8 @@ const QuemSomosPage: React.FC = () => {
         </section>
       </main>
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default QuemSomosPage;
