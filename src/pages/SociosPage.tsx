@@ -66,12 +66,12 @@ const SociosPage: React.FC = () => {
     formacao: [],
     imagem: "https://imgur.com/eN6KNmL.png"
    }, {
-    nome: "Dolly Oiteiral",
-    cargo: "Sócia e Head Societária e Patrimonial",
+    nome: "Mateus Honorato",
+    cargo: "Sócio e Coordenador Adjunto",
     descricao: "",
     especializacoes: [],
     formacao: [],
-    imagem: "https://imgur.com/gcbSNMy.png"
+    imagem: "https://imgur.com/BmPmxIm.png"
          
   }];
 
