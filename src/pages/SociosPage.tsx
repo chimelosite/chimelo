@@ -72,6 +72,69 @@ const SociosPage: React.FC = () => {
     especializacoes: [],
     formacao: [],
     imagem: "https://imgur.com/BmPmxIm.png"
+   }, {
+    nome: "Mateus Honorato",
+    cargo: "Sócio e Coordenador Adjunto",
+    descricao: "",
+    especializacoes: [],
+    formacao: [],
+    imagem: "https://imgur.com/BmPmxIm.png"
+   }, {
+    nome: "Mateus Honorato",
+    cargo: "Sócio e Coordenador Adjunto",
+    descricao: "",
+    especializacoes: [],
+    formacao: [],
+    imagem: "https://imgur.com/BmPmxIm.png"
+   }, {
+    nome: "Mateus Honorato",
+    cargo: "Sócio e Coordenador Adjunto",
+    descricao: "",
+    especializacoes: [],
+    formacao: [],
+    imagem: "https://imgur.com/BmPmxIm.png"
+   }, {
+    nome: "Mateus Honorato",
+    cargo: "Sócio e Coordenador Adjunto",
+    descricao: "",
+    especializacoes: [],
+    formacao: [],
+    imagem: "https://imgur.com/BmPmxIm.png"
+   }, {
+    nome: "Mateus Honorato",
+    cargo: "Sócio e Coordenador Adjunto",
+    descricao: "",
+    especializacoes: [],
+    formacao: [],
+    imagem: "https://imgur.com/BmPmxIm.png"
+   }, {
+    nome: "Mateus Honorato",
+    cargo: "Sócio e Coordenador Adjunto",
+    descricao: "",
+    especializacoes: [],
+    formacao: [],
+    imagem: "https://imgur.com/BmPmxIm.png"
+   }, {
+    nome: "Mateus Honorato",
+    cargo: "Sócio e Coordenador Adjunto",
+    descricao: "",
+    especializacoes: [],
+    formacao: [],
+    imagem: "https://imgur.com/BmPmxIm.png"
+   }, {
+    nome: "Mateus Honorato",
+    cargo: "Sócio e Coordenador Adjunto",
+    descricao: "",
+    especializacoes: [],
+    formacao: [],
+    imagem: "https://imgur.com/BmPmxIm.png"
+   }, {
+    nome: "Mateus Honorato",
+    cargo: "Sócio e Coordenador Adjunto",
+    descricao: "",
+    especializacoes: [],
+    formacao: [],
+    imagem: "https://imgur.com/BmPmxIm.png"
          
   }];
 
