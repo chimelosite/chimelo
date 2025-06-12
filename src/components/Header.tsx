@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Instagram, Linkedin, Menu, X } from "lucide-react";
@@ -107,7 +106,7 @@ const Header = () => {
             <ul className="flex space-x-1">
               <li><Link to="/" className={`chimelo-menu-item text-sm uppercase font-medium tracking-wider ${isActive('/') ? 'chimelo-menu-item-active' : ''}`}>Home</Link></li>
               <li><Link to="/quem-somos" className={`chimelo-menu-item text-sm uppercase font-medium tracking-wider ${isActive('/quem-somos') ? 'chimelo-menu-item-active' : ''}`}>O Escritório</Link></li>
-              <li><Link to="/socios" className={`chimelo-menu-item text-sm uppercase font-medium tracking-wider ${isActive('/socios') ? 'chimelo-menu-item-active' : ''}`}>Nosso Time</Link></li>
+              <li><Link to="/time" className={`chimelo-menu-item text-sm uppercase font-medium tracking-wider ${isActive('/time') ? 'chimelo-menu-item-active' : ''}`}>Nosso Time</Link></li>
               <li><Link to="/areas-de-atuacao" className={`chimelo-menu-item text-sm uppercase font-medium tracking-wider ${isActive('/areas-de-atuacao') ? 'chimelo-menu-item-active' : ''}`}>Áreas de Atuação & Serviços</Link></li>
               <li><Link to="/destaques" className={`chimelo-menu-item text-sm uppercase font-medium tracking-wider ${isActive('/destaques') ? 'chimelo-menu-item-active' : ''}`}>Destaques</Link></li>
               <li><Link to="/contato" className={`chimelo-menu-item text-sm uppercase font-medium tracking-wider ${isActive('/contato') ? 'chimelo-menu-item-active' : ''}`}>Contato</Link></li>
@@ -192,9 +191,9 @@ const Header = () => {
                 </li>
                 <li>
                   <Link 
-                    to="/socios" 
+                    to="/time" 
                     onClick={handleLinkClick} 
-                    className={`block py-3 px-4 text-white hover:bg-white/10 rounded-md transition-colors ${isActive('/socios') ? 'bg-white/20 font-bold' : ''}`}
+                    className={`block py-3 px-4 text-white hover:bg-white/10 rounded-md transition-colors ${isActive('/time') ? 'bg-white/20 font-bold' : ''}`}
                   >
                     Nosso Time
                   </Link>

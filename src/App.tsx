@@ -41,7 +41,7 @@ const App = () => {
             {/* Rotas públicas */}
             <Route path="/" element={<Index />} />
             <Route path="/quem-somos" element={<QuemSomosPage />} />
-            <Route path="/socios" element={<SociosPage />} />
+            <Route path="/time" element={<SociosPage />} />
             <Route path="/areas-de-atuacao" element={<AreasAtuacaoPage />} />
             <Route path="/destaques" element={<DestaquesPage />} />
             <Route path="/destaques/:slug" element={<NoticiaDetalhe />} />
