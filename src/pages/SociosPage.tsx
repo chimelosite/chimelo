@@ -87,55 +87,13 @@ const SociosPage: React.FC = () => {
     formacao: [],
     imagem: "https://imgur.com/k6WUU9N.png"
    }, {
-    nome: "Mateus Honorato",
-    cargo: "Sócio e Coordenador Adjunto",
+    nome: "Bruna Trindade",
+    cargo: "Comercial",
     descricao: "",
     especializacoes: [],
     formacao: [],
-    imagem: "https://imgur.com/BmPmxIm.png"
-   }, {
-    nome: "Mateus Honorato",
-    cargo: "Sócio e Coordenador Adjunto",
-    descricao: "",
-    especializacoes: [],
-    formacao: [],
-    imagem: "https://imgur.com/BmPmxIm.png"
-   }, {
-    nome: "Mateus Honorato",
-    cargo: "Sócio e Coordenador Adjunto",
-    descricao: "",
-    especializacoes: [],
-    formacao: [],
-    imagem: "https://imgur.com/BmPmxIm.png"
-   }, {
-    nome: "Mateus Honorato",
-    cargo: "Sócio e Coordenador Adjunto",
-    descricao: "",
-    especializacoes: [],
-    formacao: [],
-    imagem: "https://imgur.com/BmPmxIm.png"
-   }, {
-    nome: "Mateus Honorato",
-    cargo: "Sócio e Coordenador Adjunto",
-    descricao: "",
-    especializacoes: [],
-    formacao: [],
-    imagem: "https://imgur.com/BmPmxIm.png"
-   }, {
-    nome: "Mateus Honorato",
-    cargo: "Sócio e Coordenador Adjunto",
-    descricao: "",
-    especializacoes: [],
-    formacao: [],
-    imagem: "https://imgur.com/BmPmxIm.png"
-   }, {
-    nome: "Mateus Honorato",
-    cargo: "Sócio e Coordenador Adjunto",
-    descricao: "",
-    especializacoes: [],
-    formacao: [],
-    imagem: "https://imgur.com/BmPmxIm.png"
-         
+    imagem: "https://imgur.com/9MnkCQB.png"
+
   }];
 
   // Function to split the description into paragraphs
