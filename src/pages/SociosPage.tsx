@@ -96,7 +96,49 @@ const SociosPage: React.FC = () => {
     especializacoes: [],
     formacao: [],
     imagem: "https://imgur.com/9MnkCQB.png"
-
+   }, {
+    nome: "Luciana Paschoal",
+    cargo: "Head contábil",
+    descricao: "",
+    especializacoes: [],
+    formacao: [],
+    imagem: "https://imgur.com/NRavJCY.png"
+   }, {
+    nome: "Alexandre Cruz",
+    cargo: "Assistente Financeiro",
+    descricao: "",
+    especializacoes: [],
+    formacao: [],
+    imagem: "https://imgur.com/kVSLkOq.png"
+   }, {
+    nome: "Viviane Souza",
+    cargo: "Secretária da Diretoria",
+    descricao: "",
+    especializacoes: [],
+    formacao: [],
+    imagem: "https://imgur.com/9g0WAFU.png"
+   }, {
+    nome: "Wesley Pereira",
+    cargo: "Assistente Administrativo",
+    descricao: "",
+    especializacoes: [],
+    formacao: [],
+    imagem: "https://imgur.com/ATBTQ4y.png"
+   }, {
+    nome: "Jennifer Souza",
+    cargo: "Assistente Administrativo",
+    descricao: "",
+    especializacoes: [],
+    formacao: [],
+    imagem: "https://imgur.com/3r7V9KY.png"
+   }, {
+    nome: "Kailene Somacal",
+    cargo: "Assistente Jurídica",
+    descricao: "",
+    especializacoes: [],
+    formacao: [],
+    imagem: "https://imgur.com/sMq0TCI.png"
+         
   }];
 
   // Function to split the description into paragraphs
