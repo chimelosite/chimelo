@@ -1,9 +1,7 @@
-
 import React from "react";
 import { Calendar, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-
 interface NoticiaProps {
   title: string;
   excerpt: string;
@@ -11,20 +9,18 @@ interface NoticiaProps {
   slug: string;
   image?: string;
 }
-
-const NoticiaCard: React.FC<NoticiaProps> = ({ title, excerpt, date, slug, image }) => {
-  return (
-    <Link to={`/destaques/${slug}`} className="group">
+const NoticiaCard: React.FC<NoticiaProps> = ({
+  title,
+  excerpt,
+  date,
+  slug,
+  image
+}) => {
+  return <Link to={`/destaques/${slug}`} className="group">
       <div className="overflow-hidden rounded-lg border border-chimelo-lightgray/20 bg-white hover:shadow-md transition-shadow h-full flex flex-col">
-        {image && (
-          <div className="aspect-video overflow-hidden">
-            <img 
-              src={image} 
-              alt={title}
-              className="w-full h-full object-cover transition-transform group-hover:scale-105"
-            />
-          </div>
-        )}
+        {image && <div className="aspect-video overflow-hidden">
+            <img src={image} alt={title} className="w-full h-full object-cover transition-transform group-hover:scale-105" />
+          </div>}
         <div className="p-6 flex-grow flex flex-col">
           <div className="flex items-center text-sm text-chimelo-silver mb-2">
             <Calendar className="h-4 w-4 mr-1" />
@@ -39,30 +35,23 @@ const NoticiaCard: React.FC<NoticiaProps> = ({ title, excerpt, date, slug, image
           </div>
         </div>
       </div>
-    </Link>
-  );
+    </Link>;
 };
-
 const NoticiasSection: React.FC = () => {
-  const noticias = [
-    {
-      title: "STF confirma suspensão de leis que proíbem linguagem neutra em dois municípios",
-      excerpt: "O Plenário do Supremo Tribunal Federal (STF) referendou liminares concedidas pelo ministro Alexandre de Moraes que suspenderam leis municipais que proibiam o uso da linguagem neutra em documentos oficiais.",
-      date: "11 de maio de 2025",
-      slug: "stf-confirma-suspensao-leis-linguagem-neutra",
-      image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070&auto=format&fit=crop"
-    },
-    {
-      title: "STF suspende lei que prorrogou desoneração da folha até 2027",
-      excerpt: "O ministro Cristiano Zanin observou que a lei não considerou o impacto financeiro da prorrogação dos benefícios fiscais. A decisão do STF impacta diretamente a gestão fiscal e tributária das empresas no país.",
-      date: "09 de maio de 2025",
-      slug: "stf-suspende-lei-desoneracao-folha-2027",
-      image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2065&auto=format&fit=crop"
-    }
-  ];
-
-  return (
-    <section className="chimelo-section bg-gray-50">
+  const noticias = [{
+    title: "STF confirma suspensão de leis que proíbem linguagem neutra em dois municípios",
+    excerpt: "O Plenário do Supremo Tribunal Federal (STF) referendou liminares concedidas pelo ministro Alexandre de Moraes que suspenderam leis municipais que proibiam o uso da linguagem neutra em documentos oficiais.",
+    date: "11 de maio de 2025",
+    slug: "stf-confirma-suspensao-leis-linguagem-neutra",
+    image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070&auto=format&fit=crop"
+  }, {
+    title: "STF suspende lei que prorrogou desoneração da folha até 2027",
+    excerpt: "O ministro Cristiano Zanin observou que a lei não considerou o impacto financeiro da prorrogação dos benefícios fiscais. A decisão do STF impacta diretamente a gestão fiscal e tributária das empresas no país.",
+    date: "09 de maio de 2025",
+    slug: "stf-suspende-lei-desoneracao-folha-2027",
+    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2065&auto=format&fit=crop"
+  }];
+  return <section className="chimelo-section bg-chimelo-lightgray">
       <div className="chimelo-container">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
           <div>
@@ -77,20 +66,9 @@ const NoticiasSection: React.FC = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {noticias.map((noticia, index) => (
-            <NoticiaCard
-              key={index}
-              title={noticia.title}
-              excerpt={noticia.excerpt}
-              date={noticia.date}
-              slug={noticia.slug}
-              image={noticia.image}
-            />
-          ))}
+          {noticias.map((noticia, index) => <NoticiaCard key={index} title={noticia.title} excerpt={noticia.excerpt} date={noticia.date} slug={noticia.slug} image={noticia.image} />)}
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default NoticiasSection;

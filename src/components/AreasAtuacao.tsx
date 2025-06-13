@@ -51,7 +51,7 @@ const AreasAtuacao: React.FC = () => {
     description: "Segurança e eficiência para operações societárias.",
     link: "/areas-de-atuacao"
   }];
-  return <section className="py-12 md:py-16 bg-slate-200">
+  return <section className="py-12 md:py-16 bg-chimelo-silver">
       <div className="chimelo-container">
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl mb-3">Áreas de Atuação e Serviços</h2>
