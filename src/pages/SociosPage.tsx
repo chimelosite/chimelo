@@ -5,7 +5,6 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { cn } from "@/lib/utils";
-
 interface MembroProps {
   nome: string;
   cargo: string;
@@ -14,11 +13,9 @@ interface MembroProps {
   formacao: string[];
   imagem: string;
 }
-
 const SociosPage: React.FC = () => {
   const [selectedMembro, setSelectedMembro] = useState<number>(0);
   const [expandedMembro, setExpandedMembro] = useState<number | null>(null);
-
   const membrosTime: MembroProps[] = [{
     nome: "Gabriele Chimelo",
     cargo: "Sócia Fundadora e CEO",
@@ -47,98 +44,97 @@ const SociosPage: React.FC = () => {
     especializacoes: [],
     formacao: [],
     imagem: "https://imgur.com/toyC8ON.png"
-   }, {
+  }, {
     nome: "Marco Ronconi",
     cargo: "Diretor Administrativo",
     descricao: "",
     especializacoes: [],
     formacao: [],
     imagem: "https://imgur.com/6djSLUC.png"
-   }, {
+  }, {
     nome: "Dolly Oiteiral",
     cargo: "Sócia e Head Societária e Patrimonial",
     descricao: "",
     especializacoes: [],
     formacao: [],
     imagem: "https://imgur.com/gcbSNMy.png"
-   }, {
+  }, {
     nome: "Leandro Aguiar",
     cargo: "Sócio e Coordenador Jurídico",
     descricao: "",
     especializacoes: [],
     formacao: [],
     imagem: "https://imgur.com/eN6KNmL.png"
-   }, {
+  }, {
     nome: "Mateus Honorato",
     cargo: "Sócio e Coordenador Adjunto",
     descricao: "",
     especializacoes: [],
     formacao: [],
     imagem: "https://imgur.com/BmPmxIm.png"
-   }, {
+  }, {
     nome: "Rosângela Job",
     cargo: "Controladoria Jurídica",
     descricao: "",
     especializacoes: [],
     formacao: [],
     imagem: "https://imgur.com/IusnKWf.png"
-   }, {
+  }, {
     nome: "Felipe Bernandoni",
     cargo: "Contador",
     descricao: "",
     especializacoes: [],
     formacao: [],
     imagem: "https://imgur.com/k6WUU9N.png"
-   }, {
+  }, {
     nome: "Bruna Trindade",
     cargo: "Comercial",
     descricao: "",
     especializacoes: [],
     formacao: [],
     imagem: "https://imgur.com/9MnkCQB.png"
-   }, {
+  }, {
     nome: "Luciana Paschoal",
     cargo: "Head contábil",
     descricao: "",
     especializacoes: [],
     formacao: [],
     imagem: "https://imgur.com/NRavJCY.png"
-   }, {
+  }, {
     nome: "Alexandre Cruz",
     cargo: "Assistente Financeiro",
     descricao: "",
     especializacoes: [],
     formacao: [],
     imagem: "https://imgur.com/kVSLkOq.png"
-   }, {
+  }, {
     nome: "Viviane Souza",
     cargo: "Secretária da Diretoria",
     descricao: "",
     especializacoes: [],
     formacao: [],
     imagem: "https://imgur.com/9g0WAFU.png"
-   }, {
+  }, {
     nome: "Wesley Pereira",
     cargo: "Assistente Administrativo",
     descricao: "",
     especializacoes: [],
     formacao: [],
     imagem: "https://imgur.com/ATBTQ4y.png"
-   }, {
+  }, {
     nome: "Jennifer Souza",
     cargo: "Assistente Administrativo",
     descricao: "",
     especializacoes: [],
     formacao: [],
     imagem: "https://imgur.com/3r7V9KY.png"
-   }, {
+  }, {
     nome: "Kailene Somacal",
     cargo: "Assistente Jurídica",
     descricao: "",
     especializacoes: [],
     formacao: [],
     imagem: "https://imgur.com/sMq0TCI.png"
-         
   }];
 
   // Function to split the description into paragraphs
@@ -150,22 +146,20 @@ const SociosPage: React.FC = () => {
   const handleBiographyClick = (index: number) => {
     setExpandedMembro(expandedMembro === index ? null : index);
   };
-
-  return (
-    <div className="flex flex-col min-h-screen time-page">
+  return <div className="flex flex-col min-h-screen time-page">
       <Header />
       <main className="flex-grow bg-gray-50">
         <section className="relative bg-chimelo-black text-white">
           <div className="absolute inset-0 opacity-35 bg-cover bg-center" style={{
-            backgroundImage: 'url("/lovable-uploads/27570706-51c0-4d07-a428-af2be4221322.png")',
-            backgroundBlendMode: 'overlay'
-          }} />
+          backgroundImage: 'url("/lovable-uploads/27570706-51c0-4d07-a428-af2be4221322.png")',
+          backgroundBlendMode: 'overlay'
+        }} />
           
           <div className="relative py-16 md:py-[14px]">
             <div className="chimelo-container">
               <div className="max-w-3xl mx-auto mb-12 text-center" style={{
-                marginTop: '15px'
-              }}>
+              marginTop: '15px'
+            }}>
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">Nosso Time</h1>
                 <p className="text-lg text-chimelo-silver max-w-2xl py-0 my-0 px-0 mx-0">
                   Conheça os profissionais que lideram o escritório Chimelo Advogados & Associados, 
@@ -181,16 +175,8 @@ const SociosPage: React.FC = () => {
             {/* Desktop View */}
             <div className="hidden lg:flex gap-8">
               <div className="w-1/3 space-y-6 sticky top-8 self-start">
-                {membrosTime.map((membro, index) => (
-                  <Card 
-                    key={index} 
-                    className={cn(
-                      "cursor-pointer transition-all hover:shadow-md", 
-                      selectedMembro === index ? "border-chimelo-black ring-1 ring-chimelo-black" : "border-transparent"
-                    )} 
-                    onClick={() => setSelectedMembro(index)}
-                  >
-                    <CardContent className="p-4 flex items-center gap-4">
+                {membrosTime.map((membro, index) => <Card key={index} className={cn("cursor-pointer transition-all hover:shadow-md", selectedMembro === index ? "border-chimelo-black ring-1 ring-chimelo-black" : "border-transparent")} onClick={() => setSelectedMembro(index)}>
+                    <CardContent className="p-4 flex items-center gap-4 py-px">
                       <Avatar className="h-16 w-16 border border-chimelo-lightgray/20">
                         <AvatarImage src={membro.imagem} alt={membro.nome} className="object-cover" />
                         <AvatarFallback>{membro.nome.charAt(0)}</AvatarFallback>
@@ -200,8 +186,7 @@ const SociosPage: React.FC = () => {
                         <p className="text-chimelo-silver">{membro.cargo}</p>
                       </div>
                     </CardContent>
-                  </Card>
-                ))}
+                  </Card>)}
               </div>
               
               <div className="w-2/3">
@@ -216,33 +201,23 @@ const SociosPage: React.FC = () => {
                     <h2 className="text-3xl font-bold mb-1">{membrosTime[selectedMembro].nome}</h2>
                     <p className="text-chimelo-silver text-xl mb-6">{membrosTime[selectedMembro].cargo}</p>
                     
-                    {membrosTime[selectedMembro].descricao && (
-                      <div className="prose prose-lg max-w-none">
+                    {membrosTime[selectedMembro].descricao && <div className="prose prose-lg max-w-none">
                         {formatDescription(membrosTime[selectedMembro].descricao)}
-                      </div>
-                    )}
+                      </div>}
                     
-                    {membrosTime[selectedMembro].especializacoes.length > 0 && (
-                      <div className="mt-8">
+                    {membrosTime[selectedMembro].especializacoes.length > 0 && <div className="mt-8">
                         <h3 className="text-xl font-semibold mb-3">Áreas de Especialização</h3>
                         <ul className="list-disc pl-5 space-y-1">
-                          {membrosTime[selectedMembro].especializacoes.map((esp, index) => (
-                            <li key={index}>{esp}</li>
-                          ))}
+                          {membrosTime[selectedMembro].especializacoes.map((esp, index) => <li key={index}>{esp}</li>)}
                         </ul>
-                      </div>
-                    )}
+                      </div>}
                     
-                    {membrosTime[selectedMembro].formacao.length > 0 && (
-                      <div className="mt-8">
+                    {membrosTime[selectedMembro].formacao.length > 0 && <div className="mt-8">
                         <h3 className="text-xl font-semibold mb-3">Formação Acadêmica</h3>
                         <ul className="list-disc pl-5 space-y-1">
-                          {membrosTime[selectedMembro].formacao.map((form, index) => (
-                            <li key={index}>{form}</li>
-                          ))}
+                          {membrosTime[selectedMembro].formacao.map((form, index) => <li key={index}>{form}</li>)}
                         </ul>
-                      </div>
-                    )}
+                      </div>}
                   </CardContent>
                 </Card>
               </div>
@@ -250,8 +225,7 @@ const SociosPage: React.FC = () => {
             
             {/* Mobile View with expanded biography functionality */}
             <div className="lg:hidden space-y-8">
-              {membrosTime.map((membro, index) => (
-                <Card key={index} className="overflow-hidden bg-white">
+              {membrosTime.map((membro, index) => <Card key={index} className="overflow-hidden bg-white">
                   <div className="aspect-square overflow-hidden bg-gray-100 border-b">
                     <img src={membro.imagem} alt={membro.nome} className="w-full h-full object-cover object-center" />
                   </div>
@@ -260,57 +234,34 @@ const SociosPage: React.FC = () => {
                     <p className="text-chimelo-silver mb-4">{membro.cargo}</p>
                     
                     {/* Show full biography if expanded, otherwise only first paragraph */}
-                    {membro.descricao && (
-                      <div className="prose max-w-none mb-4">
-                        {expandedMembro === index 
-                          ? formatDescription(membro.descricao) 
-                          : membro.descricao 
-                            ? formatDescription(membro.descricao.split('\n\n')[0]) 
-                            : null
-                        }
-                      </div>
-                    )}
+                    {membro.descricao && <div className="prose max-w-none mb-4">
+                        {expandedMembro === index ? formatDescription(membro.descricao) : membro.descricao ? formatDescription(membro.descricao.split('\n\n')[0]) : null}
+                      </div>}
                     
-                    {membro.descricao && (
-                      <button 
-                        onClick={() => handleBiographyClick(index)} 
-                        className="text-chimelo-black font-medium hover:underline"
-                      >
+                    {membro.descricao && <button onClick={() => handleBiographyClick(index)} className="text-chimelo-black font-medium hover:underline">
                         {expandedMembro === index ? "Ocultar biografia" : "Ler biografia completa"}
-                      </button>
-                    )}
+                      </button>}
                     
-                    {expandedMembro === index && membro.especializacoes.length > 0 && (
-                      <div className="mt-6">
+                    {expandedMembro === index && membro.especializacoes.length > 0 && <div className="mt-6">
                         <h3 className="font-semibold mb-2">Áreas de Especialização</h3>
                         <ul className="list-disc pl-5 space-y-1">
-                          {membro.especializacoes.map((esp, espIndex) => (
-                            <li key={espIndex} className="text-sm">{esp}</li>
-                          ))}
+                          {membro.especializacoes.map((esp, espIndex) => <li key={espIndex} className="text-sm">{esp}</li>)}
                         </ul>
-                      </div>
-                    )}
+                      </div>}
                     
-                    {expandedMembro === index && membro.formacao.length > 0 && (
-                      <div className="mt-6">
+                    {expandedMembro === index && membro.formacao.length > 0 && <div className="mt-6">
                         <h3 className="font-semibold mb-2">Formação Acadêmica</h3>
                         <ul className="list-disc pl-5 space-y-1">
-                          {membro.formacao.map((form, formIndex) => (
-                            <li key={formIndex} className="text-sm">{form}</li>
-                          ))}
+                          {membro.formacao.map((form, formIndex) => <li key={formIndex} className="text-sm">{form}</li>)}
                         </ul>
-                      </div>
-                    )}
+                      </div>}
                   </CardContent>
-                </Card>
-              ))}
+                </Card>)}
             </div>
           </div>
         </section>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default SociosPage;
