@@ -18,7 +18,7 @@ const AreaCard: React.FC<AreaProps> = ({
 }) => {
   return <Link to={link} className="block h-full">
       <Card className="h-full transition-all hover:shadow-md border-chimelo-lightgray/20 bg-white">
-        <CardContent className="p-6 flex flex-col h-full">
+        <CardContent className="p-6 flex flex-col h-full bg-chimelo-lightgray">
           <div className="p-3 rounded-full bg-gray-50 mb-4 w-fit">
             {icon}
           </div>
