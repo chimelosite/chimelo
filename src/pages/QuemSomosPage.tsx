@@ -1,15 +1,12 @@
-
 import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-
 const QuemSomosPage: React.FC = () => {
-  return (
-    <div className="flex flex-col min-h-screen quem-somos-page">
+  return <div className="flex flex-col min-h-screen quem-somos-page">
       <Header />
       <main className="flex-grow">
         <section className="chimelo-section bg-slate-200">
-          <div className="chimelo-container bg-slate-200">
+          <div className="chimelo-container bg-chimelo-lightgray">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
               {/* Coluna da Esquerda - O ESCRITÓRIO */}
               <div className="py-[50px] lg:py-[100px]">
@@ -91,8 +88,6 @@ const QuemSomosPage: React.FC = () => {
         </section>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default QuemSomosPage;
