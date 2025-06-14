@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
     }} />
       
       <div className="relative chimelo-container md:py-24 lg:py-32 flex flex-col items-start py-[97px]">
-        <div className="-bottom-24 ">
+        <div className="-bottom-24 rounded">
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
             Soluções jurídicas inovadoras para sua empresa
           </h1>
