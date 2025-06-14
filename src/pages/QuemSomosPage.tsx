@@ -10,7 +10,7 @@ const QuemSomosPage: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
               {/* Coluna da Esquerda - O ESCRITÓRIO */}
               <div className="py-[50px] lg:py-[100px]">
-                <h1 className="text-3xl md:text-4xl font-bold mb-8 text-chimelo-black">
+                <h1 className="text-3xl md:text-4xl font-bold mb-8 text-chimelo-black py-[24px]">
                   O ESCRITÓRIO
                 </h1>
                 <div className="space-y-6 text-chimelo-gray leading-relaxed" style={{
@@ -32,10 +32,10 @@ const QuemSomosPage: React.FC = () => {
               </div>
 
               {/* Coluna da Direita - Propósito, Missão, Visão e Valores */}
-              <div className="py-[50px] lg:py-[100px]">
+              <div className="lg:py-[100px] py-[8px]">
                 <div className="space-y-8">
                   <div>
-                    <h2 className="text-2xl font-bold text-chimelo-black mb-4">NOSSO PROPÓSITO</h2>
+                    <h2 className="text-2xl font-bold text-chimelo-black mb-4 my-0 py-0">NOSSO PROPÓSITO</h2>
                     <p className="text-chimelo-gray leading-relaxed" style={{
                     fontSize: '16px'
                   }}>
