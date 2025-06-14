@@ -155,7 +155,7 @@ const SociosPage: React.FC = () => {
           backgroundBlendMode: 'overlay'
         }} />
           
-          <div className="relative py-16 my-0 md:py-[198px]">
+          <div className="-bottom-20 my-0 md:py-[198px] py-[85px]">
             <div className="chimelo-container my-0 py-0">
               <div style={{
               marginTop: '15px'
