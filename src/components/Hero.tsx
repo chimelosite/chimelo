@@ -9,8 +9,8 @@ const Hero: React.FC = () => {
       backgroundBlendMode: 'overlay'
     }} />
       
-      <div className="relative chimelo-container md:py-36 lg:py-44 flex flex-col items-start mx-0 my-0 py-[156px]">
-        <div className="max-w-3xl mt-5 md:-mt-7 py-6 my-[63px]">
+      <div className="relative chimelo-container md:py-36 lg:py-44 flex flex-col items-start py-[136px] mx-0 my-0">
+        <div className="max-w-3xl mt-8 md:mt-10 py-0 my-[52px]">
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 my-0 px-0 mx-0 py-0">
 Soluções jurídicas inovadoras para sua empresa</h1>
           <p className="text-xl text-chimelo-silver mb-8 max-w-2xl">Com profissionais com mais de 20 anos de experiência, conduzimos demandas complexas com expertise técnica e inovação, garantindo segurança e eficiência jurídica.</p>

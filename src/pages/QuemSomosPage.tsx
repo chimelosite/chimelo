@@ -5,12 +5,12 @@ const QuemSomosPage: React.FC = () => {
   return <div className="flex flex-col min-h-screen quem-somos-page">
       <Header />
       <main className="flex-grow">
-        <section className="chimelo-section bg-chimelo-lightgray">
-          <div className="chimelo-container bg-chimelo-lightgray my-0">
+        <section className="chimelo-section bg-slate-200">
+          <div className="chimelo-container bg-chimelo-lightgray">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
               {/* Coluna da Esquerda - O ESCRITÓRIO */}
-              <div className="lg:py-[82px] py-[71px]">
-                <h1 className="text-3xl md:text-4xl font-bold mb-8 text-chimelo-black py-0">
+              <div className="py-[50px] lg:py-[100px]">
+                <h1 className="text-3xl md:text-4xl font-bold mb-8 text-chimelo-black py-[24px]">
                   O ESCRITÓRIO
                 </h1>
                 <div className="space-y-6 text-chimelo-gray leading-relaxed" style={{
