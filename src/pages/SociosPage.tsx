@@ -156,7 +156,7 @@ const SociosPage: React.FC = () => {
         }} />
           
           <div className="relative py-16 my-0 md:py-[198px]">
-            <div className="chimelo-container my-0 py-0">
+            <div className="chimelo-container my-0 py-[102px]">
               <div style={{
               marginTop: '15px'
             }} className="max-w-3xl mx-auto mb-12 text-center py-0 my-px">
