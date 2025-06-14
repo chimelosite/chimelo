@@ -105,51 +105,6 @@
       padding-top: 80px; /* Header mobile recolhido + espaço */
     }
   }
-
-  /* Header Standardization - Force consistent positioning */
-  .hero-section,
-  [class*="hero"],
-  .page-header,
-  section.relative.bg-chimelo-black {
-    position: relative !important;
-  }
-
-  .hero-section .chimelo-container,
-  [class*="hero"] .chimelo-container,
-  .page-header .chimelo-container,
-  section.relative.bg-chimelo-black .chimelo-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: inherit;
-  }
-
-  .hero-section .max-w-3xl,
-  [class*="hero"] .max-w-3xl,
-  .page-header .max-w-3xl,
-  section.relative.bg-chimelo-black .max-w-3xl {
-    text-align: center !important;
-    margin: 0 auto !important;
-  }
-
-  /* Force center alignment for header text content */
-  .hero-section h1,
-  [class*="hero"] h1,
-  .page-header h1,
-  section.relative.bg-chimelo-black h1 {
-    text-align: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-
-  .hero-section p,
-  [class*="hero"] p,
-  .page-header p,
-  section.relative.bg-chimelo-black p {
-    text-align: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
 }
 
 @layer components {
@@ -192,20 +147,5 @@
   
   .chimelo-menu-item-active {
     @apply after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-white;
-  }
-
-  /* Header Standardization Components */
-  .force-center {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
-  }
-
-  .header-text-center {
-    text-align: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
   }
 }

@@ -5,8 +5,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 const SociosPage: React.FC = () => {
-  return (
-    <div className="flex flex-col min-h-screen">
+  return <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow">
         {/* Hero Section with exact same structure as destaques page */}
@@ -56,8 +55,7 @@ const SociosPage: React.FC = () => {
         </section>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
 
 export default SociosPage;
