@@ -9,14 +9,11 @@ const Hero: React.FC = () => {
       backgroundBlendMode: 'overlay'
     }} />
       
-      <div className="relative chimelo-container md:py-24 lg:py-32 flex flex-col items-start py-[126px]">
-        <div className="-bottom-24 rounded-bl-full ">
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 my-[60px]">
-            Soluções jurídicas inovadoras para sua empresa
-          </h1>
-          <p className="text-xl text-chimelo-silver mb-8 max-w-2xl my-[28px]">
-            Com profissionais com mais de 20 anos de experiência, conduzimos demandas complexas com expertise técnica e inovação, garantindo segurança e eficiência jurídica.
-          </p>
+      <div className="relative chimelo-container md:py-36 lg:py-44 flex flex-col items-start mx-0 my-0 py-[156px]">
+        <div className="max-w-3xl mt-5 md:-mt-7 py-6 my-[63px]">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 my-0 px-0 mx-0 py-0">
+Soluções jurídicas inovadoras para sua empresa</h1>
+          <p className="text-xl text-chimelo-silver mb-8 max-w-2xl">Com profissionais com mais de 20 anos de experiência, conduzimos demandas complexas com expertise técnica e inovação, garantindo segurança e eficiência jurídica.</p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button asChild className="chimelo-btn chimelo-btn-primary">
               <Link to="/areas-de-atuacao">
