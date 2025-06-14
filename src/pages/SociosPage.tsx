@@ -1,150 +1,13 @@
-import React, { useState } from "react";
+
+import React from "react";
+import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Card, CardContent } from "@/components/ui/card";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { cn } from "@/lib/utils";
-interface MembroProps {
-  nome: string;
-  cargo: string;
-  descricao: string;
-  especializacoes: string[];
-  formacao: string[];
-  imagem: string;
-}
+
 const SociosPage: React.FC = () => {
-  const [selectedMembro, setSelectedMembro] = useState<number>(0);
-  const [expandedMembro, setExpandedMembro] = useState<number | null>(null);
-  const membrosTime: MembroProps[] = [{
-    nome: "Gabriele Chimelo",
-    cargo: "Sócia Fundadora e CEO",
-    descricao: "Sócia-fundadora e Diretora Geral da CB2D Administração Judicial e Sócia e CEO da Chimelo Advogados & Associados\n\nGabriele Chimelo é uma das principais referências nacionais na área de insolvência empresarial, com atuação destacada em reestruturação de empresas, distressed M&A, governança corporativa, regimes regulatórios e estratégias jurídicas de alta complexidade. É sócia-fundadora e Diretora Geral da CB2D Administração Judicial e da banca Chimelo Advogados & Associados.\n\nCom mais de 20 anos de experiência, construiu uma carreira sólida liderando soluções jurídicas em cenários críticos. Por 14 anos, integrou a liderança da área de Falências e Recuperações Judiciais da Scalzilli Althaus Chimelo e Spohr, tendo papel decisivo no desenvolvimento de áreas estratégicas do Direito Empresarial. Em 2025, assumiu a marca Chimelo — uma homenagem ao avô materno, agropecuarista de destaque no Sul e Centro-Oeste do país — consolidando sua identidade profissional.\n\nÉ diretora do Instituto Brasileiro de Insolvência (IBAJUD), membro do Turnaround Management Association Brasil (TMA Brasil) e do Instituto de Direito da Reestruturação Empresarial (IDRE), além de fundadora do CMR – Centro de Mulheres na Reestruturação Empresarial. Também foi fundadora e Vice-Presidente da Comissão de Falências e Recuperações Judiciais da OAB/RS, liderando iniciativas de impacto técnico e institucional.\n\nReconhecida por rankings especializados como Leaders League, Legal 500 e Análise Advocacia 500, Gabriele participa ativamente de eventos jurídicos de relevância nacional. Sua experiência abrange diversos setores da economia, como agronegócio, infraestrutura, mercado imobiliário, saúde, moda, alimentação, energia, serviços regulados, indústria, educação, tecnologia, transportes, seguros e sistema financeiro.\n\nEspecialista também em real estate, LGPD e compliance, alia profundo conhecimento contábil à análise gerencial das empresas, oferecendo diagnósticos precisos, pareceres técnicos e cenários jurídicos fundamentados. Atua de forma ativa em conselhos de governança, que considera centros legítimos de decisão nas empresas em crise ou em transformação.\n\nSua atuação concentra-se nos estados do RS, PR, SC, SP e MT. É autora de artigos em veículos especializados, coautora de obras coletivas sobre insolvência e professora da ESPM-Sul, onde compartilha sua experiência em gestão de crises e governança empresarial. Também organiza e lidera eventos técnicos voltados a fundos, FIDCs, securitizadoras e setores específicos como o da moda.\n\nEntre os casos de maior repercussão sob sua condução estão: DHB Componentes Automotivos, Serki Fundações, Sultepa, Igreja Metodista, GBOEX, Bela Gula, Leão Engenharia, Sanem Engenharia, Cargill e Top Safe. Destaca-se ainda sua atuação no precedente do STJ que autorizou a Emofesa, em recuperação judicial, a manter contratos com o poder público — marco importante no cenário jurídico nacional.\n\nCom inteligência tática, foco em resultados e força na execução, lidera uma equipe altamente qualificada, integrando análise de risco, estruturação jurídica e governança com inovação e entrega de valor real.",
-    especializacoes: [],
-    formacao: [],
-    imagem: "https://imgur.com/fcIm9qr.png"
-  }, {
-    nome: "Conrado Dall'Igna",
-    cargo: "Sócio e Membro do Conselho",
-    descricao: "Conrado Dall´Igna é Advogado e Administrador Judicial com 21 anos de experiência em processos de reestruturação empresarial, falências e recuperações judiciais, com atuação em casos de grande relevância no cenário nacional.\n\nFormado em Direito pela PUC/RS, é especializado em Falência e Recuperação de Empresas pela FGV, com formação complementar em Administração Judicial pelo INSPER e pelo TMA Brasil.\n\nAtua ativamente na comunidade jurídica como membro da Comissão Especial de Falências e Recuperações Judiciais da OAB/RS, do Instituto Brasileiro da Insolvência (IBAJUD) e do Turnaround Management Association do Brasil (TMA Brasil).",
-    especializacoes: [],
-    formacao: [],
-    imagem: "https://imgur.com/CglqhgP.png"
-  }, {
-    nome: "Tiago Jaskulski Luz",
-    cargo: "Sócio e Head da Área de Reestruturação",
-    descricao: "Com mais de 15 anos de experiência em reestruturação empresarial e gestão de crises, Tiago Jaskulski Luz atua como Advogado e Administrador Judicial. Reconhecido por sua abordagem técnica e estratégica, possui sólida expertise na identificação de problemas, definição de soluções e implementação de mudanças voltadas à recuperação e ao crescimento de empresas.\n\nTem atuação em casos relevantes nos Estados do Rio Grande do Sul, Santa Catarina e Paraná.\n\nÉ Especialista em Direito Empresarial, Direito Tributário e Processo Civil, é membro ativo de entidades relevantes do setor, como o TMA Brasil (Turnaround Management Association), o IBAJUD (Instituto Brasileiro de Administração Judicial) e a Comissão de Recuperações Judiciais e Falências da OAB/RS.",
-    especializacoes: [],
-    formacao: [],
-    imagem: "https://imgur.com/lAMM2zr.png"
-  }, {
-    nome: "Claudine Rotta",
-    cargo: "Sócia e Diretora Jurídica",
-    descricao: "",
-    especializacoes: [],
-    formacao: [],
-    imagem: "https://imgur.com/toyC8ON.png"
-  }, {
-    nome: "Marco Ronconi",
-    cargo: "Diretor Administrativo",
-    descricao: "",
-    especializacoes: [],
-    formacao: [],
-    imagem: "https://imgur.com/6djSLUC.png"
-  }, {
-    nome: "Dolly Oiteiral",
-    cargo: "Sócia e Head Societária e Patrimonial",
-    descricao: "",
-    especializacoes: [],
-    formacao: [],
-    imagem: "https://imgur.com/gcbSNMy.png"
-  }, {
-    nome: "Leandro Aguiar",
-    cargo: "Sócio e Coordenador Jurídico",
-    descricao: "",
-    especializacoes: [],
-    formacao: [],
-    imagem: "https://imgur.com/eN6KNmL.png"
-  }, {
-    nome: "Mateus Honorato",
-    cargo: "Sócio e Coordenador Adjunto",
-    descricao: "",
-    especializacoes: [],
-    formacao: [],
-    imagem: "https://imgur.com/BmPmxIm.png"
-  }, {
-    nome: "Rosângela Job",
-    cargo: "Controladoria Jurídica",
-    descricao: "",
-    especializacoes: [],
-    formacao: [],
-    imagem: "https://imgur.com/IusnKWf.png"
-  }, {
-    nome: "Felipe Bernandoni",
-    cargo: "Contador",
-    descricao: "",
-    especializacoes: [],
-    formacao: [],
-    imagem: "https://imgur.com/k6WUU9N.png"
-  }, {
-    nome: "Bruna Trindade",
-    cargo: "Comercial",
-    descricao: "",
-    especializacoes: [],
-    formacao: [],
-    imagem: "https://imgur.com/9MnkCQB.png"
-  }, {
-    nome: "Luciana Paschoal",
-    cargo: "Head contábil",
-    descricao: "",
-    especializacoes: [],
-    formacao: [],
-    imagem: "https://imgur.com/NRavJCY.png"
-  }, {
-    nome: "Alexandre Cruz",
-    cargo: "Assistente Financeiro",
-    descricao: "",
-    especializacoes: [],
-    formacao: [],
-    imagem: "https://imgur.com/kVSLkOq.png"
-  }, {
-    nome: "Viviane Souza",
-    cargo: "Secretária da Diretoria",
-    descricao: "",
-    especializacoes: [],
-    formacao: [],
-    imagem: "https://imgur.com/9g0WAFU.png"
-  }, {
-    nome: "Wesley Pereira",
-    cargo: "Assistente Administrativo",
-    descricao: "",
-    especializacoes: [],
-    formacao: [],
-    imagem: "https://imgur.com/ATBTQ4y.png"
-  }, {
-    nome: "Jennifer Souza",
-    cargo: "Assistente Administrativo",
-    descricao: "",
-    especializacoes: [],
-    formacao: [],
-    imagem: "https://imgur.com/3r7V9KY.png"
-  }, {
-    nome: "Kailene Somacal",
-    cargo: "Assistente Jurídica",
-    descricao: "",
-    especializacoes: [],
-    formacao: [],
-    imagem: "https://imgur.com/sMq0TCI.png"
-  }];
-  const formatDescription = (description: string) => {
-    return description.split('\n\n').map((paragraph, index) => <p key={index} className="mb-4 last:mb-0">{paragraph}</p>);
-  };
-  const handleBiographyClick = (index: number) => {
-    setExpandedMembro(expandedMembro === index ? null : index);
-  };
-  return <div className="flex flex-col min-h-screen time-page">
+  return <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="flex-grow bg-gray-50">
+      <main className="flex-grow">
         {/* Hero Section with exact same structure as destaques page */}
         <section className="relative bg-chimelo-black text-white">
           <div 
@@ -156,103 +19,37 @@ const SociosPage: React.FC = () => {
           />
           
           <div className="relative py-16 md:py-24">
-            <div className="chimelo-container">
+            <div className="chimelo-container py-px">
               <div className="max-w-3xl mx-auto text-center">
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">Nosso Time</h1>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+                  Nosso Time
+                </h1>
                 <p className="text-lg text-chimelo-silver max-w-2xl mx-auto">
-                  Conheça os profissionais que lideram o escritório Chimelo Advogados & Associados, 
-                  com extensa formação acadêmica e vasta experiência nas mais diversas áreas do direito.
+                  Conheça os profissionais especializados que formam a equipe do escritório Chimelo Advogados & Associados, com expertise reconhecida em suas respectivas áreas de atuação.
                 </p>
               </div>
             </div>
           </div>
         </section>
-
-        <section className="chimelo-section">
+        
+        {/* Breadcrumb */}
+        <div className="bg-gray-50 border-b border-gray-200 py-3">
           <div className="chimelo-container">
-            {/* Desktop View */}
-            <div className="hidden lg:flex gap-8">
-              <div className="w-1/3 space-y-6 sticky top-8 self-start">
-                {membrosTime.map((membro, index) => <Card key={index} className={cn("cursor-pointer transition-all hover:shadow-md", selectedMembro === index ? "border-chimelo-black ring-1 ring-chimelo-black" : "border-transparent")} onClick={() => setSelectedMembro(index)}>
-                    <CardContent className="p-4 flex items-center gap-4">
-                      <Avatar className="h-16 w-16 border border-chimelo-lightgray/20">
-                        <AvatarImage src={membro.imagem} alt={membro.nome} className="object-cover" />
-                        <AvatarFallback>{membro.nome.charAt(0)}</AvatarFallback>
-                      </Avatar>
-                      <div>
-                        <h3 className="font-bold text-lg">{membro.nome}</h3>
-                        <p className="text-chimelo-silver">{membro.cargo}</p>
-                      </div>
-                    </CardContent>
-                  </Card>)}
-              </div>
-              
-              <div className="w-2/3">
-                <Card className="overflow-hidden bg-white">
-                  <div className="aspect-[3/2] overflow-hidden bg-gray-100 border-b">
-                    <AspectRatio ratio={3 / 2} className="bg-gray-100">
-                      <img src={membrosTime[selectedMembro].imagem} alt={membrosTime[selectedMembro].nome} className="w-full h-full object-center object-cover" />
-                    </AspectRatio>
-                  </div>
-                  <CardContent className="p-8">
-                    <h2 className="text-3xl font-bold mb-1">{membrosTime[selectedMembro].nome}</h2>
-                    <p className="text-chimelo-silver text-xl mb-6">{membrosTime[selectedMembro].cargo}</p>
-                    
-                    {membrosTime[selectedMembro].descricao && <div className="prose prose-lg max-w-none">
-                        {formatDescription(membrosTime[selectedMembro].descricao)}
-                      </div>}
-                    
-                    {membrosTime[selectedMembro].especializacoes.length > 0 && <div className="mt-8">
-                        <h3 className="text-xl font-semibold mb-3">Áreas de Especialização</h3>
-                        <ul className="list-disc pl-5 space-y-1">
-                          {membrosTime[selectedMembro].especializacoes.map((esp, index) => <li key={index}>{esp}</li>)}
-                        </ul>
-                      </div>}
-                    
-                    {membrosTime[selectedMembro].formacao.length > 0 && <div className="mt-8">
-                        <h3 className="text-xl font-semibold mb-3">Formação Acadêmica</h3>
-                        <ul className="list-disc pl-5 space-y-1">
-                          {membrosTime[selectedMembro].formacao.map((form, index) => <li key={index}>{form}</li>)}
-                        </ul>
-                      </div>}
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-            
-            {/* Mobile View with expanded biography functionality */}
-            <div className="lg:hidden space-y-8">
-              {membrosTime.map((membro, index) => <Card key={index} className="overflow-hidden bg-white">
-                  <div className="aspect-square overflow-hidden bg-gray-100 border-b">
-                    <img src={membro.imagem} alt={membro.nome} className="w-full h-full object-cover object-center" />
-                  </div>
-                  <CardContent className="p-6">
-                    <h2 className="text-2xl font-bold mb-1">{membro.nome}</h2>
-                    <p className="text-chimelo-silver mb-4">{membro.cargo}</p>
-                    
-                    {membro.descricao && <div className="prose max-w-none mb-4">
-                        {expandedMembro === index ? formatDescription(membro.descricao) : membro.descricao ? formatDescription(membro.descricao.split('\n\n')[0]) : null}
-                      </div>}
-                    
-                    {membro.descricao && <button onClick={() => handleBiographyClick(index)} className="text-chimelo-black font-medium hover:underline">
-                        {expandedMembro === index ? "Ocultar biografia" : "Ler biografia completa"}
-                      </button>}
-                    
-                    {expandedMembro === index && membro.especializacoes.length > 0 && <div className="mt-6">
-                        <h3 className="font-semibold mb-2">Áreas de Especialização</h3>
-                        <ul className="list-disc pl-5 space-y-1">
-                          {membro.especializacoes.map((esp, espIndex) => <li key={espIndex} className="text-sm">{esp}</li>)}
-                        </ul>
-                      </div>}
-                    
-                    {expandedMembro === index && membro.formacao.length > 0 && <div className="mt-6">
-                        <h3 className="font-semibold mb-2">Formação Acadêmica</h3>
-                        <ul className="list-disc pl-5 space-y-1">
-                          {membro.formacao.map((form, formIndex) => <li key={formIndex} className="text-sm">{form}</li>)}
-                        </ul>
-                      </div>}
-                  </CardContent>
-                </Card>)}
+            <nav className="flex text-sm">
+              <Link to="/" className="text-chimelo-silver hover:text-chimelo-black">Home</Link>
+              <span className="mx-2 text-chimelo-silver">/</span>
+              <span className="text-chimelo-black font-medium">Nosso Time</span>
+            </nav>
+          </div>
+        </div>
+        
+        {/* Conteúdo da página */}
+        <section className="chimelo-section bg-gray-50">
+          <div className="chimelo-container">
+            <div className="text-center mb-12">
+              <p className="text-chimelo-silver max-w-3xl mx-auto">
+                Em breve, apresentaremos aqui os perfis detalhados de todos os profissionais que compõem nossa equipe multidisciplinar.
+              </p>
             </div>
           </div>
         </section>
@@ -260,4 +57,5 @@ const SociosPage: React.FC = () => {
       <Footer />
     </div>;
 };
+
 export default SociosPage;
