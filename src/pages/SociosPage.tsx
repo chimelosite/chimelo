@@ -147,12 +147,15 @@ const SociosPage: React.FC = () => {
       <main className="flex-grow bg-gray-50">
         {/* Hero Section with exact same structure as destaques page */}
         <section className="relative bg-chimelo-black text-white">
-          <div className="absolute inset-0 opacity-30 bg-cover bg-center" style={{
-          backgroundImage: 'url("/lovable-uploads/27570706-51c0-4d07-a428-af2be4221322.png")',
-          backgroundBlendMode: 'overlay'
-        }} />
+          <div 
+            className="absolute inset-0 opacity-35 bg-cover bg-center" 
+            style={{
+              backgroundImage: 'url("/lovable-uploads/27570706-51c0-4d07-a428-af2be4221322.png")',
+              backgroundBlendMode: 'overlay'
+            }} 
+          />
           
-          <div className="relative py-16 md:py-[29px]">
+          <div className="relative py-16 md:py-24">
             <div className="chimelo-container">
               <div className="max-w-3xl mx-auto text-center">
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">Nosso Time</h1>
