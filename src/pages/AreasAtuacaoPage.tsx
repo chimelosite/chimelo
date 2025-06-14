@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import PageHero from "@/components/PageHero";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Tractor, Building, Store, Factory, Bot, Briefcase, FileText, ArrowsUpFromLine, Search, Calculator, ArrowUp, ArrowRight, ArrowDown, Pill, MapPin, CircuitBoard, Truck, Milk, Apple, Bus, Plane, Wrench, ShoppingCart, Shirt, Zap, Heart, Home, Users, Percent, RefreshCw, Handshake, FileMinus, Code } from "lucide-react";
+
 const AreasAtuacaoPage: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const setoresRef = useRef<HTMLDivElement>(null);
@@ -168,8 +169,8 @@ const AreasAtuacaoPage: React.FC = () => {
         }} />
           
           <div className="relative py-16 md:py-24">
-            <div className="-bottom-24">
-              <div className="max-w-3xl mx-auto mb-12 text-center">
+            <div className="chimelo-container">
+              <div className="max-w-3xl mx-auto text-center">
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
                   Áreas de Atuação e Serviços
                 </h1>

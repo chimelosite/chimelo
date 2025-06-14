@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -184,7 +185,7 @@ const SociosPage: React.FC = () => {
           
           <div className="relative py-16 md:py-24">
             <div className="chimelo-container">
-              <div className="max-w-3xl mx-auto mb-12 text-center">
+              <div className="max-w-3xl mx-auto text-center">
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">Nosso Time</h1>
                 <p className="text-lg text-chimelo-silver max-w-2xl mx-auto">
                   Conheça os profissionais que lideram o escritório Chimelo Advogados & Associados, 
