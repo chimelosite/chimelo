@@ -1,10 +1,8 @@
-
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { ChevronDown, FileText, Users, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
 const NoticiasPage: React.FC = () => {
   const [activeSection, setActiveSection] = useState("publicacoes");
 
@@ -12,7 +10,7 @@ const NoticiasPage: React.FC = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ 
+      element.scrollIntoView({
         behavior: 'smooth',
         block: 'start'
       });
@@ -25,11 +23,13 @@ const NoticiasPage: React.FC = () => {
     const handleScroll = () => {
       const sections = ['publicacoes', 'associacoes', 'cases'];
       const scrollPosition = window.scrollY + 200;
-
       for (const sectionId of sections) {
         const element = document.getElementById(sectionId);
         if (element) {
-          const { offsetTop, offsetHeight } = element;
+          const {
+            offsetTop,
+            offsetHeight
+          } = element;
           if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
             setActiveSection(sectionId);
             break;
@@ -37,26 +37,16 @@ const NoticiasPage: React.FC = () => {
         }
       }
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  return (
-    <div className="flex flex-col min-h-screen destaques-page">
+  return <div className="flex flex-col min-h-screen destaques-page">
       <Header />
       
       {/* Floating Navigation Buttons */}
       <div className="fixed bottom-24 right-6 z-40 flex flex-col gap-3">
         <div className="group relative">
-          <Button
-            onClick={() => scrollToSection('publicacoes')}
-            className={`w-12 h-12 rounded-full shadow-lg transition-all ${
-              activeSection === 'publicacoes' 
-                ? 'bg-chimelo-black hover:bg-gray-800' 
-                : 'bg-white/90 hover:bg-white text-chimelo-black hover:text-chimelo-black'
-            }`}
-          >
+          <Button onClick={() => scrollToSection('publicacoes')} className={`w-12 h-12 rounded-full shadow-lg transition-all ${activeSection === 'publicacoes' ? 'bg-chimelo-black hover:bg-gray-800' : 'bg-white/90 hover:bg-white text-chimelo-black hover:text-chimelo-black'}`}>
             <FileText className="h-5 w-5" />
           </Button>
           <div className="absolute right-14 top-1/2 transform -translate-y-1/2 bg-chimelo-black text-white px-3 py-1 rounded-md text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
@@ -65,14 +55,7 @@ const NoticiasPage: React.FC = () => {
         </div>
         
         <div className="group relative">
-          <Button
-            onClick={() => scrollToSection('associacoes')}
-            className={`w-12 h-12 rounded-full shadow-lg transition-all ${
-              activeSection === 'associacoes' 
-                ? 'bg-chimelo-black hover:bg-gray-800' 
-                : 'bg-white/90 hover:bg-white text-chimelo-black hover:text-chimelo-black'
-            }`}
-          >
+          <Button onClick={() => scrollToSection('associacoes')} className={`w-12 h-12 rounded-full shadow-lg transition-all ${activeSection === 'associacoes' ? 'bg-chimelo-black hover:bg-gray-800' : 'bg-white/90 hover:bg-white text-chimelo-black hover:text-chimelo-black'}`}>
             <Users className="h-5 w-5" />
           </Button>
           <div className="absolute right-14 top-1/2 transform -translate-y-1/2 bg-chimelo-black text-white px-3 py-1 rounded-md text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
@@ -81,14 +64,7 @@ const NoticiasPage: React.FC = () => {
         </div>
         
         <div className="group relative">
-          <Button
-            onClick={() => scrollToSection('cases')}
-            className={`w-12 h-12 rounded-full shadow-lg transition-all ${
-              activeSection === 'cases' 
-                ? 'bg-chimelo-black hover:bg-gray-800' 
-                : 'bg-white/90 hover:bg-white text-chimelo-black hover:text-chimelo-black'
-            }`}
-          >
+          <Button onClick={() => scrollToSection('cases')} className={`w-12 h-12 rounded-full shadow-lg transition-all ${activeSection === 'cases' ? 'bg-chimelo-black hover:bg-gray-800' : 'bg-white/90 hover:bg-white text-chimelo-black hover:text-chimelo-black'}`}>
             <Briefcase className="h-5 w-5" />
           </Button>
           <div className="absolute right-14 top-1/2 transform -translate-y-1/2 bg-chimelo-black text-white px-3 py-1 rounded-md text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
@@ -99,26 +75,17 @@ const NoticiasPage: React.FC = () => {
       
       {/* Hero Section with Extended Background */}
       <section className="relative bg-chimelo-black text-white min-h-screen">
-        <div className="absolute inset-0 opacity-35 bg-cover bg-center" 
-             style={{
-               backgroundImage: 'url("/lovable-uploads/27570706-51c0-4d07-a428-af2be4221322.png")',
-               backgroundBlendMode: 'overlay'
-             }} 
-        />
+        <div className="absolute inset-0 opacity-35 bg-cover bg-center" style={{
+        backgroundImage: 'url("/lovable-uploads/27570706-51c0-4d07-a428-af2be4221322.png")',
+        backgroundBlendMode: 'overlay'
+      }} />
         
         <div className="relative">
           {/* Header Content with 4cm from top adjustment */}
-          <div className="py-12 sm:py-16 md:py-20 lg:py-24" style={{ marginTop: '40px' }}>
-            <div className="chimelo-container">
-              <div className="max-w-4xl mx-auto mb-8 sm:mb-12 text-center px-4">
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-3 sm:mb-4 md:mb-6">
-                  Destaques
-                </h1>
-                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-chimelo-silver max-w-3xl mx-auto leading-relaxed">
-                  Conheça nossas publicações, associações e cases de sucesso que demonstram nossa excelência jurídica.
-                </p>
-              </div>
-            </div>
+          <div style={{
+          marginTop: '40px'
+        }} className="py-12 sm:py-16 md:py-20 lg:py-[55px]">
+            
           </div>
 
           {/* Publicações Section - Enhanced Responsiveness */}
@@ -350,8 +317,6 @@ const NoticiasPage: React.FC = () => {
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default NoticiasPage;
