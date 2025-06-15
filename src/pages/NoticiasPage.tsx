@@ -46,6 +46,57 @@ const NoticiasPage: React.FC = () => {
     <div className="flex flex-col min-h-screen destaques-page">
       <Header />
       
+      {/* Floating Navigation Buttons */}
+      <div className="fixed bottom-24 right-6 z-40 flex flex-col gap-3">
+        <div className="group relative">
+          <Button
+            onClick={() => scrollToSection('publicacoes')}
+            className={`w-12 h-12 rounded-full shadow-lg transition-all ${
+              activeSection === 'publicacoes' 
+                ? 'bg-chimelo-black hover:bg-gray-800' 
+                : 'bg-white/90 hover:bg-white text-chimelo-black hover:text-chimelo-black'
+            }`}
+          >
+            <FileText className="h-5 w-5" />
+          </Button>
+          <div className="absolute right-14 top-1/2 transform -translate-y-1/2 bg-chimelo-black text-white px-3 py-1 rounded-md text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+            Publicações
+          </div>
+        </div>
+        
+        <div className="group relative">
+          <Button
+            onClick={() => scrollToSection('associacoes')}
+            className={`w-12 h-12 rounded-full shadow-lg transition-all ${
+              activeSection === 'associacoes' 
+                ? 'bg-chimelo-black hover:bg-gray-800' 
+                : 'bg-white/90 hover:bg-white text-chimelo-black hover:text-chimelo-black'
+            }`}
+          >
+            <Users className="h-5 w-5" />
+          </Button>
+          <div className="absolute right-14 top-1/2 transform -translate-y-1/2 bg-chimelo-black text-white px-3 py-1 rounded-md text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+            Associações
+          </div>
+        </div>
+        
+        <div className="group relative">
+          <Button
+            onClick={() => scrollToSection('cases')}
+            className={`w-12 h-12 rounded-full shadow-lg transition-all ${
+              activeSection === 'cases' 
+                ? 'bg-chimelo-black hover:bg-gray-800' 
+                : 'bg-white/90 hover:bg-white text-chimelo-black hover:text-chimelo-black'
+            }`}
+          >
+            <Briefcase className="h-5 w-5" />
+          </Button>
+          <div className="absolute right-14 top-1/2 transform -translate-y-1/2 bg-chimelo-black text-white px-3 py-1 rounded-md text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+            Cases
+          </div>
+        </div>
+      </div>
+      
       {/* Hero Section with Extended Background */}
       <section className="relative bg-chimelo-black text-white min-h-screen">
         <div className="absolute inset-0 opacity-35 bg-cover bg-center" 
@@ -56,8 +107,8 @@ const NoticiasPage: React.FC = () => {
         />
         
         <div className="relative">
-          {/* Header Content with adjusted positioning */}
-          <div className="py-12 sm:py-16 md:py-20 lg:py-24" style={{ marginTop: '23px' }}>
+          {/* Header Content with 4cm from top adjustment */}
+          <div className="py-12 sm:py-16 md:py-20 lg:py-24" style={{ marginTop: '40px' }}>
             <div className="chimelo-container">
               <div className="max-w-4xl mx-auto mb-8 sm:mb-12 text-center px-4">
                 <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-3 sm:mb-4 md:mb-6">
@@ -67,52 +118,6 @@ const NoticiasPage: React.FC = () => {
                   Conheça nossas publicações, associações e cases de sucesso que demonstram nossa excelência jurídica.
                 </p>
               </div>
-            </div>
-          </div>
-
-          {/* Navigation Menu - Fully Responsive */}
-          <div className="chimelo-container mb-12 sm:mb-16 px-4">
-            <div className="flex justify-center">
-              <nav className="bg-white/10 backdrop-blur-sm rounded-full p-1 sm:p-2 w-full max-w-2xl">
-                <div className="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-1">
-                  <Button
-                    variant={activeSection === 'publicacoes' ? 'default' : 'ghost'}
-                    className={`rounded-full px-3 sm:px-4 md:px-6 py-2 text-xs sm:text-sm font-medium transition-all w-full sm:w-auto ${
-                      activeSection === 'publicacoes' 
-                        ? 'bg-white text-chimelo-black hover:bg-white/90' 
-                        : 'text-white hover:bg-white/20'
-                    }`}
-                    onClick={() => scrollToSection('publicacoes')}
-                  >
-                    <FileText className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
-                    Publicações
-                  </Button>
-                  <Button
-                    variant={activeSection === 'associacoes' ? 'default' : 'ghost'}
-                    className={`rounded-full px-3 sm:px-4 md:px-6 py-2 text-xs sm:text-sm font-medium transition-all w-full sm:w-auto ${
-                      activeSection === 'associacoes' 
-                        ? 'bg-white text-chimelo-black hover:bg-white/90' 
-                        : 'text-white hover:bg-white/20'
-                    }`}
-                    onClick={() => scrollToSection('associacoes')}
-                  >
-                    <Users className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
-                    Associações
-                  </Button>
-                  <Button
-                    variant={activeSection === 'cases' ? 'default' : 'ghost'}
-                    className={`rounded-full px-3 sm:px-4 md:px-6 py-2 text-xs sm:text-sm font-medium transition-all w-full sm:w-auto ${
-                      activeSection === 'cases' 
-                        ? 'bg-white text-chimelo-black hover:bg-white/90' 
-                        : 'text-white hover:bg-white/20'
-                    }`}
-                    onClick={() => scrollToSection('cases')}
-                  >
-                    <Briefcase className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
-                    Cases
-                  </Button>
-                </div>
-              </nav>
             </div>
           </div>
 
