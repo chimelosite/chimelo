@@ -6,16 +6,19 @@ import Footer from "../components/Footer";
 import PageHero from "@/components/PageHero";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Tractor, Building, Store, Factory, Bot, Briefcase, FileText, ArrowsUpFromLine, Search, Calculator, ArrowUp, ArrowRight, ArrowDown, Pill, MapPin, CircuitBoard, Truck, Milk, Apple, Bus, Plane, Wrench, ShoppingCart, Shirt, Zap, Heart, Home, Users, Percent, RefreshCw, Handshake, FileMinus, Code } from "lucide-react";
+
 const AreasAtuacaoPage: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const setoresRef = useRef<HTMLDivElement>(null);
   const especialidadesRef = useRef<HTMLDivElement>(null);
+  
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     });
   };
+  
   const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
     if (ref.current) {
       ref.current.scrollIntoView({
@@ -157,26 +160,26 @@ const AreasAtuacaoPage: React.FC = () => {
     title: "Tecnologia e Serviços",
     description: "Manutenção de contratos públicos em recuperação e estruturação de joint ventures internacionais, com foco em eficiência e continuidade operacional."
   }];
-  return <div className="flex flex-col min-h-screen">
+
+  return (
+    <div className="flex flex-col min-h-screen destaques-page">
       <Header />
-      <main className="flex-grow bg-gray-50">
+      <main className="flex-grow">
         {/* Hero Section with structure matching SociosPage */}
         <section className="relative bg-chimelo-black text-white">
-          <div className="absolute inset-0 opacity-35 bg-cover bg-center" style={{
-          backgroundImage: 'url("/lovable-uploads/27570706-51c0-4d07-a428-af2be4221322.png")',
-          backgroundBlendMode: 'overlay'
-        }} />
+          <div 
+            className="absolute inset-0 opacity-35 bg-cover bg-center" 
+            style={{
+              backgroundImage: 'url("/lovable-uploads/27570706-51c0-4d07-a428-af2be4221322.png")',
+              backgroundBlendMode: 'overlay'
+            }}
+          />
           
-          <div className="relative py-0 md:py-[9px]">
-            <div className="chimelo-container py-[59px]">
-              <div style={{
-              marginTop: '15px'
-            }} className="-bottom-32 mx-auto mb-12 text-center py-[8px] rounded-lg">
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4 my-[61px]">
-
-
-Áreas de Atuação e Serviços</h1>
-                <p className="text-lg text-chimelo-silver max-w-2xl mx-auto px-0 py-0">
+          <div className="relative py-16 md:py-[29px]">
+            <div className="chimelo-container">
+              <div className="max-w-3xl mx-auto mb-12 text-center" style={{ marginTop: '15px' }}>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">Áreas de Atuação e Serviços</h1>
+                <p className="text-lg text-chimelo-silver max-w-2xl mx-auto">
                   O escritório Chimelo Advogados e Associados oferece soluções jurídicas integradas nas mais diversas áreas do direito, sempre com foco nas necessidades específicas de cada cliente e na busca pelos melhores resultados.
                 </p>
               </div>
@@ -196,7 +199,7 @@ const AreasAtuacaoPage: React.FC = () => {
         </div>
         
         {/* Área de Conteúdo Principal - Layout com duas colunas */}
-        <section className="chimelo-section">
+        <section className="chimelo-section bg-gray-50">
           <div className="chimelo-container">
             {/* Setores de Atuação */}
             <div ref={setoresRef} className="mb-16">
@@ -206,7 +209,8 @@ const AreasAtuacaoPage: React.FC = () => {
               </p>
               
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-4">
-                {setores.map((setor, index) => <div key={index} className="bg-white border border-gray-100 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                {setores.map((setor, index) => (
+                  <div key={index} className="bg-white border border-gray-100 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                     <Accordion type="single" collapsible className="w-full">
                       <AccordionItem value={`setor-${index}`} className="border-0">
                         <AccordionTrigger className="px-4 py-3 hover:no-underline">
@@ -222,7 +226,8 @@ const AreasAtuacaoPage: React.FC = () => {
                         </AccordionContent>
                       </AccordionItem>
                     </Accordion>
-                  </div>)}
+                  </div>
+                ))}
               </div>
             </div>
             
@@ -234,7 +239,8 @@ const AreasAtuacaoPage: React.FC = () => {
               </p>
               
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-4">
-                {especialidades.map((especialidade, index) => <div key={index} className="bg-white border border-gray-100 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                {especialidades.map((especialidade, index) => (
+                  <div key={index} className="bg-white border border-gray-100 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                     <Accordion type="single" collapsible className="w-full">
                       <AccordionItem value={`especialidade-${index}`} className="border-0">
                         <AccordionTrigger className="px-4 py-3 hover:no-underline">
@@ -250,7 +256,8 @@ const AreasAtuacaoPage: React.FC = () => {
                         </AccordionContent>
                       </AccordionItem>
                     </Accordion>
-                  </div>)}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -261,18 +268,32 @@ const AreasAtuacaoPage: React.FC = () => {
       
       {/* Floating Navigation */}
       <div className="fixed bottom-8 right-8 z-10 flex flex-col gap-3">
-        <button onClick={() => scrollToSection(setoresRef)} className="p-3 bg-white text-chimelo-black rounded-full shadow-lg hover:bg-gray-100 transition-colors" aria-label="Ir para Setores de Atuação">
+        <button 
+          onClick={() => scrollToSection(setoresRef)} 
+          className="p-3 bg-white text-chimelo-black rounded-full shadow-lg hover:bg-gray-100 transition-colors" 
+          aria-label="Ir para Setores de Atuação"
+        >
           <ArrowsUpFromLine className="h-5 w-5" />
         </button>
         
-        <button onClick={() => scrollToSection(especialidadesRef)} className="p-3 bg-white text-chimelo-black rounded-full shadow-lg hover:bg-gray-100 transition-colors" aria-label="Ir para Especialidades">
+        <button 
+          onClick={() => scrollToSection(especialidadesRef)} 
+          className="p-3 bg-white text-chimelo-black rounded-full shadow-lg hover:bg-gray-100 transition-colors" 
+          aria-label="Ir para Especialidades"
+        >
           <ArrowDown className="h-5 w-5" />
         </button>
         
-        <button onClick={scrollToTop} className="p-3 bg-white text-chimelo-black rounded-full shadow-lg hover:bg-gray-100 transition-colors" aria-label="Voltar ao topo">
+        <button 
+          onClick={scrollToTop} 
+          className="p-3 bg-white text-chimelo-black rounded-full shadow-lg hover:bg-gray-100 transition-colors" 
+          aria-label="Voltar ao topo"
+        >
           <ArrowUp className="h-5 w-5" />
         </button>
       </div>
-    </div>;
+    </div>
+  );
 };
+
 export default AreasAtuacaoPage;
