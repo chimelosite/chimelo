@@ -62,14 +62,6 @@ const SociosPage: React.FC = () => {
       imagem: "https://imgur.com/6djSLUC.png"
     },
     {
-      nome: "Dolly Oiteiral",
-      cargo: "Sócia e Head Societária e Patrimonial",
-      descricao: "",
-      especializacoes: [],
-      formacao: [],
-      imagem: "https://imgur.com/gcbSNMy.png"
-    },
-    {
       nome: "Leandro Aguiar",
       cargo: "Sócio e Coordenador Jurídico",
       descricao: "",
