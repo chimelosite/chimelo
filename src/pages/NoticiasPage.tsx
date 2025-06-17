@@ -253,7 +253,7 @@ const NoticiasPage: React.FC = () => {
               </div>
               
               {/* Publications Grid - Responsive layout */}
-              <div className="publicacoes-grid grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 lg:gap-6 overflow-x-auto justify-items-center">
+              <div className="publicacoes-grid grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 lg:gap-6 overflow-x-auto">
                 {publicacoes.map(publicacao => (
                   <div key={publicacao.id} className={`publicacao-card bg-white/10 backdrop-blur-sm rounded-lg overflow-hidden hover:bg-white/15 hover:transform hover:-translate-y-1 transition-all duration-300 shadow-lg min-w-[150px] ${!publicacao.visible ? 'hidden' : ''}`}>
                     <div className="publicacao-imagem overflow-hidden">
@@ -293,7 +293,7 @@ const NoticiasPage: React.FC = () => {
             <div className="chimelo-container px-4">
               <div className="max-w-5xl mx-auto text-center mb-8 sm:mb-12">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">Associações</h2>
-                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-chimelo-silver mb-6 sm:mb-8 leading-relaxed max-w-3xl mx-auto">
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-chimelo-silver mb-6 sm:mb-8 leading-relaxed max-w-3xl mx-auto justify-items-center">
                   Organizações e instituições parceiras que fortalecem nossa rede de conhecimento e atuação.
                 </p>
               </div>
