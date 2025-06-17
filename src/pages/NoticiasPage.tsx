@@ -256,7 +256,13 @@ const NoticiasPage: React.FC = () => {
                       />
                     </div>
                     <div className="publicacao-conteudo p-3 sm:p-4">
-                      <h3 className="publicacao-titulo text-xs sm:text-sm font-bold mb-1 sm:mb-2 text-white leading-tight line-clamp-3 break-words overflow-hidden display-webkit-box webkit-line-clamp-3 webkit-box-orient-vertical">
+                      <h3 className="publicacao-titulo text-xs sm:text-sm font-bold mb-1 sm:mb-2 text-white leading-tight overflow-hidden" style={{
+                        display: '-webkit-box',
+                        WebkitLineClamp: 3,
+                        WebkitBoxOrient: 'vertical',
+                        wordWrap: 'break-word',
+                        overflowWrap: 'break-word'
+                      }}>
                         {publicacao.titulo}
                       </h3>
                       <p className="publicacao-autor text-xs text-chimelo-silver/80 mb-1 sm:mb-2 font-medium">{publicacao.autor}</p>
@@ -267,7 +273,7 @@ const NoticiasPage: React.FC = () => {
                         href={publicacao.link} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="btn-leia-mais inline-block w-full text-center bg-transparent border-2 border-white/40 text-white hover:bg-white/20 hover:border-white/60 text-xs py-2 px-3 rounded transition-all duration-300 hover:transform hover:-translate-y-0.5 font-medium"
+                        className="btn-leia-mais inline-block w-full text-center bg-transparent border-2 border-white/40 text-white hover:bg-white/20 hover:border-white/60 text-xs py-2 px-3 rounded transition-all duration-300 hover:transform hover:-translate-y-0.5 font-medium no-underline"
                       >
                         Leia mais
                       </a>
