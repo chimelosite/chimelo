@@ -293,13 +293,13 @@ const NoticiasPage: React.FC = () => {
             <div className="chimelo-container px-4">
               <div className="max-w-5xl mx-auto text-center mb-8 sm:mb-12">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">Associações</h2>
-                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-chimelo-silver mb-6 sm:mb-8 leading-relaxed max-w-3xl mx-auto">
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-chimelo-silver mb-6 sm:mb-8 leading-relaxed max-w-3xl mx-auto justify-items-center">
                   Organizações e instituições parceiras que fortalecem nossa rede de conhecimento e atuação.
                 </p>
               </div>
               
               {/* Associations Grid */}
-              <div className="associacoes-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6 max-w-6xl mx-auto justify-items-center">
+              <div className="associacoes-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6 max-w-6xl mx-auto">
                 {associacoes.map(associacao => (
                   <div key={associacao.id} className="associacao-card bg-white/95 backdrop-blur-sm rounded-xl p-4 lg:p-6 text-center transition-all duration-300 shadow-lg hover:shadow-xl hover:transform hover:-translate-y-2 hover:bg-white">
                     <a href={associacao.link} target="_blank" rel="noopener noreferrer" title={associacao.nome} className="block text-decoration-none">
