@@ -104,9 +104,9 @@ const NoticiasPage: React.FC = () => {
                   <div className="bg-white/20 rounded-lg h-32 sm:h-40 md:h-48 mb-3 sm:mb-4 flex items-center justify-center">
                     <FileText className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-white/60" />
                   </div>
-                  <h3 className="text-lg sm:text-xl font-bold mb-2">Análise Jurisprudencial 2025</h3>
+                  <h3 className="text-lg sm:text-xl font-bold mb-2">Recuperação de Empresas e Falência</h3>
                   <p className="text-chimelo-silver mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed">
-                    Estudo aprofundado das principais decisões judiciais que impactaram o cenário jurídico brasileiro.
+                    A data de 24 de dezembro de 2020, véspera de Natal, foi marcada para o universo da insolvência pela sanção Presidencial do tão debatido PL 4.458/2020, que se tornou a Lei 14.112/20 e que trouxe significativas modificações no texto da Lei 11.101/2005. As centenas de alterações trouxeram impactos relevantes e em muitos casos positivaram o que já vinha sendo tratado na doutrina e na jurisprudência. O debate acadêmico constante se acalorou quando da tramitação nas duas casas do Congresso Nacional entre vetos e emendas. A Lei 14.112/20 apresentou avanços positivos e significativos em nosso ordenamento de insolvência, embora possam se observar inúmeras críticas construtivas que vão sendo pontuadas no curso da obra.
                   </p>
                   <Button variant="outline" className="w-full border-white/30 text-white hover:bg-white/20 text-sm sm:text-base">
                     Leia mais
