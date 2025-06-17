@@ -106,7 +106,7 @@ const NoticiasPage: React.FC = () => {
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold mb-2">Recuperação de Empresas e Falência</h3>
                   <p className="text-chimelo-silver mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed">
-                    A data de 24 de dezembro de 2020, véspera de Natal, foi marcada para o universo da insolvência pela sanção Presidencial do tão debatido PL 4.458/2020, que se tornou a Lei 14.112/20 e que trouxe significativas modificações no texto da Lei 11.101/2005.
+                    A Lei 14.112/20 modernizou a legislação de insolvência, com avanços e críticas acadêmicas relevantes.
                   </p>
                   <Button variant="outline" className="w-full border-white/30 text-white hover:bg-white/20 text-sm sm:text-base">
                     Leia mais
