@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -42,6 +41,130 @@ const NoticiasPage: React.FC = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Publications data
+  const publicacoes = [
+    {
+      id: 1,
+      titulo: "Recuperação de Empresas e Falência",
+      autor: "Coordenação Editorial",
+      descricao: "A Lei 14.112/20 modernizou a legislação de insolvência, com avanços e críticas acadêmicas relevantes.",
+      imagem: "https://images.tcdn.com.br/img/img_prod/1148025/90_recuperacao_de_empresas_e_falencia_18041_1_b7f7272f6f4536cd7c0d328c8d1b88ff.jpg",
+      link: "https://www.livrariadoadvogado.com.br/civil/empresarial/recuperacao-de-empresas-e-falencia"
+    },
+    {
+      id: 2,
+      titulo: "Direito Empresarial Moderno",
+      autor: "Autor 2",
+      descricao: "Guia completo sobre as novas tendências e regulamentações no direito empresarial contemporâneo.",
+      imagem: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=400&h=560&auto=format&fit=crop",
+      link: "#"
+    },
+    {
+      id: 3,
+      titulo: "Compliance e Governança",
+      autor: "Autor 3",
+      descricao: "Melhores práticas para implementação de programas de compliance eficazes em organizações.",
+      imagem: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=400&h=560&auto=format&fit=crop",
+      link: "#"
+    },
+    {
+      id: 4,
+      titulo: "Direito Tributário Aplicado",
+      autor: "Autor 4",
+      descricao: "Análise prática das principais questões tributárias no cenário jurídico brasileiro.",
+      imagem: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&h=560&auto=format&fit=crop",
+      link: "#"
+    },
+    {
+      id: 5,
+      titulo: "Contratos Empresariais",
+      autor: "Autor 5",
+      descricao: "Manual essencial para elaboração e análise de contratos no ambiente empresarial.",
+      imagem: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=400&h=560&auto=format&fit=crop",
+      link: "#"
+    },
+    {
+      id: 6,
+      titulo: "Direito do Trabalho 2025",
+      autor: "Autor 6",
+      descricao: "Atualizações e mudanças na legislação trabalhista para o ano de 2025.",
+      imagem: "https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=400&h=560&auto=format&fit=crop",
+      link: "#"
+    },
+    {
+      id: 7,
+      titulo: "Arbitragem Empresarial",
+      autor: "Autor 7",
+      descricao: "Métodos alternativos de resolução de conflitos no ambiente corporativo moderno.",
+      imagem: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=400&h=560&auto=format&fit=crop",
+      link: "#"
+    },
+    {
+      id: 8,
+      titulo: "Propriedade Intelectual",
+      autor: "Autor 8",
+      descricao: "Proteção e gestão de ativos intelectuais em um mundo digitalizado.",
+      imagem: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=400&h=560&auto=format&fit=crop",
+      link: "#"
+    },
+    {
+      id: 9,
+      titulo: "Lei Geral de Proteção de Dados",
+      autor: "Autor 9",
+      descricao: "Implementação prática da LGPD e suas implicações para as empresas brasileiras.",
+      imagem: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=400&h=560&auto=format&fit=crop",
+      link: "#"
+    },
+    {
+      id: 10,
+      titulo: "Direito Societário Avançado",
+      autor: "Autor 10",
+      descricao: "Estruturas societárias complexas e estratégias de governança corporativa.",
+      imagem: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=400&h=560&auto=format&fit=crop",
+      link: "#"
+    },
+    {
+      id: 11,
+      titulo: "Mediação Empresarial",
+      autor: "Autor 11",
+      descricao: "Técnicas e estratégias para mediação eficaz em conflitos empresariais.",
+      imagem: "https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=400&h=560&auto=format&fit=crop",
+      link: "#"
+    },
+    {
+      id: 12,
+      titulo: "Fusões e Aquisições",
+      autor: "Autor 12",
+      descricao: "Aspectos jurídicos e estratégicos em operações de M&A no mercado brasileiro.",
+      imagem: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?q=80&w=400&h=560&auto=format&fit=crop",
+      link: "#"
+    },
+    {
+      id: 13,
+      titulo: "Direito Bancário",
+      autor: "Autor 13",
+      descricao: "Regulamentação e práticas no sistema financeiro nacional contemporâneo.",
+      imagem: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=400&h=560&auto=format&fit=crop",
+      link: "#"
+    },
+    {
+      id: 14,
+      titulo: "ESG e Sustentabilidade",
+      autor: "Autor 14",
+      descricao: "Aspectos jurídicos da governança ambiental, social e corporativa.",
+      imagem: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=400&h=560&auto=format&fit=crop",
+      link: "#"
+    },
+    {
+      id: 15,
+      titulo: "Direito Digital e Tecnologia",
+      autor: "Autor 15",
+      descricao: "Marco legal do ambiente digital e suas implicações jurídicas contemporâneas.",
+      imagem: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?q=80&w=400&h=560&auto=format&fit=crop",
+      link: "#"
+    }
+  ];
 
   return (
     <div className="flex flex-col min-h-screen destaques-page">
@@ -92,7 +215,7 @@ const NoticiasPage: React.FC = () => {
             
           </div>
 
-          {/* Publicações Section - Enhanced Responsiveness */}
+          {/* Publicações Section - Enhanced for 15 publications */}
           <section id="publicacoes" className="chimelo-section">
             <div className="chimelo-container px-4">
               <div className="max-w-5xl mx-auto text-center mb-8 sm:mb-12">
@@ -102,58 +225,35 @@ const NoticiasPage: React.FC = () => {
                 </p>
               </div>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-                {/* Publicação 1 - Recuperação de Empresas e Falência */}
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 sm:p-6 hover:bg-white/15 transition-all">
-                  <div className="rounded-lg h-32 sm:h-40 md:h-48 mb-3 sm:mb-4 overflow-hidden">
-                    <img 
-                      src="https://images.tcdn.com.br/img/img_prod/1148025/90_recuperacao_de_empresas_e_falencia_18041_1_b7f7272f6f4536cd7c0d328c8d1b88ff.jpg" 
-                      alt="Recuperação de Empresas e Falência"
-                      className="w-full h-full object-cover"
-                    />
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                {publicacoes.map((publicacao) => (
+                  <div key={publicacao.id} className="bg-white/10 backdrop-blur-sm rounded-lg overflow-hidden hover:bg-white/15 hover:transform hover:-translate-y-1 transition-all duration-300 shadow-lg">
+                    <div className="publicacao-imagem overflow-hidden">
+                      <img 
+                        src={publicacao.imagem} 
+                        alt={publicacao.titulo}
+                        className="w-full h-64 sm:h-72 md:h-80 object-cover transition-transform duration-300 hover:scale-105"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="publicacao-conteudo p-4 sm:p-6">
+                      <h3 className="publicacao-titulo text-lg sm:text-xl font-bold mb-2 text-white leading-tight">{publicacao.titulo}</h3>
+                      <p className="publicacao-autor text-sm text-chimelo-silver/80 mb-2 font-medium">{publicacao.autor}</p>
+                      <p className="publicacao-descricao text-chimelo-silver mb-4 text-sm sm:text-base leading-relaxed line-clamp-3">
+                        {publicacao.descricao}
+                      </p>
+                      <Button variant="outline" className="w-full border-white/30 text-white hover:bg-white/20 text-sm sm:text-base btn-leia-mais" asChild>
+                        <a 
+                          href={publicacao.link} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                        >
+                          Leia mais
+                        </a>
+                      </Button>
+                    </div>
                   </div>
-                  <h3 className="text-lg sm:text-xl font-bold mb-2">Recuperação de Empresas e Falência</h3>
-                  <p className="text-chimelo-silver mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed">
-                    A Lei 14.112/20 modernizou a legislação de insolvência, com avanços e críticas acadêmicas relevantes.
-                  </p>
-                  <Button variant="outline" className="w-full border-white/30 text-white hover:bg-white/20 text-sm sm:text-base" asChild>
-                    <a 
-                      href="https://www.livrariadoadvogado.com.br/civil/empresarial/recuperacao-de-empresas-e-falencia" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                    >
-                      Leia mais
-                    </a>
-                  </Button>
-                </div>
-
-                {/* Publicação 2 */}
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 sm:p-6 hover:bg-white/15 transition-all">
-                  <div className="bg-white/20 rounded-lg h-32 sm:h-40 md:h-48 mb-3 sm:mb-4 flex items-center justify-center">
-                    <FileText className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-white/60" />
-                  </div>
-                  <h3 className="text-lg sm:text-xl font-bold mb-2">Direito Empresarial Moderno</h3>
-                  <p className="text-chimelo-silver mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed">
-                    Guia completo sobre as novas tendências e regulamentações no direito empresarial.
-                  </p>
-                  <Button variant="outline" className="w-full border-white/30 text-white hover:bg-white/20 text-sm sm:text-base">
-                    Leia mais
-                  </Button>
-                </div>
-
-                {/* Publicação 3 */}
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 sm:p-6 hover:bg-white/15 transition-all sm:col-span-2 lg:col-span-1">
-                  <div className="bg-white/20 rounded-lg h-32 sm:h-40 md:h-48 mb-3 sm:mb-4 flex items-center justify-center">
-                    <FileText className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-white/60" />
-                  </div>
-                  <h3 className="text-lg sm:text-xl font-bold mb-2">Compliance e Governança</h3>
-                  <p className="text-chimelo-silver mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed">
-                    Melhores práticas para implementação de programas de compliance eficazes.
-                  </p>
-                  <Button variant="outline" className="w-full border-white/30 text-white hover:bg-white/20 text-sm sm:text-base">
-                    Leia mais
-                  </Button>
-                </div>
+                ))}
               </div>
             </div>
           </section>
