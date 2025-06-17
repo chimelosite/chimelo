@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { ChevronDown, FileText, Users, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
 const NoticiasPage: React.FC = () => {
   const [activeSection, setActiveSection] = useState("publicacoes");
 
@@ -190,8 +191,10 @@ const NoticiasPage: React.FC = () => {
     nome: "OAB",
     link: "https://www2.oabrs.org.br/comissao?id=52",
     imagem: "https://www2.oabrs.org.br/_nuxt/img/logo.fc00f5f.png"
-  }];
-  return <div className="flex flex-col min-h-screen destaques-page">
+ }];
+
+  return (
+    <div className="flex flex-col min-h-screen destaques-page">
       <Header />
       
       {/* Floating Navigation Buttons */}
@@ -227,15 +230,15 @@ const NoticiasPage: React.FC = () => {
       {/* Hero Section with Extended Background */}
       <section className="relative bg-chimelo-black text-white min-h-screen">
         <div className="absolute inset-0 opacity-35 bg-cover bg-center" style={{
-        backgroundImage: 'url("/lovable-uploads/27570706-51c0-4d07-a428-af2be4221322.png")',
-        backgroundBlendMode: 'overlay'
-      }} />
+          backgroundImage: 'url("/lovable-uploads/27570706-51c0-4d07-a428-af2be4221322.png")',
+          backgroundBlendMode: 'overlay'
+        }} />
         
         <div className="relative">
           {/* Header Content with 4cm from top adjustment */}
           <div style={{
-          marginTop: '150px'
-        }} className="sm:py-16 md:py-20 lg:py-[55px] py-[68px]">
+            marginTop: '150px'
+          }} className="sm:py-16 md:py-20 lg:py-[55px] py-[68px]">
             
           </div>
 
@@ -250,21 +253,22 @@ const NoticiasPage: React.FC = () => {
               </div>
               
               {/* Publications Grid - Responsive layout */}
-              <div className="publicacoes-grid grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 lg:gap-6 justify-items-center">
-                {publicacoes.map(publicacao => <div key={publicacao.id} className={`publicacao-card bg-white/10 backdrop-blur-sm rounded-lg overflow-hidden hover:bg-white/15 hover:transform hover:-translate-y-1 transition-all duration-300 shadow-lg min-w-[150px] ${!publicacao.visible ? 'hidden' : ''}`}>
+              <div className="publicacoes-grid grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 lg:gap-6 overflow-x-auto justify-items-center">
+                {publicacoes.map(publicacao => (
+                  <div key={publicacao.id} className={`publicacao-card bg-white/10 backdrop-blur-sm rounded-lg overflow-hidden hover:bg-white/15 hover:transform hover:-translate-y-1 transition-all duration-300 shadow-lg min-w-[150px] ${!publicacao.visible ? 'hidden' : ''}`}>
                     <div className="publicacao-imagem overflow-hidden">
                       <img src={publicacao.imagem} alt={publicacao.titulo} className="w-full h-[200px] object-cover transition-transform duration-300 hover:scale-105" loading="lazy" />
                     </div>
                     <div className="publicacao-conteudo p-3 sm:p-4">
                       <h3 className="publicacao-titulo text-xs font-bold mb-2 text-white leading-tight overflow-hidden" style={{
-                    display: '-webkit-box',
-                    WebkitLineClamp: 3,
-                    WebkitBoxOrient: 'vertical',
-                    wordWrap: 'break-word',
-                    overflowWrap: 'break-word',
-                    fontSize: '0.7rem',
-                    lineHeight: '1.2'
-                  }}>
+                        display: '-webkit-box',
+                        WebkitLineClamp: 3,
+                        WebkitBoxOrient: 'vertical',
+                        wordWrap: 'break-word',
+                        overflowWrap: 'break-word',
+                        fontSize: '0.7rem',
+                        lineHeight: '1.2'
+                      }}>
                         {publicacao.titulo}
                       </h3>
                       {publicacao.autor && <p className="publicacao-autor text-xs text-chimelo-silver/80 mb-2 font-medium">{publicacao.autor}</p>}
@@ -272,13 +276,14 @@ const NoticiasPage: React.FC = () => {
                           {publicacao.descricao}
                         </p>}
                       <a href={publicacao.link} target="_blank" rel="noopener noreferrer" className="btn-leia-mais inline-block w-full text-center bg-transparent border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white text-xs py-2 px-3 rounded transition-all duration-300 hover:transform hover:-translate-y-0.5 font-medium no-underline" style={{
-                    fontSize: '0.7rem',
-                    fontWeight: '600'
-                  }}>
+                        fontSize: '0.7rem',
+                        fontWeight: '600'
+                      }}>
                         Leia mais
                       </a>
                     </div>
-                  </div>)}
+                  </div>
+                ))}
               </div>
             </div>
           </section>
@@ -295,7 +300,8 @@ const NoticiasPage: React.FC = () => {
               
               {/* Associations Grid */}
               <div className="associacoes-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6 max-w-6xl mx-auto">
-                {associacoes.map(associacao => <div key={associacao.id} className="associacao-card bg-white/95 backdrop-blur-sm rounded-xl p-4 lg:p-6 text-center transition-all duration-300 shadow-lg hover:shadow-xl hover:transform hover:-translate-y-2 hover:bg-white">
+                {associacoes.map(associacao => (
+                  <div key={associacao.id} className="associacao-card bg-white/95 backdrop-blur-sm rounded-xl p-4 lg:p-6 text-center transition-all duration-300 shadow-lg hover:shadow-xl hover:transform hover:-translate-y-2 hover:bg-white">
                     <a href={associacao.link} target="_blank" rel="noopener noreferrer" title={associacao.nome} className="block text-decoration-none">
                       <div className="associacao-logo h-16 lg:h-20 flex items-center justify-center mb-3 lg:mb-4">
                         <img src={associacao.imagem} alt={associacao.nome} className="max-w-full max-h-full object-contain filter grayscale-[20%] transition-all duration-300 hover:grayscale-0" loading="lazy" />
@@ -306,7 +312,8 @@ const NoticiasPage: React.FC = () => {
                         </h4>
                       </div>
                     </a>
-                  </div>)}
+                  </div>
+                ))}
               </div>
             </div>
           </section>
@@ -352,6 +359,8 @@ const NoticiasPage: React.FC = () => {
       </section>
 
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default NoticiasPage;
