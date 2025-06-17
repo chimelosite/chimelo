@@ -178,9 +178,9 @@ const NoticiasPage: React.FC = () => {
     imagem: "https://www.estevez.adv.br/admin/files/apoio/apoio13201821062024_1_.png"
   }, {
     id: 3,
-    nome: "Fundo Centenário",
-    link: "https://www.fundocentenario.com.br/",
-    imagem: "https://www.estevez.adv.br/admin/files/apoio/apoio18510825052020_1_.jpg"
+    nome: "IDRE",
+    link: "https://idre.com.br/",
+    imagem: "https://idre.com.br/wp-content/uploads/2023/11/IDRE.png"
   }, {
     id: 4,
     nome: "TMA Brasil",
@@ -188,20 +188,10 @@ const NoticiasPage: React.FC = () => {
     imagem: "https://www.estevez.adv.br/admin/files/apoio/apoio18512725052020_1_.jpg"
   }, {
     id: 5,
-    nome: "CAEMP",
-    link: "https://competicaodearbitragem.com.br/",
-    imagem: "https://www.estevez.adv.br/admin/files/apoio/apoio18514025052020_1_.jpg"
-  }, {
-    id: 6,
-    nome: "Migalhas",
-    link: "https://www.migalhas.com.br/",
-    imagem: "https://www.estevez.adv.br/admin/files/apoio/apoio18515725052020_1_.jpg"
-  }, {
-    id: 7,
-    nome: "PUCRS Arbitration & Mediation Team",
-    link: "https://www.facebook.com/arbitrationteam/",
-    imagem: "https://www.estevez.adv.br/admin/files/apoio/apoio18522925052020_1_.jpg"
-  }];
+    nome: "OAB",
+    link: "https://www2.oabrs.org.br/comissao?id=52",
+    imagem: "https://www2.oabrs.org.br/_nuxt/img/logo.fc00f5f.png"
+ }];
 
   return (
     <div className="flex flex-col min-h-screen destaques-page">
