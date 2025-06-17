@@ -299,7 +299,7 @@ const NoticiasPage: React.FC = () => {
               </div>
               
               {/* Associations Grid */}
-              <div className="associacoes-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6 max-w-6xl mx-auto">
+              <div className="associacoes-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6 max-w-6xl mx-auto justify-items-center">
                 {associacoes.map(associacao => (
                   <div key={associacao.id} className="associacao-card bg-white/95 backdrop-blur-sm rounded-xl p-4 lg:p-6 text-center transition-all duration-300 shadow-lg hover:shadow-xl hover:transform hover:-translate-y-2 hover:bg-white">
                     <a href={associacao.link} target="_blank" rel="noopener noreferrer" title={associacao.nome} className="block text-decoration-none">
