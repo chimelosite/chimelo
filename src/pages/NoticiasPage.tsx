@@ -256,20 +256,21 @@ const NoticiasPage: React.FC = () => {
                       />
                     </div>
                     <div className="publicacao-conteudo p-3 sm:p-4">
-                      <h3 className="publicacao-titulo text-sm sm:text-base font-bold mb-1 sm:mb-2 text-white leading-tight line-clamp-2">{publicacao.titulo}</h3>
+                      <h3 className="publicacao-titulo text-xs sm:text-sm font-bold mb-1 sm:mb-2 text-white leading-tight line-clamp-3 break-words overflow-hidden display-webkit-box webkit-line-clamp-3 webkit-box-orient-vertical">
+                        {publicacao.titulo}
+                      </h3>
                       <p className="publicacao-autor text-xs text-chimelo-silver/80 mb-1 sm:mb-2 font-medium">{publicacao.autor}</p>
                       <p className="publicacao-descricao text-chimelo-silver mb-2 sm:mb-3 text-xs leading-relaxed line-clamp-2">
                         {publicacao.descricao}
                       </p>
-                      <Button variant="outline" className="w-full border-white/30 text-white hover:bg-white/20 text-xs py-1 px-2 btn-leia-mais" asChild>
-                        <a 
-                          href={publicacao.link} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                        >
-                          Leia mais
-                        </a>
-                      </Button>
+                      <a 
+                        href={publicacao.link} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="btn-leia-mais inline-block w-full text-center bg-transparent border-2 border-white/40 text-white hover:bg-white/20 hover:border-white/60 text-xs py-2 px-3 rounded transition-all duration-300 hover:transform hover:-translate-y-0.5 font-medium"
+                      >
+                        Leia mais
+                      </a>
                     </div>
                   </div>
                 ))}
@@ -443,6 +444,19 @@ const NoticiasPage: React.FC = () => {
       </section>
 
       <Footer />
+      
+      <style jsx>{`
+        .line-clamp-3 {
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+        
+        .btn-leia-mais:hover {
+          text-decoration: none;
+        }
+      `}</style>
     </div>
   );
 };
