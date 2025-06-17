@@ -42,7 +42,7 @@ const NoticiasPage: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Publications data
+  // Publications data - 15 items total
   const publicacoes = [
     {
       id: 1,
@@ -50,119 +50,134 @@ const NoticiasPage: React.FC = () => {
       autor: "Coordenação Editorial",
       descricao: "A Lei 14.112/20 modernizou a legislação de insolvência, com avanços e críticas acadêmicas relevantes.",
       imagem: "https://images.tcdn.com.br/img/img_prod/1148025/90_recuperacao_de_empresas_e_falencia_18041_1_b7f7272f6f4536cd7c0d328c8d1b88ff.jpg",
-      link: "https://www.livrariadoadvogado.com.br/civil/empresarial/recuperacao-de-empresas-e-falencia"
+      link: "https://www.livrariadoadvogado.com.br/civil/empresarial/recuperacao-de-empresas-e-falencia",
+      visible: true
     },
     {
       id: 2,
-      titulo: "Direito Empresarial Moderno",
+      titulo: "Publicação 2",
       autor: "Autor 2",
-      descricao: "Guia completo sobre as novas tendências e regulamentações no direito empresarial contemporâneo.",
-      imagem: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=400&h=560&auto=format&fit=crop",
-      link: "#"
+      descricao: "Descrição da publicação 2 - conteúdo temporário para estruturação.",
+      imagem: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=150&h=200&auto=format&fit=crop",
+      link: "#",
+      visible: false
     },
     {
       id: 3,
-      titulo: "Compliance e Governança",
+      titulo: "Publicação 3",
       autor: "Autor 3",
-      descricao: "Melhores práticas para implementação de programas de compliance eficazes em organizações.",
-      imagem: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=400&h=560&auto=format&fit=crop",
-      link: "#"
+      descricao: "Descrição da publicação 3 - conteúdo temporário para estruturação.",
+      imagem: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=150&h=200&auto=format&fit=crop",
+      link: "#",
+      visible: false
     },
     {
       id: 4,
-      titulo: "Direito Tributário Aplicado",
+      titulo: "Publicação 4",
       autor: "Autor 4",
-      descricao: "Análise prática das principais questões tributárias no cenário jurídico brasileiro.",
-      imagem: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&h=560&auto=format&fit=crop",
-      link: "#"
+      descricao: "Descrição da publicação 4 - conteúdo temporário para estruturação.",
+      imagem: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&h=200&auto=format&fit=crop",
+      link: "#",
+      visible: false
     },
     {
       id: 5,
-      titulo: "Contratos Empresariais",
+      titulo: "Publicação 5",
       autor: "Autor 5",
-      descricao: "Manual essencial para elaboração e análise de contratos no ambiente empresarial.",
-      imagem: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=400&h=560&auto=format&fit=crop",
-      link: "#"
+      descricao: "Descrição da publicação 5 - conteúdo temporário para estruturação.",
+      imagem: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=150&h=200&auto=format&fit=crop",
+      link: "#",
+      visible: false
     },
     {
       id: 6,
-      titulo: "Direito do Trabalho 2025",
+      titulo: "Publicação 6",
       autor: "Autor 6",
-      descricao: "Atualizações e mudanças na legislação trabalhista para o ano de 2025.",
-      imagem: "https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=400&h=560&auto=format&fit=crop",
-      link: "#"
+      descricao: "Descrição da publicação 6 - conteúdo temporário para estruturação.",
+      imagem: "https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=150&h=200&auto=format&fit=crop",
+      link: "#",
+      visible: false
     },
     {
       id: 7,
-      titulo: "Arbitragem Empresarial",
+      titulo: "Publicação 7",
       autor: "Autor 7",
-      descricao: "Métodos alternativos de resolução de conflitos no ambiente corporativo moderno.",
-      imagem: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=400&h=560&auto=format&fit=crop",
-      link: "#"
+      descricao: "Descrição da publicação 7 - conteúdo temporário para estruturação.",
+      imagem: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=150&h=200&auto=format&fit=crop",
+      link: "#",
+      visible: false
     },
     {
       id: 8,
-      titulo: "Propriedade Intelectual",
+      titulo: "Publicação 8",
       autor: "Autor 8",
-      descricao: "Proteção e gestão de ativos intelectuais em um mundo digitalizado.",
-      imagem: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=400&h=560&auto=format&fit=crop",
-      link: "#"
+      descricao: "Descrição da publicação 8 - conteúdo temporário para estruturação.",
+      imagem: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=150&h=200&auto=format&fit=crop",
+      link: "#",
+      visible: false
     },
     {
       id: 9,
-      titulo: "Lei Geral de Proteção de Dados",
+      titulo: "Publicação 9",
       autor: "Autor 9",
-      descricao: "Implementação prática da LGPD e suas implicações para as empresas brasileiras.",
-      imagem: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=400&h=560&auto=format&fit=crop",
-      link: "#"
+      descricao: "Descrição da publicação 9 - conteúdo temporário para estruturação.",
+      imagem: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=150&h=200&auto=format&fit=crop",
+      link: "#",
+      visible: false
     },
     {
       id: 10,
-      titulo: "Direito Societário Avançado",
+      titulo: "Publicação 10",
       autor: "Autor 10",
-      descricao: "Estruturas societárias complexas e estratégias de governança corporativa.",
-      imagem: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=400&h=560&auto=format&fit=crop",
-      link: "#"
+      descricao: "Descrição da publicação 10 - conteúdo temporário para estruturação.",
+      imagem: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=150&h=200&auto=format&fit=crop",
+      link: "#",
+      visible: false
     },
     {
       id: 11,
-      titulo: "Mediação Empresarial",
+      titulo: "Publicação 11",
       autor: "Autor 11",
-      descricao: "Técnicas e estratégias para mediação eficaz em conflitos empresariais.",
-      imagem: "https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=400&h=560&auto=format&fit=crop",
-      link: "#"
+      descricao: "Descrição da publicação 11 - conteúdo temporário para estruturação.",
+      imagem: "https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=150&h=200&auto=format&fit=crop",
+      link: "#",
+      visible: false
     },
     {
       id: 12,
-      titulo: "Fusões e Aquisições",
+      titulo: "Publicação 12",
       autor: "Autor 12",
-      descricao: "Aspectos jurídicos e estratégicos em operações de M&A no mercado brasileiro.",
-      imagem: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?q=80&w=400&h=560&auto=format&fit=crop",
-      link: "#"
+      descricao: "Descrição da publicação 12 - conteúdo temporário para estruturação.",
+      imagem: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?q=80&w=150&h=200&auto=format&fit=crop",
+      link: "#",
+      visible: false
     },
     {
       id: 13,
-      titulo: "Direito Bancário",
+      titulo: "Publicação 13",
       autor: "Autor 13",
-      descricao: "Regulamentação e práticas no sistema financeiro nacional contemporâneo.",
-      imagem: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=400&h=560&auto=format&fit=crop",
-      link: "#"
+      descricao: "Descrição da publicação 13 - conteúdo temporário para estruturação.",
+      imagem: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=150&h=200&auto=format&fit=crop",
+      link: "#",
+      visible: false
     },
     {
       id: 14,
-      titulo: "ESG e Sustentabilidade",
+      titulo: "Publicação 14",
       autor: "Autor 14",
-      descricao: "Aspectos jurídicos da governança ambiental, social e corporativa.",
-      imagem: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=400&h=560&auto=format&fit=crop",
-      link: "#"
+      descricao: "Descrição da publicação 14 - conteúdo temporário para estruturação.",
+      imagem: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=150&h=200&auto=format&fit=crop",
+      link: "#",
+      visible: false
     },
     {
       id: 15,
-      titulo: "Direito Digital e Tecnologia",
+      titulo: "Publicação 15",
       autor: "Autor 15",
-      descricao: "Marco legal do ambiente digital e suas implicações jurídicas contemporâneas.",
-      imagem: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?q=80&w=400&h=560&auto=format&fit=crop",
-      link: "#"
+      descricao: "Descrição da publicação 15 - conteúdo temporário para estruturação.",
+      imagem: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?q=80&w=150&h=200&auto=format&fit=crop",
+      link: "#",
+      visible: false
     }
   ];
 
@@ -215,7 +230,7 @@ const NoticiasPage: React.FC = () => {
             
           </div>
 
-          {/* Publicações Section - Enhanced for 15 publications */}
+          {/* Publicações Section - Refactored for 15 publications */}
           <section id="publicacoes" className="chimelo-section">
             <div className="chimelo-container px-4">
               <div className="max-w-5xl mx-auto text-center mb-8 sm:mb-12">
@@ -225,24 +240,28 @@ const NoticiasPage: React.FC = () => {
                 </p>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+              {/* Publications Grid - Responsive layout */}
+              <div className="publicacoes-grid grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 lg:gap-6 overflow-x-auto">
                 {publicacoes.map((publicacao) => (
-                  <div key={publicacao.id} className="bg-white/10 backdrop-blur-sm rounded-lg overflow-hidden hover:bg-white/15 hover:transform hover:-translate-y-1 transition-all duration-300 shadow-lg">
+                  <div 
+                    key={publicacao.id} 
+                    className={`publicacao-card bg-white/10 backdrop-blur-sm rounded-lg overflow-hidden hover:bg-white/15 hover:transform hover:-translate-y-1 transition-all duration-300 shadow-lg min-w-[150px] ${!publicacao.visible ? 'hidden' : ''}`}
+                  >
                     <div className="publicacao-imagem overflow-hidden">
                       <img 
                         src={publicacao.imagem} 
                         alt={publicacao.titulo}
-                        className="w-full h-64 sm:h-72 md:h-80 object-cover transition-transform duration-300 hover:scale-105"
+                        className="w-full h-[200px] object-cover transition-transform duration-300 hover:scale-105"
                         loading="lazy"
                       />
                     </div>
-                    <div className="publicacao-conteudo p-4 sm:p-6">
-                      <h3 className="publicacao-titulo text-lg sm:text-xl font-bold mb-2 text-white leading-tight">{publicacao.titulo}</h3>
-                      <p className="publicacao-autor text-sm text-chimelo-silver/80 mb-2 font-medium">{publicacao.autor}</p>
-                      <p className="publicacao-descricao text-chimelo-silver mb-4 text-sm sm:text-base leading-relaxed line-clamp-3">
+                    <div className="publicacao-conteudo p-3 sm:p-4">
+                      <h3 className="publicacao-titulo text-sm sm:text-base font-bold mb-1 sm:mb-2 text-white leading-tight line-clamp-2">{publicacao.titulo}</h3>
+                      <p className="publicacao-autor text-xs text-chimelo-silver/80 mb-1 sm:mb-2 font-medium">{publicacao.autor}</p>
+                      <p className="publicacao-descricao text-chimelo-silver mb-2 sm:mb-3 text-xs leading-relaxed line-clamp-2">
                         {publicacao.descricao}
                       </p>
-                      <Button variant="outline" className="w-full border-white/30 text-white hover:bg-white/20 text-sm sm:text-base btn-leia-mais" asChild>
+                      <Button variant="outline" className="w-full border-white/30 text-white hover:bg-white/20 text-xs py-1 px-2 btn-leia-mais" asChild>
                         <a 
                           href={publicacao.link} 
                           target="_blank" 
@@ -258,7 +277,7 @@ const NoticiasPage: React.FC = () => {
             </div>
           </section>
 
-          {/* Associações Section - Enhanced Responsiveness */}
+          {/* Associações Section - Keep existing code */}
           <section id="associacoes" className="chimelo-section">
             <div className="chimelo-container px-4">
               <div className="max-w-5xl mx-auto text-center mb-8 sm:mb-12">
@@ -332,6 +351,7 @@ const NoticiasPage: React.FC = () => {
             </div>
           </section>
 
+          {/* Cases Section - Keep existing code */}
           <section id="cases" className="chimelo-section pb-16 sm:pb-20 lg:pb-24">
             <div className="chimelo-container px-4">
               <div className="max-w-5xl mx-auto text-center mb-8 sm:mb-12">
