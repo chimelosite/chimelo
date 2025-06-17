@@ -181,6 +181,52 @@ const NoticiasPage: React.FC = () => {
     }
   ];
 
+  // New associations data
+  const associacoes = [
+    {
+      id: 1,
+      nome: "CMR - Centro de Mulheres na Reestruturação Empresarial",
+      link: "https://www.cmrempresarial.com/",
+      imagem: "https://www.estevez.adv.br/admin/files/apoio/apoio13220121062024_1_.png"
+    },
+    {
+      id: 2,
+      nome: "IBAJUD",
+      link: "https://ibajud.org/",
+      imagem: "https://www.estevez.adv.br/admin/files/apoio/apoio13201821062024_1_.png"
+    },
+    {
+      id: 3,
+      nome: "Fundo Centenário",
+      link: "https://www.fundocentenario.com.br/",
+      imagem: "https://www.estevez.adv.br/admin/files/apoio/apoio18510825052020_1_.jpg"
+    },
+    {
+      id: 4,
+      nome: "TMA Brasil",
+      link: "https://www.tmabrasil.org/",
+      imagem: "https://www.estevez.adv.br/admin/files/apoio/apoio18512725052020_1_.jpg"
+    },
+    {
+      id: 5,
+      nome: "CAEMP",
+      link: "https://competicaodearbitragem.com.br/",
+      imagem: "https://www.estevez.adv.br/admin/files/apoio/apoio18514025052020_1_.jpg"
+    },
+    {
+      id: 6,
+      nome: "Migalhas",
+      link: "https://www.migalhas.com.br/",
+      imagem: "https://www.estevez.adv.br/admin/files/apoio/apoio18515725052020_1_.jpg"
+    },
+    {
+      id: 7,
+      nome: "PUCRS Arbitration & Mediation Team",
+      link: "https://www.facebook.com/arbitrationteam/",
+      imagem: "https://www.estevez.adv.br/admin/files/apoio/apoio18522925052020_1_.jpg"
+    }
+  ];
+
   return (
     <div className="flex flex-col min-h-screen destaques-page">
       <Header />
@@ -294,76 +340,43 @@ const NoticiasPage: React.FC = () => {
             </div>
           </section>
 
-          {/* Associações Section - Keep existing code */}
+          {/* Associações Section - Updated with new design */}
           <section id="associacoes" className="chimelo-section">
             <div className="chimelo-container px-4">
               <div className="max-w-5xl mx-auto text-center mb-8 sm:mb-12">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">Associações</h2>
                 <p className="text-sm sm:text-base md:text-lg lg:text-xl text-chimelo-silver mb-6 sm:mb-8 leading-relaxed max-w-3xl mx-auto">
-                  Conheça as principais associações e entidades das quais fazemos parte, fortalecendo nossa rede de conhecimento.
+                  Organizações e instituições parceiras que fortalecem nossa rede de conhecimento e atuação.
                 </p>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 sm:p-6 lg:p-8 hover:bg-white/15 transition-all">
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center mb-4 sm:mb-6">
-                    <div className="bg-white/20 rounded-full p-3 sm:p-4 mr-0 sm:mr-4 mb-3 sm:mb-0 self-center sm:self-auto">
-                      <Users className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
-                    </div>
-                    <div className="text-center sm:text-left">
-                      <h3 className="text-lg sm:text-xl lg:text-2xl font-bold leading-tight">OAB - Ordem dos Advogados do Brasil</h3>
-                      <p className="text-chimelo-silver text-sm sm:text-base">Membro ativo desde 2010</p>
-                    </div>
+              {/* Associations Grid */}
+              <div className="associacoes-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6 max-w-6xl mx-auto">
+                {associacoes.map((associacao) => (
+                  <div key={associacao.id} className="associacao-card bg-white/95 backdrop-blur-sm rounded-xl p-4 lg:p-6 text-center transition-all duration-300 shadow-lg hover:shadow-xl hover:transform hover:-translate-y-2 hover:bg-white">
+                    <a 
+                      href={associacao.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      title={associacao.nome}
+                      className="block text-decoration-none"
+                    >
+                      <div className="associacao-logo h-16 lg:h-20 flex items-center justify-center mb-3 lg:mb-4">
+                        <img 
+                          src={associacao.imagem} 
+                          alt={associacao.nome}
+                          className="max-w-full max-h-full object-contain filter grayscale-[20%] transition-all duration-300 hover:grayscale-0"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="associacao-nome">
+                        <h4 className="text-xs lg:text-sm font-semibold text-gray-800 leading-tight line-clamp-2">
+                          {associacao.nome}
+                        </h4>
+                      </div>
+                    </a>
                   </div>
-                  <p className="text-chimelo-silver mb-4 text-sm sm:text-base leading-relaxed">
-                    Participação ativa nas comissões de Direito Empresarial e Direito Civil, contribuindo para o desenvolvimento da advocacia brasileira.
-                  </p>
-                </div>
-
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 sm:p-6 lg:p-8 hover:bg-white/15 transition-all">
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center mb-4 sm:mb-6">
-                    <div className="bg-white/20 rounded-full p-3 sm:p-4 mr-0 sm:mr-4 mb-3 sm:mb-0 self-center sm:self-auto">
-                      <Users className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
-                    </div>
-                    <div className="text-center sm:text-left">
-                      <h3 className="text-lg sm:text-xl lg:text-2xl font-bold leading-tight">AASP - Associação dos Advogados de São Paulo</h3>
-                      <p className="text-chimelo-silver text-sm sm:text-base">Membro associado</p>
-                    </div>
-                  </div>
-                  <p className="text-chimelo-silver mb-4 text-sm sm:text-base leading-relaxed">
-                    Engajamento em eventos, cursos e debates sobre as principais mudanças no cenário jurídico paulista e nacional.
-                  </p>
-                </div>
-
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 sm:p-6 lg:p-8 hover:bg-white/15 transition-all">
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center mb-4 sm:mb-6">
-                    <div className="bg-white/20 rounded-full p-3 sm:p-4 mr-0 sm:mr-4 mb-3 sm:mb-0 self-center sm:self-auto">
-                      <Users className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
-                    </div>
-                    <div className="text-center sm:text-left">
-                      <h3 className="text-lg sm:text-xl lg:text-2xl font-bold leading-tight">Instituto Brasileiro de Direito Empresarial</h3>
-                      <p className="text-chimelo-silver text-sm sm:text-base">Conselheiro</p>
-                    </div>
-                  </div>
-                  <p className="text-chimelo-silver mb-4 text-sm sm:text-base leading-relaxed">
-                    Contribuição para pesquisas e desenvolvimento de metodologias inovadoras no direito empresarial brasileiro.
-                  </p>
-                </div>
-
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 sm:p-6 lg:p-8 hover:bg-white/15 transition-all">
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center mb-4 sm:mb-6">
-                    <div className="bg-white/20 rounded-full p-3 sm:p-4 mr-0 sm:mr-4 mb-3 sm:mb-0 self-center sm:self-auto">
-                      <Users className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
-                    </div>
-                    <div className="text-center sm:text-left">
-                      <h3 className="text-lg sm:text-xl lg:text-2xl font-bold leading-tight">Câmara de Mediação e Arbitragem</h3>
-                      <p className="text-chimelo-silver text-sm sm:text-base">Árbitro credenciado</p>
-                    </div>
-                  </div>
-                  <p className="text-chimelo-silver mb-4 text-sm sm:text-base leading-relaxed">
-                    Atuação como árbitro em conflitos empresariais, promovendo soluções eficazes e céleres para disputas comerciais.
-                  </p>
-                </div>
+                ))}
               </div>
             </div>
           </section>
