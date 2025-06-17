@@ -1,8 +1,10 @@
+
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { ChevronDown, FileText, Users, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
 const NoticiasPage: React.FC = () => {
   const [activeSection, setActiveSection] = useState("publicacoes");
 
@@ -40,11 +42,13 @@ const NoticiasPage: React.FC = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  return <div className="flex flex-col min-h-screen destaques-page">
+
+  return (
+    <div className="flex flex-col min-h-screen destaques-page">
       <Header />
       
       {/* Floating Navigation Buttons */}
-      <div className="fixed bottom-24 right-6 z-40 flex flex-col gap-3">
+      <div className="fixed bottom-32 right-6 z-40 flex flex-col gap-3">
         <div className="group relative">
           <Button onClick={() => scrollToSection('publicacoes')} className={`w-12 h-12 rounded-full shadow-lg transition-all ${activeSection === 'publicacoes' ? 'bg-chimelo-black hover:bg-gray-800' : 'bg-white/90 hover:bg-white text-chimelo-black hover:text-chimelo-black'}`}>
             <FileText className="h-5 w-5" />
@@ -76,15 +80,15 @@ const NoticiasPage: React.FC = () => {
       {/* Hero Section with Extended Background */}
       <section className="relative bg-chimelo-black text-white min-h-screen">
         <div className="absolute inset-0 opacity-35 bg-cover bg-center" style={{
-        backgroundImage: 'url("/lovable-uploads/27570706-51c0-4d07-a428-af2be4221322.png")',
-        backgroundBlendMode: 'overlay'
-      }} />
+          backgroundImage: 'url("/lovable-uploads/27570706-51c0-4d07-a428-af2be4221322.png")',
+          backgroundBlendMode: 'overlay'
+        }} />
         
         <div className="relative">
           {/* Header Content with 4cm from top adjustment */}
           <div style={{
-          marginTop: '40px'
-        }} className="py-12 sm:py-16 md:py-20 lg:py-[55px]">
+            marginTop: '150px'
+          }} className="py-12 sm:py-16 md:py-20 lg:py-[55px]">
             
           </div>
 
@@ -99,17 +103,27 @@ const NoticiasPage: React.FC = () => {
               </div>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-                {/* Publicação 1 */}
+                {/* Publicação 1 - Recuperação de Empresas e Falência */}
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 sm:p-6 hover:bg-white/15 transition-all">
-                  <div className="bg-white/20 rounded-lg h-32 sm:h-40 md:h-48 mb-3 sm:mb-4 flex items-center justify-center">
-                    <FileText className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-white/60" />
+                  <div className="rounded-lg h-32 sm:h-40 md:h-48 mb-3 sm:mb-4 overflow-hidden">
+                    <img 
+                      src="https://images.tcdn.com.br/img/img_prod/1148025/90_recuperacao_de_empresas_e_falencia_18041_1_b7f7272f6f4536cd7c0d328c8d1b88ff.jpg" 
+                      alt="Recuperação de Empresas e Falência"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold mb-2">Recuperação de Empresas e Falência</h3>
                   <p className="text-chimelo-silver mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed">
                     A Lei 14.112/20 modernizou a legislação de insolvência, com avanços e críticas acadêmicas relevantes.
                   </p>
-                  <Button variant="outline" className="w-full border-white/30 text-white hover:bg-white/20 text-sm sm:text-base">
-                    Leia mais
+                  <Button variant="outline" className="w-full border-white/30 text-white hover:bg-white/20 text-sm sm:text-base" asChild>
+                    <a 
+                      href="https://www.livrariadoadvogado.com.br/civil/empresarial/recuperacao-de-empresas-e-falencia" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                    >
+                      Leia mais
+                    </a>
                   </Button>
                 </div>
 
@@ -155,7 +169,6 @@ const NoticiasPage: React.FC = () => {
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
-                {/* Associação 1 */}
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 sm:p-6 lg:p-8 hover:bg-white/15 transition-all">
                   <div className="flex flex-col sm:flex-row items-start sm:items-center mb-4 sm:mb-6">
                     <div className="bg-white/20 rounded-full p-3 sm:p-4 mr-0 sm:mr-4 mb-3 sm:mb-0 self-center sm:self-auto">
@@ -171,7 +184,6 @@ const NoticiasPage: React.FC = () => {
                   </p>
                 </div>
 
-                {/* Associação 2 */}
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 sm:p-6 lg:p-8 hover:bg-white/15 transition-all">
                   <div className="flex flex-col sm:flex-row items-start sm:items-center mb-4 sm:mb-6">
                     <div className="bg-white/20 rounded-full p-3 sm:p-4 mr-0 sm:mr-4 mb-3 sm:mb-0 self-center sm:self-auto">
@@ -187,7 +199,6 @@ const NoticiasPage: React.FC = () => {
                   </p>
                 </div>
 
-                {/* Associação 3 */}
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 sm:p-6 lg:p-8 hover:bg-white/15 transition-all">
                   <div className="flex flex-col sm:flex-row items-start sm:items-center mb-4 sm:mb-6">
                     <div className="bg-white/20 rounded-full p-3 sm:p-4 mr-0 sm:mr-4 mb-3 sm:mb-0 self-center sm:self-auto">
@@ -203,7 +214,6 @@ const NoticiasPage: React.FC = () => {
                   </p>
                 </div>
 
-                {/* Associação 4 */}
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 sm:p-6 lg:p-8 hover:bg-white/15 transition-all">
                   <div className="flex flex-col sm:flex-row items-start sm:items-center mb-4 sm:mb-6">
                     <div className="bg-white/20 rounded-full p-3 sm:p-4 mr-0 sm:mr-4 mb-3 sm:mb-0 self-center sm:self-auto">
@@ -222,7 +232,6 @@ const NoticiasPage: React.FC = () => {
             </div>
           </section>
 
-          {/* Cases Section - Enhanced Responsiveness */}
           <section id="cases" className="chimelo-section pb-16 sm:pb-20 lg:pb-24">
             <div className="chimelo-container px-4">
               <div className="max-w-5xl mx-auto text-center mb-8 sm:mb-12">
@@ -233,7 +242,6 @@ const NoticiasPage: React.FC = () => {
               </div>
               
               <div className="space-y-6 sm:space-y-8">
-                {/* Case 1 */}
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 sm:p-6 lg:p-8 hover:bg-white/15 transition-all">
                   <div className="flex flex-col lg:flex-row lg:items-center gap-4 sm:gap-6">
                     <div className="lg:w-1/3">
@@ -259,7 +267,6 @@ const NoticiasPage: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Case 2 */}
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 sm:p-6 lg:p-8 hover:bg-white/15 transition-all">
                   <div className="flex flex-col lg:flex-row lg:items-center gap-4 sm:gap-6">
                     <div className="lg:w-1/3">
@@ -285,7 +292,6 @@ const NoticiasPage: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Case 3 */}
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 sm:p-6 lg:p-8 hover:bg-white/15 transition-all">
                   <div className="flex flex-col lg:flex-row lg:items-center gap-4 sm:gap-6">
                     <div className="lg:w-1/3">
@@ -317,6 +323,8 @@ const NoticiasPage: React.FC = () => {
       </section>
 
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default NoticiasPage;
