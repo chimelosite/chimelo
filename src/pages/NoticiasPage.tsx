@@ -381,7 +381,7 @@ const NoticiasPage: React.FC = () => {
             </div>
           </section>
 
-          {/* Cases Section - Keep existing code */}
+          {/* Cases Section - Updated with single case */}
           <section id="cases" className="chimelo-section pb-16 sm:pb-20 lg:pb-24">
             <div className="chimelo-container px-4">
               <div className="max-w-5xl mx-auto text-center mb-8 sm:mb-12">
@@ -391,77 +391,32 @@ const NoticiasPage: React.FC = () => {
                 </p>
               </div>
               
-              <div className="space-y-6 sm:space-y-8">
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 sm:p-6 lg:p-8 hover:bg-white/15 transition-all">
-                  <div className="flex flex-col lg:flex-row lg:items-center gap-4 sm:gap-6">
+              <div className="max-w-4xl mx-auto">
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 sm:p-8 lg:p-10 hover:bg-white/15 transition-all">
+                  <div className="flex flex-col lg:flex-row lg:items-start gap-6 sm:gap-8">
                     <div className="lg:w-1/3">
-                      <div className="bg-white/20 rounded-lg h-32 sm:h-40 md:h-48 flex items-center justify-center">
-                        <Briefcase className="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 text-white/60" />
+                      <div className="bg-white/20 rounded-lg h-40 sm:h-48 md:h-56 flex items-center justify-center">
+                        <Briefcase className="h-12 w-12 sm:h-16 sm:w-16 md:h-20 md:w-20 text-white/60" />
                       </div>
                     </div>
                     <div className="lg:w-2/3">
-                      <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Reestruturação Empresarial Complexa</h3>
-                      <p className="text-chimelo-silver mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed">
-                        Conduzimos com sucesso a reestruturação de uma empresa de grande porte do setor industrial, 
-                        envolvendo reorganização societária, renegociação de dívidas e otimização tributária.
+                      <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4 sm:mb-6">
+                        Gabriele Chimelo: Referência em Insolvência e Jurisprudência Transformadora
+                      </h3>
+                      <p className="text-chimelo-silver mb-4 sm:mb-6 text-sm sm:text-base lg:text-lg leading-relaxed">
+                        Gabriele Chimelo é autora de artigos em veículos de imprensa nacionais, coautora de obras coletivas sobre insolvência e professora da ESPM-Sul, onde leciona temas relacionados à governança e à gestão de crises. Entre os casos de maior repercussão sob sua condução estão: DHB Componentes Automotivos, Serki Fundações, Sultepa, Igreja Metodista, GBOEX, Bela Gula, Leão Engenharia, Sanem Engenharia, Cargill e Top Safe.
                       </p>
-                      <div className="flex flex-wrap gap-2 mb-3 sm:mb-4">
-                        <span className="bg-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">Direito Empresarial</span>
-                        <span className="bg-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">Tributário</span>
-                        <span className="bg-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">Reestruturação</span>
-                      </div>
-                      <p className="text-xs sm:text-sm text-chimelo-silver">
-                        <strong>Resultado:</strong> Economia de R$ 15 milhões em impostos e preservação de 500 empregos.
+                      <p className="text-chimelo-silver mb-4 sm:mb-6 text-sm sm:text-base lg:text-lg leading-relaxed">
+                        Destaca-se ainda sua atuação no precedente do STJ que autorizou a empresa Emofesa, primeira empresa em recuperação judicial no Brasil a licitar e manter contratos com o poder público, marco importante no cenário jurídico nacional criando uma jurisprudência importante que posteriormente beneficiou centenas de empresas na mesma situação.
                       </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 sm:p-6 lg:p-8 hover:bg-white/15 transition-all">
-                  <div className="flex flex-col lg:flex-row lg:items-center gap-4 sm:gap-6">
-                    <div className="lg:w-1/3">
-                      <div className="bg-white/20 rounded-lg h-32 sm:h-40 md:h-48 flex items-center justify-center">
-                        <Briefcase className="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 text-white/60" />
+                      <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
+                        <span className="bg-white/20 px-3 py-1 rounded-full text-xs sm:text-sm">Insolvência</span>
+                        <span className="bg-white/20 px-3 py-1 rounded-full text-xs sm:text-sm">Recuperação Judicial</span>
+                        <span className="bg-white/20 px-3 py-1 rounded-full text-xs sm:text-sm">STJ</span>
+                        <span className="bg-white/20 px-3 py-1 rounded-full text-xs sm:text-sm">Jurisprudência</span>
                       </div>
-                    </div>
-                    <div className="lg:w-2/3">
-                      <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Defesa em Ação Trabalhista Milionária</h3>
-                      <p className="text-chimelo-silver mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed">
-                        Representamos uma multinacional em ação trabalhista coletiva envolvendo mais de 1.000 funcionários, 
-                        conseguindo reduzir significativamente o valor da condenação através de estratégia jurídica inovadora.
-                      </p>
-                      <div className="flex flex-wrap gap-2 mb-3 sm:mb-4">
-                        <span className="bg-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">Direito Trabalhista</span>
-                        <span className="bg-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">Ação Coletiva</span>
-                        <span className="bg-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">Defesa</span>
-                      </div>
-                      <p className="text-xs sm:text-sm text-chimelo-silver">
-                        <strong>Resultado:</strong> Redução de 70% no valor da condenação inicial.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 sm:p-6 lg:p-8 hover:bg-white/15 transition-all">
-                  <div className="flex flex-col lg:flex-row lg:items-center gap-4 sm:gap-6">
-                    <div className="lg:w-1/3">
-                      <div className="bg-white/20 rounded-lg h-32 sm:h-40 md:h-48 flex items-center justify-center">
-                        <Briefcase className="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 text-white/60" />
-                      </div>
-                    </div>
-                    <div className="lg:w-2/3">
-                      <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Fusão e Aquisição Internacional</h3>
-                      <p className="text-chimelo-silver mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed">
-                        Assessoramos a aquisição de empresa brasileira por grupo internacional, coordenando aspectos 
-                        regulatórios, societários e contratuais em operação de R$ 800 milhões.
-                      </p>
-                      <div className="flex flex-wrap gap-2 mb-3 sm:mb-4">
-                        <span className="bg-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">M&A</span>
-                        <span className="bg-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">Internacional</span>
-                        <span className="bg-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">Regulatório</span>
-                      </div>
-                      <p className="text-xs sm:text-sm text-chimelo-silver">
-                        <strong>Resultado:</strong> Operação concluída em tempo recorde de 4 meses.
+                      <p className="text-xs sm:text-sm lg:text-base text-chimelo-silver">
+                        <strong>Impacto:</strong> Precedente jurisprudencial que beneficiou centenas de empresas em recuperação judicial no Brasil.
                       </p>
                     </div>
                   </div>
