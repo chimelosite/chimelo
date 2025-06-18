@@ -45,11 +45,11 @@ const NoticiasPage: React.FC = () => {
   // Publications data - 15 items total
   const publicacoes = [{
     id: 1,
-    titulo: "Recuperação de Empresas e Falência",
+    titulo: "Comentários À Lei De Recuperação De Empresas E Falência",
     autor: "",
     descricao: "",
-    imagem: "https://images.tcdn.com.br/img/img_prod/1148025/90_recuperacao_de_empresas_e_falencia_18041_1_b7f7272f6f4536cd7c0d328c8d1b88ff.jpg",
-    link: "https://www.livrariadoadvogado.com.br/civil/empresarial/recuperacao-de-empresas-e-falencia",
+    imagem: "https://www.editorafoco.com.br/fotos/comentarios-recuperacao-falencia-1-ed-2022-media_mini.webp",
+    link: "https://www.editorafoco.com.br/produto/comentarios-lei-recuperacao-empresas-falencia-2022",
     visible: true
   }, {
     id: 2,
