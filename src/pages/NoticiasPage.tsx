@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { ChevronDown, FileText, Users, Briefcase } from "lucide-react";
@@ -6,6 +7,17 @@ import { Button } from "@/components/ui/button";
 
 const NoticiasPage: React.FC = () => {
   const [activeSection, setActiveSection] = useState("publicacoes");
+  const [searchParams] = useSearchParams();
+
+  // Trigger automatic scroll to section based on URL parameters
+  useEffect(() => {
+    const section = searchParams.get('section');
+    if (section && ['publicacoes', 'associacoes', 'cases'].includes(section)) {
+      setTimeout(() => {
+        scrollToSection(section);
+      }, 100);
+    }
+  }, [searchParams]);
 
   // Smooth scroll function
   const scrollToSection = (sectionId: string) => {

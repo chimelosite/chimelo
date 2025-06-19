@@ -11,21 +11,21 @@ const NoticiasSection: React.FC = () => {
       titulo: "Publicações",
       resumo: "Artigos especializados, análises jurídicas e comentários sobre legislação empresarial e recuperação judicial.",
       icone: FileText,
-      link: "/destaques#publicacoes"
+      link: "/destaques?section=publicacoes"
     },
     {
       id: "associacoes", 
       titulo: "Associações",
       resumo: "Parcerias estratégicas e participação ativa em organizações do setor jurídico e empresarial.",
       icone: Users,
-      link: "/destaques#associacoes"
+      link: "/destaques?section=associacoes"
     },
     {
       id: "cases",
       titulo: "Cases",
       resumo: "Cases de sucesso em recuperação judicial, reestruturação empresarial e precedentes jurisprudenciais.",
       icone: Briefcase,
-      link: "/destaques#cases"
+      link: "/destaques?section=cases"
     }
   ];
 
