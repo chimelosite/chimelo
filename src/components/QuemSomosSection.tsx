@@ -2,8 +2,18 @@ import React from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+
 const QuemSomosSection: React.FC = () => {
-  return <section className="chimelo-section bg-chimelo-lightgray py-[43px]">
+  const handleSaibaMaisClick = () => {
+    // Usar requestAnimationFrame para garantir que o scroll aconteça após a navegação
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    });
+  };
+
+  return (
+    <section className="chimelo-section bg-chimelo-lightgray py-[43px]">
+      
       <div className="chimelo-container">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-8 text-chimelo-black">
@@ -23,7 +33,7 @@ const QuemSomosSection: React.FC = () => {
 
         <div className="text-center mt-12">
           <Button asChild className="chimelo-btn chimelo-btn-primary">
-            <Link to="/quem-somos">
+            <Link to="/quem-somos" onClick={handleSaibaMaisClick}>
               Saiba mais <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
@@ -33,6 +43,8 @@ const QuemSomosSection: React.FC = () => {
           Estamos prontos para ser a sua parceria estratégica em questões jurídicas.
         </p>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default QuemSomosSection;
