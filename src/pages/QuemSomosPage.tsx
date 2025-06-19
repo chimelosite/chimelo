@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+
 const QuemSomosPage: React.FC = () => {
-  return <div className="flex flex-col min-h-screen quem-somos-page">
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  return (
+    
+    <div className="flex flex-col min-h-screen quem-somos-page">
       <Header />
       <main className="flex-grow">
         <section className="chimelo-section bg-chimelo-lightgray">
@@ -88,6 +96,8 @@ const QuemSomosPage: React.FC = () => {
         </section>
       </main>
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default QuemSomosPage;
