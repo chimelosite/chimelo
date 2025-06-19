@@ -9,9 +9,10 @@ const QuemSomosSection: React.FC = () => {
 
   const handleSaibaMaisClick = () => {
     navigate("/quem-somos");
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 0);
+    // Use requestAnimationFrame to ensure the navigation happens first
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    });
   };
 
   return (

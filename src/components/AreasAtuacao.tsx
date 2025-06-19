@@ -39,9 +39,10 @@ const AreasAtuacao: React.FC = () => {
 
   const handleVerTodasAreasClick = () => {
     navigate("/areas-de-atuacao");
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 0);
+    // Use requestAnimationFrame to ensure the navigation happens first
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    });
   };
 
   // Apresentar apenas as 4 áreas principais na home
