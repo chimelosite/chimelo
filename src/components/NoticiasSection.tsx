@@ -11,47 +11,23 @@ const NoticiasSection: React.FC = () => {
       titulo: "Publicações",
       resumo: "Artigos especializados, análises jurídicas e comentários sobre legislação empresarial e recuperação judicial.",
       icone: FileText,
-      link: "/destaques#publicacoes",
-      cor: "blue"
+      link: "/destaques#publicacoes"
     },
     {
       id: "associacoes", 
       titulo: "Associações",
       resumo: "Parcerias estratégicas e participação ativa em organizações do setor jurídico e empresarial.",
       icone: Users,
-      link: "/destaques#associacoes",
-      cor: "green"
+      link: "/destaques#associacoes"
     },
     {
       id: "cases",
       titulo: "Cases",
       resumo: "Cases de sucesso em recuperação judicial, reestruturação empresarial e precedentes jurisprudenciais.",
       icone: Briefcase,
-      link: "/destaques#cases", 
-      cor: "orange"
+      link: "/destaques#cases"
     }
   ];
-
-  const getColorClasses = (cor: string) => {
-    const colorMap = {
-      blue: {
-        icon: "text-blue-500",
-        hover: "group-hover:bg-blue-50",
-        border: "group-hover:border-blue-200"
-      },
-      green: {
-        icon: "text-green-500", 
-        hover: "group-hover:bg-green-50",
-        border: "group-hover:border-green-200"
-      },
-      orange: {
-        icon: "text-orange-500",
-        hover: "group-hover:bg-orange-50", 
-        border: "group-hover:border-orange-200"
-      }
-    };
-    return colorMap[cor as keyof typeof colorMap] || colorMap.blue;
-  };
 
   return (
     <section className="chimelo-section bg-gray-50">
@@ -67,7 +43,6 @@ const NoticiasSection: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
           {destaqueCards.map((card) => {
             const IconComponent = card.icone;
-            const colors = getColorClasses(card.cor);
             
             return (
               <Link
@@ -75,14 +50,10 @@ const NoticiasSection: React.FC = () => {
                 to={card.link}
                 className="group block"
               >
-                <div className={`
-                  bg-white rounded-lg border border-chimelo-lightgray/30 
-                  hover:shadow-lg transition-all duration-300 h-full p-6
-                  ${colors.hover} ${colors.border}
-                `}>
+                <div className="bg-white rounded-lg border border-chimelo-lightgray/30 hover:shadow-lg transition-all duration-300 h-full p-6 group-hover:bg-gray-50">
                   <div className="flex items-center mb-4">
-                    <div className="p-3 rounded-lg bg-gray-50 group-hover:bg-white transition-colors mr-4">
-                      <IconComponent className={`h-6 w-6 ${colors.icon}`} />
+                    <div className="p-3 rounded-lg bg-chimelo-black group-hover:bg-chimelo-silver transition-colors mr-4">
+                      <IconComponent className="h-6 w-6 text-white" />
                     </div>
                     <h3 className="text-xl font-bold text-chimelo-black group-hover:text-chimelo-silver transition-colors">
                       {card.titulo}
