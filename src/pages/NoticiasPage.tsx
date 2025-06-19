@@ -9,13 +9,16 @@ const NoticiasPage: React.FC = () => {
   const [activeSection, setActiveSection] = useState("publicacoes");
   const [searchParams] = useSearchParams();
 
-  // Trigger automatic scroll to section based on URL parameters
+  // Trigger automatic scroll to section based on URL parameters or scroll to top
   useEffect(() => {
     const section = searchParams.get('section');
     if (section && ['publicacoes', 'associacoes', 'cases'].includes(section)) {
       setTimeout(() => {
         scrollToSection(section);
       }, 100);
+    } else {
+      // If no section parameter, scroll to top
+      window.scrollTo(0, 0);
     }
   }, [searchParams]);
 
