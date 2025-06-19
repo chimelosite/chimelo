@@ -54,7 +54,7 @@ const NoticiasSection: React.FC = () => {
   };
 
   return (
-    <section className="chimelo-section bg-chimelo-lightgray">
+    <section className="chimelo-section bg-gray-50">
       <div className="chimelo-container">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Destaques</h2>
