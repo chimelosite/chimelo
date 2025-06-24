@@ -362,7 +362,7 @@ const NoticiasPage: React.FC = () => {
                         <span className="bg-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">Precedente STJ</span>
                       </div>
                       <p className="text-xs sm:text-sm text-chimelo-silver">
-                        <strong>Resultado:</strong> Precedente do STJ que autorizou a empresa Emofesa, primeira empresa em recuperação judicial no Brasil a licitar e manter contratos com o poder público, criando jurisprudência que posteriormente beneficiou centenas de empresas na mesma situação.
+                        <strong>Resultado:</strong> Precedente do STJ que autorizou a empresa IBrowse, primeira empresa em recuperação judicial no Brasil a licitar e manter contratos com o poder público, criando jurisprudência que posteriormente beneficiou centenas de empresas na mesma situação.
                       </p>
                     </div>
                   </div>
