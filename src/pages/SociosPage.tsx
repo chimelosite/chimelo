@@ -102,14 +102,6 @@ const SociosPage: React.FC = () => {
       imagem: "https://imgur.com/9MnkCQB.png"
     },
     {
-      nome: "Luciana Paschoal",
-      cargo: "Head contábil",
-      descricao: "",
-      especializacoes: [],
-      formacao: [],
-      imagem: "https://imgur.com/NRavJCY.png"
-    },
-    {
       nome: "Kailene Somacal",
       cargo: "Assistente Jurídica",
       descricao: "",
