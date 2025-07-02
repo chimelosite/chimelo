@@ -111,7 +111,7 @@ const SociosPage: React.FC = () => {
     }
     {
       nome: "Liliana Soares Ferreira",
-      cargo: "Assistente Administrativa",
+      cargo: "Analista Administrativo",
       descricao: "",
       especializacoes: [],
       formacao: [],
