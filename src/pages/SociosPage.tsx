@@ -115,7 +115,7 @@ const SociosPage: React.FC = () => {
       descricao: "",
       especializacoes: [],
       formacao: [],
-      imagem: "https://imgur.com/123.png"
+      imagem: "https://imgur.com/2lqfraD.png"
     }
   ];
 
