@@ -60,7 +60,7 @@ const ContactInfo: React.FC = () => {
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full border border-white/10 hover:bg-white/10 transition-colors">
               <Instagram className="h-5 w-5" />
             </a>
-            <a href="https://wa.me/5551991786703" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full border border-white/10 hover:bg-white/10 transition-colors">
+            <a href="https://wa.me/555132761950" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full border border-white/10 hover:bg-white/10 transition-colors">
               <WhatsAppIcon size={20} />
             </a>
           </div>
