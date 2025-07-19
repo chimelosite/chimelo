@@ -55,7 +55,7 @@ const Footer: React.FC = () => {
                   <WhatsAppIcon size={18} className="text-chimelo-silver" />
                   <span className="absolute -top-1 -right-1 text-xs"></span>
                 </div>
-                <a href="https://wa.me/5551991786703" className="hover:text-chimelo-silver transition-colors">
+                <a href="https://wa.me/555132761950" className="hover:text-chimelo-silver transition-colors">
                   (51) 99178-6703
                 </a>
               </div>
