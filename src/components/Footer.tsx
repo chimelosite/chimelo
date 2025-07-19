@@ -56,7 +56,7 @@ const Footer: React.FC = () => {
                   <span className="absolute -top-1 -right-1 text-xs"></span>
                 </div>
                 <a href="https://wa.me/555132761950" className="hover:text-chimelo-silver transition-colors">
-                  (51) 99178-6703
+                  (51) 3276-1950
                 </a>
               </div>
               <div className="flex items-center">
