@@ -34,8 +34,8 @@ const ContactInfo: React.FC = () => {
           <div>
             <h3 className="font-medium">Contato</h3>
             <div className="text-chimelo-silver mt-1">
-              <a href="https://wa.me/5551991786703" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-                (51) 99178-6703
+              <a href="https://wa.me/555132761950" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                (51) 3276-1950
               </a>
             </div>
           </div>
