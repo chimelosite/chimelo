@@ -126,7 +126,7 @@ const Header = () => {
             <a href="https://www.instagram.com/chimeloadvogados" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-gray-300 text-white">
               <Instagram size={18} />
             </a>
-            <a href="https://wa.me/5551991786703" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="hover:text-gray-300 text-white">
+            <a href="https://wa.me/555132761950" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="hover:text-gray-300 text-white">
               <WhatsAppIcon size={18} />
             </a>
           </div>
@@ -250,7 +250,7 @@ const Header = () => {
                     <Instagram size={20} />
                   </a>
                   <a 
-                    href="https://wa.me/5551991786703" 
+                    href="https://wa.me/555132761950" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     aria-label="WhatsApp"
