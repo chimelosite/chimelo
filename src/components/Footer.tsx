@@ -23,7 +23,7 @@ const Footer: React.FC = () => {
               <a href="https://www.instagram.com/chimeloadvogados" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-white hover:text-chimelo-silver">
                 <Instagram size={20} />
               </a>
-              <a href="https://wa.me/5551991786703" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="text-white hover:text-chimelo-silver">
+              <a href="https://wa.me/555132761950" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="text-white hover:text-chimelo-silver">
                 <WhatsAppIcon size={20} />
               </a>
             </div>
