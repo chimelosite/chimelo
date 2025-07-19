@@ -7,6 +7,6 @@ import WhatsAppButton from './components/WhatsAppButton.tsx';
 createRoot(document.getElementById("root")!).render(
   <>
     <App />
-    <WhatsAppButton phoneNumber="5551991786703" />
+    <WhatsAppButton phoneNumber="555132761950" />
   </>
 );
