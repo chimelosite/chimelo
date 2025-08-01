@@ -79,6 +79,10 @@ const Footer: React.FC = () => {
                     
                     <p className="mb-1 font-medium text-white">📍 Caxias do Sul:</p>
                     <p className="text-white">Rua Coronel Flores 810 - Sala 100 - Moinho da Estação<br />Bairro São Pelegrino - Caxias do Sul - RS</p>
+                
+                    <p className="mb-1 font-medium text-white"">📍 Santiago:</p>
+                    <p className="text-white">Rua Marechal Deodoro, 806 - Centro<br />Santiago/RS - 97700-0004</p>
+           
                   </div>
                 </div>
               </div>
@@ -99,6 +103,10 @@ const Footer: React.FC = () => {
           <div className="flex items-center text-white">
             <MapPin size={16} className="mr-2 text-chimelo-silver" />
             <span><strong>Caxias do Sul:</strong> Rua Coronel Flores 810 - Sala 100</span>
+          </div>
+          <div className="flex items-center text-white">
+            <MapPin size={16} className="mr-2 text-chimelo-silver" />
+            <span><strong>Santiago:</strong> Rua Marechal Deodoro, 806, Centro</span>
           </div>
         </div>
         
