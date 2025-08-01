@@ -21,7 +21,7 @@ const ContactInfo: React.FC = () => {
               <p className="mb-3">R. Comendador Araújo, 252 - sl. 3304<br />Centro - Curitiba - PR, 80420-000</p>
               
               <p className="mb-1">📍 Caxias do Sul:</p>
-              <p>Rua Coronel Flores 810 - Sala 100 - Moinho da Estação<br />Bairro São Pelegrino - Caxias do Sul - RS</p>
+              <p className="mb-3">Rua Coronel Flores 810 - Sala 100 - Moinho da Estação<br />Bairro São Pelegrino - Caxias do Sul - RS</p>
             
               <p className="mb-1">📍 Santiago:</p>
               <p className="mb-3">Rua Marechal Deodoro, 806 - Centro<br />Santiago/RS - 97700-0004</p>
