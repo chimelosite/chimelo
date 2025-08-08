@@ -70,12 +70,12 @@ const SociosPage: React.FC = () => {
       imagem: "https://imgur.com/eN6KNmL.png"
     },
     {
-      nome: "Mateus Honorato",
-      cargo: "Sócio e Coordenador Adjunto",
+      nome: "Dolly dos Santos Outeiral",
+      cargo: "Sócia e Advogada",
       descricao: "",
       especializacoes: [],
       formacao: [],
-      imagem: "https://imgur.com/BmPmxIm.png"
+      imagem: "https://imgur.com/RM2mwOS.png"
     },
     {
       nome: "Rosângela Job",
@@ -93,14 +93,14 @@ const SociosPage: React.FC = () => {
       formacao: [],
       imagem: "https://imgur.com/k6WUU9N.png"
     },
-    {
-      nome: "Bruna Trindade",
-      cargo: "Comercial",
-      descricao: "",
-      especializacoes: [],
-      formacao: [],
-      imagem: "https://imgur.com/9MnkCQB.png"
-    },
+//    {
+//      nome: "Bruna Trindade",
+//      cargo: "Comercial",
+//      descricao: "",
+//      especializacoes: [],
+//      formacao: [],
+//      imagem: "https://imgur.com/9MnkCQB.png"
+//    },
     {
       nome: "Kailene Somacal",
       cargo: "Assistente Jurídica",
