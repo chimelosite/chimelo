@@ -55,7 +55,7 @@ const SociosPage: React.FC = () => {
     },
     {
       nome: "Marco Ronconi",
-      cargo: "Diretor Administrativo",
+      cargo: "Consultor",
       descricao: "",
       especializacoes: [],
       formacao: [],
