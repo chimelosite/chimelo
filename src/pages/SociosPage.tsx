@@ -118,7 +118,7 @@ const SociosPage: React.FC = () => {
       imagem: "https://imgur.com/jF5VHdb.png"
     },
    {
-      nome: "Janaina Santos",
+      nome: "Janaína Silva",
       cargo: "Auxiliar",
       descricao: "",
       especializacoes: [],
