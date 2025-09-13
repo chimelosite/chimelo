@@ -68,7 +68,7 @@ const SociosPage: React.FC = () => {
       especializacoes: [],
       formacao: [],
       imagem: "https://imgur.com/HtEj9WW.png"
-    }
+    },
     {
       nome: "Felipe Bernandoni",
       cargo: "Contador",
