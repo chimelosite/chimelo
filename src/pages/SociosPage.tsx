@@ -63,7 +63,7 @@ const SociosPage: React.FC = () => {
     },
     {
       nome: "Liliana Ferreira",
-      cargo: "Head Administrativo",
+      cargo: "Compliance Officer",
       descricao: "",
       especializacoes: [],
       formacao: [],
