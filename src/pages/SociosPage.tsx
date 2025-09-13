@@ -27,7 +27,7 @@ const SociosPage: React.FC = () => {
       descricao: "Sócia-fundadora e Diretora Geral da CB2D Administração Judicial e Sócia e CEO da Chimelo Advogados & Associados\n\nGabriele Chimelo é uma das principais referências nacionais na área de insolvência empresarial, com atuação destacada em reestruturação de empresas, distressed M&A, governança corporativa, regimes regulatórios e estratégias jurídicas de alta complexidade. É sócia-fundadora e Diretora Geral da CB2D Administração Judicial e da banca Chimelo Advogados & Associados.\n\nCom mais de 20 anos de experiência, construiu uma carreira sólida liderando soluções jurídicas em cenários críticos. Por 14 anos, integrou a liderança da área de Falências e Recuperações Judiciais da Scalzilli Althaus Chimelo e Spohr, tendo papel decisivo no desenvolvimento de áreas estratégicas do Direito Empresarial. Em 2025, assumiu a marca Chimelo — uma homenagem ao avô materno, agropecuarista de destaque no Sul e Centro-Oeste do país — consolidando sua identidade profissional.\n\nÉ diretora do Instituto Brasileiro de Insolvência (IBAJUD), membro do Turnaround Management Association Brasil (TMA Brasil) e do Instituto de Direito da Reestruturação Empresarial (IDRE), além de fundadora do CMR – Centro de Mulheres na Reestruturação Empresarial. Também foi fundadora e Vice-Presidente da Comissão de Falências e Recuperações Judiciais da OAB/RS, liderando iniciativas de impacto técnico e institucional.\n\nReconhecida por rankings especializados como Leaders League, Legal 500 e Análise Advocacia 500, Gabriele participa ativamente de eventos jurídicos de relevância nacional. Sua experiência abrange diversos setores da economia, como agronegócio, infraestrutura, mercado imobiliário, saúde, moda, alimentação, energia, serviços regulados, indústria, educação, tecnologia, transportes, seguros e sistema financeiro.\n\nEspecialista também em real estate, LGPD e compliance, alia profundo conhecimento contábil à análise gerencial das empresas, oferecendo diagnósticos precisos, pareceres técnicos e cenários jurídicos fundamentados. Atua de forma ativa em conselhos de governança, que considera centros legítimos de decisão nas empresas em crise ou em transformação.\n\nSua atuação concentra-se nos estados do RS, PR, SC, SP e MT. É autora de artigos em veículos especializados, coautora de obras coletivas sobre insolvência e professora da ESPM-Sul, onde compartilha sua experiência em gestão de crises e governança empresarial. Também organiza e lidera eventos técnicos voltados a fundos, FIDCs, securitizadoras e setores específicos como o da moda.\n\nEntre os casos de maior repercussão sob sua condução estão: DHB Componentes Automotivos, Serki Fundações, Sultepa, Igreja Metodista, GBOEX, Bela Gula, Leão Engenharia, Sanem Engenharia, Cargill e Top Safe. Destaca-se ainda sua atuação no precedente do STJ que autorizou a Emofesa, em recuperação judicial, a manter contratos com o poder público — marco importante no cenário jurídico nacional.\n\nCom inteligência tática, foco em resultados e força na execução, lidera uma equipe altamente qualificada, integrando análise de risco, estruturação jurídica e governança com inovação e entrega de valor real.",
       especializacoes: [],
       formacao: [],
-      imagem: "https://imgur.com/fcIm9qr.png"
+      imagem: "https://imgur.com/b24KOuZ.png"
     },
     {
       nome: "Conrado Dall'Igna",
@@ -35,7 +35,7 @@ const SociosPage: React.FC = () => {
       descricao: "Conrado Dall´Igna é Advogado e Administrador Judicial com 21 anos de experiência em processos de reestruturação empresarial, falências e recuperações judiciais, com atuação em casos de grande relevância no cenário nacional.\n\nFormado em Direito pela PUC/RS, é especializado em Falência e Recuperação de Empresas pela FGV, com formação complementar em Administração Judicial pelo INSPER e pelo TMA Brasil.\n\nAtua ativamente na comunidade jurídica como membro da Comissão Especial de Falências e Recuperações Judiciais da OAB/RS, do Instituto Brasileiro da Insolvência (IBAJUD) e do Turnaround Management Association do Brasil (TMA Brasil).",
       especializacoes: [],
       formacao: [],
-      imagem: "https://imgur.com/CglqhgP.png"
+      imagem: "https://imgur.com/Niry2yb.png"
     },
     {
       nome: "Tiago Jaskulski Luz",
@@ -43,7 +43,7 @@ const SociosPage: React.FC = () => {
       descricao: "Com mais de 15 anos de experiência em reestruturação empresarial e gestão de crises, Tiago Jaskulski Luz atua como Advogado e Administrador Judicial. Reconhecido por sua abordagem técnica e estratégica, possui sólida expertise na identificação de problemas, definição de soluções e implementação de mudanças voltadas à recuperação e ao crescimento de empresas.\n\nTem atuação em casos relevantes nos Estados do Rio Grande do Sul, Santa Catarina e Paraná.\n\nÉ Especialista em Direito Empresarial, Direito Tributário e Processo Civil, é membro ativo de entidades relevantes do setor, como o TMA Brasil (Turnaround Management Association), o IBAJUD (Instituto Brasileiro de Administração Judicial) e a Comissão de Recuperações Judiciais e Falências da OAB/RS.",
       especializacoes: [],
       formacao: [],
-      imagem: "https://imgur.com/lAMM2zr.png"
+      imagem: "https://imgur.com/wXgcX07.png"
     },
     {
       nome: "Claudine Rotta",
@@ -51,15 +51,7 @@ const SociosPage: React.FC = () => {
       descricao: "",
       especializacoes: [],
       formacao: [],
-      imagem: "https://imgur.com/toyC8ON.png"
-    },
-    {
-      nome: "Marco Ronconi",
-      cargo: "Consultor",
-      descricao: "",
-      especializacoes: [],
-      formacao: [],
-      imagem: "https://imgur.com/6djSLUC.png"
+      imagem: "https://imgur.com/dPTGEAq.png"
     },
     {
       nome: "Leandro Aguiar",
@@ -67,55 +59,71 @@ const SociosPage: React.FC = () => {
       descricao: "",
       especializacoes: [],
       formacao: [],
-      imagem: "https://imgur.com/eN6KNmL.png"
+      imagem: "https://imgur.com/WqYu9V2.png"
     },
     {
-      nome: "Dolly dos Santos Outeiral",
-      cargo: "Sócia e Advogada",
+      nome: "Liliana Ferreira",
+      cargo: "Head Administrativo",
       descricao: "",
       especializacoes: [],
       formacao: [],
-      imagem: "https://imgur.com/RM2mwOS.png"
-    },
-    {
-      nome: "Rosângela Job",
-      cargo: "Controladoria Jurídica",
-      descricao: "",
-      especializacoes: [],
-      formacao: [],
-      imagem: "https://imgur.com/IusnKWf.png"
-    },
+      imagem: "https://imgur.com/HtEj9WW.png"
+    }
     {
       nome: "Felipe Bernandoni",
       cargo: "Contador",
       descricao: "",
       especializacoes: [],
       formacao: [],
-      imagem: "https://imgur.com/k6WUU9N.png"
+      imagem: "https://imgur.com/JTPiots.png"
     },
-//    {
-//      nome: "Bruna Trindade",
-//      cargo: "Comercial",
-//      descricao: "",
-//      especializacoes: [],
-//      formacao: [],
-//      imagem: "https://imgur.com/9MnkCQB.png"
-//    },
     {
+      nome: "Érika Fontes",
+      cargo: "Contadora",
+      descricao: "",
+      especializacoes: [],
+      formacao: [],
+      imagem: "https://imgur.com/GYgE3dp.png"
+    },
+    {
+      nome: "Igor Povarczuk",
+      cargo: "Contador",
+      descricao: "",
+      especializacoes: [],
+      formacao: [],
+      imagem: "https://imgur.com/wFpI2Rr.png"
+    },
+   {
       nome: "Kailene Somacal",
       cargo: "Assistente Jurídica",
       descricao: "",
       especializacoes: [],
       formacao: [],
-      imagem: "https://imgur.com/sMq0TCI.png"
+      imagem: "https://imgur.com/ZRoJyug.png"
     },
-    {
-      nome: "Liliana Soares Ferreira",
-      cargo: "Analista Administrativo Financeiro",
+   {
+      nome: "Vitor Schleintvein",
+      cargo: "Assistente Administrativo",
       descricao: "",
       especializacoes: [],
       formacao: [],
-      imagem: "https://imgur.com/2lqfraD.png"
+      imagem: "https://imgur.com/sMq0TCI.png"
+    },
+   {
+      nome: "Viviane Silva",
+      cargo: "Secretária",
+      descricao: "",
+      especializacoes: [],
+      formacao: [],
+      imagem: "https://imgur.com/jF5VHdb.png"
+    },
+   {
+      nome: "Janaina Santos",
+      cargo: "Auxiliar",
+      descricao: "",
+      especializacoes: [],
+      formacao: [],
+      imagem: "https://imgur.com/o5k3HkS.png"
     }
   ];
 
