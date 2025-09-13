@@ -107,7 +107,7 @@ const SociosPage: React.FC = () => {
       descricao: "",
       especializacoes: [],
       formacao: [],
-      imagem: "https://imgur.com/sMq0TCI.png"
+      imagem: "https://imgur.com/7OZpmfO.png"
     },
    {
       nome: "Viviane Silva",
