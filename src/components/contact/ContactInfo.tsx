@@ -17,9 +17,6 @@ const ContactInfo: React.FC = () => {
               <p className="mb-1">📍 Porto Alegre:</p>
               <p className="mb-3">R. Carlos Huber, 110 - Três Figueiras<br />Porto Alegre - RS, 91330-150</p>
               
-              <p className="mb-1">📍 Curitiba:</p>
-              <p className="mb-3">R. Comendador Araújo, 252 - sl. 3304<br />Centro - Curitiba - PR, 80420-000</p>
-              
               <p className="mb-1">📍 Caxias do Sul:</p>
               <p className="mb-3">Rua Coronel Flores 810 - Sala 100 - Moinho da Estação<br />Bairro São Pelegrino - Caxias do Sul - RS</p>
             
