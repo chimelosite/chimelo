@@ -74,9 +74,6 @@ const Footer: React.FC = () => {
                     <p className="mb-1 font-medium text-white">📍 Porto Alegre:</p>
                     <p className="mb-3 text-white">R. Carlos Huber, 110 - Três Figueiras<br />Porto Alegre - RS, 91330-150</p>
                     
-                    <p className="mb-1 font-medium text-white">📍 Curitiba:</p>
-                    <p className="mb-3 text-white">R. Comendador Araújo, 252 - sl. 3304<br />Centro - Curitiba - PR, 80420-000</p>
-                    
                     <p className="mb-1 font-medium text-white">📍 Caxias do Sul:</p>
                     <p className="text-white">Rua Coronel Flores 810 - Sala 100 - Moinho da Estação<br />Bairro São Pelegrino - Caxias do Sul - RS</p>
                 
