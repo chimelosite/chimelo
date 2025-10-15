@@ -63,7 +63,7 @@ const SociosPage: React.FC = () => {
     },
     {
       nome: "Liliana Ferreira",
-      cargo: "Compliance Officer",
+      cargo: "Gestora de Crise",
       descricao: "",
       especializacoes: [],
       formacao: [],
@@ -111,7 +111,7 @@ const SociosPage: React.FC = () => {
     },
    {
       nome: "Viviane Silva",
-      cargo: "Secretária",
+      cargo: "Gestora Administrativa",
       descricao: "",
       especializacoes: [],
       formacao: [],
