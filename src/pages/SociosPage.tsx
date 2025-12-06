@@ -62,6 +62,22 @@ const SociosPage: React.FC = () => {
       imagem: "https://imgur.com/WqYu9V2.png"
     },
     {
+      nome: "Eduarda Boni",
+      cargo: "Advogada",
+      descricao: "",
+      especializacoes: [],
+      formacao: [],
+      imagem: "https://imgur.com/w2ikr42.png"
+    },
+      {
+      nome: "Henrique Volcato Paluszkiewicz",
+      cargo: "Advogado",
+      descricao: "",
+      especializacoes: [],
+      formacao: [],
+      imagem: "https://imgur.com/JpukxtH.png"
+    },
+    {
       nome: "Liliana Ferreira",
       cargo: "Gestora de Crise",
       descricao: "",
@@ -102,6 +118,14 @@ const SociosPage: React.FC = () => {
       imagem: "https://imgur.com/ZRoJyug.png"
     },
    {
+      nome: "Viviane Silva",
+      cargo: "Gestora Administrativa",
+      descricao: "",
+      especializacoes: [],
+      formacao: [],
+      imagem: "https://imgur.com/jF5VHdb.png"
+    },
+    {
       nome: "Vitor Schleintvein",
       cargo: "Assistente Administrativo",
       descricao: "",
