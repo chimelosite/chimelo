@@ -134,14 +134,6 @@ const SociosPage: React.FC = () => {
       imagem: "https://imgur.com/7OZpmfO.png"
     },
    {
-      nome: "Viviane Silva",
-      cargo: "Gestora Administrativa",
-      descricao: "",
-      especializacoes: [],
-      formacao: [],
-      imagem: "https://imgur.com/jF5VHdb.png"
-    },
-   {
       nome: "Janaína Silva",
       cargo: "Auxiliar",
       descricao: "",
