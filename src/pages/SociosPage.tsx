@@ -37,14 +37,14 @@ const SociosPage: React.FC = () => {
       formacao: [],
       imagem: "https://imgur.com/Niry2yb.png"
     },
-//    {
-//      nome: "Fabrício Scalzilli",
-//      cargo: "Sócio e Conselheiro",
-//      descricao: "",
-//      especializacoes: [],
-//      formacao: [],
-//      imagem: "https://imgur.com/dPTGEAq.png"
-//    },  
+    {
+      nome: "Fabrício Scalzilli",
+      cargo: "Sócio e Conselheiro",
+      descricao: "",
+      especializacoes: [],
+      formacao: [],
+      imagem: "https://imgur.com/vj4ni2O.png"
+    },  
 //   {
  //     nome: "Tiago Jaskulski Luz",
  //     cargo: "Sócio e Head da Área de Reestruturação",
@@ -101,14 +101,14 @@ const SociosPage: React.FC = () => {
       formacao: [],
       imagem: "https://imgur.com/JTPiots.png"
     },
-//    {
-//      nome: "Felipe Bernandoni",
-//      cargo: "Head Contábil",
-//      descricao: "",
-//      especializacoes: [],
-//      formacao: [],
-//      imagem: "https://imgur.com/JTPiots.png"
-//    },
+    {
+      nome: "Felipe Bernandoni",
+      cargo: "Head Contábil",
+      descricao: "",
+      especializacoes: [],
+      formacao: [],
+      imagem: "https://imgur.com/bwESv7h.png"
+    },
     {
       nome: "Érika Fontes",
       cargo: "Assessora Contábil e Financeira",
