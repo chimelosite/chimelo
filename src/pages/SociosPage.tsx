@@ -102,8 +102,8 @@ const SociosPage: React.FC = () => {
       imagem: "https://imgur.com/JTPiots.png"
     },
     {
-      nome: "Felipe Bernandoni",
-      cargo: "Head Contábil",
+      nome: "Rodrigo Zanettini",
+      cargo: "Head Comercial",
       descricao: "",
       especializacoes: [],
       formacao: [],
