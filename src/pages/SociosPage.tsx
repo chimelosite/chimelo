@@ -23,7 +23,7 @@ const SociosPage: React.FC = () => {
   const membrosTime: MembroProps[] = [
     {
       nome: "Gabriele Chimelo",
-      cargo: "Sócia Fundadora e CEO",
+      cargo: "Sócia Fundadora, CEO e Head de Reestruturação e Governança",
       descricao: "Sócia-fundadora e Diretora Geral da CB2D Administração Judicial e Sócia e CEO da Chimelo Advogados & Associados\n\nGabriele Chimelo é uma das principais referências nacionais na área de insolvência empresarial, com atuação destacada em reestruturação de empresas, distressed M&A, governança corporativa, regimes regulatórios e estratégias jurídicas de alta complexidade. É sócia-fundadora e Diretora Geral da CB2D Administração Judicial e da banca Chimelo Advogados & Associados.\n\nCom mais de 20 anos de experiência, construiu uma carreira sólida liderando soluções jurídicas em cenários críticos. Por 14 anos, integrou a liderança da área de Falências e Recuperações Judiciais da Scalzilli Althaus Chimelo e Spohr, tendo papel decisivo no desenvolvimento de áreas estratégicas do Direito Empresarial. Em 2025, assumiu a marca Chimelo — uma homenagem ao avô materno, agropecuarista de destaque no Sul e Centro-Oeste do país — consolidando sua identidade profissional.\n\nÉ diretora do Instituto Brasileiro de Insolvência (IBAJUD), membro do Turnaround Management Association Brasil (TMA Brasil) e do Instituto de Direito da Reestruturação Empresarial (IDRE), além de fundadora do CMR – Centro de Mulheres na Reestruturação Empresarial. Também foi fundadora e Vice-Presidente da Comissão de Falências e Recuperações Judiciais da OAB/RS, liderando iniciativas de impacto técnico e institucional.\n\nReconhecida por rankings especializados como Leaders League, Legal 500 e Análise Advocacia 500, Gabriele participa ativamente de eventos jurídicos de relevância nacional. Sua experiência abrange diversos setores da economia, como agronegócio, infraestrutura, mercado imobiliário, saúde, moda, alimentação, energia, serviços regulados, indústria, educação, tecnologia, transportes, seguros e sistema financeiro.\n\nEspecialista também em real estate, LGPD e compliance, alia profundo conhecimento contábil à análise gerencial das empresas, oferecendo diagnósticos precisos, pareceres técnicos e cenários jurídicos fundamentados. Atua de forma ativa em conselhos de governança, que considera centros legítimos de decisão nas empresas em crise ou em transformação.\n\nSua atuação concentra-se nos estados do RS, PR, SC, SP e MT. É autora de artigos em veículos especializados, coautora de obras coletivas sobre insolvência e professora da ESPM-Sul, onde compartilha sua experiência em gestão de crises e governança empresarial. Também organiza e lidera eventos técnicos voltados a fundos, FIDCs, securitizadoras e setores específicos como o da moda.\n\nEntre os casos de maior repercussão sob sua condução estão: DHB Componentes Automotivos, Serki Fundações, Sultepa, Igreja Metodista, GBOEX, Bela Gula, Leão Engenharia, Sanem Engenharia, Cargill e Top Safe. Destaca-se ainda sua atuação no precedente do STJ que autorizou a Emofesa, em recuperação judicial, a manter contratos com o poder público — marco importante no cenário jurídico nacional.\n\nCom inteligência tática, foco em resultados e força na execução, lidera uma equipe altamente qualificada, integrando análise de risco, estruturação jurídica e governança com inovação e entrega de valor real.",
       especializacoes: [],
       formacao: [],
@@ -37,7 +37,15 @@ const SociosPage: React.FC = () => {
       formacao: [],
       imagem: "https://imgur.com/Niry2yb.png"
     },
- //   {
+//    {
+//      nome: "Fabrício Scalzilli",
+//      cargo: "Sócio e Conselheiro",
+//      descricao: "",
+//      especializacoes: [],
+//      formacao: [],
+//      imagem: "https://imgur.com/dPTGEAq.png"
+//    },  
+//   {
  //     nome: "Tiago Jaskulski Luz",
  //     cargo: "Sócio e Head da Área de Reestruturação",
  //     descricao: "Com mais de 15 anos de experiência em reestruturação empresarial e gestão de crises, Tiago Jaskulski Luz atua como Advogado e Administrador Judicial. Reconhecido por sua abordagem técnica e estratégica, possui sólida expertise na identificação de problemas, definição de soluções e implementação de mudanças voltadas à recuperação e ao crescimento de empresas.\n\nTem atuação em casos relevantes nos Estados do Rio Grande do Sul, Santa Catarina e Paraná.\n\nÉ Especialista em Direito Empresarial, Direito Tributário e Processo Civil, é membro ativo de entidades relevantes do setor, como o TMA Brasil (Turnaround Management Association), o IBAJUD (Instituto Brasileiro de Administração Judicial) e a Comissão de Recuperações Judiciais e Falências da OAB/RS.",
@@ -47,7 +55,7 @@ const SociosPage: React.FC = () => {
  //   },
     {
       nome: "Claudine Rotta",
-      cargo: "Sócia e Diretora Jurídica",
+      cargo: "Advogada especializada em Direito Comercial, Bancário e Societário",
       descricao: "",
       especializacoes: [],
       formacao: [],
@@ -55,7 +63,7 @@ const SociosPage: React.FC = () => {
     },
     {
       nome: "Leandro Aguiar",
-      cargo: "Sócio e Coordenador Jurídico",
+      cargo: "Head Jurídico",
       descricao: "",
       especializacoes: [],
       formacao: [],
@@ -71,7 +79,7 @@ const SociosPage: React.FC = () => {
     },
       {
       nome: "Henrique Volcato Paluszkiewicz",
-      cargo: "Advogado",
+      cargo: "Head Jurídico nas áreas de Recuperação Judicial e Extrajudicial, Direito Trabalhista e Direito Imobiliário",
       descricao: "",
       especializacoes: [],
       formacao: [],
@@ -79,7 +87,7 @@ const SociosPage: React.FC = () => {
     },
     {
       nome: "Liliana Ferreira",
-      cargo: "Gestora de Crise",
+      cargo: "Head de Procedimentos, Compliance Officer e Controladoria",
       descricao: "",
       especializacoes: [],
       formacao: [],
@@ -87,15 +95,23 @@ const SociosPage: React.FC = () => {
     },
     {
       nome: "Felipe Bernandoni",
-      cargo: "Contador",
+      cargo: "Head Contábil",
       descricao: "",
       especializacoes: [],
       formacao: [],
       imagem: "https://imgur.com/JTPiots.png"
     },
+//    {
+//      nome: "Felipe Bernandoni",
+//      cargo: "Head Contábil",
+//      descricao: "",
+//      especializacoes: [],
+//      formacao: [],
+//      imagem: "https://imgur.com/JTPiots.png"
+//    },
     {
       nome: "Érika Fontes",
-      cargo: "Contadora",
+      cargo: "Assessora Contábil e Financeira",
       descricao: "",
       especializacoes: [],
       formacao: [],
@@ -111,7 +127,7 @@ const SociosPage: React.FC = () => {
     },
    {
       nome: "Kailene Somacal",
-      cargo: "Assistente Jurídica",
+      cargo: "Assessora Jurídica",
       descricao: "",
       especializacoes: [],
       formacao: [],
@@ -127,7 +143,7 @@ const SociosPage: React.FC = () => {
     },
     {
       nome: "Vitor Schleintvein",
-      cargo: "Assistente Administrativo",
+      cargo: "Assessor Financeiro",
       descricao: "",
       especializacoes: [],
       formacao: [],
