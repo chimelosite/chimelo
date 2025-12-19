@@ -95,7 +95,7 @@ const SociosPage: React.FC = () => {
     },
     {
       nome: "Rodrigo Zanettini",
-      cargo: "Head Comercial",
+      cargo: "Conselheiro",
       descricao: "",
       especializacoes: [],
       formacao: [],
