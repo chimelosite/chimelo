@@ -30,6 +30,14 @@ const SociosPage: React.FC = () => {
       imagem: "https://imgur.com/b24KOuZ.png"
     },
     {
+      nome: "Marco Ronconi",
+      cargo: "CEO",
+      descricao: "",
+      especializacoes: [],
+      formacao: [],
+      imagem: "https://imgur.com/c1u2nYj.png"
+    },
+    {
       nome: "Conrado Dall'Igna",
       cargo: "Sócio e Membro do Conselho",
       descricao: "Conrado Dall´Igna é Advogado e Administrador Judicial com 21 anos de experiência em processos de reestruturação empresarial, falências e recuperações judiciais, com atuação em casos de grande relevância no cenário nacional.\n\nFormado em Direito pela PUC/RS, é especializado em Falência e Recuperação de Empresas pela FGV, com formação complementar em Administração Judicial pelo INSPER e pelo TMA Brasil.\n\nAtua ativamente na comunidade jurídica como membro da Comissão Especial de Falências e Recuperações Judiciais da OAB/RS, do Instituto Brasileiro da Insolvência (IBAJUD) e do Turnaround Management Association do Brasil (TMA Brasil).",
