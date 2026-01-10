@@ -23,7 +23,7 @@ const SociosPage: React.FC = () => {
   const membrosTime: MembroProps[] = [
     {
       nome: "Gabriele Chimelo",
-      cargo: "Sócia Fundadora, CEO e Head de Reestruturação e Governança",
+      cargo: "Sócia Fundadora e Diretora Institucional",
       descricao: "Sócia-fundadora e Diretora Geral da CB2D Administração Judicial e Sócia e CEO da Chimelo Advogados & Associados\n\nGabriele Chimelo é uma das principais referências nacionais na área de insolvência empresarial, com atuação destacada em reestruturação de empresas, distressed M&A, governança corporativa, regimes regulatórios e estratégias jurídicas de alta complexidade. É sócia-fundadora e Diretora Geral da CB2D Administração Judicial e da banca Chimelo Advogados & Associados.\n\nCom mais de 20 anos de experiência, construiu uma carreira sólida liderando soluções jurídicas em cenários críticos. Por 14 anos, integrou a liderança da área de Falências e Recuperações Judiciais da Scalzilli Althaus Chimelo e Spohr, tendo papel decisivo no desenvolvimento de áreas estratégicas do Direito Empresarial. Em 2025, assumiu a marca Chimelo — uma homenagem ao avô materno, agropecuarista de destaque no Sul e Centro-Oeste do país — consolidando sua identidade profissional.\n\nÉ diretora do Instituto Brasileiro de Insolvência (IBAJUD), membro do Turnaround Management Association Brasil (TMA Brasil) e do Instituto de Direito da Reestruturação Empresarial (IDRE), além de fundadora do CMR – Centro de Mulheres na Reestruturação Empresarial. Também foi fundadora e Vice-Presidente da Comissão de Falências e Recuperações Judiciais da OAB/RS, liderando iniciativas de impacto técnico e institucional.\n\nReconhecida por rankings especializados como Leaders League, Legal 500 e Análise Advocacia 500, Gabriele participa ativamente de eventos jurídicos de relevância nacional. Sua experiência abrange diversos setores da economia, como agronegócio, infraestrutura, mercado imobiliário, saúde, moda, alimentação, energia, serviços regulados, indústria, educação, tecnologia, transportes, seguros e sistema financeiro.\n\nEspecialista também em real estate, LGPD e compliance, alia profundo conhecimento contábil à análise gerencial das empresas, oferecendo diagnósticos precisos, pareceres técnicos e cenários jurídicos fundamentados. Atua de forma ativa em conselhos de governança, que considera centros legítimos de decisão nas empresas em crise ou em transformação.\n\nSua atuação concentra-se nos estados do RS, PR, SC, SP e MT. É autora de artigos em veículos especializados, coautora de obras coletivas sobre insolvência e professora da ESPM-Sul, onde compartilha sua experiência em gestão de crises e governança empresarial. Também organiza e lidera eventos técnicos voltados a fundos, FIDCs, securitizadoras e setores específicos como o da moda.\n\nEntre os casos de maior repercussão sob sua condução estão: DHB Componentes Automotivos, Serki Fundações, Sultepa, Igreja Metodista, GBOEX, Bela Gula, Leão Engenharia, Sanem Engenharia, Cargill e Top Safe. Destaca-se ainda sua atuação no precedente do STJ que autorizou a Emofesa, em recuperação judicial, a manter contratos com o poder público — marco importante no cenário jurídico nacional.\n\nCom inteligência tática, foco em resultados e força na execução, lidera uma equipe altamente qualificada, integrando análise de risco, estruturação jurídica e governança com inovação e entrega de valor real.",
       especializacoes: [],
       formacao: [],
@@ -31,11 +31,19 @@ const SociosPage: React.FC = () => {
     },
     {
       nome: "Marco Ronconi",
-      cargo: "CEO",
+      cargo: "CEO e Diretor Executivo",
       descricao: "",
       especializacoes: [],
       formacao: [],
       imagem: "https://imgur.com/c1u2nYj.png"
+    },
+    {
+      nome: "Leandro Chimelo",
+      cargo: "Sócio e Diretor Jurídico",
+      descricao: "",
+      especializacoes: [],
+      formacao: [],
+      imagem: "https://imgur.com/WqYu9V2.png"
     },
 //   {
 //      nome: "Conrado Dall'Igna",
@@ -55,59 +63,51 @@ const SociosPage: React.FC = () => {
  //   },
     {
       nome: "Claudine Rotta",
-      cargo: "Advogada especializada em Direito Comercial, Bancário e Societário",
+      cargo: "Head de Expansão e Novos Negócios",
       descricao: "",
       especializacoes: [],
       formacao: [],
       imagem: "https://imgur.com/dPTGEAq.png"
     },
     {
-      nome: "Leandro Aguiar",
-      cargo: "Head Jurídico",
+      nome: "Rodrigo Zanettini",
+      cargo: "Conselheiro de Relações Internacionais",
       descricao: "",
       especializacoes: [],
       formacao: [],
-      imagem: "https://imgur.com/WqYu9V2.png"
-    },
-    {
-      nome: "Eduarda Boni",
-      cargo: "Advogada",
-      descricao: "",
-      especializacoes: [],
-      formacao: [],
-      imagem: "https://imgur.com/w2ikr42.png"
-    },
-      {
-      nome: "Henrique Volcato Paluszkiewicz",
-      cargo: "Head Jurídico nas áreas de Recuperação Judicial e Extrajudicial, Direito Trabalhista e Direito Imobiliário",
-      descricao: "",
-      especializacoes: [],
-      formacao: [],
-      imagem: "https://imgur.com/JpukxtH.png"
+      imagem: "https://imgur.com/bwESv7h.png"
     },
     {
       nome: "Liliana Ferreira",
-      cargo: "Head de Procedimentos, Compliance Officer e Controladoria",
+      cargo: "Compliance Officer e Controladoria Jurídica",
       descricao: "",
       especializacoes: [],
       formacao: [],
       imagem: "https://imgur.com/HtEj9WW.png"
     },
     {
+      nome: "Henrique Volcato",
+      cargo: "Advogado de Reestruturação Empresarial",
+      descricao: "",
+      especializacoes: [],
+      formacao: [],
+      imagem: "https://imgur.com/JpukxtH.png"
+    },
+    {
       nome: "Felipe Bernandoni",
-      cargo: "Head Contábil",
+      cargo: "Head Contábil e Financeiro",
       descricao: "",
       especializacoes: [],
       formacao: [],
       imagem: "https://imgur.com/JTPiots.png"
     },
     {
-      nome: "Rodrigo Zanettini",
-      cargo: "Conselheiro",
+      nome: "Vitor Schleintvein",
+      cargo: "Assessor Financeiro",
       descricao: "",
       especializacoes: [],
       formacao: [],
-      imagem: "https://imgur.com/bwESv7h.png"
+      imagem: "https://imgur.com/7OZpmfO.png"
     },
     {
       nome: "Érika Fontes",
@@ -119,13 +119,37 @@ const SociosPage: React.FC = () => {
     },
     {
       nome: "Igor Povarczuk",
-      cargo: "Contador",
+      cargo: "Head Contábil e Fiscal",
       descricao: "",
       especializacoes: [],
       formacao: [],
       imagem: "https://imgur.com/wFpI2Rr.png"
     },
-   {
+    {
+      nome: "Leonardo Baziloni",
+      cargo: "Head Fiscal e Contencioso",
+      descricao: "",
+      especializacoes: [],
+      formacao: [],
+      imagem: "https://imgur.com/6CGcbYA.png"
+    },
+    {
+      nome: "Lucas Scher",
+      cargo: "Advogado Tributarista",
+      descricao: "",
+      especializacoes: [],
+      formacao: [],
+      imagem: "https://imgur.com/2kSst85.png"
+    },
+    {
+      nome: "Eduarda Boni",
+      cargo: "Advogada Empresarial",
+      descricao: "",
+      especializacoes: [],
+      formacao: [],
+      imagem: "https://imgur.com/w2ikr42.png"
+    },
+    {
       nome: "Kailene Somacal",
       cargo: "Assessora Jurídica",
       descricao: "",
@@ -135,19 +159,11 @@ const SociosPage: React.FC = () => {
     },
    {
       nome: "Viviane Silva",
-      cargo: "Gestora Administrativa",
+      cargo: "Assistente Administrativa",
       descricao: "",
       especializacoes: [],
       formacao: [],
       imagem: "https://imgur.com/jF5VHdb.png"
-    },
-    {
-      nome: "Vitor Schleintvein",
-      cargo: "Assessor Financeiro",
-      descricao: "",
-      especializacoes: [],
-      formacao: [],
-      imagem: "https://imgur.com/7OZpmfO.png"
     },
    {
       nome: "Janaína Silva",
@@ -156,6 +172,14 @@ const SociosPage: React.FC = () => {
       especializacoes: [],
       formacao: [],
       imagem: "https://imgur.com/o5k3HkS.png"
+    }
+   {
+      nome: "Jenifer Silva",
+      cargo: "Auxiliar",
+      descricao: "",
+      especializacoes: [],
+      formacao: [],
+      imagem: "https://imgur.com/VAM6eRs.png"
     }
   ];
 
