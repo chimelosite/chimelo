@@ -172,7 +172,7 @@ const SociosPage: React.FC = () => {
       especializacoes: [],
       formacao: [],
       imagem: "https://imgur.com/o5k3HkS.png"
-    }
+    },
    {
       nome: "Jenifer Silva",
       cargo: "Auxiliar",
