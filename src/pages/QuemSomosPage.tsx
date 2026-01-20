@@ -17,7 +17,7 @@ const QuemSomosPage: React.FC = () => {
                 fontSize: '16px'
               }}>
                   <p>
-                    A <strong>Chimelo Advogados & Associados</strong> é uma banca jurídica constituída em 2025, que reúne profissionais com sólida trajetória em mais de duas décadas de experiência na área de insolvência empresarial participando de expressivos cases regionais e nacionais. A sociedade é liderada pela Advogada e CEO <strong>Gabriele Chimelo</strong>, reconhecida nacionalmente por sua destacada atuação em reestruturação de empresas, Distressed, M&A, Governança Corporativa, regimes regulatórios e estratégias jurídicas de alta complexidade.
+                    A <strong>Chimelo Advogados & Associados</strong> é uma banca jurídica constituída em 2025, que reúne profissionais com sólida trajetória em mais de duas décadas de experiência na área de insolvência empresarial participando de expressivos cases regionais e nacionais. A sociedade é liderada pela advogada Gabriele Chimelo, Sócia-Fundadora e Diretora Institucional, reconhecida nacionalmente por sua destacada atuação em reestruturação de empresas, Distressed, M&A, Governança Corporativa, regimes regulatórios e estratégias jurídicas de alta complexidade.
                   </p>
                   <p>
                     O escritório se destaca por sua abordagem multidisciplinar e estratégica na condução de processos de recuperação judicial, falência e reestruturação extrajudicial, alinhando expertise jurídica, contábil e de gestão empresarial. Atua com emissão de pareceres técnicos, diagnósticos gerenciais e jurídicos aprofundados, com foco na viabilidade e sustentabilidade empresarial.
