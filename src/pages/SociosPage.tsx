@@ -119,7 +119,7 @@ const SociosPage: React.FC = () => {
     },
     {
       nome: "Igor Povarczuk",
-      cargo: "Head Contábil e Fiscal",
+      cargo: "Contábil e Fiscal",
       descricao: "",
       especializacoes: [],
       formacao: [],
@@ -127,7 +127,7 @@ const SociosPage: React.FC = () => {
     },
     {
       nome: "Leonardo Baziloni",
-      cargo: "Head Fiscal e Contencioso",
+      cargo: "Fiscal e Contencioso",
       descricao: "",
       especializacoes: [],
       formacao: [],
@@ -157,30 +157,30 @@ const SociosPage: React.FC = () => {
       formacao: [],
       imagem: "https://imgur.com/ZRoJyug.png"
     },
+//   {
+//      nome: "Viviane Silva",
+//      cargo: "Assistente Administrativa",
+//      descricao: "",
+//      especializacoes: [],
+//      formacao: [],
+//      imagem: "https://imgur.com/jF5VHdb.png"
+//    },
    {
-      nome: "Viviane Silva",
-      cargo: "Assistente Administrativa",
-      descricao: "",
-      especializacoes: [],
-      formacao: [],
-      imagem: "https://imgur.com/jF5VHdb.png"
-    },
-   {
-      nome: "Janaína Silva",
-      cargo: "Auxiliar",
+      nome: "Janaína Alves",
+      cargo: "Secretária",
       descricao: "",
       especializacoes: [],
       formacao: [],
       imagem: "https://imgur.com/o5k3HkS.png"
     },
-   {
-      nome: "Jenifer Silva",
-      cargo: "Auxiliar",
-      descricao: "",
-      especializacoes: [],
-      formacao: [],
-      imagem: "https://imgur.com/VAM6eRs.png"
-    }
+//   {
+//      nome: "Jenifer Silva",
+//      cargo: "Auxiliar",
+//      descricao: "",
+//      especializacoes: [],
+//      formacao: [],
+//      imagem: "https://imgur.com/VAM6eRs.png"
+//    }
   ];
 
   // Function to split the description into paragraphs
