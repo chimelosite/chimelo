@@ -142,14 +142,14 @@ const SociosPage: React.FC = () => {
       formacao: [],
       imagem: "https://imgur.com/2kSst85.png"
     },
-    {
-      nome: "Eduarda Boni",
-      cargo: "Advogada Empresarial",
-      descricao: "",
-      especializacoes: [],
-      formacao: [],
-      imagem: "https://imgur.com/w2ikr42.png"
-    },
+//    {
+//     nome: "Eduarda Boni",
+//      cargo: "Advogada Empresarial",
+//      descricao: "",
+//      especializacoes: [],
+//      formacao: [],
+//      imagem: "https://imgur.com/w2ikr42.png"
+//    },
     {
       nome: "Kailene Somacal",
       cargo: "Assessora Jurídica",
