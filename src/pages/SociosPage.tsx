@@ -118,30 +118,30 @@ const SociosPage: React.FC = () => {
       formacao: [],
       imagem: "https://imgur.com/GYgE3dp.png"
     },
-    {
-      nome: "Igor Povarczuk",
-      cargo: "Contábil e Fiscal",
-      descricao: "",
-      especializacoes: [],
-      formacao: [],
-      imagem: "https://imgur.com/wFpI2Rr.png"
-    },
-    {
-      nome: "Leonardo Baziloni",
-      cargo: "Fiscal e Contencioso",
-      descricao: "",
-      especializacoes: [],
-      formacao: [],
-      imagem: "https://imgur.com/6CGcbYA.png"
-    },
-    {
-      nome: "Lucas Scher",
-      cargo: "Advogado Tributarista",
-      descricao: "",
-      especializacoes: [],
-      formacao: [],
-      imagem: "https://imgur.com/2kSst85.png"
-    },
+    // {
+    //   nome: "Igor Povarczuk",
+    //   cargo: "Contábil e Fiscal",
+    //   descricao: "",
+    //   especializacoes: [],
+    //   formacao: [],
+    //   imagem: "https://imgur.com/wFpI2Rr.png"
+    // },
+    // {
+    //   nome: "Leonardo Baziloni",
+    //   cargo: "Fiscal e Contencioso",
+    //   descricao: "",
+    //   especializacoes: [],
+    //   formacao: [],
+    //   imagem: "https://imgur.com/6CGcbYA.png"
+    // },
+    // {
+    //   nome: "Lucas Scher",
+    //   cargo: "Advogado Tributarista",
+    //   descricao: "",
+    //   especializacoes: [],
+    //   formacao: [],
+    //   imagem: "https://imgur.com/2kSst85.png"
+    // },
 //    {
 //     nome: "Eduarda Boni",
 //      cargo: "Advogada Empresarial",
