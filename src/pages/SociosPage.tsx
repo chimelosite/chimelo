@@ -71,7 +71,7 @@ const SociosPage: React.FC = () => {
     },
     {
       nome: "Liliana Ferreira",
-      cargo: "Compliance Officer e Controladoria Jurídica",
+      cargo: "Compliance Officer",
       descricao: "",
       especializacoes: [],
       formacao: [],
