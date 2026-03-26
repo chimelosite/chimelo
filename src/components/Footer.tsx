@@ -93,10 +93,6 @@ const Footer: React.FC = () => {
             <MapPin size={16} className="mr-2 text-chimelo-silver" />
             <span><strong>Caxias do Sul:</strong> Rua Coronel Flores 810 - Sala 100</span>
           </div>
-          <div className="flex items-center text-white">
-            <MapPin size={16} className="mr-2 text-chimelo-silver" />
-            <span><strong>Santiago:</strong> Rua Marechal Deodoro, 806, Centro</span>
-          </div>
         </div>
         
         <div className="border-t border-chimelo-silver/20 pt-4">
