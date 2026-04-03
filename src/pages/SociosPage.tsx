@@ -31,7 +31,7 @@ const SociosPage: React.FC = () => {
     },
     {
       nome: "Marco Ronconi",
-      cargo: "CEO e Diretor Executivo",
+      cargo: "CEO/CFO",
       descricao: "",
       especializacoes: [],
       formacao: [],
@@ -55,15 +55,23 @@ const SociosPage: React.FC = () => {
 //    },  
     {
       nome: "Claudine Rotta",
-      cargo: "Head de Expansão e Novos Negócios",
+      cargo: "Head Comercial",
       descricao: "",
       especializacoes: [],
       formacao: [],
       imagem: "https://imgur.com/dPTGEAq.png"
     },
     {
+      nome: "Daniela Pointevin",
+      cargo: "Visual Marketing Lead",
+      descricao: "",
+      especializacoes: [],
+      formacao: [],
+      imagem: "/socios/daniela-pov.webp"
+    },
+    {
       nome: "Rodrigo Zanettini",
-      cargo: "Conselheiro de Relações Internacionais",
+      cargo: "Conselheiro",
       descricao: "",
       especializacoes: [],
       formacao: [],
@@ -71,7 +79,7 @@ const SociosPage: React.FC = () => {
     },
     {
       nome: "Liliana Ferreira",
-      cargo: "Compliance Officer",
+      cargo: "Consultora Jurídica e Compliance Officer",
       descricao: "",
       especializacoes: [],
       formacao: [],
@@ -79,7 +87,7 @@ const SociosPage: React.FC = () => {
     },
     {
       nome: "Tiago Jaskulski Luz",
-      cargo: "Advogado Sênior",
+      cargo: "Advogado de Reestruturação Empresarial",
       descricao: "",
     // "Com mais de 15 anos de experiência em reestruturação empresarial e gestão de crises, Tiago Jaskulski Luz atua como Advogado e Administrador Judicial. Reconhecido por sua abordagem técnica e estratégica, possui sólida expertise na identificação de problemas, definição de soluções e implementação de mudanças voltadas à recuperação e ao crescimento de empresas.\n\nTem atuação em casos relevantes nos Estados do Rio Grande do Sul, Santa Catarina e Paraná.\n\nÉ Especialista em Direito Empresarial, Direito Tributário e Processo Civil, é membro ativo de entidades relevantes do setor, como o TMA Brasil (Turnaround Management Association), o IBAJUD (Instituto Brasileiro de Administração Judicial) e a Comissão de Recuperações Judiciais e Falências da OAB/RS.",
       especializacoes: [],
@@ -101,6 +109,14 @@ const SociosPage: React.FC = () => {
       especializacoes: [],
       formacao: [],
       imagem: "https://imgur.com/JTPiots.png"
+    },
+    {
+      nome: "Leila Reis",
+      cargo: "Controladoria",
+      descricao: "",
+      especializacoes: [],
+      formacao: [],
+      imagem: "/socios/leila-reis-novo.webp"
     },
     {
       nome: "Vitor Schleintvein",
@@ -268,7 +284,7 @@ const SociosPage: React.FC = () => {
                       <img 
                         src={membrosTime[selectedMembro].imagem} 
                         alt={membrosTime[selectedMembro].nome}
-                        className="w-full h-full object-center object-cover"
+                        className="w-full h-full object-top object-cover"
                       />
                     </AspectRatio>
                   </div>
