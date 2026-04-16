@@ -78,14 +78,6 @@ const SociosPage: React.FC = () => {
       imagem: "https://imgur.com/bwESv7h.png"
     },
     {
-      nome: "Liliana Ferreira",
-      cargo: "Consultora Jurídica e Compliance Officer",
-      descricao: "",
-      especializacoes: [],
-      formacao: [],
-      imagem: "https://imgur.com/HtEj9WW.png"
-    },
-    {
       nome: "Tiago Jaskulski Luz",
       cargo: "Advogado de Reestruturação Empresarial",
       descricao: "",
