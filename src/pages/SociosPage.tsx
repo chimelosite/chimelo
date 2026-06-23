@@ -172,7 +172,7 @@ const SociosPage: React.FC = () => {
       descricao: "",
       especializacoes: [],
       formacao: [],
-      imagem: ""
+      imagem: "/socios/larisse-bottini.jpeg"
     },
     {
       nome: "Fernando Silveira dos Santos",
@@ -180,7 +180,7 @@ const SociosPage: React.FC = () => {
       descricao: "",
       especializacoes: [],
       formacao: [],
-      imagem: ""
+      imagem: "/socios/fernando-silveira.jpeg"
     },
     {
       nome: "Fernanda Lima",
@@ -188,7 +188,7 @@ const SociosPage: React.FC = () => {
       descricao: "",
       especializacoes: [],
       formacao: [],
-      imagem: ""
+      imagem: "/socios/fernanda-lima.jpeg"
     },
     {
       nome: "Guilherme Costa",
@@ -196,7 +196,7 @@ const SociosPage: React.FC = () => {
       descricao: "",
       especializacoes: [],
       formacao: [],
-      imagem: ""
+      imagem: "/socios/guilherme-costa.jpeg"
     },
 //   {
 //      nome: "Jenifer Silva",
