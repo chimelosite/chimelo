@@ -168,7 +168,7 @@ const SociosPage: React.FC = () => {
 //    },
     {
       nome: "Larisse Bottini",
-      cargo: "Advogada",
+      cargo: "Controller Jurídica",
       descricao: "",
       especializacoes: [],
       formacao: [],
