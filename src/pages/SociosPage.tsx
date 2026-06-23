@@ -100,7 +100,7 @@ const SociosPage: React.FC = () => {
       descricao: "",
       especializacoes: [],
       formacao: [],
-      imagem: "/socios/leila-reis-novo.jpeg"
+      imagem: "/socios/leila-reis-novo.png"
     },
     {
       nome: "Vitor Schleintvein",
@@ -172,7 +172,7 @@ const SociosPage: React.FC = () => {
       descricao: "",
       especializacoes: [],
       formacao: [],
-      imagem: "/socios/larisse-bottini.jpeg"
+      imagem: "/socios/larisse-bottini.png"
     },
     {
       nome: "Fernando Silveira dos Santos",
@@ -180,7 +180,7 @@ const SociosPage: React.FC = () => {
       descricao: "",
       especializacoes: [],
       formacao: [],
-      imagem: "/socios/fernando-silveira.jpeg"
+      imagem: "/socios/fernando-silveira.png"
     },
     {
       nome: "Fernanda Lima",
@@ -188,7 +188,7 @@ const SociosPage: React.FC = () => {
       descricao: "",
       especializacoes: [],
       formacao: [],
-      imagem: "/socios/fernanda-lima.jpeg"
+      imagem: "/socios/fernanda-lima.png"
     },
     {
       nome: "Guilherme Costa",
@@ -196,7 +196,7 @@ const SociosPage: React.FC = () => {
       descricao: "",
       especializacoes: [],
       formacao: [],
-      imagem: "/socios/guilherme-costa.jpeg"
+      imagem: "/socios/guilherme-costa.png"
     },
 //   {
 //      nome: "Jenifer Silva",
