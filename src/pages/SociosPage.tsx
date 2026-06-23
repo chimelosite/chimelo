@@ -100,7 +100,7 @@ const SociosPage: React.FC = () => {
       descricao: "",
       especializacoes: [],
       formacao: [],
-      imagem: "/socios/leila-reis-novo.webp"
+      imagem: "/socios/leila-reis-novo.jpeg"
     },
     {
       nome: "Vitor Schleintvein",
