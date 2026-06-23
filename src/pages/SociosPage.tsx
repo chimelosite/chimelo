@@ -96,7 +96,7 @@ const SociosPage: React.FC = () => {
     },
     {
       nome: "Leila Reis",
-      cargo: "Controladoria",
+      cargo: "Controller Jurídica",
       descricao: "",
       especializacoes: [],
       formacao: [],
@@ -168,7 +168,7 @@ const SociosPage: React.FC = () => {
 //    },
     {
       nome: "Larisse Bottini",
-      cargo: "Controller Jurídica",
+      cargo: "Advogada",
       descricao: "",
       especializacoes: [],
       formacao: [],
