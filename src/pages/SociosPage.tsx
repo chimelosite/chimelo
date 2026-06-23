@@ -87,14 +87,6 @@ const SociosPage: React.FC = () => {
       imagem: "https://imgur.com/wXgcX07.png"
     },
     {
-      nome: "Henrique Volcato",
-      cargo: "Advogado de Reestruturação Empresarial",
-      descricao: "",
-      especializacoes: [],
-      formacao: [],
-      imagem: "https://imgur.com/JpukxtH.png"
-    },
-    {
       nome: "Felipe Bernandoni",
       cargo: "Head Contábil e Financeiro",
       descricao: "",
@@ -174,13 +166,37 @@ const SociosPage: React.FC = () => {
 //      formacao: [],
 //      imagem: "https://imgur.com/jF5VHdb.png"
 //    },
-   {
-      nome: "Janaína Alves",
+    {
+      nome: "Larisse Bottini",
+      cargo: "Advogada",
+      descricao: "",
+      especializacoes: [],
+      formacao: [],
+      imagem: ""
+    },
+    {
+      nome: "Fernando Silveira dos Santos",
+      cargo: "Advogado",
+      descricao: "",
+      especializacoes: [],
+      formacao: [],
+      imagem: ""
+    },
+    {
+      nome: "Fernanda Lima",
       cargo: "Secretária",
       descricao: "",
       especializacoes: [],
       formacao: [],
-      imagem: "https://imgur.com/o5k3HkS.png"
+      imagem: ""
+    },
+    {
+      nome: "Guilherme Costa",
+      cargo: "Diretor Institucional",
+      descricao: "",
+      especializacoes: [],
+      formacao: [],
+      imagem: ""
     },
 //   {
 //      nome: "Jenifer Silva",
