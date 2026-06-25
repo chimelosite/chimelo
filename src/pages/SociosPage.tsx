@@ -167,14 +167,6 @@ const SociosPage: React.FC = () => {
 //      imagem: "https://imgur.com/jF5VHdb.png"
 //    },
     {
-      nome: "Larisse Bottini",
-      cargo: "Advogada",
-      descricao: "",
-      especializacoes: [],
-      formacao: [],
-      imagem: "/socios/larisse-bottini.png"
-    },
-    {
       nome: "Fernando Silveira dos Santos",
       cargo: "Advogado",
       descricao: "",
